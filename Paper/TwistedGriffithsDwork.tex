@@ -1,9 +1,5 @@
-%\documentclass[11pt,reqno]{amsart}
-\documentclass[12pt,english,reqno]{smfart}
-\usepackage{amsmath,amssymb,amsthm,comment,bm,setspace,mathtools}
-%\usepackage{lmodern}
-%\usepackage{helvet}
-%\usepackage[table]{xcolor}
+\documentclass[a4paper,12pt]{article}
+\usepackage{jheppub}
 \renewcommand{\familydefault}{\rmdefault}
 \usepackage{soul}
 %\usepackage[T1]{fontenc}
@@ -267,20 +263,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\thanks{IPHT-t23/094}
-\title[]{\bf Algorithm for Picard-Fuchs equation for Feynman integral
+\preprint{IPHT-t23/094}
+\title{\bf Algorithm for Picard-Fuchs equation for Feynman integral
   in general dimensions}
-\author[Leonardo de la Cruz]{Leonardo de la Cruz}
- \address{
-Institut de Physique Th{\'e}orique, Universit{\'e} Paris Saclay,
-CNRS, CEA, F-91191 Gif-sur-Yvette, France}
-\author[Pierre Vanhove]{Pierre Vanhove}
- \address{
-Institut de Physique Th{\'e}orique, Universit{\'e} Paris Saclay,
-CNRS, CEA, F-91191 Gif-sur-Yvette, France}
-%\address{National Research University Higher School of Economics, Russian Federation}
-%\email{pierre.vanhove@cea.fr}
- \begin{abstract}
+\author[a]{Leonardo de la Cruz}
+\author[a]{\!\!, Pierre Vanhove}
+
+\affiliation[a]{Institut de Physique Theorique, Universit\'e Paris-Saclay,
+CEA, CNRS, F-91191 Gif-sur-Yvette Cedex, France}
+% e-mail addresses: one for each author, in the same order as the authors
+% \emailAdd{bjbohr@nbi.dk,phdamg@nbi.dk,ludovic.plante@finances.gouv.fr}
+% \emailAdd{pierre.vanhove@ipht.fr}
+\keywords{Scattering Amplitudes, General Relativity}
+ \abstract{
 {\bf Draft version \today\ at \thistime}
 We present an extension of the Griffiths-Dwork algorithm for
 determining the minimal Picard-Fuchs operator associated to a given
@@ -292,15 +287,12 @@ sunset, and for the three-loop sunset. We give  and the
 Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 
 
-\end{abstract}
+}
 
 \maketitle
 \newpage
-\tableofcontents
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\part{Twisted Griffith-Dwork reduction}
 \section{Introduction}
 
 Feynman integral appear in many area of physics. Their analytical or
@@ -340,8 +332,8 @@ We apply the algorithm to the multi-loop sunset
 integral and the two-loop ice-cream cone integral in $D=2-2\epsilon$ dimensions.
 
 The paper is organised as follows \pvnote{XXX}
-
-\section{The Griffiths-Dwork reduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Twisted Griffiths-Dwork reduction}
 \label{sec:griff-dwork-reduct}
 
 \pvnote{some background about computing independent element in
@@ -473,7 +465,7 @@ differential form.
   We start by reviewing the Griffiths-Dwork reduction in the rational
   case in~\ref{sec:rati-diff-form} and then present its extension to
   the non-rational case in~\label{sec:non-rati-diff-form}.
-
+%--------------------------------------------------------------------
 \subsection{Rational differential form}
 \label{sec:rati-diff-form}
 
@@ -483,7 +475,7 @@ $\Omega^0_\Gamma$ is a rational differential form. We assume the
 internal masses to be all non vanishing so that the Feynman
 integral is infrared finite, and that $\nu -L>0$ so that the integral
 is ultraviolet finite.
-
+%--------------------------------------------------------------------
 \subsubsection{The smooth case}
 \label{sec:smooth-case}
 
@@ -565,7 +557,7 @@ identity~\eqref{e:Redstep2}  allows to reduce the pole order in $\textbf{F}_\Gam
 By iterating this procedure the algorithm determines the coefficients
 in~\eqref{e:PFOmegaGeneric}. This algorithm was applied to derived the
 Picard-Fuchs equation for the massive two-loop sunset integral in~\cite{Bloch:2016izu}.
-
+%--------------------------------------------------------------------
 \subsubsection{The singular case}
 \label{sec:singular-case}
 
@@ -609,7 +601,7 @@ This has been implemented in the algorithm~\cite{lairez2016computing}
 used in~\cite{Lairez:2022zkj} for deriving the Picard-Fuchs operators for
 Feynman integrals in the rational case $\epsilon=0$.
 
-
+%--------------------------------------------------------------------
 \subsection{Generic twisted differential form}
 \label{sec:non-rati-diff-form}
 
@@ -630,7 +622,9 @@ We consider the derivative
 \end{equation}
 where $P^a(\underline x)$ is an homogeneous polynomial of degree $(L+1)(a+n-L)-n$.
 %
-We reduce this polynomial in the Jacobian ideal of  $ \textbf{F}_\Gamma$
+We reduce this polynomial in the Jacobian ideal of  $
+\textbf{F}_\Gamma$ \pvnote{change the discussion because the algorithm
+  is not using directly the sygyzies}
 \begin{equation}\label{e:GDPsyz}
   P^{(a)}(\underline x)= \sum_{i=1}^n \left( C^a_i(\underline
   x)+\sum_{r=1}^m \lambda_r\sigma_i^r \right)\partial^i \textbf{F}_\Gamma.
@@ -741,7 +735,7 @@ section~\ref{sec:smooth-case} to include the $\epsilon$ factor
    section~\ref{sec:two-loop-case} for explicit examples in the smooth
    case. The non-smooth case of the all equal mass three-loop sunset
    is detailed in section~\pvnote{XXX}.
-
+%--------------------------------------------------------------------
  \subsection{Minimal order Picard-Fuchs Feynman integrals in general dimensions}
 \label{sec:results}
 
@@ -784,8 +778,8 @@ studied in this work as we have checked this with the available
 factorisation algorithms.
 
 
-   
-\part{The Sunset integral in general dimensions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+\section{The Sunset integral in general dimensions}
 
 \begin{figure}[h]
   \centering
@@ -872,8 +866,8 @@ At one-loop order the differential operator is given by
    different mass two-loop differential operator in $D=2$ derived in~\cite{Remiddi:2016gno,Bloch:2016izu,Muller-Stach:2011qkg}.
   
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Minimal differential equation for the one-loop sunset}\label{sec:one-loop-case}
+%------------------------------------------------------------------------
+\subsection{Minimal differential equation for the one-loop sunset}\label{sec:one-loop-case}
 
 We start with the one-loop case which illustrate the extension of the
 Griffiths-Dwork reduction that will be applied to higher loop orders.
@@ -1000,9 +994,8 @@ We find for the inhomogeneous term
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Differential equation for the  two-loop sunset}
+%----------------------------------------------------------------------
+\subsection{Differential equation for the  two-loop sunset}
 \label{sec:two-loop-case}
 We now turn to the two-loop sunset and shows how to adapt the
 Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$
@@ -1031,7 +1024,7 @@ For the
 \pvnote{The order is determined heuristically. First we have the upper
   bound from the previous result. Second we use special value since we
   only solve linear system to find the minimal order}
-
+%----------------------------------------------------------------------
 \subsection{The all equal mass case}\label{sec:2sunset1mass}
 We derive the Picard-Fuchs equation satisfied by the two-loop all
 equal mass in general dimensions. 
@@ -1174,7 +1167,7 @@ The piece of order $\epsilon^0$ reproduces the Picard-Fuchs operator
 for the two-loop all equal-mass sunset in $D=2$ given
 in~\cite{Bloch:2013tra,Bloch:2013tra,Vanhove:2014wqa,Bonisch:2020qmm,Pogel:2022vat}.
 
-
+%----------------------------------------------------------------------
 \subsection{The different mass case}\label{sec:2sunset3mass}
 
 For the non equal mass case the order of the differential equation is
@@ -1289,14 +1282,15 @@ with $c^{(1)}_2(m_1,m_2,m_3)=c^{(1)}_1(m_2,m_1,m_3)$ and $c^{(1)}_3(m_1,m_2,m_3)
 and $c^{(1)}_1(\vec m)+c_2^{(1)}(\vec m)+c_3^{(1)}(\vec m)=4
 \mathscr{S}^0(\vec m,t)$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \section{Minimal differential operator for higher-loop sunset}
+
+%----------------------------------------------------------------------
+\subsection{Minimal differential operator for higher-loop sunset}
 
 We now turn to the higher loop case. We first discuss the all equal
 mass case and then a numerical example at three-loop order with all
 possible mass configurations.
-   
-   \subsection{The all equal mass case}
+%----------------------------------------------------------------------   
+   \subsubsection{The all equal mass case}
 Already in $D=2$ dimensions, for the sunset integral from three loop
 and higher  the Griffiths-Dwork algorithm had to be adapted because of
 the non-isolated singularities of integrand. This was achieved
@@ -1321,8 +1315,8 @@ order $l-r$. The Picard-Fuchs operator $ \mathscr{L}_\su^{(l),0}$ is
 the one derived in~\cite{Vanhove:2014wqa} up to five-loops (see as well~\cite{Bonisch:2020qmm,Pogel:2022yat,Pogel:2022ken,Pogel:2022vat}).
 
 
-%------------------------------------------------------------------------------------------------------------
-\subsection{The three-loop generic mass cases}\label{sec:threeloop}
+%-------------------------------------------------------------------------
+\subsubsection{The three-loop generic mass cases}\label{sec:threeloop}
 
 For the three-loop sunset with different masses we find the following
 results. We follow the notation of section~4 of~\cite{Lairez:2022zkj}
@@ -1456,8 +1450,8 @@ the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:
      \end{itemize}
 \pvnote{correlation between the order in epsilon and the degree of
   apparent singularities}
-%------------------------------------------------------------------------------------------------------------
-\subsection{The Bessel representation}
+%--------------------------------------------------------------------
+\subsubsection{The Bessel representation}
 
 
 Following the steps in section~8 of~\cite{Vanhove:2014wqa}
@@ -1510,7 +1504,7 @@ minimal order differential operator.
 
      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\part{The ice-cream cone in general dimensions}\label{sec:ice-cream}
+\section{The ice-cream cone in general dimensions}\label{sec:ice-cream}
 
 \begin{figure}[h]
   \centering
@@ -1695,8 +1689,8 @@ $\epsilon=0$ case
 \pvnote{is the  PF differential operator build as in the
   $\epsilon=0$ ?}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\part{Minimal order Picard-Fuchs operator and number of master integrals}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Minimal order Picard-Fuchs operator and number of master integrals}
 
 The order of the Picard-Fuchs operator and its non-apparent
 singularities are determined  the 'motivic' geometry of the Feynman
@@ -1761,8 +1755,8 @@ of the
 Lee-Pomeransky representation~\cite{Lee:2013hzt}   nor the
 Baikov representation~\cite{Frellesvig:2017aai,Frellesvig:2019uqt,Cacciatori:2021nli}.
 
-
-\section{Isomonodromic deformations}
+%----------------------------------------------------------------------
+\subsection{interpretation of $\epsilon$ deformations}
 
 \subsection{Two-loop sunset}
 
@@ -1810,13 +1804,13 @@ with
   \end{pmatrix}
 \end{equation}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
-We would like to thank Pierre Lairez, Eric Pichon-Pharabod, Leonardo
-de la Cruz for discussions.
+We would like to thank Pierre Lairez, Eric Pichon-Pharabod  for discussions.
 The work of P.V. has received funding from the ANR grant ``SMAGP''
 ANR-20-CE40-0026-01.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
 
 \bibitem{Kawai} Shingo Kawai ``Isomonodromic deformation of Fuchsian projective connections on elliptic curves,'' Nagoya Mathematical Journal, Nagoya Math. J. 171(none), 127-161, (2003)
