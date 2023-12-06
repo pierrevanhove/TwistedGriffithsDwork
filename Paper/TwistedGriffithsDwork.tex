@@ -352,10 +352,12 @@ is ultraviolet finite.
 \subsubsection{The smooth case}
 \label{sec:smooth-case}
 
-
- In the smooth case where the integrand has only isolated singularities, which the case for instance of  the two-loop
- sunset $L=2$ and $n=3$ case,  we apply the standard Griffiths-Dwork
- pole reduction as in~\cite{Bloch:2016izu}. Because  $\nu>L$ the polar part arises
+In the smooth case where the integrand has only isolated singularities
+%, which the case for instance of  the two-loop
+%sunset $L=2$ and $n=3$ case, 
+  we apply the standard Griffiths-Dwork
+ pole reduction as in~\cite{Bloch:2016izu}.
+  Because  $\nu>L$ the polar part arises
  only from the $\textbf{F}_\Gamma$ polynomial. 
  We  do the reduction 
 \begin{equation}\label{e:GD}
@@ -371,18 +373,18 @@ is ultraviolet finite.
 The components of the size $n$ vector $ \vec C_{a_1+\cdots+a_r}(\underline x)$ are homogeneous polynomials in the
      edge variables $\underline x$ of degree
      $(L+1)(a_1+\cdots+a_r+\nu-L\delta)-\nu-L$. 
-
-     
-   Then following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
+%
+ %    
+   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
    \begin{multline}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
     C_{a_1+\cdots+a_r}^j  (\underline x)-x_j
     C_{a_1+\cdots+a_r}^i(\underline x)\over  (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}}\cr\times
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n
+  \cdots \wedge dx_n ,
    \end{multline}
 where $\widehat{dx_i}$ means that the term is omitted in the wedge
-product,   so that
+product. Hence 
    \begin{equation}
      d\beta^{(a_1,\dots,a_r)}= {  \vec   C_{a_1+\cdots+a_r}
      (\underline x)
@@ -390,7 +392,7 @@ product,   so that
      \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta}}\Omega_0^{(n)}-{
 \vec\nabla \cdot \vec C_{a_1+\cdots+a_r}
      (\underline x)
-    \over    (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_0^{(n)}
+    \over    (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_0^{(n)} 
    \end{equation}
    so that we have reduced the pole order  of $ \textbf{F}_\Gamma$
    \begin{equation}\label{e:GDstart}
@@ -400,10 +402,10 @@ product,   so that
   \over   (\sum_i a_i+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots +a_r+\nu-L\delta-1}}   \Omega_\Gamma^0+d\beta^{(a_1,\dots,a_r)}.
 \end{equation}
 One important property of the differential form $\beta$ is that it
-does not have pole that are not poles of $\textbf{F}_\Gamma$. We refer
+does not have poles that are not poles of $\textbf{F}_\Gamma$. We refer
 to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
 
-We then consider the contribution
+We then consider the contribution of the form
 \begin{multline}
   \Big( c_{n_1,\dots,n_r}(\vec m,\vec s)
   \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
@@ -411,7 +413,7 @@ We then consider the contribution
   \left(\partial\over \partial z_1\right)^{a_1}\cdots  \left(\partial\over \partial z_1\right)^{a_i-1}\cdots\left(\partial
     \over\partial z_r\right)^{a_r} \Big)\Omega_\Gamma^0\cr
   ={M^{(a_1,\dots,a_r)}(\underline x)+\sum_{i=1}^r
-    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)}
+    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)} ,
 \end{multline}
 where we have introduced $M^{(a_1,\dots,a_r)}(\underline x):=\vec\nabla C_{a_1+\cdots+a_r} (\underline x)/ (\sum_i a_i+\nu-L\delta-1)$.
 We then reduce the numerator in the Jacobian ideal of
@@ -426,10 +428,10 @@ $\textbf{F}_\Gamma$
 %
 This determines the coefficients
 $c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s) $ with $1\leq i\leq r$
-up-to the ambiguities by shifting with syzygies of  Jacobian ideal of
-$\textbf{F}_\Gamma$.  This freedom plays an important role in the case
-of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and review
-below and for the inclusion of the $\epsilon$ dependent factor in section~\ref{sec:non-rati-diff-form}.
+up-to ambiguities by shifting with syzygies of  Jacobian ideal of
+$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  This freedom plays an important role in the case
+of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and reviewed
+below. Moreover, it allows the inclusion of the $\epsilon$ dependent factor as we will see in section~\ref{sec:non-rati-diff-form}.
 Introducing the differential form~\eqref{e:betadef} the
 identity~\eqref{e:Redstep2}  allows to reduce the pole order in $\textbf{F}_\Gamma$.
 By iterating this procedure the algorithm determines the coefficients
@@ -441,9 +443,9 @@ Picard-Fuchs equation for the massive two-loop sunset integral in~\cite{Bloch:20
 
 
 In the case when there are non-isolated singularities (which is the
-case of most of the Feynman integrals and are needed for the sunset
+case of most Feynman integrals and are needed for the sunset
 integral from three-loop order) one needs to use
-the syzygies of the Jacobian ideal for performing the
+the syzygies of the Jacobian ideal to perform the
 reduction.
 A syzygy  $\vec\Sigma(\underline x):=\{\sigma_1(\underline x),\dots,\sigma_n(\underline x)\}$ is an homogeneous polynomial of
 degree $k \deg(\textbf{F}_\Gamma)-(n-1)$ such that
@@ -460,20 +462,20 @@ which implies the reduction
 \end{equation}
 In the singular case, when there are non-isolated singularities, these
 relations are missed by the Griffiths-Dwork reduction.
-A syzygy $\Sigma$ is trivial if there are polynomial
+A syzygy $\Sigma$ is trivial if there are polynomials
 $c_{ij}(\underline x)$ such that $c_{ij}(\underline
 x)=-c_{ji}(\underline x)$ and  $\sigma_i(\underline x)= \sum_{j=1}^n
 c_{ij} \partial^i \textbf{F}_\Gamma$.  These syzygies are trivial and
 are already included in the Griffiths-Dwork reduction.
 Therefore one needs to define the space of non-trivial syzygies of
 degree $k \deg(\textbf{F}_\Gamma)-(n-1)$, say $\{\Sigma^r,1\leq r\leq m\}:=\{\sigma_i^r(\underline
-x),  1\leq i\leq n,  1\leq r\leq m\}$ and extend the reduction
+x),  1\leq i\leq n,  1\leq r\leq m\}$, and extend the reduction
 in~\eqref{e:GD} as 
 \begin{equation}\label{e:GDsyz}
   P^{(a_1,\dots,a_r)}(\underline x)=   \sum_{r=1}^m
   \lambda_r\vec\nabla\cdot \vec \Sigma^r(\underline x)+
   \vec C(\underline
-  x)\cdot \vec \nabla \textbf{F}_\Gamma
+  x)\cdot \vec \nabla \textbf{F}_\Gamma ,
 \end{equation}
 where $\lambda_r$ are constants.
 
@@ -485,14 +487,11 @@ Feynman integrals in the rational case $\epsilon=0$.
 \subsection{Twisted differential form}
 \label{sec:non-rati-diff-form}
 
-We show treat the  case with $\epsilon\neq0$. We do this in the smooth
+We  show how to treat the  case with $\epsilon\neq0$. We do this in the smooth
 case to explain how to extend the construction
-in~\ref{sec:smooth-case}.  To avoid to clutter the
-notation we consider differentiation with respect to a single physical
+in section~\ref{sec:smooth-case}. Without loss of generality,  we consider differentiation with respect to a single physical
 parameter $z\in\{\vec m,\vec s\}$ and set $\underline
-\nu=\{1,\dots,1\}$. 
-
-
+\nu=\{1,\dots,1\}$  to avoid cluttered notation.
 We consider the derivative  
 \begin{equation}
  \left(d\over dz\right)^a
@@ -504,7 +503,7 @@ We consider the derivative
 where $P^a(\underline x)$ is an homogeneous polynomial of degree $(L+1)a$.
 As before we reduce this polynomial in the Jacobian ideal of  $
 \textbf{F}_\Gamma$ using~\eqref{e:GD} with $r=1$.
-We a twisted version  of the differential form~\eqref{e:betadef} to
+We have a twisted version  of the differential form~\eqref{e:betadef} to
 include the $\epsilon$ factor
    \begin{equation}\label{e:betadefepsilon}
   \beta^{(a)}=   \sum_{1\leq i<j\leq n} {x_i
@@ -514,8 +513,9 @@ include the $\epsilon$ factor
 dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \widehat{dx_j}\wedge
   \cdots \wedge dx_n
    \end{equation}
-where $\widehat{dx_i}$ means that the term is omitted in the wedge
-product,   so that
+%where $\widehat{dx_i}$ means that the term is omitted in the wedge
+%product, 
+  so that
    \begin{multline}
      d\beta^{(a)}= {    \vec C_{a}
      (\underline x)\cdot\vec\nabla
@@ -532,11 +532,11 @@ product,   so that
     \textbf{F}_\Gamma^L )
     \over  (a+n-L\delta-1)
     \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over 
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}.
+    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)} ,
    \end{multline}
 where we used that $\textbf{U}_\Gamma^{L+1}/
-   \textbf{F}_\Gamma^L$ is an homogeneous degree zero rational
-   function in $\underline x=\{x_1,\dots,x_n\}$.
+   \textbf{F}_\Gamma^L$ is a homogeneous degree zero rational
+   function in $\underline x$.
 Therefore we have
 \begin{multline}
   (a+n-L\delta-1)   \left(d\over dz\right)^a
@@ -553,7 +553,7 @@ Therefore we have
     \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}+(a+n-L\delta-1) d\beta^{(a)}.
 \end{multline}
 We expand the logarithm in the second line and use~\eqref{e:GD} to
-get
+obtain
 \begin{multline}
  (a+n-1+L(\epsilon-\delta))   \left(d\over dz\right)^a
  \Omega_\Gamma^\epsilon= {
@@ -578,7 +578,7 @@ This means we have to solve the linear system
    \left\{\begin{array}{@{}l@{}}
 \vec C_a(\underline x) \cdot \vec \nabla \textbf{F}_\Gamma  =    P^{(a)}\\
  \left(L\vec C_{a}(\underline x)-c_{(a)}(\underline x) \vec x\right)\cdot\vec\nabla\textbf{U}_\Gamma  =0
-  \end{array}\right.\,.
+  \end{array}\right.\,,
 \end{equation}
 where we used that the graph polynomial $\textbf{U}_\Gamma $ is
 homogeneous of degree $L$,  i.e. $L\textbf{U}_\Gamma = \sum_{i=1}^n
@@ -635,10 +635,10 @@ positive rank.
 
 Notice that the polynomial $P^{(a)}(\underline x)$ is not a generic
 homogeneous polynomial so the number of equations is in particular
-cases smaller or equal to~\eqref{e:nequ}.
+cases smaller or equal than~\eqref{e:nequ}.
 
 
-We remark that this way of solving the linear system includes the
+We remark that this way of solving the linear system includes implicitly the
 freedom given by the syzygies of $\textrm{Jac}(\textbf{F}_\Gamma)$ and
 $\textrm{Jac}(\textbf{U}_\Gamma)$ since they belong to
 the kernel of equation~\eqref{e:GD} and~\eqref{e:RedU} respectively.
