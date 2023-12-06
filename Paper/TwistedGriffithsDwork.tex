@@ -31,6 +31,10 @@
 
 %%%%%%
 
+\usepackage[]{todonotes}
+\newcommand\lNote[1]{
+	\todo[backgroundcolor=red!20!white,fancyline,
+	bordercolor=white]{ LDLC:  #1}}  
 
 
 \newcommand{\noun}[1]{\textsc{#1}}
@@ -170,7 +174,7 @@ Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Feynman integral appear in many area of physics. Their analytical or
+Feynman integrals appear in many area of physics. Their analytical or
 numerical evaluation is a bottleneck for improving our analysis of the
 various physical phenomena.
 The parametric representation of a Feynman integral attached to a
@@ -241,7 +245,7 @@ $\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$ which will be essential
 in the construction presented in this work.
 
 
-The domain of integration of the Feynman integral~\eqref{e:FeynPara}  is the positive orthan
+The domain of integration of the Feynman integral~\eqref{e:FeynPara}  is the positive orthant
 \begin{equation}\label{e:Deltan}
   \Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
             i\leq n\},
@@ -260,7 +264,7 @@ associated to the graph $\Gamma$ are defined as
 follows~\cite{nakanishi1971graph,Weinzierl:2022eaz}.  The {\em first
   Symanzik polynomial} is defined by
 \begin{equation}\label{e:Udef}
-{\bf U}_\Gamma = \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x^{\mathsf{T}}\,.
+{\bf U}_\Gamma = \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x^{\mathsf{T}}\,, 
 \end{equation}
 where the sum is over all the spanning tree $\mathsf{T}$ of $\Gamma$,
 i.e.  this is a subgraph ${\sf T}$ of $\Gamma$ which contains all
@@ -285,11 +289,10 @@ $\vec s:=\{s_\textsf{F} \mid \textsf{F} ~ \textrm{spanning
 2-forests of}~\Gamma\}$.
 
 
-Feynman integral satisfy a D-module of (inhomogeneous) partial
+Feynman integrals satisfy a system of  (inhomogeneous) partial
 differential equations with respect to its physical parameters
-$ \{m_1^2,\dots,m_n^2,s_{ij}\}$.
-These differential equations can be obtained by deriving the
-differential equations satisfied by the integrand $\Omega_\Gamma$.
+$ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module. This is possible
+because the Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf}.  Thus differential equations can be obtained by deriving the annihilators  of  $\Omega_\Gamma$ \lNote{$\epsilon$?}.
 We then seek differential operators in $\underline
 z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s$
 annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
@@ -298,8 +301,7 @@ annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
   \over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta_\Gamma,
 \end{equation}
 where $  c_{a_1,\dots, a_r}(\vec m,\vec s)$ are rational function of the physical
-parameters but are independent of $x_1,\dots,x_n$.  This is possible
-because the Feynman integral are holonomic function of its physical parameters.
+parameters but are independent of $x_1,\dots,x_n$.  
 Because the domain of integration for the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
@@ -308,11 +310,7 @@ depend on the physical parameters, we then deduce
 \end{equation}
 where $\mathscr{S}_\Gamma$ is an inhomogeneous term obtained by
 integrating $d\beta_\Gamma$ after having properly taken into account
-all necessary blow-up (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.)
-
-
-
-The    differentiation of $\Omega_\Gamma$ 
+all necessary blow-up (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.) The    differentiation of $\Omega_\Gamma$ 
 leads  to  expressions of the type
 \begin{equation}\label{e:PDE}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
@@ -338,7 +336,7 @@ differential form.
   case in Section~\ref{sec:rati-diff-form} and then present its extension to
   the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
   then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
-  derive differential equation satisfied by Feynman integrals. We
+  derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
   \pvnote{more here}
 %--------------------------------------------------------------------
 \subsection{Rational differential form}
@@ -2325,6 +2323,13 @@ P.~Vanhove,
 %doi:10.1007/978-3-030-04480-0\_17
 [arXiv:1807.11466 [hep-th]].
 
+
+\bibitem{Kashiwara:1977nf}
+M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
+		Equations and Feynman Integrals}},
+\href{https://doi.org/10.2977/prims/1195196602}{\emph{Publ. Res. Inst. Math.
+		Sci. Kyoto} {\bfseries 12} (1977) 131}.
+	
 \end{thebibliography}
 
 \end{document}
