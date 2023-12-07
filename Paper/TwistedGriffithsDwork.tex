@@ -212,7 +212,14 @@ integral and the two-loop ice-cream cone integral in $D=2n-2\epsilon$
 dimensions generalising the results
 of~\cite{Lairez:2022zkj,Doran:2023yzu} for the rational cases.
 
-The paper is organised as follows \pvnote{XXX}
+The remainder of the paper is organised as follows \pvnote{XXX}
+. 
+We start by reviewing the Griffiths-Dwork reduction in the rational
+case in Section~\ref{sec:rati-diff-form} and then present its extension to
+the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
+then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
+derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
+\pvnote{more here}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Twisted Griffiths-Dwork reduction}
 \label{sec:griff-dwork-reduct}
@@ -222,7 +229,7 @@ graph $\Gamma$ with $n$ edges and $L$ loops is given by the integration of the d
 form  in  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$
 \begin{equation}
   \Omega^\epsilon_\Gamma={\textbf{U}_\Gamma^{\nu-(L+1)\delta} \over \textbf{F}_\Gamma^{\nu-L\delta}}\,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0  
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 , 
 \end{equation}
 %
 where $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ are the first and second Symanzik
@@ -252,11 +259,17 @@ The domain of integration of the Feynman integral~\eqref{e:FeynPara}  is the pos
           \end{equation}
           and we have introduce the canonical differential form on
           $\mathbb P^{n-1}$ 
-\begin{equation}
- \Omega_0^{(n)}:=   x_1 dx_2\wedge \cdots \wedge dx_n- x_2
-                dx_1\wedge\cdots \wedge dx_n+(-1)^{n-1}  x_n dx_1\wedge \cdots \wedge dx_{n-1}  ,
-              \end{equation}
-where $x_i$ with $1\leq i\leq n$  are  variables attached to all edges of
+ % 
+ \begin{equation}
+         \Omega_0^{(n)}:=  \sum_{i=1}^n (-1)^{i-1} x_i dx_1\wedge \cdots \wedge \widehat{dx_i} \wedge\cdots \wedge dx_n,
+             \end{equation}
+   where $\widehat{dx_i}$ means that the term is omitted in the wedge
+    product
+%\begin{equation}
+% \Omega_0^{(n)}:=   x_1 %dx_2\wedge \cdots \wedge dx_n- %x_2
+%                %dx_1\wedge\cdots \wedge %dx_n+(-1)^{n-1}  x_n dx_1\wedge %\cdots \wedge dx_{n-1}  ,
+%              \end{equation}
+and $x_i$ with $1\leq i\leq n$  are  variables attached to all edges of
 $\Gamma$.
 
 To the two polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
@@ -311,7 +324,7 @@ depend on the physical parameters, we then deduce
 where $\mathscr{S}_\Gamma$ is an inhomogeneous term obtained by
 integrating $d\beta_\Gamma$ after having properly taken into account
 all necessary blow-up (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.) The    differentiation of $\Omega_\Gamma$ 
-leads  to  expressions of the type
+leads  to  expressions of the type \lNote{notation for $a_1+\dots+a_r$}
 \begin{equation}\label{e:PDE}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
@@ -332,12 +345,12 @@ integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
 integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
 differential form.
   
-  We start by reviewing the Griffiths-Dwork reduction in the rational
-  case in Section~\ref{sec:rati-diff-form} and then present its extension to
-  the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
-  then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
-  derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
-  \pvnote{more here}
+%  We start by reviewing the Griffiths-Dwork reduction in the rational
+%  case in Section~\ref{sec:rati-diff-form} and then present its extension to
+%  the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
+%  then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
+%  derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
+%  \pvnote{more here}
 %--------------------------------------------------------------------
 \subsection{Rational differential form}
 \label{sec:rati-diff-form}
@@ -381,10 +394,10 @@ The components of the size $n$ vector $ \vec C_{a_1+\cdots+a_r}(\underline x)$ a
     C_{a_1+\cdots+a_r}^j  (\underline x)-x_j
     C_{a_1+\cdots+a_r}^i(\underline x)\over  (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}}\cr\times
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n ,
+  \cdots \wedge dx_n .
    \end{multline}
-where $\widehat{dx_i}$ means that the term is omitted in the wedge
-product. Hence 
+%
+ Hence 
    \begin{equation}
      d\beta^{(a_1,\dots,a_r)}= {  \vec   C_{a_1+\cdots+a_r}
      (\underline x)
@@ -394,7 +407,7 @@ product. Hence
      (\underline x)
     \over    (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_0^{(n)} 
    \end{equation}
-   so that we have reduced the pole order  of $ \textbf{F}_\Gamma$
+   so that we have reduced the pole order  of $ \textbf{F}_\Gamma$ \lNote{$\mathrm{a} := \sum_i a_i$ ?}
    \begin{equation}\label{e:GDstart}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega^0_\Gamma= {\vec\nabla \cdot
@@ -499,6 +512,7 @@ We consider the derivative
    \textbf{F}_\Gamma^a} { \textbf{U}_\Gamma^{n-(L+1)\delta}\over
    \textbf{F}_\Gamma^{n-L\delta}} \left(\textbf{U}_\Gamma^{L+1}\over
    \textbf{F}_\Gamma^L \right)^\epsilon\,\Omega_n^{(0)}
+   \label{derivativeOmega}
 \end{equation}
 where $P^a(\underline x)$ is an homogeneous polynomial of degree $(L+1)a$.
 As before we reduce this polynomial in the Jacobian ideal of  $
@@ -553,7 +567,7 @@ Therefore we have
     \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}+(a+n-L\delta-1) d\beta^{(a)}.
 \end{multline}
 We expand the logarithm in the second line and use~\eqref{e:GD} to
-obtain
+obtain \lNote{sign is here, I think}
 \begin{multline}
  (a+n-1+L(\epsilon-\delta))   \left(d\over dz\right)^a
  \Omega_\Gamma^\epsilon= {
@@ -642,10 +656,19 @@ We remark that this way of solving the linear system includes implicitly the
 freedom given by the syzygies of $\textrm{Jac}(\textbf{F}_\Gamma)$ and
 $\textrm{Jac}(\textbf{U}_\Gamma)$ since they belong to
 the kernel of equation~\eqref{e:GD} and~\eqref{e:RedU} respectively.
-
-
+%
+%
 \pvnote{proof this is always possible?}
 
+The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
+%
+\begin{align}
+	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
+\end{align}
+where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
+
+%
+%
 \section{Deriving the differential equation}
 \label{sec:deriv-diff-equat}
 
@@ -2329,6 +2352,15 @@ M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
 		Equations and Feynman Integrals}},
 \href{https://doi.org/10.2977/prims/1195196602}{\emph{Publ. Res. Inst. Math.
 		Sci. Kyoto} {\bfseries 12} (1977) 131}.
+	
+%\cite{Muller-Stach:2012tgj}
+	\bibitem{Muller-Stach:2012tgj}
+	S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
+	%``Picard-Fuchs equations for Feynman integrals,''
+	Commun. Math. Phys. \textbf{326} (2014), 237-249
+	doi:10.1007/s00220-013-1838-3
+	[arXiv:1212.4389 [hep-ph]].
+	%73 citations counted in INSPIRE as of 07 Dec 2023
 	
 \end{thebibliography}
 
