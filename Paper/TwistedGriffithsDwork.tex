@@ -31,6 +31,10 @@
 
 %%%%%%
 
+\usepackage[]{todonotes}
+\newcommand\lNote[1]{
+	\todo[backgroundcolor=red!20!white,fancyline,
+	bordercolor=white]{ LDLC:  #1}}  
 
 
 \newcommand{\noun}[1]{\textsc{#1}}
@@ -170,7 +174,7 @@ Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Feynman integral appear in many area of physics. Their analytical or
+Feynman integrals appear in many area of physics. Their analytical or
 numerical evaluation is a bottleneck for improving our analysis of the
 various physical phenomena.
 The parametric representation of a Feynman integral attached to a
@@ -208,7 +212,14 @@ integral and the two-loop ice-cream cone integral in $D=2n-2\epsilon$
 dimensions generalising the results
 of~\cite{Lairez:2022zkj,Doran:2023yzu} for the rational cases.
 
-The paper is organised as follows \pvnote{XXX}
+The remainder of the paper is organised as follows \pvnote{XXX}
+. 
+We start by reviewing the Griffiths-Dwork reduction in the rational
+case in Section~\ref{sec:rati-diff-form} and then present its extension to
+the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
+then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
+derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
+\pvnote{more here}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Twisted Griffiths-Dwork reduction}
 \label{sec:griff-dwork-reduct}
@@ -218,7 +229,7 @@ graph $\Gamma$ with $n$ edges and $L$ loops is given by the integration of the d
 form  in  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$
 \begin{equation}
   \Omega^\epsilon_\Gamma={\textbf{U}_\Gamma^{\nu-(L+1)\delta} \over \textbf{F}_\Gamma^{\nu-L\delta}}\,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0  
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 , 
 \end{equation}
 %
 where $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ are the first and second Symanzik
@@ -241,18 +252,24 @@ $\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$ which will be essential
 in the construction presented in this work.
 
 
-The domain of integration of the Feynman integral~\eqref{e:FeynPara}  is the positive orthan
+The domain of integration of the Feynman integral~\eqref{e:FeynPara}  is the positive orthant
 \begin{equation}\label{e:Deltan}
   \Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
             i\leq n\},
           \end{equation}
           and we have introduce the canonical differential form on
           $\mathbb P^{n-1}$ 
-\begin{equation}
- \Omega_0^{(n)}:=   x_1 dx_2\wedge \cdots \wedge dx_n- x_2
-                dx_1\wedge\cdots \wedge dx_n+(-1)^{n-1}  x_n dx_1\wedge \cdots \wedge dx_{n-1}  ,
-              \end{equation}
-where $x_i$ with $1\leq i\leq n$  are  variables attached to all edges of
+ % 
+ \begin{equation}
+         \Omega_0^{(n)}:=  \sum_{i=1}^n (-1)^{i-1} x_i dx_1\wedge \cdots \wedge \widehat{dx_i} \wedge\cdots \wedge dx_n,
+             \end{equation}
+   where $\widehat{dx_i}$ means that the term is omitted in the wedge
+    product
+%\begin{equation}
+% \Omega_0^{(n)}:=   x_1 %dx_2\wedge \cdots \wedge dx_n- %x_2
+%                %dx_1\wedge\cdots \wedge %dx_n+(-1)^{n-1}  x_n dx_1\wedge %\cdots \wedge dx_{n-1}  ,
+%              \end{equation}
+and $x_i$ with $1\leq i\leq n$  are  variables attached to all edges of
 $\Gamma$.
 
 To the two polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
@@ -260,7 +277,7 @@ associated to the graph $\Gamma$ are defined as
 follows~\cite{nakanishi1971graph,Weinzierl:2022eaz}.  The {\em first
   Symanzik polynomial} is defined by
 \begin{equation}\label{e:Udef}
-{\bf U}_\Gamma = \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x^{\mathsf{T}}\,.
+{\bf U}_\Gamma = \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x^{\mathsf{T}}\,, 
 \end{equation}
 where the sum is over all the spanning tree $\mathsf{T}$ of $\Gamma$,
 i.e.  this is a subgraph ${\sf T}$ of $\Gamma$ which contains all
@@ -285,11 +302,10 @@ $\vec s:=\{s_\textsf{F} \mid \textsf{F} ~ \textrm{spanning
 2-forests of}~\Gamma\}$.
 
 
-Feynman integral satisfy a D-module of (inhomogeneous) partial
+Feynman integrals satisfy a system of  (inhomogeneous) partial
 differential equations with respect to its physical parameters
-$ \{m_1^2,\dots,m_n^2,s_{ij}\}$.
-These differential equations can be obtained by deriving the
-differential equations satisfied by the integrand $\Omega_\Gamma$.
+$ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module. This is possible
+because the Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf}.  Thus differential equations can be obtained by deriving the annihilators  of  $\Omega_\Gamma$ \lNote{$\epsilon$?}.
 We then seek differential operators in $\underline
 z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s$
 annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
@@ -298,8 +314,7 @@ annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
   \over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta_\Gamma,
 \end{equation}
 where $  c_{a_1,\dots, a_r}(\vec m,\vec s)$ are rational function of the physical
-parameters but are independent of $x_1,\dots,x_n$.  This is possible
-because the Feynman integral are holonomic function of its physical parameters.
+parameters but are independent of $x_1,\dots,x_n$.  
 Because the domain of integration for the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
@@ -308,12 +323,8 @@ depend on the physical parameters, we then deduce
 \end{equation}
 where $\mathscr{S}_\Gamma$ is an inhomogeneous term obtained by
 integrating $d\beta_\Gamma$ after having properly taken into account
-all necessary blow-up (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.)
-
-
-
-The    differentiation of $\Omega_\Gamma$ 
-leads  to  expressions of the type
+all necessary blow-up (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.) The    differentiation of $\Omega_\Gamma$ 
+leads  to  expressions of the type \lNote{notation for $a_1+\dots+a_r$}
 \begin{equation}\label{e:PDE}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
@@ -334,12 +345,12 @@ integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
 integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
 differential form.
   
-  We start by reviewing the Griffiths-Dwork reduction in the rational
-  case in Section~\ref{sec:rati-diff-form} and then present its extension to
-  the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
-  then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
-  derive differential equation satisfied by Feynman integrals. We
-  \pvnote{more here}
+%  We start by reviewing the Griffiths-Dwork reduction in the rational
+%  case in Section~\ref{sec:rati-diff-form} and then present its extension to
+%  the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
+%  then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
+%  derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
+%  \pvnote{more here}
 %--------------------------------------------------------------------
 \subsection{Rational differential form}
 \label{sec:rati-diff-form}
@@ -354,10 +365,12 @@ is ultraviolet finite.
 \subsubsection{The smooth case}
 \label{sec:smooth-case}
 
-
- In the smooth case where the integrand has only isolated singularities, which the case for instance of  the two-loop
- sunset $L=2$ and $n=3$ case,  we apply the standard Griffiths-Dwork
- pole reduction as in~\cite{Bloch:2016izu}. Because  $\nu>L$ the polar part arises
+In the smooth case where the integrand has only isolated singularities
+%, which the case for instance of  the two-loop
+%sunset $L=2$ and $n=3$ case, 
+  we apply the standard Griffiths-Dwork
+ pole reduction as in~\cite{Bloch:2016izu}.
+  Because  $\nu>L$ the polar part arises
  only from the $\textbf{F}_\Gamma$ polynomial. 
  We  do the reduction 
 \begin{equation}\label{e:GD}
@@ -373,18 +386,18 @@ is ultraviolet finite.
 The components of the size $n$ vector $ \vec C_{a_1+\cdots+a_r}(\underline x)$ are homogeneous polynomials in the
      edge variables $\underline x$ of degree
      $(L+1)(a_1+\cdots+a_r+\nu-L\delta)-\nu-L$. 
-
-     
-   Then following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
+%
+ %    
+   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
    \begin{multline}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
     C_{a_1+\cdots+a_r}^j  (\underline x)-x_j
     C_{a_1+\cdots+a_r}^i(\underline x)\over  (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}}\cr\times
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n
+  \cdots \wedge dx_n .
    \end{multline}
-where $\widehat{dx_i}$ means that the term is omitted in the wedge
-product,   so that
+%
+ Hence 
    \begin{equation}
      d\beta^{(a_1,\dots,a_r)}= {  \vec   C_{a_1+\cdots+a_r}
      (\underline x)
@@ -392,9 +405,9 @@ product,   so that
      \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta}}\Omega_0^{(n)}-{
 \vec\nabla \cdot \vec C_{a_1+\cdots+a_r}
      (\underline x)
-    \over    (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_0^{(n)}
+    \over    (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_0^{(n)} 
    \end{equation}
-   so that we have reduced the pole order  of $ \textbf{F}_\Gamma$
+   so that we have reduced the pole order  of $ \textbf{F}_\Gamma$ \lNote{$\mathrm{a} := \sum_i a_i$ ?}
    \begin{equation}\label{e:GDstart}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega^0_\Gamma= {\vec\nabla \cdot
@@ -402,10 +415,10 @@ product,   so that
   \over   (\sum_i a_i+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots +a_r+\nu-L\delta-1}}   \Omega_\Gamma^0+d\beta^{(a_1,\dots,a_r)}.
 \end{equation}
 One important property of the differential form $\beta$ is that it
-does not have pole that are not poles of $\textbf{F}_\Gamma$. We refer
+does not have poles that are not poles of $\textbf{F}_\Gamma$. We refer
 to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
 
-We then consider the contribution
+We then consider the contribution of the form
 \begin{multline}
   \Big( c_{n_1,\dots,n_r}(\vec m,\vec s)
   \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
@@ -413,7 +426,7 @@ We then consider the contribution
   \left(\partial\over \partial z_1\right)^{a_1}\cdots  \left(\partial\over \partial z_1\right)^{a_i-1}\cdots\left(\partial
     \over\partial z_r\right)^{a_r} \Big)\Omega_\Gamma^0\cr
   ={M^{(a_1,\dots,a_r)}(\underline x)+\sum_{i=1}^r
-    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)}
+    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)} ,
 \end{multline}
 where we have introduced $M^{(a_1,\dots,a_r)}(\underline x):=\vec\nabla C_{a_1+\cdots+a_r} (\underline x)/ (\sum_i a_i+\nu-L\delta-1)$.
 We then reduce the numerator in the Jacobian ideal of
@@ -428,10 +441,10 @@ $\textbf{F}_\Gamma$
 %
 This determines the coefficients
 $c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s) $ with $1\leq i\leq r$
-up-to the ambiguities by shifting with syzygies of  Jacobian ideal of
-$\textbf{F}_\Gamma$.  This freedom plays an important role in the case
-of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and review
-below and for the inclusion of the $\epsilon$ dependent factor in section~\ref{sec:non-rati-diff-form}.
+up-to ambiguities by shifting with syzygies of  Jacobian ideal of
+$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  This freedom plays an important role in the case
+of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and reviewed
+below. Moreover, it allows the inclusion of the $\epsilon$ dependent factor as we will see in section~\ref{sec:non-rati-diff-form}.
 Introducing the differential form~\eqref{e:betadef} the
 identity~\eqref{e:Redstep2}  allows to reduce the pole order in $\textbf{F}_\Gamma$.
 By iterating this procedure the algorithm determines the coefficients
@@ -443,9 +456,9 @@ Picard-Fuchs equation for the massive two-loop sunset integral in~\cite{Bloch:20
 
 
 In the case when there are non-isolated singularities (which is the
-case of most of the Feynman integrals and are needed for the sunset
+case of most Feynman integrals and are needed for the sunset
 integral from three-loop order) one needs to use
-the syzygies of the Jacobian ideal for performing the
+the syzygies of the Jacobian ideal to perform the
 reduction.
 A syzygy  $\vec\Sigma(\underline x):=\{\sigma_1(\underline x),\dots,\sigma_n(\underline x)\}$ is an homogeneous polynomial of
 degree $k \deg(\textbf{F}_\Gamma)-(n-1)$ such that
@@ -462,20 +475,20 @@ which implies the reduction
 \end{equation}
 In the singular case, when there are non-isolated singularities, these
 relations are missed by the Griffiths-Dwork reduction.
-A syzygy $\Sigma$ is trivial if there are polynomial
+A syzygy $\Sigma$ is trivial if there are polynomials
 $c_{ij}(\underline x)$ such that $c_{ij}(\underline
 x)=-c_{ji}(\underline x)$ and  $\sigma_i(\underline x)= \sum_{j=1}^n
 c_{ij} \partial^i \textbf{F}_\Gamma$.  These syzygies are trivial and
 are already included in the Griffiths-Dwork reduction.
 Therefore one needs to define the space of non-trivial syzygies of
 degree $k \deg(\textbf{F}_\Gamma)-(n-1)$, say $\{\Sigma^r,1\leq r\leq m\}:=\{\sigma_i^r(\underline
-x),  1\leq i\leq n,  1\leq r\leq m\}$ and extend the reduction
+x),  1\leq i\leq n,  1\leq r\leq m\}$, and extend the reduction
 in~\eqref{e:GD} as 
 \begin{equation}\label{e:GDsyz}
   P^{(a_1,\dots,a_r)}(\underline x)=   \sum_{r=1}^m
   \lambda_r\vec\nabla\cdot \vec \Sigma^r(\underline x)+
   \vec C(\underline
-  x)\cdot \vec \nabla \textbf{F}_\Gamma
+  x)\cdot \vec \nabla \textbf{F}_\Gamma ,
 \end{equation}
 where $\lambda_r$ are constants.
 
@@ -487,14 +500,11 @@ Feynman integrals in the rational case $\epsilon=0$.
 \subsection{Twisted differential form}
 \label{sec:non-rati-diff-form}
 
-We show treat the  case with $\epsilon\neq0$. We do this in the smooth
+We  show how to treat the  case with $\epsilon\neq0$. We do this in the smooth
 case to explain how to extend the construction
-in~\ref{sec:smooth-case}.  To avoid to clutter the
-notation we consider differentiation with respect to a single physical
+in section~\ref{sec:smooth-case}. Without loss of generality,  we consider differentiation with respect to a single physical
 parameter $z\in\{\vec m,\vec s\}$ and set $\underline
-\nu=\{1,\dots,1\}$. 
-
-
+\nu=\{1,\dots,1\}$  to avoid cluttered notation.
 We consider the derivative  
 \begin{equation}
  \left(d\over dz\right)^a
@@ -502,11 +512,12 @@ We consider the derivative
    \textbf{F}_\Gamma^a} { \textbf{U}_\Gamma^{n-(L+1)\delta}\over
    \textbf{F}_\Gamma^{n-L\delta}} \left(\textbf{U}_\Gamma^{L+1}\over
    \textbf{F}_\Gamma^L \right)^\epsilon\,\Omega_n^{(0)}
+   \label{derivativeOmega}
 \end{equation}
 where $P^a(\underline x)$ is an homogeneous polynomial of degree $(L+1)a$.
 As before we reduce this polynomial in the Jacobian ideal of  $
 \textbf{F}_\Gamma$ using~\eqref{e:GD} with $r=1$.
-We a twisted version  of the differential form~\eqref{e:betadef} to
+We have a twisted version  of the differential form~\eqref{e:betadef} to
 include the $\epsilon$ factor
    \begin{equation}\label{e:betadefepsilon}
   \beta^{(a)}=   \sum_{1\leq i<j\leq n} {x_i
@@ -516,8 +527,9 @@ include the $\epsilon$ factor
 dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \widehat{dx_j}\wedge
   \cdots \wedge dx_n
    \end{equation}
-where $\widehat{dx_i}$ means that the term is omitted in the wedge
-product,   so that
+%where $\widehat{dx_i}$ means that the term is omitted in the wedge
+%product, 
+  so that
    \begin{multline}
      d\beta^{(a)}= {    \vec C_{a}
      (\underline x)\cdot\vec\nabla
@@ -534,11 +546,11 @@ product,   so that
     \textbf{F}_\Gamma^L )
     \over  (a+n-L\delta-1)
     \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over 
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}.
+    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)} ,
    \end{multline}
 where we used that $\textbf{U}_\Gamma^{L+1}/
-   \textbf{F}_\Gamma^L$ is an homogeneous degree zero rational
-   function in $\underline x=\{x_1,\dots,x_n\}$.
+   \textbf{F}_\Gamma^L$ is a homogeneous degree zero rational
+   function in $\underline x$.
 Therefore we have
 \begin{multline}
   (a+n-L\delta-1)   \left(d\over dz\right)^a
@@ -555,7 +567,7 @@ Therefore we have
     \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}+(a+n-L\delta-1) d\beta^{(a)}.
 \end{multline}
 We expand the logarithm in the second line and use~\eqref{e:GD} to
-get
+obtain \lNote{sign is here, I think}
 \begin{multline}
  (a+n-1+L(\epsilon-\delta))   \left(d\over dz\right)^a
  \Omega_\Gamma^\epsilon= {
@@ -580,7 +592,7 @@ This means we have to solve the linear system
    \left\{\begin{array}{@{}l@{}}
 \vec C_a(\underline x) \cdot \vec \nabla \textbf{F}_\Gamma  =    P^{(a)}\\
  \left(L\vec C_{a}(\underline x)-c_{(a)}(\underline x) \vec x\right)\cdot\vec\nabla\textbf{U}_\Gamma  =0
-  \end{array}\right.\,.
+  \end{array}\right.\,,
 \end{equation}
 where we used that the graph polynomial $\textbf{U}_\Gamma $ is
 homogeneous of degree $L$,  i.e. $L\textbf{U}_\Gamma = \sum_{i=1}^n
@@ -637,17 +649,26 @@ positive rank.
 
 Notice that the polynomial $P^{(a)}(\underline x)$ is not a generic
 homogeneous polynomial so the number of equations is in particular
-cases smaller or equal to~\eqref{e:nequ}.
+cases smaller or equal than~\eqref{e:nequ}.
 
 
-We remark that this way of solving the linear system includes the
+We remark that this way of solving the linear system includes implicitly the
 freedom given by the syzygies of $\textrm{Jac}(\textbf{F}_\Gamma)$ and
 $\textrm{Jac}(\textbf{U}_\Gamma)$ since they belong to
 the kernel of equation~\eqref{e:GD} and~\eqref{e:RedU} respectively.
-
-
+%
+%
 \pvnote{proof this is always possible?}
 
+The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
+%
+\begin{align}
+	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
+\end{align}
+where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
+
+%
+%
 \section{Deriving the differential equation}
 \label{sec:deriv-diff-equat}
 
@@ -2340,6 +2361,22 @@ P.~Vanhove,
 %doi:10.1007/978-3-030-04480-0\_17
 [arXiv:1807.11466 [hep-th]].
 
+
+\bibitem{Kashiwara:1977nf}
+M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
+		Equations and Feynman Integrals}},
+\href{https://doi.org/10.2977/prims/1195196602}{\emph{Publ. Res. Inst. Math.
+		Sci. Kyoto} {\bfseries 12} (1977) 131}.
+	
+%\cite{Muller-Stach:2012tgj}
+	\bibitem{Muller-Stach:2012tgj}
+	S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
+	%``Picard-Fuchs equations for Feynman integrals,''
+	Commun. Math. Phys. \textbf{326} (2014), 237-249
+	doi:10.1007/s00220-013-1838-3
+	[arXiv:1212.4389 [hep-ph]].
+	%73 citations counted in INSPIRE as of 07 Dec 2023
+	
 \end{thebibliography}
 
 \end{document}
