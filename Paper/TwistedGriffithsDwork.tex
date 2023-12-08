@@ -1782,26 +1782,22 @@ The graph polynomials are given by
 \begin{align}
   \label{e:Boxgraphpolynomials}
   \textbf{U}_{\Box}&=\sum_{i=1}^4 x_i,\cr
-  \textbf{F}_{\Box}(s,t)&=-t x_3x_4-sx_1x_2
+  \textbf{F}_{\Box}&=-t x_3x_4-sx_1x_2
 \end{align}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^3$
 \begin{equation}\label{e:OmegaBox}
-  \Omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}(s,t)^2
-  }\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon\,\Omega_0.
+  \Omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}^2
+  }\left(\textbf{U}_{\Box}\over \textbf{F}_{\Box}\right)^\epsilon\,\Omega_0.
 \end{equation}
-Because this is a single scale function depending only on the ratio
-$X=t/s$ of the kinematic invariant we scale the integral by
-$\tilde \Omega_\Box^\epsilon(X)=(-s)^{2+\epsilon} \Omega_\Box^\epsilon(s,X s)$ 
-
 The application of the procedure given in
 Section~\ref{sec:deriv-diff-equat} needs only to start at the first
 order derivative giving
-\begin{equation}\label{e:PFBox}
-  \mathscr{L}_\Box^\epsilon= (X+1) X {d\over dX}+(1+X+\epsilon)  
+\begin{equation}
+  \mathscr{L}_\Box^\epsilon= (s+t)t {d\over dt}+(s+t+s\epsilon)  
 \end{equation}
 and the inhomogeneous term
-\begin{equation}\label{e:SourceBox}
+\begin{equation}
   \mathscr{S}_\Box^\epsilon=\frac{(\epsilon +1)\Gamma (-\epsilon -1)^2 }{\Gamma
    (-2 \epsilon )}  \, \left( (-s)^{-1-\epsilon }+(-t)^{-\epsilon -1}\right)
 \end{equation}
@@ -1812,26 +1808,15 @@ The graph polynomials are given by
 \begin{align}
   \label{e:DoubleBoxgraphpolynomials}
   \textbf{U}_{\Box\!\Box}&=(x_1+x_2+x_3)(x_4+x_5+x_6)+(x_1+\cdots+x_6)x_7,\\
-\nonumber  \textbf{F}_{\Box\!\Box}(s,t)&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
+\nonumber  \textbf{F}_{\Box\!\Box}&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
 \end{align}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^6$
 \begin{equation}\label{e:OmegaBox}
-  \Omega_{\Box\!\Box}^\epsilon(s,t)=   {\textbf{U}_{\Box\!\Box}  \over
-    \textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0
+  \Omega_{\Box\!\Box}^\epsilon=   {\textbf{U}_{\Box\!\Box}  \over
+    \textbf{F}_{\Box\!\Box}^{3}}\left(\textbf{U}_{\Box}\over \textbf{F}_{\Box}\right)^\epsilon\,\Omega_0
 \end{equation}
-we work with the single scale form $\tilde
-\Omega_{\Box\!\Box}^\epsilon(X)=(-s)^{3+2\epsilon}
-\Omega_{\Box\!\Box}^\epsilon(s,Xs)$
-with the result
-\begin{equation}\label{e:PF2box}
-  \mathscr{L}_{\Box\!\Box}^\epsilon=(1+X)X^2 \left(d\over
-    dX\right)^2+(2+3X+\epsilon) X{d\over dX}+(X-\epsilon-2\epsilon^2)  
-\end{equation}
-the inhomogeneous term is
-\begin{equation}\label{e:Source2box}
-  \mathscr{S}_{\Box\!\Box}^\epsilon=
-\end{equation}
+
 
 
 \pvnote{box and 2loop ladder massless}
