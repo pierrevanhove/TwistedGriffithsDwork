@@ -208,7 +208,7 @@ complex number.  In section \pvnote{to be completed}
 
 
 We apply the algorithm to the multi-loop sunset
-integral and the two-loop ice-cream cone integral in $D=2n-2\epsilon$
+integral and the two-loop ice-cream cone integral in $D=2\delta-2\epsilon$
 dimensions generalising the results
 of~\cite{Lairez:2022zkj,Doran:2023yzu} for the rational cases.
 
@@ -314,7 +314,8 @@ annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
   \over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta_\Gamma,
 \end{equation}
 where $  c_{a_1,\dots, a_r}(\vec m,\vec s)$ are rational function of the physical
-parameters but are independent of $x_1,\dots,x_n$.  
+parameters but are independent of $x_1,\dots,x_n$.  This is possible
+because the Feynman integral are holonomic function of its physical parameters.
 Because the domain of integration for the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
@@ -328,14 +329,15 @@ leads  to  expressions of the type \lNote{notation for $a_1+\dots+a_r$}
 \begin{equation}\label{e:PDE}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
-{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{a_1+\cdots +a_r+\nu-L\delta}}\,
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{a_1+\cdots +a_r}}\, { \textbf{U}_\Gamma^{\nu-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{\nu-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0  ,
 \end{equation}
-where $  P^{(a_1,\dots,a_r)}(\underline x)$ is an
-  homogeneous polynomial of degree $(L+1)(a_1+\cdots+a_r+\nu-L\delta)-\nu$ in
+where 
+$  P^{(a_1,\dots,a_r)}(\underline x)$ is an
+  homogeneous polynomial of degree $(L+1)(a_1+\cdots+a_r)$ in
  the edge variables $\underline x:=\{x_1,\dots, x_n\}$ and the
   pole order in the second Symanzik polynomial $\textbf{F}_\Gamma$ has increased by
-  $a_1+\cdots+a_r$.
+  $a_1+\cdots+a_r$. 
   For deriving~\eqref{e:PFOmegaGeneric} one needs to find the
   coefficient $c_{a_1,\dots,a_r}(\vec m,\vec s)$.  A method for doing this in the
   case smooth case was given by Griffiths in~\cite{Griffiths_1969,Dwork_1962,Dwork_1964}.
@@ -370,49 +372,51 @@ In the smooth case where the integrand has only isolated singularities
 %sunset $L=2$ and $n=3$ case, 
   we apply the standard Griffiths-Dwork
  pole reduction as in~\cite{Bloch:2016izu}.
-  Because  $\nu>L$ the polar part arises
+  Because  $\nu>L\delta$ the polar part arises
  only from the $\textbf{F}_\Gamma$ polynomial. 
  We  do the reduction 
 \begin{equation}\label{e:GD}
- P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{a_1+\cdots+a_r}(\underline x)\cdot
+ P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{\mathsf{a}}(\underline x)\cdot
    \vec\nabla   \textbf{F}_\Gamma
  \end{equation}
- in the Jacobian ideal of $ \textbf{F}_\Gamma$
+ in the Jacobian ideal of $ \textbf{F}_\Gamma$, and
+where we have introduced the notation $\mathsf{a}:=a_1+\cdots +a_r$. 
  \begin{equation}
    \textrm{Jac}(   \textbf{F}_\Gamma) :=\left\langle\vec\nabla  \textbf{F}_\Gamma \right\rangle :=\left\langle{\partial
        \textbf{F}_\Gamma\over\partial x_1},\dots,  {\partial
        \textbf{F}_\Gamma\over\partial x_n}\right\rangle.
  \end{equation}
-The components of the size $n$ vector $ \vec C_{a_1+\cdots+a_r}(\underline x)$ are homogeneous polynomials in the
+The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are homogeneous polynomials in the
      edge variables $\underline x$ of degree
-     $(L+1)(a_1+\cdots+a_r+\nu-L\delta)-\nu-L$. 
+     $\mathsf{a}(L+1)$. 
 %
  %    
    Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
    \begin{multline}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
-    C_{a_1+\cdots+a_r}^j  (\underline x)-x_j
-    C_{a_1+\cdots+a_r}^i(\underline x)\over  (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}}\cr\times
+    C_{\mathsf{a}}^j  (\underline x)-x_j
+    C_{\mathsf{a}}^i(\underline x)\over  (\mathsf{a}+\nu-L\delta-1)\textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta-1}}\cr\times
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
   \cdots \wedge dx_n .
    \end{multline}
 %
- Hence 
+ where $\widehat{dx_i}$ means that the term is omitted in the wedge
+product,   so that
    \begin{equation}
-     d\beta^{(a_1,\dots,a_r)}= {  \vec   C_{a_1+\cdots+a_r}
+     d\beta^{(a_1,\dots,a_r)}= {  \vec   C_{\mathsf{a}}
      (\underline x)
 \cdot    \vec \nabla\textbf{F}_\Gamma\over
-     \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta}}\Omega_0^{(n)}-{
-\vec\nabla \cdot \vec C_{a_1+\cdots+a_r}
+     \textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta}}\Omega_0^{(n)}-{
+\vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-    \over    (a_1+\cdots+a_r+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_0^{(n)} 
+    \over    (\mathsf{a}+\nu-L\delta-1)\textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta-1}} \Omega_0^{(n)} 
    \end{equation}
    so that we have reduced the pole order  of $ \textbf{F}_\Gamma$ \lNote{$\mathrm{a} := \sum_i a_i$ ?}
    \begin{equation}\label{e:GDstart}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega^0_\Gamma= {\vec\nabla \cdot
-  \vec C_{a_1+\cdots+a_r} (\underline x)
-  \over   (\sum_i a_i+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots +a_r+\nu-L\delta-1}}   \Omega_\Gamma^0+d\beta^{(a_1,\dots,a_r)}.
+  \vec C_{\mathsf{a}} (\underline x)
+  \over   (\mathsf{a}+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots +a_r+\nu-L\delta-1}}   \Omega_\Gamma^0+d\beta^{(a_1,\dots,a_r)}.
 \end{equation}
 One important property of the differential form $\beta$ is that it
 does not have poles that are not poles of $\textbf{F}_\Gamma$. We refer
@@ -426,9 +430,9 @@ We then consider the contribution of the form
   \left(\partial\over \partial z_1\right)^{a_1}\cdots  \left(\partial\over \partial z_1\right)^{a_i-1}\cdots\left(\partial
     \over\partial z_r\right)^{a_r} \Big)\Omega_\Gamma^0\cr
   ={M^{(a_1,\dots,a_r)}(\underline x)+\sum_{i=1}^r
-    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{a_1+\cdots+a_r+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)} ,
+    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)} ,
 \end{multline}
-where we have introduced $M^{(a_1,\dots,a_r)}(\underline x):=\vec\nabla C_{a_1+\cdots+a_r} (\underline x)/ (\sum_i a_i+\nu-L\delta-1)$.
+where we have introduced $M^{(a_1,\dots,a_r)}(\underline x):=\vec\nabla C_{\mathsf{a}} (\underline x)/ (\sum_i a_i+\nu-L\delta-1)$.
 We then reduce the numerator in the Jacobian ideal of
 $\textbf{F}_\Gamma$
 \begin{equation}\label{e:Redstep2}
@@ -436,7 +440,7 @@ $\textbf{F}_\Gamma$
     c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)
     P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) 
     =\vec
-    C_{a_1+\cdots+a_r-1}(\underline x)\cdot\vec \nabla\textbf{F}_\Gamma
+    C_{\mathsf{a}-1}(\underline x)\cdot\vec \nabla\textbf{F}_\Gamma
 \end{equation}
 %
 This determines the coefficients
@@ -644,7 +648,7 @@ P^{(a)})=(L+1)a$
 For fixed values of the loop order $L$
 and the number of edges $n$ there is always a value of the
 number of derivative $a$ (or the total number of derivatives in the
-partial differential case $a=a_1+\cdots+a_r$) such that the system has
+partial differential case $a=\mathsf{a}$) such that the system has
 positive rank.
 
 Notice that the polynomial $P^{(a)}(\underline x)$ is not a generic
@@ -660,6 +664,12 @@ the kernel of equation~\eqref{e:GD} and~\eqref{e:RedU} respectively.
 %
 \pvnote{proof this is always possible?}
 
+The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
+%
+\begin{align}
+	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
+\end{align}
+where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
 
 %
 %
@@ -673,8 +683,9 @@ a linear ordinary differential equation with respect to a single
 variable differentiation $z$ (either an internal mass, or a kinematic
 variable or a scaling parameter as used
 in~\cite{Lairez:2022zkj,Doran:2023yzu}). The generalisation to the
-many variable is immediate. We are seeking the differential operator %$\mathscr{L}_\Gamma^\epsilon$
-%
+many variable is immediate.
+
+We are seeking the differential operator 
 \begin{equation}\label{e:PFgeneric}
   \mathscr{L}_\Gamma^\epsilon=\sum_{r=0}^{N(\Gamma,\epsilon)}
   c_r(z,\epsilon) \left(d\over dz\right)^r
@@ -748,13 +759,6 @@ where $M_1$ is of degree 0 so that we
 and $\beta_\Gamma^\epsilon $ is the sum of the $\beta_r$ with $1\leq
 r\leq N(\Gamma,\epsilon)$
 contributions. 
-
-The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
-%
-\begin{align}
-	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
-\end{align}
-where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
 
 
 
@@ -1782,22 +1786,26 @@ The graph polynomials are given by
 \begin{align}
   \label{e:Boxgraphpolynomials}
   \textbf{U}_{\Box}&=\sum_{i=1}^4 x_i,\cr
-  \textbf{F}_{\Box}&=-t x_3x_4-sx_1x_2
+  \textbf{F}_{\Box}(s,t)&=-t x_3x_4-sx_1x_2
 \end{align}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^3$
 \begin{equation}\label{e:OmegaBox}
-  \Omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}^2
-  }\left(\textbf{U}_{\Box}\over \textbf{F}_{\Box}\right)^\epsilon\,\Omega_0.
+  \Omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}(s,t)^2
+  }\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon\,\Omega_0.
 \end{equation}
+Because this is a single scale function depending only on the ratio
+$X=t/s$ of the kinematic invariant we scale the integral by
+$\tilde \Omega_\Box^\epsilon(X)=(-s)^{2+\epsilon} \Omega_\Box^\epsilon(s,X s)$ 
+
 The application of the procedure given in
 Section~\ref{sec:deriv-diff-equat} needs only to start at the first
 order derivative giving
-\begin{equation}
-  \mathscr{L}_\Box^\epsilon= (s+t)t {d\over dt}+(s+t+s\epsilon)  
+\begin{equation}\label{e:PFBox}
+  \mathscr{L}_\Box^\epsilon= (X+1) X {d\over dX}+(1+X+\epsilon)  
 \end{equation}
 and the inhomogeneous term
-\begin{equation}
+\begin{equation}\label{e:SourceBox}
   \mathscr{S}_\Box^\epsilon=\frac{(\epsilon +1)\Gamma (-\epsilon -1)^2 }{\Gamma
    (-2 \epsilon )}  \, \left( (-s)^{-1-\epsilon }+(-t)^{-\epsilon -1}\right)
 \end{equation}
@@ -1808,15 +1816,26 @@ The graph polynomials are given by
 \begin{align}
   \label{e:DoubleBoxgraphpolynomials}
   \textbf{U}_{\Box\!\Box}&=(x_1+x_2+x_3)(x_4+x_5+x_6)+(x_1+\cdots+x_6)x_7,\\
-\nonumber  \textbf{F}_{\Box\!\Box}&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
+\nonumber  \textbf{F}_{\Box\!\Box}(s,t)&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
 \end{align}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^6$
 \begin{equation}\label{e:OmegaBox}
-  \Omega_{\Box\!\Box}^\epsilon=   {\textbf{U}_{\Box\!\Box}  \over
-    \textbf{F}_{\Box\!\Box}^{3}}\left(\textbf{U}_{\Box}\over \textbf{F}_{\Box}\right)^\epsilon\,\Omega_0
+  \Omega_{\Box\!\Box}^\epsilon(s,t)=   {\textbf{U}_{\Box\!\Box}  \over
+    \textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0
 \end{equation}
-
+we work with the single scale form $\tilde
+\Omega_{\Box\!\Box}^\epsilon(X)=(-s)^{3+2\epsilon}
+\Omega_{\Box\!\Box}^\epsilon(s,Xs)$
+with the result
+\begin{equation}\label{e:PF2box}
+  \mathscr{L}_{\Box\!\Box}^\epsilon=(1+X)X^2 \left(d\over
+    dX\right)^2+(2+3X+\epsilon) X{d\over dX}+(X-\epsilon-2\epsilon^2)  
+\end{equation}
+the inhomogeneous term is
+\begin{equation}\label{e:Source2box}
+  \mathscr{S}_{\Box\!\Box}^\epsilon=
+\end{equation}
 
 
 \pvnote{box and 2loop ladder massless}
@@ -2357,7 +2376,7 @@ M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
 	S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
 	%``Picard-Fuchs equations for Feynman integrals,''
 	Commun. Math. Phys. \textbf{326} (2014), 237-249
-	doi:10.1007/s00220-013-1838-3
+%	doi:10.1007/s00220-013-1838-3
 	[arXiv:1212.4389 [hep-ph]].
 	%73 citations counted in INSPIRE as of 07 Dec 2023
 	
