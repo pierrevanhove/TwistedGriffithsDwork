@@ -226,7 +226,10 @@ derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to
 
 The parametric representation of a Feynman integral associated to a
 graph $\Gamma$ with $n$ edges and $L$ loops is given by the integration of the differential
-form  in  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$
+form  in  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
+$\epsilon\in\mathbb R$\footnote{We do not assume that $\epsilon$ is
+  small. We introduce $\delta$ and $\epsilon$ for convenience and make
+  clearer the role of the twist from the non integer space-time dimension.}
 \begin{equation}
   \Omega^\epsilon_\Gamma={\textbf{U}_\Gamma^{\nu-(L+1)\delta} \over \textbf{F}_\Gamma^{\nu-L\delta}}\,
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 , 
@@ -305,7 +308,7 @@ $\vec s:=\{s_\textsf{F} \mid \textsf{F} ~ \textrm{spanning
 Feynman integrals satisfy a system of  (inhomogeneous) partial
 differential equations with respect to its physical parameters
 $ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module. This is possible
-because the Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf}.  Thus differential equations can be obtained by deriving the annihilators  of  $\Omega_\Gamma$ \lNote{$\epsilon$?}.
+because the Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf}.  Thus differential equations can be obtained by deriving the annihilators  of  $\Omega_\Gamma^\epsilon$.
 We then seek differential operators in $\underline
 z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s$
 annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
@@ -347,35 +350,17 @@ integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
 integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
 differential form.
   
-%  We start by reviewing the Griffiths-Dwork reduction in the rational
-%  case in Section~\ref{sec:rati-diff-form} and then present its extension to
-%  the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
-%  then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
-%  derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
-%  \pvnote{more here}
-%--------------------------------------------------------------------
-\subsection{Rational differential form}
-\label{sec:rati-diff-form}
-
-We review the Griffiths-Dwork algorithm in the case  
-when $\epsilon=0$ so that the differential form
-$\Omega^0_\Gamma$ is a rational differential form. We assume the
-internal masses to be all non vanishing so that the Feynman
-integral is infrared finite, and that $\nu -L>0$ so that the integral
-is ultraviolet finite.
-%--------------------------------------------------------------------
-\subsubsection{The smooth case}
-\label{sec:smooth-case}
-
-In the smooth case where the integrand has only isolated singularities
-%, which the case for instance of  the two-loop
-%sunset $L=2$ and $n=3$ case, 
-  we apply the standard Griffiths-Dwork
- pole reduction as in~\cite{Bloch:2016izu}.
-  Because  $\nu>L\delta$ the polar part arises
- only from the $\textbf{F}_\Gamma$ polynomial. 
- We  do the reduction 
-\begin{equation}\label{e:GD}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Extended Griffiths-Dwork reduction}
+\label{sec:Red}
+\pvnote{I have rewritten an simplified the discussion here - I hope
+  this is clearer. May be less mathematically rigorous on some points}
+We given an extension of  the Griffiths-Dwork algorithm including the
+factor from the twist.
+%-------------------------------------------------------------------
+\subsection{The pole reduction}\label{sec:PoleRed}
+ We reduce the polynomial
+\begin{equation}\label{e:RedF}
  P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{\mathsf{a}}(\underline x)\cdot
    \vec\nabla   \textbf{F}_\Gamma
  \end{equation}
@@ -392,250 +377,181 @@ The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are h
 %
  %    
    Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
-   \begin{multline}\label{e:betadef}
+   \begin{equation}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
-    C_{\mathsf{a}}^j  (\underline x)-x_j
-    C_{\mathsf{a}}^i(\underline x)\over  (\mathsf{a}+\nu-L\delta-1)\textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta-1}}\cr\times
+    G_{\mathsf{a}}^j  (\underline x)-x_j
+   G_{\mathsf{a}}^i(\underline x)\over
+    (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}\, 
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n .
-   \end{multline}
-%
- where $\widehat{dx_i}$ means that the term is omitted in the wedge
-product,   so that
+  \cdots \wedge dx_n ,
+\end{equation}
+where $\widehat{dx_i}$ means that the term is omitted in the wedge
+product and
+we have introduced\footnote{From now we consider the case where
+  $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The cases with $\nu_i\neq1$
+  is an immediate generalisation.} 
+\begin{equation}
+  \label{e:Gdef}
+\vec  G_{\mathsf{a}}:=   \vec C_{\mathsf{a}} \,
+{\textbf{U}_\Gamma^{n-(L+1)\delta}\over
+  \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over \mathbf{F}_\Gamma^L\right)^\epsilon
+\end{equation}
+which are vectors of degree homogeneous degree $\mathsf{a}(L+1)-n$ in
+$\underline x$. 
+We following analysis Griffiths~\cite{Griffiths_1969} by extending his
+derivation non polynomial but homogeneous function.
+We compute
+\begin{multline}
+  d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
+    G_{\mathsf{a}}^j  (\underline x)-x_j
+   G_{\mathsf{a}}^i(\underline x)\over
+   \textbf{F}_\Gamma^{\mathsf{a}}}\, d \textbf{F}_\Gamma\wedge
+ dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
+ \cdots \wedge dx_n \cr
++  \sum_{1\leq i<j\leq n} {d(x_i
+    G_{\mathsf{a}}^j  (\underline x)-x_j
+   G_{\mathsf{a}}^i(\underline x))\over
+    (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}\wedge
+ dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
+  \cdots \wedge dx_n ,
+\end{multline}
+By using the homogeneous degree of $\mathbf{F}_\Gamma$ and the
+components of $\vec G_{\mathsf{a}}$
+\begin{align}
+  \sum_{i=1}^n x_i {\partial\mathbf{F}_\Gamma (\underline x)\over \partial x_i}&=
+                                                                  (L+1) \mathbf{F}_\Gamma (\underline x),\\
+   \sum_{i=1}^n x_i {\partial\vec G_{\mathsf{a}}(\underline x)\over \partial x_i}&=
+                                                                  (\mathsf{a}(L+1)-n) \vec G_{\mathsf{a}}(\underline x),
+\end{align}
+we obtain following the same steps as in~\cite{Griffiths_1969} that 
    \begin{equation}
-     d\beta^{(a_1,\dots,a_r)}= {  \vec   C_{\mathsf{a}}
+     d\beta^{(a_1,\dots,a_r)}= {  \vec  G_{\mathsf{a}}
      (\underline x)
 \cdot    \vec \nabla\textbf{F}_\Gamma\over
-     \textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta}}\Omega_0^{(n)}-{
+     \textbf{F}_\Gamma^{\mathsf{a}}}\Omega_0^{(n)}-{
+\vec\nabla \cdot \vec G_{\mathsf{a}}
+     (\underline x)
+    \over
+    (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}
+  \Omega_0^{(n)} \,.
+\end{equation}
+using the definition of $\vec  G_{\mathsf{a}}$ in~\eqref{e:Gdef} we
+have reduced the pole order  of $ \textbf{F}_\Gamma$ in~\eqref{e:PDE} 
+\begin{equation}
+  {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0={
+\vec\nabla \cdot \vec G_{\mathsf{a}}
+     (\underline x)
+    \over
+    (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}
+  \Omega_0^{(n)}+d\beta^{(a_1,\dots,a_r)}.
+\end{equation}
+We expand the term in the right-hand-side
+\begin{multline}
+  \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
+  \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over
+  \mathbf{F}_\Gamma^L\right)^\epsilon
++
+  \vec C_{\mathsf{a}}(\underline x) \cdot\vec\nabla  \left(  {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
+  \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over
+  \mathbf{F}_\Gamma^L\right)^\epsilon\right) .
+\end{multline}
+%
+We evaluate
+\begin{equation}
+  \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{\alpha}\over
+\mathbf{F}_\Gamma^\beta\right)=\left(\alpha \vec
+C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma -\beta \vec
+C_{\mathsf{a}}\cdot \vec\nabla \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{\alpha}\over
+\mathbf{F}_\Gamma^\beta}.
+\end{equation}
+This can written using~\eqref{e:RedF}
+\begin{equation}
+  \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{\alpha}\over
+\mathbf{F}_\Gamma^\beta\right)=-{\beta
+    P^{(a_1,\cdots,a_r)}(\underline x)\over
+  \mathbf{F}_\Gamma}   {\mathbf{U}_\Gamma^{\alpha}\over
+\mathbf{F}_\Gamma^\beta}
++
+ \alpha \vec
+C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma \left(\mathbf{U}_\Gamma^{L+1}\over
+\mathbf{F}_\Gamma^L\right)^\epsilon  {\mathbf{U}_\Gamma^{\alpha}\over
+\mathbf{F}_\Gamma^\beta}\,.
+\end{equation}
+So that
+\begin{multline}
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0\cr={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-    \over    (\mathsf{a}+\nu-L\delta-1)\textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta-1}} \Omega_0^{(n)} 
-   \end{equation}
-   so that we have reduced the pole order  of $ \textbf{F}_\Gamma$ \lNote{$\mathrm{a} := \sum_i a_i$ ?}
-   \begin{equation}\label{e:GDstart}
-\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r} \Omega^0_\Gamma= {\vec\nabla \cdot
-  \vec C_{\mathsf{a}} (\underline x)
-  \over   (\mathsf{a}+\nu-L\delta-1)\textbf{F}_\Gamma^{a_1+\cdots +a_r+\nu-L\delta-1}}   \Omega_\Gamma^0+d\beta^{(a_1,\dots,a_r)}.
-\end{equation}
-One important property of the differential form $\beta$ is that it
-does not have poles that are not poles of $\textbf{F}_\Gamma$. We refer
-to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
-
-We then consider the contribution of the form
-\begin{multline}
-  \Big( c_{n_1,\dots,n_r}(\vec m,\vec s)
-  \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r} \cr+\sum_{i=1}^r c_{a_1,\dots,n_i-1,\dots,a_r}(\vec m,\vec s)
-  \left(\partial\over \partial z_1\right)^{a_1}\cdots  \left(\partial\over \partial z_1\right)^{a_i-1}\cdots\left(\partial
-    \over\partial z_r\right)^{a_r} \Big)\Omega_\Gamma^0\cr
-  ={M^{(a_1,\dots,a_r)}(\underline x)+\sum_{i=1}^r
-    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) \over \textbf{F}_\Gamma^{\mathsf{a}+\nu-L\delta-1}} \Omega_\Gamma^0\cr+d\beta^{(a_1,\dots,a_r)} ,
++    (\mathsf{a}-1)(n-(L+1)(\delta-\epsilon)) \vec
+    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma\over \mathsf{a}+n-L(\delta-\epsilon)\textbf{F}_\Gamma^{\mathsf{a}-1}}
+{ \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} 
+  \Omega_0^{(n)}\cr
++{  (\mathsf{a}-1) \over \mathsf{a}+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
 \end{multline}
-where we have introduced $M^{(a_1,\dots,a_r)}(\underline x):=\vec\nabla C_{\mathsf{a}} (\underline x)/ (\sum_i a_i+\nu-L\delta-1)$.
-We then reduce the numerator in the Jacobian ideal of
-$\textbf{F}_\Gamma$
-\begin{equation}\label{e:Redstep2}
-    M^{(a_1,\dots,a_r)}(\underline x)+\sum_{i=1}^r
-    c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s)
-    P^{(a_1,\dots,a_i-1,\dots,a_r)}(\underline x) 
-    =\vec
-    C_{\mathsf{a}-1}(\underline x)\cdot\vec \nabla\textbf{F}_\Gamma
-\end{equation}
-%
-This determines the coefficients
-$c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s) $ with $1\leq i\leq r$
-up-to ambiguities by shifting with syzygies of  Jacobian ideal of
-$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  This freedom plays an important role in the case
-of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and reviewed
-below. Moreover, it allows the inclusion of the $\epsilon$ dependent factor as we will see in section~\ref{sec:non-rati-diff-form}.
-Introducing the differential form~\eqref{e:betadef} the
-identity~\eqref{e:Redstep2}  allows to reduce the pole order in $\textbf{F}_\Gamma$.
-By iterating this procedure the algorithm determines the coefficients
-in~\eqref{e:PFOmegaGeneric}. This algorithm was applied to derived the
-Picard-Fuchs equation for the massive two-loop sunset integral in~\cite{Bloch:2016izu}.
-%--------------------------------------------------------------------
-\subsubsection{The singular case}
-\label{sec:singular-case}
 
-
-In the case when there are non-isolated singularities (which is the
-case of most Feynman integrals and are needed for the sunset
-integral from three-loop order) one needs to use
-the syzygies of the Jacobian ideal to perform the
-reduction.
-A syzygy  $\vec\Sigma(\underline x):=\{\sigma_1(\underline x),\dots,\sigma_n(\underline x)\}$ is an homogeneous polynomial of
-degree $k \deg(\textbf{F}_\Gamma)-(n-1)$ such that
-\begin{equation}
-  \vec \Sigma(\underline x) \cdot \vec\nabla  \textbf{F}_\Gamma=0,
-\end{equation}
-%
-which implies the reduction
-\begin{equation}
-  { \vec \nabla\cdot \vec\Sigma(\underline x) \over \textbf{F}_\Gamma^k
-  }\Omega_0^{(n)}=d\left(\sum_{i=1}^n (-1)^{i-1} {\sigma_i(\underline x)\over
-      \textbf{F}_\Gamma^k} dx_1\wedge \cdots \wedge
-    \widehat{dx_i}\wedge \cdots \wedge dx_n\right).
-\end{equation}
-In the singular case, when there are non-isolated singularities, these
-relations are missed by the Griffiths-Dwork reduction.
-A syzygy $\Sigma$ is trivial if there are polynomials
-$c_{ij}(\underline x)$ such that $c_{ij}(\underline
-x)=-c_{ji}(\underline x)$ and  $\sigma_i(\underline x)= \sum_{j=1}^n
-c_{ij} \partial^i \textbf{F}_\Gamma$.  These syzygies are trivial and
-are already included in the Griffiths-Dwork reduction.
-Therefore one needs to define the space of non-trivial syzygies of
-degree $k \deg(\textbf{F}_\Gamma)-(n-1)$, say $\{\Sigma^r,1\leq r\leq m\}:=\{\sigma_i^r(\underline
-x),  1\leq i\leq n,  1\leq r\leq m\}$, and extend the reduction
-in~\eqref{e:GD} as 
-\begin{equation}\label{e:GDsyz}
-  P^{(a_1,\dots,a_r)}(\underline x)=   \sum_{r=1}^m
-  \lambda_r\vec\nabla\cdot \vec \Sigma^r(\underline x)+
-  \vec C(\underline
-  x)\cdot \vec \nabla \textbf{F}_\Gamma ,
-\end{equation}
-where $\lambda_r$ are constants.
-
-This has been implemented in the algorithm~\cite{lairez2016computing}
-used in~\cite{Lairez:2022zkj} for deriving the Picard-Fuchs operators for
-Feynman integrals in the rational case $\epsilon=0$.
-
-%--------------------------------------------------------------------
-\subsection{Twisted differential form}
-\label{sec:non-rati-diff-form}
-
-We  show how to treat the  case with $\epsilon\neq0$. We do this in the smooth
-case to explain how to extend the construction
-in section~\ref{sec:smooth-case}. Without loss of generality,  we consider differentiation with respect to a single physical
-parameter $z\in\{\vec m,\vec s\}$ and set $\underline
-\nu=\{1,\dots,1\}$  to avoid cluttered notation.
-We consider the derivative  
-\begin{equation}
- \left(d\over dz\right)^a
- \Omega_\Gamma^\epsilon={P^{(a)}(\underline x)\over
-   \textbf{F}_\Gamma^a} { \textbf{U}_\Gamma^{n-(L+1)\delta}\over
-   \textbf{F}_\Gamma^{n-L\delta}} \left(\textbf{U}_\Gamma^{L+1}\over
-   \textbf{F}_\Gamma^L \right)^\epsilon\,\Omega_n^{(0)}
-   \label{derivativeOmega}
-\end{equation}
-where $P^a(\underline x)$ is an homogeneous polynomial of degree $(L+1)a$.
-As before we reduce this polynomial in the Jacobian ideal of  $
-\textbf{F}_\Gamma$ using~\eqref{e:GD} with $r=1$.
-We have a twisted version  of the differential form~\eqref{e:betadef} to
-include the $\epsilon$ factor
-   \begin{equation}\label{e:betadefepsilon}
-  \beta^{(a)}=   \sum_{1\leq i<j\leq n} {x_i
-    \hat C_{a}^j  (\underline x)-x_j
-    \hat C_{a}^i(\underline x)\over (a+n-L\delta-1)\textbf{F}_\Gamma^{a+n-L\delta-1}}\times \left(\textbf{U}_\Gamma^{L+1}\over
-   \textbf{F}_\Gamma^L \right)^\epsilon
-dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \widehat{dx_j}\wedge
-  \cdots \wedge dx_n
-   \end{equation}
-%where $\widehat{dx_i}$ means that the term is omitted in the wedge
-%product, 
-  so that
-   \begin{multline}
-     d\beta^{(a)}= {    \vec C_{a}
-     (\underline x)\cdot\vec\nabla
-   \textbf{F}_\Gamma\over
-     \textbf{F}_\Gamma^{a+n-L\delta}}\left(\textbf{U}_\Gamma^{L+1}\over
-   \textbf{F}_\Gamma^L \right)^\epsilon\,\Omega_0^{(n)}- {
-     \vec\nabla\cdot \vec C_{a}
+This expression involves the $\vec
+    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma$ which has a
+    new pole in $\mathbf{U}_\Gamma$. So we ask that
+    \begin{equation}
+      \label{e:RedU}
+      \vec
+    C_{\mathsf{a}}(\underline x)\cdot\vec\nabla \mathbf{U}_\Gamma =
+    c_{\mathsf{a}}(\underline x) \, \mathbf{U}_\Gamma
+    \end{equation}
+where $ c_{\mathsf{a}}(\underline x)$ is a homogeneous polynomial of
+degree $\mathsf{a}(L+1)-1$. Assuming this is possible we then have the
+pole reduction
+\begin{multline}\label{e:RedFinal}
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0=\cr{
+M^{(a_1,\dots,a_r)}
      (\underline x)
-    \over  (a+n-L\delta-1)  \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}\cr
-  -\epsilon {
-     \vec C_{a}
-     (\underline x) \cdot\vec\nabla \log(\textbf{U}_\Gamma^{L+1}/
-    \textbf{F}_\Gamma^L )
-    \over  (a+n-L\delta-1)
-    \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over 
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)} ,
-   \end{multline}
-where we used that $\textbf{U}_\Gamma^{L+1}/
-   \textbf{F}_\Gamma^L$ is a homogeneous degree zero rational
-   function in $\underline x$.
-Therefore we have
-\begin{multline}
-  (a+n-L\delta-1)   \left(d\over dz\right)^a
- \Omega_\Gamma^\epsilon= {
-     \vec\nabla\cdot \vec C_{a}
-     (\underline x)
-    \over   \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}\cr
-  +\epsilon {
-     \vec C_{a}
-     (\underline x) \cdot \vec\nabla \log(\textbf{U}_\Gamma^{L+1}/
-    \textbf{F}_\Gamma^L )
-    \over   \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}+(a+n-L\delta-1) d\beta^{(a)}.
+\over \textbf{F}_\Gamma^{\mathsf{a}-1}}
+{ \textbf{U}_\Gamma^{n-(L+1)\delta}\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} 
+  \Omega_0^{(n)}
++{  (\mathsf{a}-1) \over \mathsf{a}+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
 \end{multline}
-We expand the logarithm in the second line and use~\eqref{e:GD} to
-obtain \lNote{sign is here, I think}
-\begin{multline}
- (a+n-1+L(\epsilon-\delta))   \left(d\over dz\right)^a
- \Omega_\Gamma^\epsilon= {
-     \vec\nabla \cdot \vec C_{a}
+with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1)-1$
+\begin{equation}
+  \label{e:Mfinal}
+  M^{(a_1,\dots,a_r)}(\underline x):={\vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-    \over   \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}\cr
-  +\epsilon(L+1) {
-    \vec C_{a}
-     (\underline x) \cdot\vec\nabla\log(\textbf{U}_\Gamma)
-    \over   \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}+(a+n-L\delta-1)  d\beta^{(a)}.
-\end{multline}
-We reduce the last line by imposing that
-\begin{equation}\label{e:RedU}
- \vec C_{a}(\underline x)\cdot\vec\nabla\textbf{U}_\Gamma  =c_{(a)}(\underline x)  \textbf{U}_\Gamma,
++    (\mathsf{a}-1)(n-(L+1)(\delta-\epsilon)) 
+    c_{\mathsf{a}}(\underline x)\over \mathsf{a}+n-L(\delta-\epsilon) }.
 \end{equation}
-where $c_{(a)}(\underline x) $ is a polynomial of homogeneous degree $\deg(P^{(a)})-L-1$.
-%
-This means we have to solve the linear system
+
+
+To get from~\eqref{e:PDE} to~\eqref{e:RedFinal} we have to solve the linear system
 \begin{equation}\label{e:sysCFU}
    \left\{\begin{array}{@{}l@{}}
-\vec C_a(\underline x) \cdot \vec \nabla \textbf{F}_\Gamma  =    P^{(a)}\\
- \left(L\vec C_{a}(\underline x)-c_{(a)}(\underline x) \vec x\right)\cdot\vec\nabla\textbf{U}_\Gamma  =0
+\vec C_{\mathsf{a}} (\underline x) \cdot \vec \nabla \textbf{F}_\Gamma
+            =    P^{(a_1,\dots,a_r)}(\underline x)\\
+\vec C_{\mathsf{a}} (\underline x)= c_{{\mathsf{a}}}(\underline x) \textbf{U}_\Gamma 
   \end{array}\right.\,,
 \end{equation}
-where we used that the graph polynomial $\textbf{U}_\Gamma $ is
-homogeneous of degree $L$,  i.e. $L\textbf{U}_\Gamma = \sum_{i=1}^n
-x_i \partial^i \textbf{U}_\Gamma$ and introduced the coordinate vector
-$\vec x:=(x_1,\dots,x_n)$.
-
-When this system has a solution we have achieved the generalisation of the pole reduction of
-section~\ref{sec:smooth-case} to include the $\epsilon$ factor
-\begin{equation}
- \left(d\over dz\right)^a
- \Omega_\Gamma^\epsilon= {
-    M_{(a)}(\underline x)
-    \over   \textbf{F}_\Gamma^{a+n-L\delta-1}}\left(\textbf{U}_\Gamma^{L+1}\over
-    \textbf{F}_\Gamma^L \right)^\epsilon\, \Omega_0^{(n)}+{ a+n-L\delta-1
-    \over    a+n-1+L(\epsilon-\delta) } d\beta^{(a)},
-\end{equation}
-with the new  numerator  \pvnote{check the overall sign}
-\begin{equation}\label{e:Mdef}
-    M_{(a)}(\underline x):=  { \vec\nabla\cdot \vec C_{a}
-     (\underline x)+\epsilon (L+1) c^{(a)}(\underline x)\over   a+n-1+L(\epsilon-\delta) },
- \end{equation}
- is a polynomial of degree $\deg(M_{(a)})=\deg (P^{(a)})-\deg  \textbf{F}_\Gamma$.
+for determining the coefficients of $\vec C_{\mathsf{a}}(\underline
+x)$ and $c_{\mathsf{a}}(\underline x)$.
 
 The system~\eqref{e:sysCFU} has a solution when its rank is positive.
-We have a linear system of the $n$ components of $\vec C_a(\underline
-x) $ which are homogeneous polynomial of degree $\deg(C)=\deg(P^{(a)})-L $ in
-$\underline x$ and  $c_{(a)}(\underline x) $ which is a polynomial of
+We have a linear system of the $n$ components of $\vec C_{\mathsf{a}}(\underline
+x) $ which are homogeneous polynomial of degree $\deg(C)=\deg( P^{(a_1,\dots,a_r)})-L $ in
+$\underline x$ and  $ c_{{\mathsf{a}}}(\underline x) $ which is a polynomial of
 homogeneous degree $\deg(C)-1$.   The system has
 \begin{equation}\label{e:nvars}
-n \binom{\deg(P^{(a)})-L+n-1}{\deg(P^{(a)})-L}+\binom{\deg(P^{(a)})-L+n-2}{\deg(P^{(a)})-L}
+n \binom{\deg( P^{(a_1,\dots,a_r)})-L+n-1}{\deg( P^{(a_1,\dots,a_r)})-L}+\binom{\deg( P^{(a_1,\dots,a_r)})-L+n-2}{\deg( P^{(a_1,\dots,a_r)})-L}
 \end{equation} unknown variables for
 \begin{equation}\label{e:nequ}
-\binom{\deg(P^{(a)})+n-1}{\deg(P^{(a)})}+\binom{\deg(P^{(a)})+n-2}{\deg(P^{(a)})-1}
+\binom{\deg( P^{(a_1,\dots,a_r)})+n-1}{\deg( P^{(a_1,\dots,a_r)})}+\binom{\deg( P^{(a_1,\dots,a_r)})+n-2}{\deg( P^{(a_1,\dots,a_r)})-1}
 \end{equation}
 equations.
 
 
-The degree of a generic polynomial $P^{(a)}(\underline x)$ is $\deg(
-P^{(a)})=(L+1)a$ 
+The degree of a generic polynomial $ P^{(a_1,\dots,a_r)}(\underline x)$ is $\deg(
+ P^{(a_1,\dots,a_r)})=(L+1)a$ 
  the rank of the system~\eqref{e:sysCFU} is
   \begin{align}
     \label{e:Rank}
@@ -647,11 +563,10 @@ P^{(a)})=(L+1)a$
   \end{align}
 For fixed values of the loop order $L$
 and the number of edges $n$ there is always a value of the
-number of derivative $a$ (or the total number of derivatives in the
-partial differential case $a=\mathsf{a}$) such that the system has
+number of derivative $\mathsf{a}$ such that the system has
 positive rank.
 
-Notice that the polynomial $P^{(a)}(\underline x)$ is not a generic
+Notice that the polynomial $ P^{(a_1,\dots,a_r)}(\underline x)$ is not a generic
 homogeneous polynomial so the number of equations is in particular
 cases smaller or equal than~\eqref{e:nequ}.
 
@@ -659,22 +574,23 @@ cases smaller or equal than~\eqref{e:nequ}.
 We remark that this way of solving the linear system includes implicitly the
 freedom given by the syzygies of $\textrm{Jac}(\textbf{F}_\Gamma)$ and
 $\textrm{Jac}(\textbf{U}_\Gamma)$ since they belong to
-the kernel of equation~\eqref{e:GD} and~\eqref{e:RedU} respectively.
+the kernel of equation~\eqref{e:RedF} and~\eqref{e:RedU}
+respectively.\footnote{It was noticed in~\cite{Lairez:2022zkj} that in
+  the rational case only the first order sygyzies are needed to take
+  into account the non-isolated singularities of Feynman integrals.}
 %
-%
-\pvnote{proof this is always possible?}
 
-The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
-%
-\begin{align}
-	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
-\end{align}
-where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
 
-%
-%
-\section{Deriving the differential equation}
+One important property of that reduction is that the differential form $\beta$ is that it
+does not have poles that are not poles of $\textbf{F}_\Gamma$. We refer
+to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
+
+
+%----------------------------------------------------------------------
+
+\subsection{Deriving the differential equation}
 \label{sec:deriv-diff-equat}
+
 
 We turn to the derivation of the differential
 equation~\eqref{e:PFOmegaGeneric}  by iterating the generalized
@@ -708,7 +624,7 @@ summary of different equivalent way of computing the number of master integrals)
 
 We start from the number of derivative $a$ equal to the
 number of master integrals, and we apply to reduction of
-section~\ref{sec:non-rati-diff-form} so that
+section~\ref{sec:PoleRed} so that
 
 \begin{equation}\label{e:step1}
 \left(d\over dt\right)^{N(\Gamma,\epsilon)} \Omega_\Gamma^\epsilon= {M_{
@@ -736,7 +652,7 @@ determined. The polynomial $ P_{N(\Gamma,\epsilon)-1}(\underline x) $
 is the numerator factor obtained by taking the $N(\Gamma,\epsilon)-1$
 derivative of the differential form.
 
-We then apply the reduction of section~\ref{sec:non-rati-diff-form} to
+We then apply the reduction of section~\ref{sec:PoleRed} to
 the polynomial in the numerator. The resolution of the
 system~\eqref{e:sysCFU} determines the  rational coefficient
 $q_{N(\Gamma,\epsilon)-1}(t,\epsilon)$ and
@@ -758,11 +674,19 @@ where $M_1$ is of degree 0 so that we
 \end{equation}
 and $\beta_\Gamma^\epsilon $ is the sum of the $\beta_r$ with $1\leq
 r\leq N(\Gamma,\epsilon)$
-contributions. 
+contributions.
 
-
-
-
+\pvnote{update the discussion and mention the work of Muller-Stach/Weinzierl}
+This determines the coefficients
+$c_{a_1,\dots,a_i-1,\dots,a_r}(\vec m,\vec s) $ with $1\leq i\leq r$
+up-to ambiguities by shifting with syzygies of  Jacobian ideal of
+$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  This freedom plays an important role in the case
+of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and reviewed
+below.
+By iterating this procedure the algorithm determines the coefficients
+in~\eqref{e:PFOmegaGeneric}. This algorithm was applied to derived the
+Picard-Fuchs equation for the massive two-loop sunset integral
+in~\cite{Bloch:2016izu}.
 %--------------------------------------------------------------------
  \subsection{Minimal order Picard-Fuchs Feynman integrals in general dimensions}
 \label{sec:results}
@@ -800,6 +724,55 @@ the obtained operator is irreducible. Nothing guarantees that the reduction lead
 a minimal order operator but this will be  the case in all the cases
 studied in this work as we have checked this with the available
 factorisation algorithms.
+
+%--------------------------------------------------------------------
+\subsubsection{The singular case}
+\label{sec:singular-case}
+
+
+In the case when there are non-isolated singularities (which is the
+case of most Feynman integrals and are needed for the sunset
+integral from three-loop order) one needs to use
+the syzygies of the Jacobian ideal to perform the
+reduction.
+A syzygy  $\vec\Sigma(\underline x):=\{\sigma_1(\underline x),\dots,\sigma_n(\underline x)\}$ is an homogeneous polynomial of
+degree $k \deg(\textbf{F}_\Gamma)-(n-1)$ such that
+\begin{equation}
+  \vec \Sigma(\underline x) \cdot \vec\nabla  \textbf{F}_\Gamma=0,
+\end{equation}
+%
+which implies the reduction
+\begin{equation}
+  { \vec \nabla\cdot \vec\Sigma(\underline x) \over \textbf{F}_\Gamma^k
+  }\Omega_0^{(n)}=d\left(\sum_{i=1}^n (-1)^{i-1} {\sigma_i(\underline x)\over
+      \textbf{F}_\Gamma^k} dx_1\wedge \cdots \wedge
+    \widehat{dx_i}\wedge \cdots \wedge dx_n\right).
+\end{equation}
+In the singular case, when there are non-isolated singularities, these
+relations are missed by the Griffiths-Dwork reduction.
+A syzygy $\Sigma$ is trivial if there are polynomials
+$c_{ij}(\underline x)$ such that $c_{ij}(\underline
+x)=-c_{ji}(\underline x)$ and  $\sigma_i(\underline x)= \sum_{j=1}^n
+c_{ij} \partial^i \textbf{F}_\Gamma$.  These syzygies are trivial and
+are already included in the Griffiths-Dwork reduction.
+Therefore one needs to define the space of non-trivial syzygies of
+degree $k \deg(\textbf{F}_\Gamma)-(n-1)$, say $\{\Sigma^r,1\leq r\leq m\}:=\{\sigma_i^r(\underline
+x),  1\leq i\leq n,  1\leq r\leq m\}$, and extend the reduction
+in~\eqref{e:RedF} as 
+\begin{equation}\label{e:GDsyz}
+  P^{(a_1,\dots,a_r)}(\underline x)=   \sum_{r=1}^m
+  \lambda_r\vec\nabla\cdot \vec \Sigma^r(\underline x)+
+  \vec C(\underline
+  x)\cdot \vec \nabla \textbf{F}_\Gamma ,
+\end{equation}
+where $\lambda_r$ are constants.
+
+This has been implemented in the algorithm~\cite{lairez2016computing}
+used in~\cite{Lairez:2022zkj} for deriving the Picard-Fuchs operators for
+Feynman integrals in the rational case $\epsilon=0$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 \section{The Sunset integral in general dimensions}
@@ -2374,7 +2347,7 @@ M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
 %\cite{Muller-Stach:2012tgj}
 	\bibitem{Muller-Stach:2012tgj}
 	S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
-	%``Picard-Fuchs equations for Feynman integrals,''
+	``Picard-Fuchs equations for Feynman integrals,''
 	Commun. Math. Phys. \textbf{326} (2014), 237-249
 %	doi:10.1007/s00220-013-1838-3
 	[arXiv:1212.4389 [hep-ph]].
