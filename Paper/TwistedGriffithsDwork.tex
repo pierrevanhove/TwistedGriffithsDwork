@@ -660,12 +660,6 @@ the kernel of equation~\eqref{e:GD} and~\eqref{e:RedU} respectively.
 %
 \pvnote{proof this is always possible?}
 
-The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
-%
-\begin{align}
-	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
-\end{align}
-where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
 
 %
 %
@@ -679,10 +673,8 @@ a linear ordinary differential equation with respect to a single
 variable differentiation $z$ (either an internal mass, or a kinematic
 variable or a scaling parameter as used
 in~\cite{Lairez:2022zkj,Doran:2023yzu}). The generalisation to the
-many variable is immediate.
-
-We are seeking an differential operator $\mathscr{L}_\Gamma^\epsilon$
-such that
+many variable is immediate. We are seeking the differential operator %$\mathscr{L}_\Gamma^\epsilon$
+%
 \begin{equation}\label{e:PFgeneric}
   \mathscr{L}_\Gamma^\epsilon=\sum_{r=0}^{N(\Gamma,\epsilon)}
   c_r(z,\epsilon) \left(d\over dz\right)^r
@@ -756,6 +748,13 @@ where $M_1$ is of degree 0 so that we
 and $\beta_\Gamma^\epsilon $ is the sum of the $\beta_r$ with $1\leq
 r\leq N(\Gamma,\epsilon)$
 contributions. 
+
+The goal of the reduction is then to iteratively construct the matrix $M_{(a)}$ at for each $a$ starting from the highest degree. If we call the function that reduces a given numerator by $f_q(M_q, P)$, where $q$ is the degree under consideration and $P$ is the polynomial in \eqref{derivativeOmega}. The iteration can be written as follows\lNote{notation needs to improve here}
+%
+\begin{align}
+	M_{k-i+1}=f_{k+1-i}(M_{k+2-i},P_i), \quad i\ge 2, \quad k-i+1 \ge 1\, ,
+\end{align}
+where $k$ is the starting degree. If the starting degree is too low, the system might not have a solution but we have found that in the cases where there is a solution, the iteration terminates.  This has also been noted previously in \cite{Muller-Stach:2012tgj}, where the authors applied a similar approach using Griffiths ideas. \lNote{rephrase}
 
 
 
