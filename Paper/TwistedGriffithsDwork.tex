@@ -185,7 +185,8 @@ graph $\Gamma$ is given by the integral $  I_\Gamma = \int_{\Delta_n}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{-{D\over2}} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0
 \end{equation}
 a differential form in defined in the middle cohomology $H^{n-1}(\mathbb P^{n-1}\backslash
-\{\textbf{U}_\Gamma \textbf{F}_\Gamma=0\})$~\cite{bek,Brown:2009ta}.
+\{\textbf{U}_\Gamma \textbf{F}_\Gamma=0\})$~\cite{bek,Brown:2009ta}. 
+
 Because the graph polynomial $  \textbf{F}_\Gamma$ depends on the physical
 parameters (see section~\ref{sec:griff-dwork-reduct} for details),
 the differential form satisfies a set of partial differential equations
@@ -221,64 +222,36 @@ then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the 
 derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
 \pvnote{more here}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Twisted Griffiths-Dwork reduction}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Griffiths-Dwork reduction in general dimensions}
+
+%\section{Twisted Griffiths-Dwork reduction}
 \label{sec:griff-dwork-reduct}
-
-The parametric representation of a Feynman integral associated to a
-graph $\Gamma$ with $n$ edges and $L$ loops is given by the integration of the differential
-form  in  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
-$\epsilon\in\mathbb R$\footnote{We do not assume that $\epsilon$ is
-  small. We introduce $\delta$ and $\epsilon$ for convenience and make
-  clearer the role of the twist from the non integer space-time dimension.}
-\begin{equation}
-  \Omega^\epsilon_\Gamma={\textbf{U}_\Gamma^{\nu-(L+1)\delta} \over \textbf{F}_\Gamma^{\nu-L\delta}}\,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 , 
-\end{equation}
-%
-where $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ are the first and second Symanzik
-polynomial respectively of degree $L$ and $L+1$ associated to the
-graph $\Gamma$ and the exponent $\nu=\sum_{i=1}^n \nu_i$. From now we will set
-The differential form is defined on the complement of the polar locus
-of the integrand $X_\Gamma$, and belongs to $H^{n-1}( \mathbb
-P^{n-1}\backslash X_F)$. We notice that   $\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$ is a degree
-zero homogeneous rational function on $\mathbb
-P^{n-1}$. When $\epsilon\neq0$ we have to consider twisted
-cohomology~\cite{Aomoto1,Aomoto,Aomoto_1982,AomotoBook}. The differential form
-$\Omega_\Gamma^\epsilon$ still belongs to the middle cohomology. The
-relevance to Feynman integrals was already recognised in these works. 
-This has been applied in
-e.g.~\cite{Mizera:2017rqa,Frellesvig:2019uqt,Cacciatori:2021nli}  for
-expanding Feynman integrals on the basis of master integrals. These
-work do not make a specific use of the fact that the twist is given by
-the power of the homogeneous degree 0 rational form
-$\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$ which will be essential
-in the construction presented in this work.
-
-
 The domain of integration of the Feynman integral~\eqref{e:FeynPara}  is the positive orthant
 \begin{equation}\label{e:Deltan}
-  \Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
-            i\leq n\},
-          \end{equation}
-          and we have introduce the canonical differential form on
-          $\mathbb P^{n-1}$ 
- % 
- \begin{equation}
-         \Omega_0^{(n)}:=  \sum_{i=1}^n (-1)^{i-1} x_i dx_1\wedge \cdots \wedge \widehat{dx_i} \wedge\cdots \wedge dx_n,
-             \end{equation}
-   where $\widehat{dx_i}$ means that the term is omitted in the wedge
-    product
+	\Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
+	i\leq n\},
+\end{equation}
+where we have introduced the  canonical differential form on
+$\mathbb P^{n-1}$ 
+% 
+\begin{equation}
+	\Omega_0^{(n)}:=  \sum_{i=1}^n (-1)^{i-1} x_i dx_1\wedge \cdots \wedge \widehat{dx_i} \wedge\cdots \wedge dx_n ,
+\end{equation}
+and where  $\widehat{dx_i}$ means that the term is omitted in the wedge
+product.
 %\begin{equation}
 % \Omega_0^{(n)}:=   x_1 %dx_2\wedge \cdots \wedge dx_n- %x_2
 %                %dx_1\wedge\cdots \wedge %dx_n+(-1)^{n-1}  x_n dx_1\wedge %\cdots \wedge dx_{n-1}  ,
 %              \end{equation}
-and $x_i$ with $1\leq i\leq n$  are  variables attached to all edges of
+Here  $x_i$ with $1\leq i\leq n$  are  variables attached to all edges of
 $\Gamma$.
-
+%
 To the two polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
 associated to the graph $\Gamma$ are defined as
 follows~\cite{nakanishi1971graph,Weinzierl:2022eaz}.  The {\em first
-  Symanzik polynomial} is defined by
+Symanzik polynomial} is defined by
 \begin{equation}\label{e:Udef}
 {\bf U}_\Gamma = \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x^{\mathsf{T}}\,, 
 \end{equation}
@@ -289,10 +262,10 @@ $b_0(\mathsf{T})=1$, and the
 monomial is the product of the variables not in the spanning tree
 $x^{\mathsf{T}} = \prod_{e\notin {\mathsf{T}}} x_e$. 
 The {\em second 
-  Symanzik polynomial}  $\textbf{F}_\Gamma$ is defined by
+Symanzik polynomial}  $\textbf{F}_\Gamma$ is defined by
 \begin{equation}\label{e:VFdef}
 {\bf V}_{\Gamma} = \sum_{\substack{ \text{Spanning} \\ \text{ 2-forests
-      of } \Gamma}}s_{\mathsf{F}} x^{\mathsf{F}}  ,\qquad {\bf F}_{\Gamma}(\vec{s}, \vec{m}) = {\bf U}_\Gamma\left( \sum_{e \in e(\Gamma)} m_e^2 x_e\right) - {\bf V}_{\Gamma}\,,
+			of } \Gamma}}s_{\mathsf{F}} x^{\mathsf{F}}  ,\qquad {\bf F}_{\Gamma}(\vec{s}, \vec{m}) = {\bf U}_\Gamma\left( \sum_{e \in e(\Gamma)} m_e^2 x_e\right) - {\bf V}_{\Gamma}\,,
 \end{equation}
 where $x^{\mathsf{F}} =
 \prod_{e \notin \mathsf{F}} x_i$ to each spanning 2-forest. A 2-forest
@@ -304,7 +277,51 @@ internal masses $\vec m:=\{m_1,\dots,m_n\}$ the external kinematic invariants
 $\vec s:=\{s_\textsf{F} \mid \textsf{F} ~ \textrm{spanning
 2-forests of}~\Gamma\}$.
 
+Setting  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
+$\epsilon\in\mathbb R$\footnote{We do not assume that $\epsilon$ is
+	small. We introduce $\delta$ and $\epsilon$ for convenience and make
+	clearer the role of the twist from the non integer space-time dimension.} in Eq.\eqref{e:FeynPara}, 
+the parametric representation of a Feynman integral
+% associated to a
+%graph $\Gamma$ 
+with $n$ edges and
+ $L$ loops is given by the integration of the differential
+form  
+\begin{equation}
+  \Omega^\epsilon_\Gamma={\textbf{U}_\Gamma^{\nu-(L+1)\delta} \over \textbf{F}_\Gamma^{\nu-L\delta}}\,
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 , 
+\end{equation}
+%
+where the exponent $\nu:=\sum_{i=1}^n \nu_i$, and $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ are the first and second Symanzik
+polynomials, 
+%associated to the
+%graph $\Gamma$, 
+respectively. These are homogeneous  polynomials of
+$\deg(U)=L$ and $\deg(F)=L+1$. 
+%
+%
+The differential form is defined on the complement of the polar locus
+of the integrand $X_\Gamma$, and belongs to $H^{n-1}( \mathbb
+P^{n-1}\backslash X_F)$. We notice that   $\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$ is a degree
+zero homogeneous rational function on $\mathbb
+P^{n-1}$. Moreover,  when $\epsilon\neq0$ we have to consider twisted
+cohomology~\cite{Aomoto1,Aomoto,Aomoto_1982,AomotoBook}. The differential form
+$\Omega_\Gamma^\epsilon$ still belongs to the middle cohomology. The
+relevance to Feynman integrals was already recognised in these works. 
+This has been applied in
+e.g.~\cite{Mizera:2017rqa,Frellesvig:2019uqt,Cacciatori:2021nli}  for
+expanding Feynman integrals on the basis of master integrals. In contrast to these works, 
+%These
+%work do not make a specific use of 
+we will use
+the fact that the twist is given by
+the power of the homogeneous degree 0 rational form
+$\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$, which will be essential
+in the construction presented in this work.
 
+
+
+\subsection{Annihilators of Feynman integrals}
 Feynman integrals satisfy a system of  (inhomogeneous) partial
 differential equations with respect to its physical parameters
 $ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module. This is possible
@@ -349,9 +366,7 @@ This method has been applied to the case of the two-loop sunset
 integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
 integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
 differential form.
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Extended Griffiths-Dwork reduction}
+
 \label{sec:Red}
 \pvnote{I have rewritten an simplified the discussion here - I hope
   this is clearer. May be less mathematically rigorous on some points}
@@ -687,92 +702,7 @@ By iterating this procedure the algorithm determines the coefficients
 in~\eqref{e:PFOmegaGeneric}. This algorithm was applied to derived the
 Picard-Fuchs equation for the massive two-loop sunset integral
 in~\cite{Bloch:2016izu}.
-%--------------------------------------------------------------------
- \subsection{Minimal order Picard-Fuchs Feynman integrals in general dimensions}
-\label{sec:results}
-\pvnote{put somewhere else}
 
-There is the question of what is the order of the differential
-operator  $\mathscr{L}_\Gamma^\epsilon$  derived in the previous
-section is of \emph{minimal} order or not.  By minimal we means an
-operator that cannot be factorised. The factorisation of an linear ordinary
-differential operator can be done with the {\tt DFactor} routine from
-{\tt Maple} up to the order 4 for generic parameters~\cite{PutSinger,vanHoeij}, and to any
-orders for linear  ordinary
-differential operator with numerical values for the various parameters
-using the {\tt facto} algorithm in {\tt
-  sagemath}~\cite{chyzak2022symbolic,goyer2021sage}.
-The order of the minimal differential operator is lower of equal to
-the number of irreducible master integrals. The number of master
-integrals  can be computed from the Euler
-characteristic of complement of the graph polynomial~\cite{Bitoun:2017nre} or counting the
-critical points of the Euler representation of the integral in
-projective
-space~\cite{Lee:2013hzt,Cacciatori:2021nli,Agostini:2022cgv} or~\cite{Mastrolia:2018uzb,Frellesvig:2019uqt}.   In the rational case, it was noticed
-in~\cite{Bloch:2013tra,Bloch:2016izu,Bloch:2014qca,Lairez:2022zkj} that the order of the minimal differential operator is
-smaller than the number of irreducible master integrals. We will see
-how the $\epsilon$ dependent operator can have an order that saturates
-the upper bound.
- For
-determining the minimal order it is enough to run the step of the
-Griffiths-Dwork reduction for fixed numerical value for the kinematic
-parameters, because all the reduction done in the projective space of
-the edge parameters $\underline x$. The smaller order for which the
-algorithm closes gives a differential operator. We then check with the
-factorisation algorithms~\cite{chyzak2022symbolic,goyer2021sage} if
-the obtained operator is irreducible. Nothing guarantees that the reduction leads to
-a minimal order operator but this will be  the case in all the cases
-studied in this work as we have checked this with the available
-factorisation algorithms.
-
-%--------------------------------------------------------------------
-\subsubsection{The singular case}
-\label{sec:singular-case}
-
-
-In the case when there are non-isolated singularities (which is the
-case of most Feynman integrals and are needed for the sunset
-integral from three-loop order) one needs to use
-the syzygies of the Jacobian ideal to perform the
-reduction.
-A syzygy  $\vec\Sigma(\underline x):=\{\sigma_1(\underline x),\dots,\sigma_n(\underline x)\}$ is an homogeneous polynomial of
-degree $k \deg(\textbf{F}_\Gamma)-(n-1)$ such that
-\begin{equation}
-  \vec \Sigma(\underline x) \cdot \vec\nabla  \textbf{F}_\Gamma=0,
-\end{equation}
-%
-which implies the reduction
-\begin{equation}
-  { \vec \nabla\cdot \vec\Sigma(\underline x) \over \textbf{F}_\Gamma^k
-  }\Omega_0^{(n)}=d\left(\sum_{i=1}^n (-1)^{i-1} {\sigma_i(\underline x)\over
-      \textbf{F}_\Gamma^k} dx_1\wedge \cdots \wedge
-    \widehat{dx_i}\wedge \cdots \wedge dx_n\right).
-\end{equation}
-In the singular case, when there are non-isolated singularities, these
-relations are missed by the Griffiths-Dwork reduction.
-A syzygy $\Sigma$ is trivial if there are polynomials
-$c_{ij}(\underline x)$ such that $c_{ij}(\underline
-x)=-c_{ji}(\underline x)$ and  $\sigma_i(\underline x)= \sum_{j=1}^n
-c_{ij} \partial^i \textbf{F}_\Gamma$.  These syzygies are trivial and
-are already included in the Griffiths-Dwork reduction.
-Therefore one needs to define the space of non-trivial syzygies of
-degree $k \deg(\textbf{F}_\Gamma)-(n-1)$, say $\{\Sigma^r,1\leq r\leq m\}:=\{\sigma_i^r(\underline
-x),  1\leq i\leq n,  1\leq r\leq m\}$, and extend the reduction
-in~\eqref{e:RedF} as 
-\begin{equation}\label{e:GDsyz}
-  P^{(a_1,\dots,a_r)}(\underline x)=   \sum_{r=1}^m
-  \lambda_r\vec\nabla\cdot \vec \Sigma^r(\underline x)+
-  \vec C(\underline
-  x)\cdot \vec \nabla \textbf{F}_\Gamma ,
-\end{equation}
-where $\lambda_r$ are constants.
-
-This has been implemented in the algorithm~\cite{lairez2016computing}
-used in~\cite{Lairez:2022zkj} for deriving the Picard-Fuchs operators for
-Feynman integrals in the rational case $\epsilon=0$.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 \section{The Sunset integral in general dimensions}
@@ -1812,8 +1742,96 @@ the inhomogeneous term is
 
 
 \pvnote{box and 2loop ladder massless}
+
+%--------------------------------------------------------------------
+\section{Minimal order Picard-Fuchs Feynman integrals in general dimensions}
+\label{sec:results}
+\pvnote{put somewhere else}
+
+There is the question of what is the order of the differential
+operator  $\mathscr{L}_\Gamma^\epsilon$  derived in the previous
+section is of \emph{minimal} order or not.  By minimal we means an
+operator that cannot be factorised. The factorisation of an linear ordinary
+differential operator can be done with the {\tt DFactor} routine from
+{\tt Maple} up to the order 4 for generic parameters~\cite{PutSinger,vanHoeij}, and to any
+orders for linear  ordinary
+differential operator with numerical values for the various parameters
+using the {\tt facto} algorithm in {\tt
+	sagemath}~\cite{chyzak2022symbolic,goyer2021sage}.
+The order of the minimal differential operator is lower of equal to
+the number of irreducible master integrals. The number of master
+integrals  can be computed from the Euler
+characteristic of complement of the graph polynomial~\cite{Bitoun:2017nre} or counting the
+critical points of the Euler representation of the integral in
+projective
+space~\cite{Lee:2013hzt,Cacciatori:2021nli,Agostini:2022cgv} or~\cite{Mastrolia:2018uzb,Frellesvig:2019uqt}.   In the rational case, it was noticed
+in~\cite{Bloch:2013tra,Bloch:2016izu,Bloch:2014qca,Lairez:2022zkj} that the order of the minimal differential operator is
+smaller than the number of irreducible master integrals. We will see
+how the $\epsilon$ dependent operator can have an order that saturates
+the upper bound.
+For
+determining the minimal order it is enough to run the step of the
+Griffiths-Dwork reduction for fixed numerical value for the kinematic
+parameters, because all the reduction done in the projective space of
+the edge parameters $\underline x$. The smaller order for which the
+algorithm closes gives a differential operator. We then check with the
+factorisation algorithms~\cite{chyzak2022symbolic,goyer2021sage} if
+the obtained operator is irreducible. Nothing guarantees that the reduction leads to
+a minimal order operator but this will be  the case in all the cases
+studied in this work as we have checked this with the available
+factorisation algorithms.
+
+%--------------------------------------------------------------------
+\subsubsection{The singular case}
+\label{sec:singular-case}
+
+
+In the case when there are non-isolated singularities (which is the
+case of most Feynman integrals and are needed for the sunset
+integral from three-loop order) one needs to use
+the syzygies of the Jacobian ideal to perform the
+reduction.
+A syzygy  $\vec\Sigma(\underline x):=\{\sigma_1(\underline x),\dots,\sigma_n(\underline x)\}$ is an homogeneous polynomial of
+degree $k \deg(\textbf{F}_\Gamma)-(n-1)$ such that
+\begin{equation}
+	\vec \Sigma(\underline x) \cdot \vec\nabla  \textbf{F}_\Gamma=0,
+\end{equation}
+%
+which implies the reduction
+\begin{equation}
+	{ \vec \nabla\cdot \vec\Sigma(\underline x) \over \textbf{F}_\Gamma^k
+	}\Omega_0^{(n)}=d\left(\sum_{i=1}^n (-1)^{i-1} {\sigma_i(\underline x)\over
+		\textbf{F}_\Gamma^k} dx_1\wedge \cdots \wedge
+	\widehat{dx_i}\wedge \cdots \wedge dx_n\right).
+\end{equation}
+In the singular case, when there are non-isolated singularities, these
+relations are missed by the Griffiths-Dwork reduction.
+A syzygy $\Sigma$ is trivial if there are polynomials
+$c_{ij}(\underline x)$ such that $c_{ij}(\underline
+x)=-c_{ji}(\underline x)$ and  $\sigma_i(\underline x)= \sum_{j=1}^n
+c_{ij} \partial^i \textbf{F}_\Gamma$.  These syzygies are trivial and
+are already included in the Griffiths-Dwork reduction.
+Therefore one needs to define the space of non-trivial syzygies of
+degree $k \deg(\textbf{F}_\Gamma)-(n-1)$, say $\{\Sigma^r,1\leq r\leq m\}:=\{\sigma_i^r(\underline
+x),  1\leq i\leq n,  1\leq r\leq m\}$, and extend the reduction
+in~\eqref{e:RedF} as 
+\begin{equation}\label{e:GDsyz}
+	P^{(a_1,\dots,a_r)}(\underline x)=   \sum_{r=1}^m
+	\lambda_r\vec\nabla\cdot \vec \Sigma^r(\underline x)+
+	\vec C(\underline
+	x)\cdot \vec \nabla \textbf{F}_\Gamma ,
+\end{equation}
+where $\lambda_r$ are constants.
+
+This has been implemented in the algorithm~\cite{lairez2016computing}
+used in~\cite{Lairez:2022zkj} for deriving the Picard-Fuchs operators for
+Feynman integrals in the rational case $\epsilon=0$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Minimal order Picard-Fuchs operator and number of master integrals}
+\subsection{Minimal order Picard-Fuchs operator and number of master integrals}
 
 The order of the Picard-Fuchs operator and its non-apparent
 singularities are determined  the 'motivic' geometry of the Feynman
@@ -1832,32 +1850,32 @@ Euler integrals when varying the powers $(\nu_1,\dots,\nu_n)$ is a
 finite dimensional vector space which dimension is given by the Euler
 characteristic~\cite{Lee:2013hzt,Bitoun:2017nre,Agostini:2022cgv}
 \begin{equation}\label{e:chiGamma}
-  \chi_\Gamma:=(-1)^n \chi\left(\underline x\in(\mathbb C^*)^n|
-  \textbf{U}_\Gamma(\underline x)\textbf{F}_\Gamma(\underline
-  x)\neq0\right).
+	\chi_\Gamma:=(-1)^n \chi\left(\underline x\in(\mathbb C^*)^n|
+	\textbf{U}_\Gamma(\underline x)\textbf{F}_\Gamma(\underline
+	x)\neq0\right).
 \end{equation} This number is the so-called number of master
 integrals. This provides an upper bound on the minimal order
 differential operator acting on the Feynman integral. In the example
 studied in this work we have found the following:
 
 \begin{itemize}
-\item  For the $n-1$-loop
-  sunset integrals, the number of irreducible master integrals for the
-  is $2^{n}-n-1$.  The master integrals are given by
-  
-\begin{itemize}  \item The minimal differential Picard-Fuchs operator for the all
-    equal mass case has order  $n-1$
-  \item At one-loop $n=2$ we have an operator of order 1, at two-loop
-    $n=3$ an operator of order 4 and at three-loop $n=4$ with generic
-    mass configuration the Picard-Fuchs operator
-as   order 11.  We see that when $\epsilon\neq0$  the order of the
-    Picard-Fuchs operator saturates bound given by the number of
-    irreducible master.
-  \end{itemize}
-  \item For the two-loop ice-cream cone the number of irreducible
-    master 4 is which is the order of the minimal Picard-Fuchs
-    operator for generic kinematics.
-  \end{itemize}
+	\item  For the $n-1$-loop
+	sunset integrals, the number of irreducible master integrals for the
+	is $2^{n}-n-1$.  The master integrals are given by
+	
+	\begin{itemize}  \item The minimal differential Picard-Fuchs operator for the all
+		equal mass case has order  $n-1$
+		\item At one-loop $n=2$ we have an operator of order 1, at two-loop
+		$n=3$ an operator of order 4 and at three-loop $n=4$ with generic
+		mass configuration the Picard-Fuchs operator
+		as   order 11.  We see that when $\epsilon\neq0$  the order of the
+		Picard-Fuchs operator saturates bound given by the number of
+		irreducible master.
+	\end{itemize}
+	\item For the two-loop ice-cream cone the number of irreducible
+	master 4 is which is the order of the minimal Picard-Fuchs
+	operator for generic kinematics.
+\end{itemize}
 
 For particular choice of the configurations of the internal masses and
 external kinematics, it happens that the second Symanzik
@@ -1884,7 +1902,7 @@ Baikov representation~\cite{Frellesvig:2017aai,Frellesvig:2019uqt,Cacciatori:202
 
 For a differential equation
 \begin{equation}
-  \sum_{r=0}^N c_r(z) {d^rf(z)\over dz^r}=0  
+	\sum_{r=0}^N c_r(z) {d^rf(z)\over dz^r}=0  
 \end{equation}
 the roots of $p_N(z)$ are the singularities of the differential
 equation. A root of $p_N(z)$ where the solution $f(z)$ is
@@ -1907,55 +1925,54 @@ The  $\epsilon$ affects the monodromy of differential equation around
 the singular point by changing the indicial equation.
 
 
-
-
-
 %----------------------------------------------------------------------
-\subsection{Two-loop sunset}
+\subsubsection{Two-loop sunset}
 
 For the two-loop sunset the Gauss-Manin connexion is build from the
 geometric data of the elliptic curve
 $\mathscr{E}_\su:=\{(xy+xz+yz)(m_1^2x_1+m_2^2y+m_3^2z)-t xyz\}$
 defined from graph polynomial $\textbf{F}_\su$:
 \begin{equation}
-  \label{eq:AGM}
-  A_{GM}=
-  \begin{pmatrix}
-    -{1\over 12}{\partial \log\Delta(t)\over \partial t} &{3\over
-      2}{\delta\over \Delta}\cr
-    -{g_2\over8}{\delta\over\Delta}&{1\over12}{\partial\log\Delta(t)\over\partial t}
-  \end{pmatrix}
+	\label{eq:AGM}
+	A_{GM}=
+	\begin{pmatrix}
+		-{1\over 12}{\partial \log\Delta(t)\over \partial t} &{3\over
+			2}{\delta\over \Delta}\cr
+		-{g_2\over8}{\delta\over\Delta}&{1\over12}{\partial\log\Delta(t)\over\partial t}
+	\end{pmatrix}
 \end{equation}
 For the all equal mass case the Gauss-Manin connexion is
 \begin{equation}
-  \label{eq:AGM2sunset1mass}
-  A_{GM}=\begin{pmatrix}
-\frac{-t^{2}+8 t -3}{2 t \left(t -1\right) \left(t -9\right)} & -\frac{3}{2 t \left(t -1\right) \left(t -9\right)} 
-\\
- \frac{\left(t -3\right) \left(t^{3}-9 t^{2}+3 t -3\right)}{6 t \left(t -1\right) \left(t -9\right)} & \frac{t^{2}-8 t +3}{2 t \left(t -1\right) \left(t -9\right)} 
-\end{pmatrix}
+	\label{eq:AGM2sunset1mass}
+	A_{GM}=\begin{pmatrix}
+		\frac{-t^{2}+8 t -3}{2 t \left(t -1\right) \left(t -9\right)} & -\frac{3}{2 t \left(t -1\right) \left(t -9\right)} 
+		\\
+		\frac{\left(t -3\right) \left(t^{3}-9 t^{2}+3 t -3\right)}{6 t \left(t -1\right) \left(t -9\right)} & \frac{t^{2}-8 t +3}{2 t \left(t -1\right) \left(t -9\right)} 
+	\end{pmatrix}
 \end{equation}
 and the
 Picard-Fuchs operator for
 in~\eqref{e:PF2sunset1massepsilon} can be obtained from the following
 system
 \begin{equation}
-  {d\over dt}
-  \begin{pmatrix}
-    I_\su(t)\cr g(t)
-  \end{pmatrix} =P(\epsilon,t) A_{GM} \begin{pmatrix}
-    I_\su(t)\cr g(t)
-  \end{pmatrix},
+	{d\over dt}
+	\begin{pmatrix}
+		I_\su(t)\cr g(t)
+	\end{pmatrix} =P(\epsilon,t) A_{GM} \begin{pmatrix}
+		I_\su(t)\cr g(t)
+	\end{pmatrix},
 \end{equation}
 with
 \begin{equation}
-  P(\epsilon,t)=
-  \begin{pmatrix}
-    1 & 0 
-\\
- \frac{\epsilon  \left(2 t^{3} \epsilon -14 \epsilon  \,t^{2}+3 t^{3}-10 \epsilon  t -23 t^{2}+6 \epsilon +29 t -33\right)}{3} & 1+\left(2 t +2\right) \epsilon^{2}+\left(3 t -5\right) \epsilon  
-  \end{pmatrix}
+	P(\epsilon,t)=
+	\begin{pmatrix}
+		1 & 0 
+		\\
+		\frac{\epsilon  \left(2 t^{3} \epsilon -14 \epsilon  \,t^{2}+3 t^{3}-10 \epsilon  t -23 t^{2}+6 \epsilon +29 t -33\right)}{3} & 1+\left(2 t +2\right) \epsilon^{2}+\left(3 t -5\right) \epsilon  
+	\end{pmatrix}
 \end{equation}
+\section{Conclusions}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
