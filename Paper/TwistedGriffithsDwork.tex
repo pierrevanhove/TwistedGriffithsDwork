@@ -178,7 +178,7 @@ Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 
 Feynman integrals appear in many area of physics. Their analytical or
 numerical evaluation is a bottleneck for improving our analysis of the
-various physical phenomena.
+various physical phenomena. \lNote{more motivation}
 The parametric representation of a Feynman integral attached to a
 graph $\Gamma$ is given by the integral $  I_\Gamma = \int_{\Delta_n}
 \, \Omega^D_\Gamma$ with 
@@ -209,11 +209,25 @@ In this work we give an extension of these algorithms for
 general dimensions, i.e. when $D=2-2\epsilon$ with $\epsilon$ any
 complex number.  In section \pvnote{to be completed}
 
+\textbf{
+A method for doing this in the
+case smooth case was introduced by Griffiths in~\cite{Griffiths_1969,Dwork_1962,Dwork_1964}.
+When $\epsilon=0$ this method has been applied to the case of the two-loop sunset
+integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
+integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
+differential form.
+We given an extension of  the Griffiths-Dwork algorithm including the
+factor from the twist.
+This algorithm was applied to derived the
+Picard-Fuchs equation for the massive two-loop sunset integral
+in~\cite{Bloch:2016izu}.
+}
 
 We apply the algorithm to the multi-loop sunset
 integral and the two-loop ice-cream cone integral in $D=2\delta-2\epsilon$
 dimensions generalising the results
 of~\cite{Lairez:2022zkj,Doran:2023yzu} for the rational cases.
+
 
 The remainder of the paper is organised as follows \pvnote{XXX}
 . 
@@ -334,76 +348,74 @@ in the construction presented in this work.
 
 
 \subsection{Annihilators of Feynman integrals}
-This is possible
-because the Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf}. This means that Feynman integrals satisfy systems of  (inhomogeneous) partial
-differential equations with respect to its physical parameters
-$ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module.  Thus, differential equations can be obtained by deriving the annihilators  of  $\Omega_\Gamma^\epsilon$. Let 
-$\underline
-z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s$. We seek 
+\label{sec:Red}
+Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf, Bitoun:2017nre, Smirnov:2010hn,Lee:2013hzt}. This means that Feynman integrals satisfy systems of  (inhomogeneous) partial
+differential equations of finite order with respect to its physical parameters
+$ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module\lNote{define and GKZ?}.  Thus, differential equations can be obtained by deriving  annihilators  of  $\Omega_\Gamma^\epsilon$, i.e., partial differential operators that annihilate  the integrand by acting on the physical parameter and the edge variables. Let us consider $r$ parameters from the set of internal masses and independent kinematics, $\underline z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s $. 
+%$\underline
+%$.
+ We seek 
  differential operators 
-annihilating the differential form $\Omega_\Gamma^\epsilon$ in cohomology
+annihilating the differential form $\Omega_\Gamma^\epsilon$ 
 \begin{equation}\label{e:PFOmegaGeneric}
 \left(  \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta_\Gamma,
 \end{equation}
 where $  c_{a_1,\dots, a_r}(\underline z)$ are rational functions of the physical
-parameters but they are independent of $x_1,\dots,x_n$.  %This is possible
+parameters but they are independent of $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^\epsilon$ \cite{Lairez:2022zkj}.
+%
+%
+%This is possible
 %because the Feynman integral are holonomic function of its physical parameters.
 Because the domain of integration of the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
   \left( \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r}  \right)I_\Gamma=\mathscr{S}_\Gamma
+  \over\partial z_r\right)^{a_r}  \right)I_\Gamma=\mathscr{S}_\Gamma \, ,
 \end{equation}
 where $\mathscr{S}_\Gamma$ is an inhomogeneous term obtained by
 integrating $d\beta_\Gamma$ after having properly taken into account
-all necessary blow-ups (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.) The    differentiation of $\Omega_\Gamma$ 
-leads  to  expressions of the type \lNote{notation for $a_1+\dots+a_r$}
+all necessary blow-ups (see~\cite{bek,Brown:2009ta,Bloch:2016izu,muller2014picard}.) This is in general a nontrivial task \lNote{expand}.  The    differentiation of $\Omega_\Gamma^\epsilon$ 
+leads  to  expressions of the type 
 \begin{equation}\label{e:PDE}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
-{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{a_1+\cdots +a_r}}\, { \textbf{U}_\Gamma^{\nu-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{\nu-L\delta}}
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf {a}}}\, { \textbf{U}_\Gamma^{\nu-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{\nu-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0  ,
 \end{equation}
 where 
 $  P^{(a_1,\dots,a_r)}(\underline x)$ is a
   homogeneous polynomial of degree $(L+1)(a_1+\cdots+a_r)$ in
- the edge variables $\underline x:=\{x_1,\dots, x_n\}$ and the
+ the edge variables $\underline x:=\{x_1,\dots, x_n\}$.
+ We have introduced the notation $\mathsf{a}:=a_1+\cdots +a_r$. 
+The
   pole order in the second Symanzik polynomial $\textbf{F}_\Gamma$ has increased by
-  $a_1+\cdots+a_r$. 
-  For deriving~Eq.\eqref{e:PFOmegaGeneric} one needs to find the
-  coefficient $c_{a_1,\dots,a_r}(\underline z)$.  A method for doing this in the
-  case smooth case was given by Griffiths in~\cite{Griffiths_1969,Dwork_1962,Dwork_1964}.
-When $\epsilon=0$ this method has been applied to the case of the two-loop sunset
-integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
-integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
-differential form.
-
-\label{sec:Red}
-\pvnote{I have rewritten an simplified the discussion here - I hope
-  this is clearer. May be less mathematically rigorous on some points}
-We given an extension of  the Griffiths-Dwork algorithm including the
-factor from the twist.
+  $\mathsf a$. 
+  For deriving~Eq.~\eqref{e:PFOmegaGeneric} one needs to find the
+  coefficient $c_{a_1,\dots, a_r}(\underline z)$.  From now on we consider the case where
+  $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The cases with $\nu_i\neq1$
+  is an immediate generalisation. 
+  In the coming sections we will present an algorithm to derive these coefficients and the inhomogeneous term of the differential equation.
+  
 %-------------------------------------------------------------------
 \subsection{The pole reduction}\label{sec:PoleRed}
-The starting point of the algorithm is the reduction of $P^{(a_1,\dots,a_r)}(\underline x)$ in the Jacobian ideal of $\textbf{F}_\Gamma$ 
- \begin{equation}
-	\textrm{Jac}(   \textbf{F}_\Gamma) :=\left\langle\vec\nabla  \textbf{F}_\Gamma \right\rangle :=\left\langle{\partial
-		\textbf{F}_\Gamma\over\partial x_1},\dots,  {\partial
-		\textbf{F}_\Gamma\over\partial x_n}\right\rangle\,,
-\end{equation}
-%
-% We reduce the polynomial
+The starting point of the algorithm is the reduction of $P^{(a_1,\dots,a_r)}(\underline x)$ 
+
 \begin{equation}\label{e:RedF}
- P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{\mathsf{a}}(\underline x)\cdot
-   \vec\nabla   \textbf{F}_\Gamma \, . 
- \end{equation}
+	P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{\mathsf{a}}(\underline x)\cdot
+	\vec\nabla   \textbf{F}_\Gamma \, 
+\end{equation}
+in the Jacobian ideal of $\textbf{F}_\Gamma$ 
+ \begin{equation}
+	\textrm{Jac}(   \textbf{F}_\Gamma) :=\left\langle\vec\nabla  \textbf{F}_\Gamma \right\rangle =\left\langle{\partial
+		\textbf{F}_\Gamma\over\partial x_1},\dots,  {\partial
+		\textbf{F}_\Gamma\over\partial x_n}\right\rangle\,.
+\end{equation}
 % in the Jacobian ideal of $ \textbf{F}_\Gamma$, and
-We have introduced the notation $\mathsf{a}:=a_1+\cdots +a_r$. 
 %
-The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are homogeneous polynomials in the
-     edge variables $\underline x$ of degree
-     $\mathsf{a}(L+1)$. 
+%
+The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are homogeneous polynomials of degree
+$\mathsf{a}(L+1)$ in  $\underline x$ . 
 %
  %    
    Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
@@ -413,28 +425,26 @@ The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are h
    G_{\mathsf{a}}^i(\underline x)\over
     (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}\, 
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n \, ,
+  \cdots \wedge dx_n \, .
 \end{equation}
-where  
+To take into account the general dimensional case, we introduce 
 %$\widehat{dx_i}$
 % means that the term is omitted in the wedge
 %product and
-we have introduced\footnote{From now we consider the case where
-  $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The cases with $\nu_i\neq1$
-  is an immediate generalisation.} 
+the twisted vectors 
 \begin{equation}
   \label{e:Gdef}
 \vec  G_{\mathsf{a}}(\underline x):=   \vec C_{\mathsf{a}} \,
 {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
   \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over \mathbf{F}_\Gamma^L\right)^\epsilon \, ,
 \end{equation}
-which are vectors of homogeneous degree $\mathsf{a}(L+1)-n$ 
+which are vectors of homogeneous degree $\mathsf{a}(L+1)-n$. 
 %in
 %$\underline x$. 
 %
-Following the analysis by Griffiths~\cite{Griffiths_1969}  extending it for
+%Following the analysis by Griffiths~\cite{Griffiths_1969}  extending it for
 %derivation
- non polynomial but homogeneous function. \lNote{unclear}
+ %non polynomial but homogeneous function. \lNote{unclear}
 We compute
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
@@ -494,28 +504,28 @@ We expand the term in the right-hand-side
 %
 The second term in this equation can be evaluated using
 \begin{align}
-  \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{\alpha}\over
-\mathbf{F}_\Gamma^\beta\right)&=\left(\alpha \vec
-C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma -\beta \vec
-C_{\mathsf{a}}\cdot \vec\nabla \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{\alpha}\over
-\mathbf{F}_\Gamma^\beta} \\
+  \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{A}\over
+\mathbf{F}_\Gamma^B\right)&=\left(A \vec
+C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma -B \vec
+C_{\mathsf{a}}\cdot \vec\nabla \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{A}\over
+\mathbf{F}_\Gamma^B} \\
 %\end{align}
 %This can written %using~\eqref{e:RedF}
 %\begin{align}
  % \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{\alpha}\over
 %\mathbf{F}_\Gamma^\beta\right)
-&=-{\beta
+&=\left[-B{
     P^{(a_1,\cdots,a_r)}(\underline x)\over
-  \mathbf{F}_\Gamma}   {\mathbf{U}_\Gamma^{\alpha}\over
-\mathbf{F}_\Gamma^\beta}
+  \mathbf{F}_\Gamma}   
 +
- \alpha \vec
+ A \vec
 C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma \left(\mathbf{U}_\Gamma^{L+1}\over
-\mathbf{F}_\Gamma^L\right)^\epsilon  {\mathbf{U}_\Gamma^{\alpha}\over
-\mathbf{F}_\Gamma^\beta}\,,
+\mathbf{F}_\Gamma^L\right)^\epsilon \right] {\mathbf{U}_\Gamma^{A}\over
+	\mathbf{F}_\Gamma^B}\,,
 \end{align}
 where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore, 
 \begin{multline}
+	\label{eq:Pred}
 {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0\cr={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
@@ -530,7 +540,7 @@ where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore,
 %
 This expression involves the $\vec
     C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma$ which has a
-    new pole in $\mathbf{U}_\Gamma$. We then perform a second reduction by demanding
+    new pole in $\mathbf{U}_\Gamma$. We then perform a second reduction by demanding that
     \begin{equation}
       \label{e:RedU}
       \vec
@@ -538,8 +548,14 @@ This expression involves the $\vec
     c_{\mathsf{a}}(\underline x) \, \mathbf{U}_\Gamma \, ,
     \end{equation}
 where $ c_{\mathsf{a}}(\underline x)$ is a homogeneous polynomial of
-degree $\mathsf{a}(L+1)-1$. Assuming this is possible we then have the
-pole reduction
+degree $\mathsf{a}(L+1)-1$. This is equivalent to the computation of syzygies of $\text{Jac}( \mathbf U_\Gamma)$. Indeed,  using the homogeneity of $\mathbf{U}_\Gamma$ we can rewrite the previous equation as 
+
+\begin{equation}
+ \left( L   \vec
+C_{\mathsf{a}}(\underline x) -
+c_{\mathsf{a}}(\underline x) \vec{x} \right) \, \cdot\vec\nabla \mathbf{U}_\Gamma =0\, ,\end{equation}
+which are examples of syzygies of the Jacobian of $\mathbf U_\Gamma$. Using this reduction in eq.~\eqref{eq:Pred} leads to
+% 
 \begin{multline}\label{e:RedFinal}
 {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0=\cr{
@@ -560,7 +576,9 @@ with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1
     c_{\mathsf{a}}(\underline x)\over \mathsf{a}+n-L(\delta-\epsilon) }.
 \end{equation}
 %
-To get from~\eqref{e:PDE} to~\eqref{e:RedFinal}, we have to solve the linear system
+To perform this pole reduction, 
+%get from~\eqref{e:PDE} to~\eqref{e:RedFinal},
+ we have to solve the linear system
 \begin{equation}\label{e:sysCFU}
    \left\{\begin{array}{@{}l@{}}
 \vec C_{\mathsf{a}} (\underline x) \cdot \vec \nabla \textbf{F}_\Gamma
@@ -622,7 +640,7 @@ to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
 %
 %----------------------------------------------------------------------
 
-\subsection{Deriving the differential equation}
+\subsection{Algorithmic derivation of the differential equation}
 \label{sec:deriv-diff-equat}
 
 
@@ -644,22 +662,17 @@ with $c_r(z,\epsilon)$ polynomials in $z$ and $\epsilon$ such that
 \begin{equation}
      \mathscr{L}_\Gamma^\epsilon \Omega_\Gamma^\epsilon= d\beta_\Gamma.
    \end{equation}
-We know that such differential operator exist because the Feynman
-integral are holonomic
-functions~\cite{Smirnov:2010hn,Bitoun:2017nre,Lee:2013hzt}.
-\pvnote{may be somewhere we can quite Gel'fand}\lNote{we said this before}
+%We know that such differential operator exist because the Feynman
+%integral are holonomic
+%functions~\cite{Smirnov:2010hn,Bitoun:2017nre,Lee:2013hzt}.
+%\pvnote{may be somewhere we can quite Gel'fand}\lNote{we said this before}
 %
 %
-   The maximal order of the differential operator
-$N(\Gamma,\epsilon)$ is smaller or equal to the number of master
-integrals that can be computed as described
-in~\cite{Bitoun:2017nre,Lee:2013hzt} (see~\cite{Agostini:2022cgv} for
-summary of different equivalent way of computing the number of master integrals).
-
-We start from the number of derivative $a$ \lNote{$N$?} equal to the
-number of master integrals, and we apply to reduction of
+Holonomicity of Feynman integrals gives an upper bound on the order of the Picard-Fuchs operator $N(\Gamma,\epsilon)$, which is  determined by
+ the number of master
+integrals. Let $N(\Gamma,\epsilon)$  be the starting order of the reduction.  We then apply the results of
 section~\ref{sec:PoleRed} so that
-
+%
 \begin{equation}\label{e:step1}
 \left(d\over dt\right)^{N(\Gamma,\epsilon)} \Omega_\Gamma^\epsilon= {M_{
       N(\Gamma,\epsilon)}(\underline x)\over
@@ -709,18 +722,27 @@ where $M_1$ is of degree 0 so that we
 and $\beta_\Gamma^\epsilon $ is the sum of the $\beta_r$ with $1\leq
 r\leq N(\Gamma,\epsilon)$
 contributions.
+ This determines the coefficients
+ $c_{a_1,\dots,a_i-1,\dots,a_r}(\underline z) $ with $1\leq i\leq r$ thus fully determining the PF operator. 
+ 
 
-\pvnote{update the discussion and mention the work of Muller-Stach/Weinzierl}
-This determines the coefficients
-$c_{a_1,\dots,a_i-1,\dots,a_r}(\underline z) $ with $1\leq i\leq r$
-up-to ambiguities by shifting with syzygies of  Jacobian ideal of
-$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  This freedom plays an important role in the case
-of non-isolated singularities as explained in section~3.3 of~\cite{Lairez:2022zkj} and reviewed
-below.
-By iterating this procedure the algorithm determines the coefficients
-in~\eqref{e:PFOmegaGeneric}. This algorithm was applied to derived the
-Picard-Fuchs equation for the massive two-loop sunset integral
-in~\cite{Bloch:2016izu}.
+%up-to ambiguities by shifting with syzygies of  Jacobian ideal of
+ %$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  
+ 
+% This freedom plays an important role in the case
+%of non-isolated singularities as explained in section~3.3 %of~\cite{Lairez:2022zkj} and reviewed
+%below.
+ Let us comment on how to determine the order of the PF operators. An upper bound on the order can be computed
+ from the number of master integrals as
+ described
+in~\cite{Bitoun:2017nre,Lee:2013hzt} (see~\cite{Agostini:2022cgv} for
+summary of different equivalent way of computing the number of master integrals). On the other hand, determining the minimal order is a difficult question. Our pragmatical approach is to start from the small order until the system \eqref{e:sysCFU} has a solution, which is the spirit of the GD reduction applied to Feynman integrals in \cite{Muller-Stach:2011qkg}.  
+
+%\pvnote{update the discussion and mention the work of %Muller-Stach/Weinzierl}
+
+%By iterating this procedure the algorithm determines the coefficients
+%in~\eqref{e:PFOmegaGeneric}. 
+
 %
 \subsection{One-loop examples}
 Let us illustrate our procedure with simple one-loop examples. 
@@ -2435,6 +2457,23 @@ M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
 	[arXiv:1212.4389 [hep-ph]].
 	%73 citations counted in INSPIRE as of 07 Dec 2023
 	
+	%\cite{Bitoun:2017nre}
+\bibitem{Bitoun:2017nre}
+	T.~Bitoun, C.~Bogner, R.~P.~Klausen and E.~Panzer,
+	%``Feynman integral relations from parametric annihilators,''
+	Lett. Math. Phys. \textbf{109} (2019) no.3, 497-564
+	doi:10.1007/s11005-018-1114-8
+	[arXiv:1712.09215 [hep-th]].
+	%72 citations counted in INSPIRE as of 18 Dec 2023
+
+%\cite{Smirnov:2010hn}
+\bibitem{Smirnov:2010hn}
+A.~V.~Smirnov and A.~V.~Petukhov,
+%``The Number of Master Integrals is Finite,''
+Lett. Math. Phys. \textbf{97} (2011), 37-44
+doi:10.1007/s11005-010-0450-0
+[arXiv:1004.4199 [hep-th]].
+%112 citations counted in INSPIRE as of 18 Dec 2023
 \end{thebibliography}
 
 \end{document}
