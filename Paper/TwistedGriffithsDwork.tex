@@ -28,7 +28,7 @@
 
 
 \setcounter{secnumdepth}{7}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 
 %%%%%%
@@ -176,11 +176,27 @@ Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
+Feynman integrals are ubiquitous in various areas of physics, and their accurate calculation, whether analytically or numerically, remains a significant hurdle in advancing our understanding of physical phenomena.
 
+Identifying the specific types of special functions required to evaluate Feynman integrals has been an ongoing challenge since the early days of quantum field theory~\cite{Golubeva,Pham}. This endeavor continues to be an active research field, with recent contributions from studies such as~\cite{Panzer:2015ida,Duhr:2019wtr,Mizera:2019ose}.
 
-Feynman integrals appear in many area of physics. Their analytical or
-numerical evaluation is a bottleneck for improving our analysis of the
-various physical phenomena. \lNote{more motivation}
+Broadhurst and Kreimer~\cite{Broadhurst:1995km,Broadhurst:1996kc} observed intriguing parallels between the definition of Feynman integrals and the concept of period integrals introduced by Kontsevich and Zagier~\cite{Kontsevich:2001}. Subsequent work by Bloch, Esnault, and Kreimer~\cite{Bloch:2005bh}  and Brown~\cite{BrownCosmic}  established that Feynman integrals can be interpreted as relative period integrals associated with the mixed Hodge structure determined by the graph polynomials defining the Feynman integrals.
+
+Intriguingly, there is growing evidence suggesting that certain
+Feynman integrals correspond to relative period integrals of singular
+Calabi--Yau geometries. This connection has been explored in a number
+of studies, including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM}.
+
+By deriving the differential operator acting on a Feynman integral one
+gets important information about its analytic nature.
+
+In this work we extend the approach used in~\cite{Lairez:2022zkj} for
+deriving the minimal differential operator for Feynman integral in
+(even) integer dimensions to the general dimension case.  This way we
+can analyse how the space-time dimension affects the order of the
+minimal differential operator and we can consider the case of infrared
+or ultraviolet divergent integrals.
+
 The parametric representation of a Feynman integral attached to a
 graph $\Gamma$ is given by the integral $  I_\Gamma = \int_{\Delta_n}
 \, \Omega^D_\Gamma$ with 
@@ -240,8 +256,8 @@ then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the 
 derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
 \pvnote{more here}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Griffiths-Dwork reduction in general dimensions}
-\label{sec:griff-dwork-reduct}
+\section{Parametric representation of Feynman integrals}
+\label{sec:parametric}
 
 We will work with the parametric representation of the Feynman
 integrals. A derivation of the parametric representation from the
@@ -323,8 +339,7 @@ form
 %
 where the exponent $\nu:=\sum_{i=1}^n \nu_i$, and $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ are the first and second Symanzik
 polynomials, 
-%associated to the
-%graph $\Gamma$, 
+%
 respectively. These are homogeneous  polynomials of
 $\deg(U)=L$ and $\deg(F)=L+1$. 
 %
@@ -340,8 +355,7 @@ relevance to Feynman integrals was already recognised in these works.
 This has been applied in
 e.g.~\cite{Mizera:2017rqa,Frellesvig:2019uqt,Cacciatori:2021nli}  for
 expanding Feynman integrals on the basis of master integrals. In contrast to these works, 
-%These
-%work do not make a specific use of 
+%
 we will use
 the fact that the twist is given by
 the power of the homogeneous degree 0 rational form
@@ -349,14 +363,15 @@ $\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$, which will be essential
 in the construction presented in this work.
 
 
-
-\subsection{Annihilators of Feynman integrals}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Annihilators of Feynman integrals}
 \label{sec:Red}
 Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf, Bitoun:2017nre, Smirnov:2010hn,Lee:2013hzt}. This means that Feynman integrals satisfy systems of  (inhomogeneous) partial
 differential equations of finite order with respect to its physical parameters
-$ \{m_1^2,\dots,m_n^2,s_{ij}\}$, which can be seen as a D-module\lNote{define and GKZ?}.  Thus, differential equations can be obtained by deriving  annihilators  of  $\Omega_\Gamma^\epsilon$, i.e., partial differential operators that annihilate  the integrand by acting on the physical parameter and the edge variables. Let us consider $r$ parameters from the set of internal masses and independent kinematics, $\underline z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s $. 
-%$\underline
-%$.
+$ \{m_1^2,\dots,m_n^2,s_{ij}\}$.
+
+Let us consider $r$ parameters from the set of internal masses and independent kinematics, $\underline z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s $. 
+%
  We seek 
  differential operators 
 annihilating the differential form $\Omega_\Gamma^\epsilon$ 
@@ -367,9 +382,6 @@ annihilating the differential form $\Omega_\Gamma^\epsilon$
 where $  c_{a_1,\dots, a_r}(\underline z)$ are rational functions of the physical
 parameters but they are independent of $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^\epsilon$ \cite{Lairez:2022zkj}.
 %
-%
-%This is possible
-%because the Feynman integral are holonomic function of its physical parameters.
 Because the domain of integration of the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
@@ -385,9 +397,25 @@ domain of integration so the integral is well defined~\cite{bek,Brown:2009ta,Blo
 Section~3.2 of~\cite{Bloch:2016izu} for a detailed derivation of the inhomogeneous term for
 the two-loop sunset integral.
 
+The ideal of generated by these
+differential operator is a differential module (or D-module).  Thus,
+differential equations can be obtained by deriving  annihilators  of
+$\Omega_\Gamma^\epsilon$, i.e., partial differential operators that
+annihilate  the integrand by acting on the physical parameter and the
+edge variables.   The Gel'fand-Kapranov-Zelevinsky (GKZ) formalism provides
+a D-module of differential operator acting on the toric generalisation
+of the Feynman
+integral~\cite{Vanhove:2018mto,delaCruz:2019skx,Klausen:2019hrg,Feng:2019bdx,Klemm:2019dbm,Ananthanarayan:2022ntm,Agostini:2022cgv,
+  Munch:2022ouq}.  For obtaining the differential module acting on a
+given Feynman integral one needs to restrict the GKZ  D-module which
+is an higher non trivial task~\cite{delaCruz:2019skx,Chestnov:2023kww} and its systematic implementation is
+still an open problem. In the following sections we present an
+algorithmic procedure for deriving the differential equation based on
+an extension of the Griffiths-Dwork reduction for twisted differential forms.
+
 
 %-------------------------------------------------------------------
-\subsection{The pole reduction}\label{sec:PoleRed}
+\subsection{Griffiths-Dwork reduction in general dimensions}\label{sec:griff-dwork-reduct}
 The    differentiation of $\Omega_\Gamma^\epsilon$ 
 leads  to  expressions of the type 
 \begin{equation}\label{e:PDE}
@@ -408,8 +436,16 @@ The
   coefficient $c_{a_1,\dots, a_r}(\underline z)$.  From now on we consider the case where
   $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The cases with $\nu_i\neq1$
   is an immediate generalisation. 
-  In the coming sections we will present an algorithm to derive these coefficients and the inhomogeneous term of the differential equation.
-  
+  In the coming sections we will present an algorithm to derive these
+  coefficients and the inhomogeneous term of the differential
+  equation. In Section~\ref{sec:PoleRed} we present a generalisation of the Griffiths-Dwork
+  pole reduction to the case of twisted differential forms, and in
+  Section~\ref{sec:deriv-diff-equat} we explain how to iteratively use this pole reduction for
+  deriving the differential operator acting on the integrand of the
+  Feynman integral.
+
+  % -----------------------------------------------------------------------
+  \subsubsection{The pole reduction}\label{sec:PoleRed}
 The starting point of the algorithm is the reduction of $P^{(a_1,\dots,a_r)}(\underline x)$ 
 
 \begin{equation}\label{e:RedF}
@@ -439,9 +475,6 @@ $\mathsf{a}(L+1)$ in  $\underline x$ .
   \cdots \wedge dx_n \, .
 \end{equation}
 To take into account the general dimensional case, we introduce 
-%$\widehat{dx_i}$
-% means that the term is omitted in the wedge
-%product and
 the twisted vectors 
 \begin{equation}
   \label{e:Gdef}
@@ -450,12 +483,6 @@ the twisted vectors
   \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over \mathbf{F}_\Gamma^L\right)^\epsilon \, ,
 \end{equation}
 which are vectors of homogeneous degree $\mathsf{a}(L+1)-n$. 
-%in
-%$\underline x$. 
-%
-%Following the analysis by Griffiths~\cite{Griffiths_1969}  extending it for
-%derivation
- %non polynomial but homogeneous function. \lNote{unclear}
 We compute
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
@@ -519,14 +546,9 @@ The second term in this equation can be evaluated using
 \mathbf{F}_\Gamma^B\right)&=\left(A \vec
 C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma -B \vec
 C_{\mathsf{a}}\cdot \vec\nabla \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{A}\over
-\mathbf{F}_\Gamma^B} \\
-%\end{align}
-%This can written %using~\eqref{e:RedF}
-%\begin{align}
- % \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{\alpha}\over
-%\mathbf{F}_\Gamma^\beta\right)
+\mathbf{F}_\Gamma^B} \cr
 &=\left[-B{
-    P^{(a_1,\cdots,a_r)}(\underline x)\over
+    P^{(a_1,\dots,a_r)}(\underline x)\over
   \mathbf{F}_\Gamma}   
 +
  A \vec
@@ -536,7 +558,7 @@ C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma \left(\mathbf{U}_\Gamma^{L+1}\o
 \end{align}
 where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore, 
 \begin{multline}
-	\label{eq:Pred}
+	\label{e:Pred}
 {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0\cr={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
@@ -560,12 +582,13 @@ This expression involves the $\vec
     \end{equation}
 where $ c_{\mathsf{a}}(\underline x)$ is a homogeneous polynomial of
 degree $\mathsf{a}(L+1)-1$. This is equivalent to the computation of syzygies of $\text{Jac}( \mathbf U_\Gamma)$. Indeed,  using the homogeneity of $\mathbf{U}_\Gamma$ we can rewrite the previous equation as 
-
 \begin{equation}
  \left( L   \vec
 C_{\mathsf{a}}(\underline x) -
-c_{\mathsf{a}}(\underline x) \vec{x} \right) \, \cdot\vec\nabla \mathbf{U}_\Gamma =0\, ,\end{equation}
-which are examples of syzygies of the Jacobian of $\mathbf U_\Gamma$. Using this reduction in eq.~\eqref{eq:Pred} leads to
+c_{\mathsf{a}}(\underline x) \vec{x} \right) \, \cdot\vec\nabla
+\mathbf{U}_\Gamma =0\, ,
+\end{equation}
+which are examples of syzygies of the Jacobian of $\mathbf U_\Gamma$. Using this reduction in eq.~\eqref{e:Pred} leads to
 % 
 \begin{multline}\label{e:RedFinal}
 {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
@@ -588,7 +611,6 @@ with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1
 \end{equation}
 %
 To perform this pole reduction, 
-%get from~\eqref{e:PDE} to~\eqref{e:RedFinal},
  we have to solve the linear system
 \begin{equation}\label{e:sysCFU}
    \left\{\begin{array}{@{}l@{}}
@@ -650,8 +672,7 @@ to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
 %
 %
 %----------------------------------------------------------------------
-
-\subsection{Algorithmic derivation of the differential equation}
+\subsubsection{Determination of the differential equation}
 \label{sec:deriv-diff-equat}
 
 
@@ -673,11 +694,6 @@ with $c_r(z,\epsilon)$ polynomials in $z$ and $\epsilon$ such that
 \begin{equation}
      \mathscr{L}_\Gamma^\epsilon \Omega_\Gamma^\epsilon= d\beta_\Gamma.
    \end{equation}
-%We know that such differential operator exist because the Feynman
-%integral are holonomic
-%functions~\cite{Smirnov:2010hn,Bitoun:2017nre,Lee:2013hzt}.
-%\pvnote{may be somewhere we can quite Gel'fand}\lNote{we said this before}
-%
 %
 Holonomicity of Feynman integrals gives an upper bound on the order of the Picard-Fuchs operator $N(\Gamma,\epsilon)$, which is  determined by
  the number of master
@@ -696,9 +712,9 @@ The next step we add the lowest-order derivative
 
 \begin{multline}\label{e:step2}
 \left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
-  +q_{N(\Gamma,\epsilon)-1}(t,\epsilon) \left(d\over dt\right)^{N(\Gamma,\epsilon)-1}\right] \Omega_\Gamma^\epsilon\cr= {M_{
+  +q_{N(\Gamma,\epsilon)-1}(t,\epsilon) \left(d\over dt\right)^{N(\Gamma,\epsilon)-1}\right] \Omega_\Gamma^\epsilon\cr= {M^{
       N(\Gamma,\epsilon)}(\underline x)+q_{N(\Gamma,\epsilon)-1}(t,\epsilon)
-    P_{N(\Gamma,\epsilon)-1}(\underline x) \over
+    P^{N(\Gamma,\epsilon)-1}(\underline x) \over
     \textbf{F}_\Gamma^{N(\Gamma,\epsilon)+n-L\delta-1}
   }\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L
   \right)^\epsilon \Omega_0^{(n)}+ d\beta_{N(\Gamma,\epsilon)}\, ,  
@@ -706,17 +722,21 @@ The next step we add the lowest-order derivative
 where the rational coefficient
 $q_{N(\Gamma,\epsilon)-1}(t,\epsilon)=c_{N(\Gamma,\epsilon)-1}(t,\epsilon)/c_{N(\Gamma,\epsilon)}(t,\epsilon)$
 is an unknown rational function of $t$ and $\epsilon$. 
-%that needs to be
-%determined. 
-The polynomial $ P_{N(\Gamma,\epsilon)-1}(\underline x) $
+The polynomial $ P^{N(\Gamma,\epsilon)-1}(\underline x) $
 is the numerator factor obtained by taking the $N(\Gamma,\epsilon)-1$
 derivative of the differential form.
 
 We then apply the reduction of section~\ref{sec:PoleRed} to
-the polynomial in the numerator. The resolution of the
+the polynomial in the numerator
+$M^{
+      N(\Gamma,\epsilon)}(\underline x)+q_{N(\Gamma,\epsilon)-1}(t,\epsilon)
+    P^{N(\Gamma,\epsilon)-1}(\underline x)$.
+The resolution of the
 system~\eqref{e:sysCFU} determines the  rational coefficient
 $q_{N(\Gamma,\epsilon)-1}(t,\epsilon)$ and
-$M_{N(\Gamma,\epsilon)-1}(x)$. One iterates the reduction until the power of the pole is $n-L-1$ so
+$M^{N(\Gamma,\epsilon)-1}(x)$ computed using~\eqref{e:Mfinal}. One
+iterates the reduction until the power of  the second Symanzik
+polynomial $\textbf{F}_\Gamma$ is $n-L-1$ so
 that
 \begin{equation}\label{e:stepfinal}
 \left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
@@ -728,21 +748,15 @@ that
 \end{equation}
 where $M_1$ is of degree 0 so that we
 \begin{equation}
-  q_0(t,\epsilon)=  {c_{0}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)}= -M_1(x)  
+  q_0(t,\epsilon)=  {c_{0}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)}= -M_1(x)  .
 \end{equation}
-and $\beta_\Gamma^\epsilon $ is the sum of the $\beta_r$ with $1\leq
+The inhomogeneous term  $\beta_\Gamma^\epsilon $ is the sum of the
+$\beta_r$ with $1\leq
 r\leq N(\Gamma,\epsilon)$
-contributions.
- This determines the coefficients
- $c_{a_1,\dots,a_i-1,\dots,a_r}(\underline z) $ with $1\leq i\leq r$ thus fully determining the Picard-Fuchs operator. 
- 
+contributions with their multiplicative factor as given in~\eqref{e:Pred}.
 
-%up-to ambiguities by shifting with syzygies of  Jacobian ideal of
- %$\textbf{F}_\Gamma$ \lNote{up to shifts ...}.  
+\medskip
  
-% This freedom plays an important role in the case
-%of non-isolated singularities as explained in section~3.3 %of~\cite{Lairez:2022zkj} and reviewed
-%below.
  Let us comment on how to determine the order of the Picard-Fuchs operators. An upper bound on the order can be computed
  from the number of master integrals.
  The number of master
@@ -773,7 +787,7 @@ The factorisation of an linear ordinary
 differential operator can be done with the {\tt DFactor} routine from
 {\tt Maple} up to the order 4 for generic parameters~\cite{PutSinger,vanHoeij}, and to any
 orders for linear  ordinary
-differential operator with numerical coefficients
+differential operators with numerical coefficients
 using the {\tt facto} algorithm in {\tt
 	sagemath}~\cite{chyzak2022symbolic,goyer2021sage}. \pvnote{ref discussion}
 
@@ -1817,12 +1831,24 @@ the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
-In Section~\ref{sec:griff-dwork-reduct}, we have presented an algorithm for deriving
+In Section~\ref{sec:griff-dwork-reduct}, we have presented an
+algorithmic procedure for deriving
 the inhomogeneous differential equations satisfied by Feynman
-integrals. The algorithm solves for the coefficients in the
-differential equations with respect to the physical parameters and
-determines the inhomogeneous term of the differential
-equation. \pvnote{Give the key equation numbers} 
+integrals. At each derivative order the
+derivative procedure solves the  linear systems~\eqref{e:sysCFU}
+determining the coefficients $c_{a_1,\dots,a_r}(\underline z)$ and the
+inhomogeneous term $\beta_\Gamma$ in~\eqref{e:PFOmegaGeneric}.
+
+
+We first give a discussion  of  the order of the minimal differential
+operator and then of the $\epsilon$ dependence.
+
+%------------------------------------------------------------------------
+\subsection{Minimal order of the differential operator}
+\label{sec:minim-order-diff}
+
+
+
  
 In the example studied in this work we have found the following:
 
@@ -1853,15 +1879,15 @@ factorisable) $\epsilon$ deformed Picard-Fuchs operator has for order
 the number of master integrals. But for special kinematics the minimal
 order is smaller.
 
-There are two cases in which the order is  reduced \pvnote{ more
-  singularities or more symmetries}
+The reduction of order arises when the integrand has more
+singularities or more symmetries:
 \begin{itemize}
-  \item In the case of
+  \item {\bf More singularities:} In the case of
 massless internal line or massless external kinematics, extra
 singularities arises reducing the genus of the algebraic locus defined
 by the singular locus of the integral, and therefore reducing the
 order the minimal differential operator.
-\item 
+\item {\bf More symmetries:}
 Another situations is that for special choices of kinematic
 configurations the integrand of the Feynman integral presents extra
 symmetries in the space of projective variables $\underline
@@ -1871,41 +1897,82 @@ reduction order of the sunset integral according the mass
 configurations as given in~\cite{Bloch:2014qca,Lairez:2022zkj,Bonisch:2021yfw,Bonisch:2020qmm,Pogel:2022vat}.
 \end{itemize}
 
-The phenomenon of order reduction can be seen by computing  the
-factorisation of the differential operator.
-The minimal order differential operator for  special mass or kinematic
-configurations is a right factor of the general 
-configuration differential operator.  It has been shown
-in~\cite{Lairez:2022zkj}  how to \pvnote{XXX}  $L^{\rm
-  generic}\to_{specialize} \tilde L= L_1 L_{\rm minimal}$
+
+
 
 This reduction of order is due to the extra symmetries of the
 integrand which gives rise to relations between period integrals.
-As explained in~\cite{Lairez:2022zkj} this reduction of order can be
-understood by the factorisability of the Picard-Fuchs operator.  The
-computation of the Euler characteristic $\chi_\Gamma$ does not detect
-these dimension drop. Neither its computation using the critical point
-of the
+This reduction of order can be
+understood by the factorisability of the Picard-Fuchs operator
+\begin{equation}
+  \mathscr{L}_{\rm generic} \stackrel{\rm restriction}{\longrightarrow}
+  \hat{\mathscr{L}}_{\rm restricted}   = \mathscr{L}_1 \mathscr{L}_{\rm minimal}
+\end{equation}
+For instance in Section~4 of~\cite{Lairez:2022zkj} it has been shown
+how the multi-loop sunset Picard-Fuchs operator factorizes under
+internal mass identifications.
+
+As well the minimal order differential operator for the all equal
+mass $L$-loop sunset is $L$. Which is much smaller than the order
+$2^{L+1}-\binom{L+2}{\left\lfloor \frac{L+2}{2}\right\rfloor }$ for generic
+mass configurations~\cite{Lairez:2022zkj} which is the number of
+master integrals~\cite{Bitoun:2017nre}.
+The reason being that the Feynman integral for the all equal mass
+configuration has more symmetries.  
+
+We notice that the algorithm presented in this work produces the 
+the minimal  differential operator and does not need any factorisation
+of the differential operator, to the contrary to the procedure
+presented in~\cite{Pogel:2022vat}. 
+
+
+
+Unfortunately, the order drop is not detected by  either the
+computation of the Euler characteristic of complement of graph
+hypersurface in the projective space of the edge variables, nor the
+computation using the critical points of the
 Lee-Pomeransky representation~\cite{Lee:2013hzt}   nor the
-Baikov representation~\cite{Frellesvig:2017aai,Frellesvig:2019uqt,Cacciatori:2021nli}.
-\pvnote{cite Weinzierl genus drop}
+Baikov
+representation~\cite{Frellesvig:2017aai,Frellesvig:2019uqt,Cacciatori:2021nli}.
+For instance it was explained how an hidden involution symmetry of the
+two-loop non-planar double-box allows to identify the hyperelliptic
+curve of genus 2 when the use of the Baikov representation gave a
+curve of genus 3~\cite{Marzucca:2023gto}.
+It is shown in~\cite{Doran:2023yzu}, using
+a detailed  algebraic-geometrical analysis, that all planar two-loop
+integral are either period of rational curves, elliptic curve or genus
+2 hyperelliptic curves.
+
+%------------------------------------------------------------------------
+\subsection{The $\epsilon$-dependence}
+\label{sec:epsilon-dependence}
+
+
+
+We turn to a discussion of the way the $\epsilon$ factor enters the
+differential equation.
 
 For a differential equation
-\begin{equation}
-	\sum_{r=0}^N c_r(z) {d^rf(z)\over dz^r}=0  
+\begin{equation}\label{e:PFconclusion}
+c_N(z)  {d^Nf(z)\over dz^N}+\cdots + c_0(z) f(z)=0
 \end{equation}
-the roots of $p_N(z)$ are the singularities of the differential
-equation. A root of $p_N(z)$ where the solution $f(z)$ is
-\emph{regular} is called an apparent singularity.
+the roots of $c_N(z)$ are the singularities of the differential
+equation. A root of $c_N(z)$ where the solution $f(z)$ is
+regular is called an apparent singularity. A root of $c_N(z)$
+where the solution has a singularity is a real. We refer to
+Section~16.4 of~\cite{Ince} for details.
 
-The non-apparent singularities root of $p_N(z)$ are the roots of the
-discriminant of the singular locus of the Feynman integrals~\cite{Doran:2023yzu}.
+For the case of Feynman integrals the non-apparent singularities
+of~\eqref{e:PFconclusion} are the roots of the
+discriminant of the singular locus of the integrand of  Feynman
+integrals~\cite{Doran:2023yzu}.
 
-We have noticed that the $\epsilon$ deformation affects only the
+We have noticed that the $\epsilon$ deformation appears only in  the
 apparent singularities of the differential operator
-$\mathscr{L}_z^\epsilon$. The  $\epsilon$ affects the monodromy of differential equation around
-the singular point by changing the indicial equation.
-
+$\mathscr{L}_z^\epsilon$. This means that the  $\epsilon$ deformation
+does not change the position of the real singularities but it affects
+the local behaviour (the monodromy) of the solution near the
+singularity.
 
 The physical reason for this is that in singularities (the threshold
 and pseudo-thresholds) of a Feynman integral are independent of the
@@ -1915,7 +1982,16 @@ dimension.
   For instance that has been used with great success
 when decomposing amplitudes using the generalized unitarity method~\cite{Bern:2011qt}.
 
-\pvnote{short outlook}
+%------------------------------------------------------------------------
+\section{Conclusion}
+We have presented a generalisation of the Griffiths-Dwork reduction
+for deriving the differential operator acting on Feynman integrals in
+general dimensions.  We have worked out various cases either
+generalising the know integer dimension cases or determining cases
+that could not be achieved with the algorithm used
+in~\cite{lairez2016computing,Lairez:2022zkj}. The procedure amounts to
+solving linear systems which is done using {\tt
+  FiniteFlow} routines~\cite{Peraro:2019svx}. \pvnote{??}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
@@ -1945,7 +2021,7 @@ For $x\to0$ we have
   \lim_{x\to0} K_{-\epsilon}(x)   \simeq \left(x\over2\right)^{\epsilon}
 \end{equation}
 and the integral converges as long as $2+(n-1)\epsilon>0$ which is the
-condition $D=2-2\epsilon< 2n/(n-1)$ for the absence of UV divergences
+condition $D=2-2\epsilon< 2n/(n-1)$ for the absence of ultraviolet divergences
 for the $n-1$-loop massive sunset.
 
 Using this representation and applying the creative telescoping
@@ -1956,34 +2032,234 @@ The creative telescoping algorithm builds an annihilator
   \mathscr{T}(t,\partial_t; x,\partial_x)= \mathscr{L}(t,\partial_t)+ \mathscr{C}(  t,\partial_t; x,\partial_x)
 \end{equation}
 of the integrand
-$i(t,x):= I_{-\epsilon}(\sqrt{t} x)
+$f(t,x):= I_{-\epsilon}(\sqrt{t} x)
   \prod_{i=1}^{L+1}K_{-\epsilon}(m_ix)\,  x^{1+\epsilon(n-1)}$
 such that
 \begin{equation}
-      \mathscr{T}(t,\partial_t; x,\partial_x) i(t,x)=\mathscr{L}(t,\partial_t)i(t,x)+ \mathscr{C}(  t,\partial_t; x,\partial_x) i(t,x)=0
+      \mathscr{T}(t,\partial_t; x,\partial_x) f(t,x)=\mathscr{L}(t,\partial_t)i(t,x)+ \mathscr{C}(  t,\partial_t; x,\partial_x) f(t,x)=0
     \end{equation}
-    implying that $\mathscr{L}(t,\partial_t)i$ is the operator acting
+    implying that $\mathscr{L}(t,\partial_t)f(t,x)$ is the operator acting
     on the integral because the domain of integration is independent
     of $t$.
-For the multi-loop sunset
-integrals this is the fastest way of obtaining these results as it
-only takes only from a few second to a few minutes for deriving the
-results to high-loop order for the all equal mass case. Notice as well
-that the algorithm gives the minimal  differential operator and does
-not need any factorisation step to the contrary to the algorithm
-presented in~\cite{Pogel:2022vat}. The irreducibility is not guaranteed
-but it can be checked easily with the algorithm~\cite{chyzak2022symbolic,goyer2021sage}. It
-turns that for the sunset integrals the algorithms produces the
-minimal order differential operator.
-
+On an ordinary laptop, the results for the all equal mass case and up to twenty loops order, are obtained in
+a few second to a few minutes. Which is of the same order of time as
+the generalised Griffiths-Dwork reduction presented in the main text
+of this work.
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
+  
+\bibitem{Golubeva} V. A. Golubeva, ``Some Problems In The Analytic
+  Theory Of Feynman Integrals'' , Russ. Math. Surv. {\bf 31} 139 (1976)
 
-  \bibitem{Marzucca:2023gto}
-R.~Marzucca, A.~J.~McLeod, B.~Page, S.~P\"ogel and S.~Weinzierl,
-``Genus Drop in Hyperelliptic Feynman Integrals,''
-[arXiv:2307.11497 [hep-th]].
+\bibitem{Pham} F.~Pham, ``Introduction \`a l'\'etude topologique des
+  singularit\'es de Landau'', Paris : Gauthier-Villars; 1967
+
+\bibitem{Panzer:2015ida}
+E.~Panzer,
+``Feynman Integrals and Hyperlogarithms,''
+% doi:10.18452/17157
+Thesis: PhD Humboldt U. (2015)
+[arXiv:1506.07243 [math-ph]].
+
+  \bibitem{Duhr:2019wtr}
+C.~Duhr,
+``Function Theory for Multiloop Feynman Integrals,''
+Ann. Rev. Nucl. Part. Sci. \textbf{69} (2019), 15-39
+%doi:10.1146/annurev-nucl-101918-023551
+
+
+
+  
+\bibitem{Mizera:2019ose}
+S.~Mizera,
+``Status of Intersection Theory and Feynman Integrals,''
+PoS \textbf{MA2019} (2019), 016
+%doi:10.22323/1.383.0016
+[arXiv:2002.10476 [hep-th]].
+
+\bibitem{Broadhurst:1995km}
+D.~J.~Broadhurst and D.~Kreimer,
+``Knots and Numbers in Ph$ i^4$ Theory to 7 Loops and Beyond,''
+Int.\ J.\ Mod.\ Phys.\ C {\bf 6} (1995) 519
+[hep-ph/9504352].
+%% CITATION = HEP-PH/9504352;%%
+
+\bibitem{Broadhurst:1996kc}
+D.~J.~Broadhurst and D.~Kreimer,
+``Association of Multiple Zeta Values with Positive Knots via Feynman Diagrams Up to 9 Loops,''
+Phys.\ Lett.\ B {\bf 393} (1997) 403
+[hep-th/9609128].
+%%CITATION = HEP-TH/9609128;%%
+
+
+\bibitem{Kontsevich:2001}
+M.~Kontsevich and D.~Zagier, ``Periods'', in Engquist, Bj\"orn; Schmid,
+Wilfried, Mathematics unlimited -- 2001 and beyond, Berlin, New York:
+Springer-Verlag, pp. 771-808.
+
+\bibitem{Bloch:2005bh}
+S.~Bloch, H.~Esnault and D.~Kreimer,
+``On Motives associated to graph polynomials,''
+Commun. Math. Phys. \textbf{267} (2006), 181-225
+%doi:10.1007/s00220-006-0040-2
+[arXiv:math/0510011 [math.AG]].
+
+
+\bibitem{BrownCosmic} F.~C.~S.~Brown, ``Feynman Amplitudes and Cosmic
+  Galois group'', [arXiv:1512.06409]
+
+
+
+  \bibitem{Brown:2009ta}
+Francis Brown.
+\newblock {On the periods of some {F}eynman integrals}.
+\newblock 10 2009.
+\newblock [arXiv:0910.0114]  
+
+\bibitem{Bloch:2014qca}
+Spencer Bloch, Matt Kerr, and Pierre Vanhove.
+\newblock {A Feynman integral via higher normal functions}.
+\newblock {\em Compos. Math.}, 151(12):2329--2375, 2015.
+\newblock [arXiv:1406.2664] 
+
+\bibitem{Bloch:2016izu}
+Spencer Bloch, Matt Kerr, and Pierre Vanhove.
+\newblock {Local mirror symmetry and the sunset Feynman integral}.
+\newblock {\em Adv. Theor. Math. Phys.}, 21:1373--1453, 2017.
+\newblock [arXiv:1601.08181]
+
+\bibitem{Bourjaily:2018ycu}
+J.~L.~Bourjaily, Y.~H.~He, A.~J.~Mcleod, M.~Von Hippel and M.~Wilhelm,
+``Traintracks Through Calabi--Yau Manifolds: Scattering Amplitudes Beyond Elliptic Polylogarithms,''
+Phys. Rev. Lett. \textbf{121} (2018) no.7, 071603
+%doi:10.1103/PhysRevLett.121.071603
+[arXiv:1805.09326 [hep-th]].
+  
+
+\bibitem{Bourjaily:2019hmc}
+J.~L.~Bourjaily, A.~J.~McLeod, C.~Vergu, M.~Volk, M.~Von Hippel and M.~Wilhelm,
+``Embedding Feynman Integral (Calabi-Yau) Geometries in Weighted Projective Space,''
+JHEP \textbf{01} (2020), 078
+%doi:10.1007/JHEP01(2020)078
+[arXiv:1910.01534 [hep-th]].
+
+\bibitem{Bourjaily:2018yfy}
+J.~L.~Bourjaily, A.~J.~McLeod, M.~von Hippel and M.~Wilhelm,
+``Bounded Collection of Feynman Integral Calabi--Yau Geometries,''
+Phys. Rev. Lett. \textbf{122} (2019) no.3, 031601
+%doi:10.1103/PhysRevLett.122.031601
+[arXiv:1810.07689 [hep-th]].
+
+\bibitem{Klemm:2019dbm}
+A.~Klemm, C.~Nega and R.~Safari,
+``The $l$-loop Banana Amplitude from Gkz Systems and Relative Calabi-Yau Periods,''
+JHEP \textbf{04} (2020), 088
+%doi:10.1007/JHEP04(2020)088
+[arXiv:1912.06201 [hep-th]].
+
+\bibitem{Bonisch:2020qmm}
+K.~B\"onisch, F.~Fischbach, A.~Klemm, C.~Nega and R.~Safari,
+``Analytic structure of all loop banana integrals,''
+JHEP \textbf{05} (2021), 066
+%doi:10.1007/JHEP05(2021)066
+[arXiv:2008.10574 [hep-th]].
+
+
+\bibitem{Bonisch:2021yfw}
+K.~B\"onisch, C.~Duhr, F.~Fischbach, A.~Klemm and C.~Nega,
+``Feynman Integrals in Dimensional Regularization and Extensions of Calabi-Yau Motives,''
+JHEP \textbf{09} (2022), 156
+%doi:10.1007/JHEP09(2022)156
+[arXiv:2108.05310 [hep-th]].
+
+\bibitem{Bourjaily:2022bwx}
+J.~L.~Bourjaily, J.~Broedel, E.~Chaubey, C.~Duhr, H.~Frellesvig, M.~Hidding, R.~Marzucca, A.~J.~McLeod, M.~Spradlin and L.~Tancredi, \textit{et al.}
+``Functions Beyond Multiple Polylogarithms for Precision Collider Physics,''
+[arXiv:2203.07088 [hep-ph]].
+
+
+  \bibitem{Forum:2022lpz}
+A.~Forum and M.~von Hippel,
+``A Symbol and Coaction for Higher-Loop Sunrise Integrals,''
+[arXiv:2209.03922 [hep-th]].
+
+\bibitem{Duhr:2022pch}
+C.~Duhr, A.~Klemm, F.~Loebbert, C.~Nega and F.~Porkert,
+``Yangian-Invariant Fishnet Integrals in 2 Dimensions as Volumes of Calabi--Yau Varieties,''
+[arXiv:2209.05291 [hep-th]].
+
+\bibitem{Frellesvig:2023PM}
+H. Frellesvig, R. Morales, and M. Wilhelm
+``Calabi-Yau meets Gravity: A Calabi-Yau three-fold at fifth post-Minkowskian order,''
+[arXiv:2312.11371 [hep-th]].
+  
+\bibitem{Lairez:2022zkj}
+P.~Lairez and P.~Vanhove,
+``Algorithms for Minimal Picard-Fuchs Operators of Feynman Integrals,''
+Lett. Math. Phys. \textbf{113} (2023) no.2, 37
+%doi:10.1007/s11005-023-01661-3
+[arXiv:2209.10962 [hep-th]].
+  
+\bibitem{bek}
+Spencer Bloch, H{\'e}l{\`e}ne Esnault, and Dirk Kreimer.
+\newblock On motives associated to graph polynomials.
+\newblock {\em Communications in mathematical physics},
+267(1):181--225, 2006.
+\newblock [arXiv:math/0510011] 
+
+
+\bibitem{Griffiths_1969}
+P.~A. Griffiths.
+\newblock On the periods of certain rational integrals.
+\newblock {Ann. of Math.}, {\bf 90} (1969), 460--541.
+
+
+  \bibitem{Griffith1} Griffiths, P.A.: The Residue Calculus and Some
+    Transcendental Results in Algebraic Geometry, I. Presented at the
+    (1966)
+
+    \bibitem{Griffith2} 
+    Griffiths, P.A.: ``The Residue Calculus And Some Transcendental
+    Results In Algebraic Geometry, II''. Proceedings of the National
+    Academy of Sciences. 55, 1392-1395
+    (1966). https://doi.org/10.1073/pnas.55.6.1392 
+
+\bibitem{Dwork_1962}
+B.~Dwork.
+\newblock On the zeta function of a hypersurface.
+\newblock {Inst. Hautes \'Etudes Sci. Publ. Math.} {\bf 12} (1962) 5--68.
+
+\bibitem{Dwork_1964}
+B.~Dwork.
+\newblock On the zeta function of a hypersurface: {{II}}.
+\newblock {Ann. of Math.}, {\bf 80} (1964) 227--299.
+  
+\bibitem{Vanhove:2018mto}
+P.~Vanhove,
+``Feynman Integrals, Toric Geometry and Mirror Symmetry,''
+%doi:10.1007/978-3-030-04480-0\_17
+[arXiv:1807.11466 [hep-th]].
+
+\bibitem{Doran:2023yzu}
+C.~F.~Doran, A.~Harder, E.~Pichon-Pharabod and P.~Vanhove,
+``Motivic Geometry of Two-Loop Feynman Integrals,''
+[arXiv:2302.14840 [math.AG]].
+
+  
+  \bibitem{Vanhove:2014wqa}
+P.~Vanhove,
+``The Physics and the Mixed Hodge Structure of Feynman Integrals,''
+Proc. Symp. Pure Math. \textbf{88} (2014), 161-194
+%doi:10.1090/pspum/088/01455
+[arXiv:1401.6438 [hep-th]].
+
+
+
+  \bibitem{nakanishi1971graph}
+Noboru Nakanishi,
+\newblock {\em Graph theory and Feynman integrals}, volume~11.
+\newblock Routledge, 1971.
 
 
  \bibitem{Bogner:2010kv}
@@ -1992,48 +2268,56 @@ C.~Bogner and S.~Weinzierl,
 Int. J. Mod. Phys. A \textbf{25} (2010), 2585-2618
 %doi:10.1142/S0217751X10049438
 [arXiv:1002.3458 [hep-ph]].
- 
 
-\bibitem{Vanhove:2014wqa}
-P.~Vanhove,
-``The Physics and the Mixed Hodge Structure of Feynman Integrals,''
-Proc. Symp. Pure Math. \textbf{88} (2014), 161-194
-%doi:10.1090/pspum/088/01455
-[arXiv:1401.6438 [hep-th]].
+\bibitem{Weinzierl:2022eaz}
+Stefan Weinzierl.
+\newblock Quantum field theory.
+\newblock In {\em Feynman Integrals: A Comprehensive Treatment for Students and
+  Researchers}, pages 101--133. Springer, 2022.
+\newblock [arXiv:2201.03593] 
+  
+
+
+   \bibitem{Aomoto1} K.~Aomoto, ``Les \'equations aux diff\'erences
+     lin\'eaires et les int\'egrales des fonctions multiformes'',
+     J. Fac. Sci. Univ. Tokyo, 22(3), 271-297  (1975)
+
+  \bibitem{Aomoto} K.~Aomoto, ``On vanishing of cohomology attached to
+    certain many valued meromorphic functions'', J. Math. Soc. Japan
+    27(2): 248-255 (1975)
 
   
-\bibitem{Bern:2011qt}
-Z.~Bern and Y.~t.~Huang,
-``Basics of Generalized Unitarity,''
-J. Phys. A \textbf{44} (2011), 454003
-doi:10.1088/1751-8113/44/45/454003
-[arXiv:1103.1869 [hep-th]].
-  
-\bibitem{Peraro:2019svx}
-T.~Peraro,
-``Finiteflow: Multivariate Functional Reconstruction Using Finite Fields and Dataflow Graphs,''
-JHEP \textbf{07} (2019), 031
-%doi:10.1007/JHEP07(2019)031
-[arXiv:1905.08019 [hep-ph]].
+\bibitem{Aomoto_1982}  K.~Aomoto, ``Configurations and Invariant Gauss-Manin Connections of Integrals I.'' Tokyo Journal of Mathematics 5, 249-287. https://doi.org/10.3836/tjm/1270214894
 
-  
-\bibitem{PutSinger} van der Put, M., and Singer, M. F. Galois Theory of Linear Differential Equations, Vol. 328. Springer: 2003. An electronic version of this book is available at http://www4.ncsu.edu/\~singer/ms\_papers.html.
+    \bibitem{AomotoBook} K.~Aomoto, K. and M.~Kita, , ``Theory of Hypergeometric Functions,'' Springer Monographs in Mathematics, Springer-Verlag, Tokyo, 2011
+\bibitem{Mizera:2017rqa}
+S.~Mizera,
+``Scattering Amplitudes from Intersection Theory,''
+Phys. Rev. Lett. \textbf{120} (2018) no.14, 141602
+%doi:10.1103/PhysRevLett.120.141602
+[arXiv:1711.00469 [hep-th]].
 
- \bibitem{vanHoeij} van Hoeij, M. "Factorization of Differential Operators with Rational Functions Coefficients." J. Symb. Comput. Vol. 24. (1997): 537-561.
-
+\bibitem{Frellesvig:2019uqt}
+H.~Frellesvig, F.~Gasparotto, M.~K.~Mandal, P.~Mastrolia, L.~Mattiazzi and S.~Mizera,
+``Vector Space of Feynman Integrals and Multivariate Intersection Numbers,''
+Phys. Rev. Lett. \textbf{123} (2019) no.20, 201602
+%doi:10.1103/PhysRevLett.123.201602
+[arXiv:1907.02000 [hep-th]].
+    
+\bibitem{Cacciatori:2021nli}
+S.~L.~Cacciatori, M.~Conti and S.~Trevisan,
+``Co-Homology of Differential Forms and Feynman Diagrams,''
+Universe \textbf{7} (2021) no.9, 328
+doi:10.3390/universe7090328
+[arXiv:2107.14721 [hep-th]].
   
-\bibitem{Kawai} Shingo Kawai ``Isomonodromic deformation of Fuchsian projective connections on elliptic curves,'' Nagoya Mathematical Journal, Nagoya Math. J. 171(none), 127-161, (2003)
-  
-\bibitem{doran-isomo} Charles F. Doran, ``Algebraic and Geometric Isomonodromic Deformations,'' Journal of Differential Geometry 59 (September 2001), no. 1, 33-85 (EN). MR1909248
-   
-  \bibitem{Sibuya} Yasutaka Sibuya, ``Linear Differential Equations in the Complex Domain: Problems of Analytic Continuation'' (Translations of Mathematical Monographs, 82)
 
-\bibitem{Remiddi:2013joa}
-E.~Remiddi and L.~Tancredi,
-``Schouten Identities for Feynman Graph Amplitudes; the Master Integrals for the Two-Loop Massive Sunrise Graph,''
-Nucl. Phys. B \textbf{880} (2014), 343-377
-%doi:10.1016/j.nuclphysb.2014.01.009
-[arXiv:1311.3342 [hep-ph]].
+
+\bibitem{Kashiwara:1977nf}
+M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
+		Equations and Feynman Integrals}},
+\href{https://doi.org/10.2977/prims/1195196602}{\emph{Publ. Res. Inst. Math.
+		Sci. Kyoto} {\bfseries 12} (1977) 131}.
 
   
   \bibitem{Bitoun:2017nre}
@@ -2042,11 +2326,6 @@ T.~Bitoun, C.~Bogner, R.~P.~Klausen and E.~Panzer,
 Lett. Math. Phys. \textbf{109} (2019) no.3, 497-564
 %doi:10.1007/s11005-018-1114-8
 [arXiv:1712.09215 [hep-th]].
-
-\bibitem{Doran:2023yzu}
-C.~F.~Doran, A.~Harder, E.~Pichon-Pharabod and P.~Vanhove,
-``Motivic Geometry of Two-Loop Feynman Integrals,''
-[arXiv:2302.14840 [math.AG]].
 
 \bibitem{Smirnov:2010hn}
 A.~V.~Smirnov and A.~V.~Petukhov,
@@ -2057,11 +2336,85 @@ Lett. Math. Phys. \textbf{97} (2011), 37-44
 
 
 
-  \bibitem{Brown:2009ta}
-Francis Brown.
-\newblock {On the periods of some {F}eynman integrals}.
-\newblock 10 2009.
-\newblock [arXiv:0910.0114]  
+\bibitem{Lee:2013hzt}
+R.~N.~Lee and A.~A.~Pomeransky,
+``Critical Points and Number of Master Integrals,''
+JHEP \textbf{11} (2013), 165
+%doi:10.1007/JHEP11(2013)165
+[arXiv:1308.6676 [hep-ph]].
+
+
+
+\bibitem{muller2014picard}
+Stefan M{\"u}ller-Stach, Stefan Weinzierl, and Raphael Zayadeh.
+\newblock Picard--{F}uchs equations for {F}eynman integrals.
+\newblock {\em Communications in Mathematical Physics},
+326(1):237--249, 2014.
+\newblock [arXiv:1212.4389]
+  
+\bibitem{delaCruz:2019skx}
+L.~de la Cruz,
+``Feynman Integrals as A-Hypergeometric Functions,''
+JHEP \textbf{12} (2019), 123
+%doi:10.1007/JHEP12(2019)123
+[arXiv:1907.00507 [math-ph]].
+
+\bibitem{Klausen:2019hrg}
+R.~P.~Klausen,
+``Hypergeometric Series Representations of Feynman Integrals by Gkz Hypergeometric Systems,''
+JHEP \textbf{04} (2020), 121
+%doi:10.1007/JHEP04(2020)121
+[arXiv:1910.08651 [hep-th]].
+  
+\bibitem{Feng:2019bdx}
+T.~F.~Feng, C.~H.~Chang, J.~B.~Chen and H.~B.~Zhang,
+``Gkz-Hypergeometric Systems for Feynman Integrals,''
+Nucl. Phys. B \textbf{953} (2020), 114952
+%doi:10.1016/j.nuclphysb.2020.114952
+[arXiv:1912.01726 [hep-th]].
+
+\bibitem{Ananthanarayan:2022ntm}
+B.~Ananthanarayan, S.~Banik, S.~Bera and S.~Datta,
+``Feyngkz: a Mathematica Package for Solving Feynman Integrals Using Gkz Hypergeometric Systems,''
+Comput. Phys. Commun. \textbf{287} (2023), 108699
+%doi:10.1016/j.cpc.2023.108699
+[arXiv:2211.01285 [hep-th]].
+
+\bibitem{Agostini:2022cgv}
+D.~Agostini, C.~Fevola, A.~L.~Sattelberger and S.~Telen,
+``Vector Spaces of Generalized Euler Integrals,''
+[arXiv:2208.08967 [math.AG]].
+\bibitem{Munch:2022ouq}
+H.~J.~Munch,
+``Feynman Integral Relations from Gkz Hypergeometric Systems,''
+PoS \textbf{LL2022} (2022), 042
+%doi:10.22323/1.416.0042
+[arXiv:2207.09780 [hep-th]].
+\bibitem{Chestnov:2023kww}
+V.~Chestnov, S.~J.~Matsubara-Heo, H.~J.~Munch and N.~Takayama,
+``Restrictions of Pfaffian Systems for Feynman Integrals,''
+JHEP \textbf{11} (2023), 202
+%doi:10.1007/JHEP11(2023)202
+[arXiv:2305.01585 [hep-th]].
+
+\bibitem{Mastrolia:2018uzb}
+P.~Mastrolia and S.~Mizera,
+``Feynman Integrals and Intersection Theory,''
+JHEP \textbf{02} (2019), 139
+%doi:10.1007/JHEP02(2019)139
+[arXiv:1810.03818 [hep-th]].
+
+\bibitem{Muller-Stach:2011qkg}
+S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
+``A Second-Order Differential Equation for the Two-Loop Sunrise Graph with Arbitrary Masses,''
+Commun. Num. Theor. Phys. \textbf{6} (2012), 203-222
+%doi:10.4310/CNTP.2012.v6.n1.a5
+[arXiv:1112.4360 [hep-ph]].
+
+  
+\bibitem{PutSinger} van der Put, M., and Singer, M. F. Galois Theory of Linear Differential Equations, Vol. 328. Springer: 2003. An electronic version of this book is available at http://www4.ncsu.edu/\~singer/ms\_papers.html.
+
+ \bibitem{vanHoeij} van Hoeij, M. "Factorization of Differential Operators with Rational Functions Coefficients." J. Symb. Comput. Vol. 24. (1997): 537-561.
 
 \bibitem{chyzak2022symbolic}
 Fr\'{e}d\'{e}ric Chyzak, Alexandre Goyer, and Marc Mezzarobba.
@@ -2078,259 +2431,24 @@ Alexandre Goyer.
 \newblock {\em ACM Communications in Computer Algebra}, 55(2):44--48,
 2021.
 
-
-\bibitem{Griffiths_1969}
-P.~A. Griffiths.
-\newblock On the periods of certain rational integrals.
-\newblock {Ann. of Math.}, {\bf 90} (1969), 460--541.
-
-\bibitem{Dwork_1962}
-B.~Dwork.
-\newblock On the zeta function of a hypersurface.
-\newblock {Inst. Hautes \'Etudes Sci. Publ. Math.} {\bf 12} (1962) 5--68.
-
-\bibitem{Dwork_1964}
-B.~Dwork.
-\newblock On the zeta function of a hypersurface: {{II}}.
-\newblock {Ann. of Math.}, {\bf 80} (1964) 227--299.
-
-\bibitem{lairez2016computing}
-Pierre Lairez.
-\newblock Computing periods of rational integrals.
-\newblock {\em Mathematics of computation}, 85(300):1719--1752, 2016.
-\newblock [arXiv:1404.5069]
-
-\bibitem{Eric2023}
-Pierre Lairez, Eric Pichon-Pharabod, and Pierre Vanhove.
-\newblock {Using effective Picard-Lefschetz theory to compute periods of smooth
-  complex projective hypersurfaces,}
-\newblock in preparation.
-
-
-
-  \bibitem{nakanishi1971graph}
-Noboru Nakanishi,
-\newblock {\em Graph theory and Feynman integrals}, volume~11.
-\newblock Routledge, 1971.
-
-
-\bibitem{muller2012second}
-Stefan M{\"u}ller-Stach, Stefan Weinzierl, and Raphael Zayadeh.
-\newblock A second-order differential equation for the two-loop sunrise graph
-  with arbitrary masses.
-\newblock {\em Communications in Number Theory and Physics}, 6(1):203--222,
-2012.
-\newblock [arXiv:1112.4360]
-
-\bibitem{muller2014picard}
-Stefan M{\"u}ller-Stach, Stefan Weinzierl, and Raphael Zayadeh.
-\newblock Picard--{F}uchs equations for {F}eynman integrals.
-\newblock {\em Communications in Mathematical Physics},
-326(1):237--249, 2014.
-\newblock [arXiv:1212.4389]
-
-\bibitem{Weinzierl:2022eaz}
-Stefan Weinzierl.
-\newblock Quantum field theory.
-\newblock In {\em Feynman Integrals: A Comprehensive Treatment for Students and
-  Researchers}, pages 101--133. Springer, 2022.
-\newblock [arXiv:2201.03593] 
-
-
-\bibitem{bek}
-Spencer Bloch, H{\'e}l{\`e}ne Esnault, and Dirk Kreimer.
-\newblock On motives associated to graph polynomials.
-\newblock {\em Communications in mathematical physics},
-267(1):181--225, 2006.
-\newblock [arXiv:math/0510011] 
-
-\bibitem{Bloch:2014qca}
-Spencer Bloch, Matt Kerr, and Pierre Vanhove.
-\newblock {A Feynman integral via higher normal functions}.
-\newblock {\em Compos. Math.}, 151(12):2329--2375, 2015.
-\newblock [arXiv:1406.2664] 
-
-\bibitem{Bloch:2016izu}
-Spencer Bloch, Matt Kerr, and Pierre Vanhove.
-\newblock {Local mirror symmetry and the sunset Feynman integral}.
-\newblock {\em Adv. Theor. Math. Phys.}, 21:1373--1453, 2017.
-\newblock [arXiv:1601.08181]
-  
- \bibitem{PVISSAC} Pierre Vanhove. 2021. ``Differential Equations for Feynman Integrals.'' In Proceedings of the 2021 on International Symposium on Symbolic and Algebraic Computation (ISSAC '21). Association for Computing Machinery, New York, NY, USA, 21-26. https://doi.org/10.1145/3452143.3465512
-
-   \bibitem{Aomoto1} K.~Aomoto, ``Les \'equations aux diff\'erences
-     lin\'eaires et les int\'egrales des fonctions multiformes'',
-     J. Fac. Sci. Univ. Tokyo, 22(3), 271-297  (1975)
-  
-  \bibitem{Frellesvig:2017aai}
-  H.~Frellesvig and C.~G.~Papadopoulos,
-  ``Cuts of Feynman Integrals in Baikov Representation,''
-  JHEP {\bf 1704} (2017) 083
-%  doi:10.1007/JHEP04(2017)083
-  [arXiv:1701.07356 [hep-ph]].
-
-  \bibitem{Aomoto} K.~Aomoto, ``On vanishing of cohomology attached to
-    certain many valued meromorphic functions'', J. Math. Soc. Japan
-    27(2): 248-255 (1975)
-
-    \bibitem{AomotoBook} K.~Aomoto, K. and M.~Kita, , ``Theory of Hypergeometric Functions,'' Springer Monographs in Mathematics, Springer-Verlag, Tokyo, 2011
-    
-\bibitem{Cacciatori:2021nli}
-S.~L.~Cacciatori, M.~Conti and S.~Trevisan,
-``Co-Homology of Differential Forms and Feynman Diagrams,''
-Universe \textbf{7} (2021) no.9, 328
-doi:10.3390/universe7090328
-[arXiv:2107.14721 [hep-th]].
-  
-\bibitem{Gituliar:2017vzm}
-O.~Gituliar and V.~Magerya,
-``Fuchsia: a Tool for Reducing Differential Equations for Feynman Master Integrals to Epsilon Form,''
-Comput. Phys. Commun. \textbf{219} (2017), 329-338
-%doi:10.1016/j.cpc.2017.05.004
-[arXiv:1701.04269 [hep-ph]].
-
-\bibitem{Bourjaily:2019hmc}
-J.~L.~Bourjaily, A.~J.~McLeod, C.~Vergu, M.~Volk, M.~Von Hippel and M.~Wilhelm,
-``Embedding Feynman Integral (Calabi-Yau) Geometries in Weighted Projective Space,''
-JHEP \textbf{01} (2020), 078
-%doi:10.1007/JHEP01(2020)078
-[arXiv:1910.01534 [hep-th]].
-
-\bibitem{Candelas:2021lkc}
-P.~Candelas, X.~de la Ossa, P.~Kuusela and J.~McGovern,
-``Mirror Symmetry for Five-Parameter Hulek-Verrill Manifolds,''
-[arXiv:2111.02440 [hep-th]].
-
-\bibitem{Muller-Stach:2011qkg}
-S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
-``A Second-Order Differential Equation for the Two-Loop Sunrise Graph with Arbitrary Masses,''
-Commun. Num. Theor. Phys. \textbf{6} (2012), 203-222
-%doi:10.4310/CNTP.2012.v6.n1.a5
-[arXiv:1112.4360 [hep-ph]].
-
-\bibitem{Remiddi:2016gno}
-E.~Remiddi and L.~Tancredi,
-``Differential equations and dispersion relations for Feynman amplitudes. The two-loop massive sunrise and the kite integral,''
-Nucl. Phys. B \textbf{907} (2016), 400-444
-%doi:10.1016/j.nuclphysb.2016.04.013
-[arXiv:1602.01481 [hep-ph]].
-
-\bibitem{Chyzak}  Fr\'ed\'eric Chyzak, `` extension of
-    Zeilberger's fast algorithm to general holonomic functions'',
-Discrete Mathematics, {\bf 217} (1-3) 115-134, 2000.
-
 \bibitem{Bloch:2013tra}
 S.~Bloch and P.~Vanhove,
 ``The elliptic dilogarithm for the sunset graph,''
 J. Number Theor. \textbf{148} (2015), 328-364
 %doi:10.1016/j.jnt.2014.09.032
 [arXiv:1309.5865 [hep-th]].
-
-\bibitem{Bonisch:2020qmm}
-K.~B\"onisch, F.~Fischbach, A.~Klemm, C.~Nega and R.~Safari,
-``Analytic structure of all loop banana integrals,''
-JHEP \textbf{05} (2021), 066
-%doi:10.1007/JHEP05(2021)066
-[arXiv:2008.10574 [hep-th]].
-
-\bibitem{Chyzak2} Fr\'ed\'eric Chyzak, ``Creative Telescoping for
-  Parametrised Integration and Summation'',  Les cours du CIRM,  Vol. 2, no 1 (2011), Course no II, p. 1-37.
-
-
-\bibitem{Koutchan} C. Koutschan. ``HolonomicFunctions (user's guide).'' Technical Report 10-01, RISC Report Series, Johannes Kepler University, Linz, Austria, 2010. http://www.risc
-.jku.at/research/ combinat/software/HolonomicFunctions/.
-
-\bibitem{bostan2013creative} A. Bostan, P. Lairez, and B. Salvy,
-  ''Creative telescoping for rational functions using the
-  Griffiths--Dwork method.'' In Proceedings of the 38th international
-  symposium on symbolic and algebraic computation (pp. 93-100). 
-\bibitem{Mizera:2017rqa}
-S.~Mizera,
-``Scattering Amplitudes from Intersection Theory,''
-Phys. Rev. Lett. \textbf{120} (2018) no.14, 141602
-%doi:10.1103/PhysRevLett.120.141602
-[arXiv:1711.00469 [hep-th]].
-
-\bibitem{Mastrolia:2018uzb}
-P.~Mastrolia and S.~Mizera,
-``Feynman Integrals and Intersection Theory,''
-JHEP \textbf{02} (2019), 139
-%doi:10.1007/JHEP02(2019)139
-[arXiv:1810.03818 [hep-th]].
-
-\bibitem{Frellesvig:2019uqt}
-H.~Frellesvig, F.~Gasparotto, M.~K.~Mandal, P.~Mastrolia, L.~Mattiazzi and S.~Mizera,
-``Vector Space of Feynman Integrals and Multivariate Intersection Numbers,''
-Phys. Rev. Lett. \textbf{123} (2019) no.20, 201602
-%doi:10.1103/PhysRevLett.123.201602
-[arXiv:1907.02000 [hep-th]].
-
-\bibitem{Agostini:2022cgv}
-D.~Agostini, C.~Fevola, A.~L.~Sattelberger and S.~Telen,
-``Vector Spaces of Generalized Euler Integrals,''
-[arXiv:2208.08967 [math.AG]].
-
   
-\bibitem{Prausa:2017ltv}
-M.~Prausa,
-``Epsilon: a Tool to Find a Canonical Basis of Master Integrals,''
-Comput. Phys. Commun. \textbf{219} (2017), 361-376
-%doi:10.1016/j.cpc.2017.05.026
-[arXiv:1701.00725 [hep-ph]].
+\bibitem{Peraro:2019svx}
+T.~Peraro,
+``Finiteflow: Multivariate Functional Reconstruction Using Finite Fields and Dataflow Graphs,''
+JHEP \textbf{07} (2019), 031
+%doi:10.1007/JHEP07(2019)031
+[arXiv:1905.08019 [hep-ph]].
 
-\bibitem{Aomoto_1982}  K.~Aomoto, ``Configurations and Invariant Gauss-Manin Connections of Integrals I.'' Tokyo Journal of Mathematics 5, 249-287. https://doi.org/10.3836/tjm/1270214894
-
-
-
-\bibitem{Lee:2013hzt}
-R.~N.~Lee and A.~A.~Pomeransky,
-``Critical Points and Number of Master Integrals,''
-JHEP \textbf{11} (2013), 165
-%doi:10.1007/JHEP11(2013)165
-[arXiv:1308.6676 [hep-ph]].
-  
-\bibitem{Cacciatori:2023tzp}
-S.~L.~Cacciatori, H.~Epstein and U.~Moschella,
-``Banana Integrals in Configuration Space,''
-[arXiv:2304.00624 [hep-th]].
-  
-\bibitem{Lairez:2022zkj}
-P.~Lairez and P.~Vanhove,
-``Algorithms for Minimal Picard-Fuchs Operators of Feynman Integrals,''
-Lett. Math. Phys. \textbf{113} (2023) no.2, 37
-%doi:10.1007/s11005-023-01661-3
-[arXiv:2209.10962 [hep-th]].
-
-  
-  \bibitem{Vanhove:2014wqa}
-P.~Vanhove,
-``The Physics and the Mixed Hodge Structure of Feynman Integrals,''
-Proc. Symp. Pure Math. \textbf{88} (2014), 161-194
-%doi:10.1090/pspum/088/01455
-[arXiv:1401.6438 [hep-th]].
-
-
-\bibitem{Bonisch:2021yfw}
-K.~B\"onisch, C.~Duhr, F.~Fischbach, A.~Klemm and C.~Nega,
-``Feynman Integrals in Dimensional Regularization and Extensions of Calabi-Yau Motives,''
-JHEP \textbf{09} (2022), 156
-%doi:10.1007/JHEP09(2022)156
-[arXiv:2108.05310 [hep-th]].
-
-
-\bibitem{Pogel:2022ken}
-S.~P\"ogel, X.~Wang and S.~Weinzierl,
-``Taming Calabi-Yau Feynman Integrals: the Four-Loop Equal-Mass Banana Integral,''
-Phys. Rev. Lett. \textbf{130} (2023) no.10, 101601
-%doi:10.1103/PhysRevLett.130.101601
-[arXiv:2211.04292 [hep-th]].
-
-\bibitem{Pogel:2022yat}
-S.~P\"ogel, X.~Wang and S.~Weinzierl,
-``The Three-Loop Equal-Mass Banana Integral in \ensuremath{\varepsilon}-factorised Form with Meromorphic Modular Forms,''
-JHEP \textbf{09} (2022), 062
-%doi:10.1007/JHEP09(2022)062
-[arXiv:2207.12893 [hep-th]].
+\bibitem{Candelas:2021lkc}
+P.~Candelas, X.~de la Ossa, P.~Kuusela and J.~McGovern,
+``Mirror Symmetry for Five-Parameter Hulek-Verrill Manifolds,''
+[arXiv:2111.02440 [hep-th]].
 
 \bibitem{Pogel:2022vat}
 S.~P\"ogel, X.~Wang and S.~Weinzierl,
@@ -2339,74 +2457,91 @@ JHEP \textbf{04} (2023), 117
 %doi:10.1007/JHEP04(2023)117
 [arXiv:2212.08908 [hep-th]].
 
-\bibitem{Groote:2003ad}
-S.~Groote,
-``Lectures on Configuration Space Methods for Sunrise Type Diagrams,''
-[arXiv:hep-ph/0307290 [hep-ph]].
+ 
+\bibitem{Remiddi:2013joa}
+E.~Remiddi and L.~Tancredi,
+``Schouten Identities for Feynman Graph Amplitudes; the Master Integrals for the Two-Loop Massive Sunrise Graph,''
+Nucl. Phys. B \textbf{880} (2014), 343-377
+%doi:10.1016/j.nuclphysb.2014.01.009
+[arXiv:1311.3342 [hep-ph]].
+
+\bibitem{Remiddi:2016gno}
+E.~Remiddi and L.~Tancredi,
+``Differential equations and dispersion relations for Feynman amplitudes. The two-loop massive sunrise and the kite integral,''
+Nucl. Phys. B \textbf{907} (2016), 400-444
+%doi:10.1016/j.nuclphysb.2016.04.013
+[arXiv:1602.01481 [hep-ph]].
+
+\bibitem{Pogel:2022yat}
+S.~P\"ogel, X.~Wang and S.~Weinzierl,
+``The Three-Loop Equal-Mass Banana Integral in \ensuremath{\varepsilon}-factorised Form with Meromorphic Modular Forms,''
+JHEP \textbf{09} (2022), 062
+%doi:10.1007/JHEP09(2022)062
+[arXiv:2207.12893 [hep-th]].
+
+
+\bibitem{Pogel:2022ken}
+S.~P\"ogel, X.~Wang and S.~Weinzierl,
+``Taming Calabi-Yau Feynman Integrals: the Four-Loop Equal-Mass Banana Integral,''
+Phys. Rev. Lett. \textbf{130} (2023) no.10, 101601
+%doi:10.1103/PhysRevLett.130.101601
+[arXiv:2211.04292 [hep-th]].
   
-\bibitem{Lebedev} N. N. Lebedev, ``Special Functions and Their
-  Applications'', Dover Publications Inc. 
-
-  \bibitem{Forum:2022lpz}
-A.~Forum and M.~von Hippel,
-``A Symbol and Coaction for Higher-Loop Sunrise Integrals,''
-[arXiv:2209.03922 [hep-th]].
-
-\bibitem{sasai} Sasai, T. (1974). ``Monodromy Representations of
-  Homology of Certain Elliptic Surfaces.'' Journal of the Mathematical
-  Society of Japan, 26(2),
-  296-305. https://doi.org/10.2969/jmsj/02620296
-
-  \bibitem{Griffith1} Griffiths, P.A.: The Residue Calculus and Some
-    Transcendental Results in Algebraic Geometry, I. Presented at the
-    (1966)
-
-    \bibitem{Griffith2} 
-    Griffiths, P.A.: ``The Residue Calculus And Some Transcendental
-    Results In Algebraic Geometry, II''. Proceedings of the National
-    Academy of Sciences. 55, 1392-1395
-    (1966). https://doi.org/10.1073/pnas.55.6.1392 
+  \bibitem{Frellesvig:2017aai}
+  H.~Frellesvig and C.~G.~Papadopoulos,
+  ``Cuts of Feynman Integrals in Baikov Representation,''
+  JHEP {\bf 1704} (2017) 083
+%  doi:10.1007/JHEP04(2017)083
+  [arXiv:1701.07356 [hep-ph]].
   
-  \bibitem{Vanhove:2018mto}
-P.~Vanhove,
-``Feynman Integrals, Toric Geometry and Mirror Symmetry,''
-%doi:10.1007/978-3-030-04480-0\_17
-[arXiv:1807.11466 [hep-th]].
+  \bibitem{Marzucca:2023gto}
+R.~Marzucca, A.~J.~McLeod, B.~Page, S.~P\"ogel and S.~Weinzierl,
+``Genus Drop in Hyperelliptic Feynman Integrals,''
+[arXiv:2307.11497 [hep-th]].
+
+\bibitem{Ince} E.~L.~Ince, ``Ordinary differential equations.''
+  Courier Corporation  (1956).
+ 
+
+  
+\bibitem{Bern:2011qt}
+Z.~Bern and Y.~t.~Huang,
+``Basics of Generalized Unitarity,''
+J. Phys. A \textbf{44} (2011), 454003
+doi:10.1088/1751-8113/44/45/454003
+[arXiv:1103.1869 [hep-th]].
+
+\bibitem{lairez2016computing}
+Pierre Lairez.
+\newblock Computing periods of rational integrals.
+\newblock {\em Mathematics of computation}, 85(300):1719--1752, 2016.
+\newblock [arXiv:1404.5069]
+
+\bibitem{Chyzak}  Fr\'ed\'eric Chyzak, `` extension of
+    Zeilberger's fast algorithm to general holonomic functions'',
+Discrete Mathematics, {\bf 217} (1-3) 115-134, 2000.
+
+\bibitem{Chyzak2} Fr\'ed\'eric Chyzak, ``Creative Telescoping for
+  Parametrised Integration and Summation'',  Les cours du CIRM,  Vol. 2, no 1 (2011), Course no II, p. 1-37.
+
+\bibitem{bostan2013creative} A. Bostan, P. Lairez, and B. Salvy,
+  ''Creative telescoping for rational functions using the
+  Griffiths--Dwork method.'' In Proceedings of the 38th international
+  symposium on symbolic and algebraic computation (pp. 93-100). 
 
 
-\bibitem{Kashiwara:1977nf}
-M.~Kashiwara and T.~Kawai, \emph{{Holonomic Systems of Linear Differential
-		Equations and Feynman Integrals}},
-\href{https://doi.org/10.2977/prims/1195196602}{\emph{Publ. Res. Inst. Math.
-		Sci. Kyoto} {\bfseries 12} (1977) 131}.
+\bibitem{Koutchan} C. Koutschan. ``HolonomicFunctions (user's guide).'' Technical Report 10-01, RISC Report Series, Johannes Kepler University, Linz, Austria, 2010. http://www.risc
+.jku.at/research/ combinat/software/HolonomicFunctions/.
 	
-%\cite{Muller-Stach:2012tgj}
-	\bibitem{Muller-Stach:2012tgj}
-	S.~M\"uller-Stach, S.~Weinzierl and R.~Zayadeh,
-	``Picard-Fuchs equations for Feynman integrals,''
-	Commun. Math. Phys. \textbf{326} (2014), 237-249
-%	doi:10.1007/s00220-013-1838-3
-	[arXiv:1212.4389 [hep-ph]].
-	%73 citations counted in INSPIRE as of 07 Dec 2023
 	
-	%\cite{Bitoun:2017nre}
-\bibitem{Bitoun:2017nre}
-	T.~Bitoun, C.~Bogner, R.~P.~Klausen and E.~Panzer,
-	%``Feynman integral relations from parametric annihilators,''
-	Lett. Math. Phys. \textbf{109} (2019) no.3, 497-564
-	doi:10.1007/s11005-018-1114-8
-	[arXiv:1712.09215 [hep-th]].
-	%72 citations counted in INSPIRE as of 18 Dec 2023
 
-%\cite{Smirnov:2010hn}
-\bibitem{Smirnov:2010hn}
-A.~V.~Smirnov and A.~V.~Petukhov,
-%``The Number of Master Integrals is Finite,''
-Lett. Math. Phys. \textbf{97} (2011), 37-44
-doi:10.1007/s11005-010-0450-0
-[arXiv:1004.4199 [hep-th]].
-%112 citations counted in INSPIRE as of 18 Dec 2023
+
 \end{thebibliography}
+
+
+
+
+
 
 \end{document}
 %%% Local Variables:
