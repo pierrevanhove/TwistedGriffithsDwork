@@ -145,7 +145,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \preprint{IPHT-t23/094}
-\title{\bf Algorithm for Picard-Fuchs equation for Feynman integral
+\title{\bf Algorithm for differential equations for Feynman integral
   in general dimensions}
 \author[]{Leonardo de la Cruz}
 \author[]{and Pierre Vanhove}
@@ -158,15 +158,18 @@ CEA, CNRS, F-91191 Gif-sur-Yvette Cedex, France}
 %\keywords{}
  \abstract{
 {\bf Draft version \today\ at \thistime}
-We present an extension of the Griffiths-Dwork algorithm for
-determining the minimal Picard-Fuchs operator associated to a given
-Feynman integral in general dimension. We apply this algorithm  by giving the inhomogeneous
+We present an algorithm for
+determining the minimal order differential equations associated to a given
+Feynman integral in general dimension.  The algorithm is an extension
+of the Griffiths-Dwork approach adapted to the twisted differential
+associated to Feynman integrals.
+We apply this algorithm  by giving the inhomogeneous
 differential equation satisfied by  the all equal mass
 two-point sunset integral up to 20 loops order. We derive the inhomogeneous
 differential equation for the generic mass case for the two-loop
 sunset, and for the three-loop sunset. We give  and the
 Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
-
+\pvnote{more listing}
 
 }
 
@@ -184,33 +187,27 @@ Broadhurst and Kreimer~\cite{Broadhurst:1995km,Broadhurst:1996kc} observed intri
 
 Intriguingly, there is growing evidence suggesting that certain
 Feynman integrals correspond to relative period integrals of singular
-Calabi--Yau geometries. This connection has been explored in a number
+Calabi--Yau geometries. This connection is explored in a number
 of studies, including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM}.
 
-By deriving the differential operator acting on a Feynman integral one
+\medskip
+By deriving the set of differential operators acting on a Feynman integral one
 gets important information about its analytic nature.
+In this work we give an algorithmic procedure for deriving such
+differential equations without having to go through the integral
+reduction to master integrals and the construction of a reducible
+system of differential equation satisfied by the set of master integrals.
 
-In this work we extend the approach used in~\cite{Lairez:2022zkj} for
-deriving the minimal differential operator for Feynman integral in
-(even) integer dimensions to the general dimension case.  This way we
-can analyse how the space-time dimension affects the order of the
-minimal differential operator and we can consider the case of infrared
-or ultraviolet divergent integrals.
-
-The parametric representation of a Feynman integral attached to a
-graph $\Gamma$ is given by the integral $  I_\Gamma = \int_{\Delta_n}
-\, \Omega^D_\Gamma$ with 
-\begin{equation}\label{e:FeynPara}
-  \Omega^D_\Gamma = \left( \textbf{U}_\Gamma \over \textbf{F}_\Gamma\right)^{\nu_1+\cdots+\nu_n} \,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{-{D\over2}} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0
+We work with the parametric representation of a Feynman integral attached to a
+graph $\Gamma$ in $D=2\delta-2\epsilon$ dimension. This  is given by
+the integral of the projective space differential form (see
+Section~\ref{sec:parametric} for details)
+\begin{equation}\label{e:FeynParaIntro}
+  \Omega^\epsilon_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0
 \end{equation}
-a differential form in defined in the middle cohomology $H^{n-1}(\mathbb P^{n-1}\backslash
-\{\textbf{U}_\Gamma \textbf{F}_\Gamma=0\})$~\cite{bek,Brown:2009ta}. 
+on the positive orthant $x_i\geq0$ for $1\leq i\leq n$.
 
-Because the graph polynomial $  \textbf{F}_\Gamma$ depends on the physical
-parameters (see section~\ref{sec:griff-dwork-reduct} for details),
-the differential form satisfies a set of partial differential equations
-induced for the variation of the mixed Hodge structures associated to~\eqref{e:FeynPara}.
 
 In the case where the exponents in~\eqref{e:FeynPara} are integers,
 we have a rational differential form. One can use the  Griffiths-Dwork
@@ -219,42 +216,51 @@ Picard-Fuchs operator) associated to a given Feynman integral~\cite{Bloch:2016iz
 The knowledge of the minimal differential equation
 gives important insight in the underlying \emph{motivic} geometry
 determining the class of functions to which a given Feynman integral
-belongs. An Hodge theoretic derivation of these results for a large
-class of Feynman graph have been given in\cite{Doran:2023yzu}.
+belongs~\cite{Doran:2023yzu}.
 
 
 In this work we give an extension of these algorithms for
 general dimensions, i.e. when $D=2-2\epsilon$ with $\epsilon$ any
-complex number.  In section \pvnote{to be completed}
+complex number.  This way we
+can analyse how the space-time dimension affects the order of the
+minimal differential operators and we can consider the case of infrared
+or ultraviolet divergent integrals.
 
-\textbf{
-A method for doing this in the
-case smooth case was introduced by Griffiths in~\cite{Griffiths_1969,Dwork_1962,Dwork_1964}.
-When $\epsilon=0$ this method has been applied to the case of the two-loop sunset
-integral in~\cite{Bloch:2016izu} in $D=2$ dimension and to other Feynman
-integrals in~\cite{Lairez:2022zkj}  when the integrand is given by a rational
-differential form.
-We given an extension of  the Griffiths-Dwork algorithm including the
-factor from the twist.
-This algorithm was applied to derived the
-Picard-Fuchs equation for the massive two-loop sunset integral
-in~\cite{Bloch:2016izu}.
-}
+The algorithmic procedure presented in this paper is an extension of
+the Griffiths-Dwork reduction to the case of the twisted differential
+form~(\ref{e:FeynParaIntro}).  The procedure makes an important use of
+the fact that the twisting factor is the homogeneous degree zero
+rational function $\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$
+enabling us to implement a linear system resolution by a combined
+reduction with respect to the Jacobian ideal of the
+$\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ graph polynomials.
 
-We apply the algorithm to the multi-loop sunset
-integral and the two-loop ice-cream cone integral in $D=2\delta-2\epsilon$
-dimensions generalising the results
-of~\cite{Lairez:2022zkj,Doran:2023yzu} for the rational cases.
+The paper is organised as follows. 
+In Section~\ref{sec:parametric} we review the parametric
+representation of Feynman integrals. In Section~\ref{sec:Red} we
+present the algorithmic procedure for deriving the differential
+equations. In Section~\ref{sec:PoleRed},  we generalise the
+Griffiths-Dwork pole to the case of the twisted differential
+$\Omega_\Gamma^\epsilon$, and explain in
+Section~\ref{sec:deriv-diff-equat} how to use this iteratively to
+determine the differential equations. This generalises the algorithm
+used in\cite{Lairez:2022zkj} for the rational differential form cases. In Section~\ref{sec:oneloop} we
+illustrate the procedure on the case of the massless box. In
+Section~\ref{sec:twoloop} we derive the $\epsilon$-deformed
+differential equation for the two-loop sunset integral for various
+mass configurations, the massless double-box and the ice-cream cone
+graph. In Section~\ref{sec:higherloop} we give the $\epsilon$-deformed
+differential
+equation for the all equal mass sunset up to twenty loop orders, for
+the three-loop massive sunset. In Section~\ref{sec:minim-order-diff}
+we discuss the question of the minimal order differential operator,
+and in Section~\ref{sec:epsilon-dependence} we analyze how the
+$\epsilon$ parameter enters the differential
+equation. Section~\ref{sec:conclusion} contains a short
+conclusion. The Appendix~\ref{sec:bessel} is dedicated to a short
+discussion of the derivation of the differential equation using the
+Bessel representation with the Creative telescoping algorithm.
 
-
-The remainder of the paper is organised as follows \pvnote{XXX}
-. 
-We start by reviewing the Griffiths-Dwork reduction in the rational
-case in Section~\ref{sec:rati-diff-form} and then present its extension to
-the non-rational case in Section~\ref{sec:non-rati-diff-form}. We
-then explain in Section~\ref{sec:deriv-diff-equat} how to iteratively apply the generalized reduction to
-derive differential equation satisfied by Feynman integrals.-\lNote{paragraph to introduction} We
-\pvnote{more here}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parametric representation of Feynman integrals}
 \label{sec:parametric}
@@ -264,14 +270,22 @@ integrals. A derivation of the parametric representation from the
 propagator representation can be found in~\cite{Vanhove:2014wqa} for instance.
 
 The parametric representation of a Feynman integral attached to a
-graph $\Gamma$ is given by the integral $  I_\Gamma = \int_{\Delta_n}
-\, \Omega^D_\Gamma$ with 
+graph $\Gamma$, in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
+$\epsilon\in\mathbb R$.\footnote{We do not assume that $\epsilon$ is
+	small. We introduce $\delta$ and $\epsilon$ for convenience and make
+	clearer the role of the twist from the non integer space-time dimension.}, is given by the integral $  I_\Gamma = \int_{\Delta_n}
+\, \Omega^\epsilon_\Gamma$ with 
 \begin{equation}\label{e:FeynPara}
-	\Omega^D_\Gamma = \left( \textbf{U}_\Gamma \over \textbf{F}_\Gamma\right)^{\nu_1+\cdots+\nu_n} \,
-	\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{-{D\over2}} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0
+  \Omega^\epsilon_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
+  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0
 \end{equation}
 a differential form in defined in the middle cohomology $H^{n-1}(\mathbb P^{n-1}\backslash
-\{\textbf{U}_\Gamma \textbf{F}_\Gamma=0\})$~\cite{bek,Brown:2009ta}. Its domain of integration is the positive orthant
+\{\textbf{U}_\Gamma \textbf{F}_\Gamma=0\})$~\cite{bek,Brown:2009ta}.
+The number of edges of the graph is $n$ and the number of loops is
+ $L$.
+
+
+Its domain of integration is the positive orthant
 \begin{equation}\label{e:Deltan}
 	\Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
 	i\leq n\},
@@ -284,10 +298,6 @@ $\mathbb P^{n-1}$
 \end{equation}
 and where  $\widehat{dx_i}$ means that the term is omitted in the wedge
 product.
-%\begin{equation}
-% \Omega_0^{(n)}:=   x_1 %dx_2\wedge \cdots \wedge dx_n- %x_2
-%                %dx_1\wedge\cdots \wedge %dx_n+(-1)^{n-1}  x_n dx_1\wedge %\cdots \wedge dx_{n-1}  ,
-%              \end{equation}
 Here  $x_i$, with $1\leq i\leq n$,  are  variables attached to all edges of
 $\Gamma$.
 %
@@ -321,21 +331,7 @@ internal masses and the external kinematics, which we  write as
 \end{equation}
 respectively.
 
-Setting  $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
-$\epsilon\in\mathbb R$\footnote{We do not assume that $\epsilon$ is
-	small. We introduce $\delta$ and $\epsilon$ for convenience and make
-	clearer the role of the twist from the non integer space-time dimension.} in Eq.\eqref{e:FeynPara}, 
-the parametric representation of a Feynman integral
-% associated to a
-%graph $\Gamma$ 
-with $n$ edges and
- $L$ loops is given by the integration of the differential
-form  
-\begin{equation}
-	\label{form-general}
-  \Omega^\epsilon_\Gamma={\textbf{U}_\Gamma^{\nu-(L+1)\delta} \over \textbf{F}_\Gamma^{\nu-L\delta}}\,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 , 
-\end{equation}
+
 %
 where the exponent $\nu:=\sum_{i=1}^n \nu_i$, and $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ are the first and second Symanzik
 polynomials, 
@@ -366,7 +362,7 @@ in the construction presented in this work.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Annihilators of Feynman integrals}
 \label{sec:Red}
-Feynman integral are holonomic function of its physical parameters \cite{Kashiwara:1977nf, Bitoun:2017nre, Smirnov:2010hn,Lee:2013hzt}. This means that Feynman integrals satisfy systems of  (inhomogeneous) partial
+Feynman integral are holonomic function of its physical parameters~\cite{Kashiwara:1977nf, Bitoun:2017nre, Smirnov:2010hn,Lee:2013hzt}. This means that Feynman integrals satisfy systems of  (inhomogeneous) partial
 differential equations of finite order with respect to its physical parameters
 $ \{m_1^2,\dots,m_n^2,s_{ij}\}$.
 
@@ -380,7 +376,7 @@ annihilating the differential form $\Omega_\Gamma^\epsilon$
   \over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta_\Gamma,
 \end{equation}
 where $  c_{a_1,\dots, a_r}(\underline z)$ are rational functions of the physical
-parameters but they are independent of $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^\epsilon$ \cite{Lairez:2022zkj}.
+parameters but they are independent of $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^\epsilon$~\cite{Lairez:2022zkj}.
 %
 Because the domain of integration of the Feynman integral does not
 depend on the physical parameters, we then deduce
@@ -446,8 +442,9 @@ The
 
   % -----------------------------------------------------------------------
   \subsubsection{The pole reduction}\label{sec:PoleRed}
-The starting point of the algorithm is the reduction of $P^{(a_1,\dots,a_r)}(\underline x)$ 
-\lNote{$G_a$}¨
+The starting point of the algorithm is the reduction of polynomial
+$P^{(a_1,\dots,a_r)}(\underline x)$  in the numerator
+of~\eqref{e:PDE}
 \begin{equation}\label{e:RedF}
 	P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{\mathsf{a}}(\underline x)\cdot
 	\vec\nabla   \textbf{F}_\Gamma \, 
@@ -458,11 +455,9 @@ in the Jacobian ideal of $\textbf{F}_\Gamma$
 		\textbf{F}_\Gamma\over\partial x_1},\dots,  {\partial
 		\textbf{F}_\Gamma\over\partial x_n}\right\rangle\,.
 \end{equation}
-% in the Jacobian ideal of $ \textbf{F}_\Gamma$, and
-%
 %
 The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are homogeneous polynomials of degree
-$\mathsf{a}(L+1)$ in  $\underline x$ . 
+$\mathsf{a}(L+1)-L$ in  $\underline x$ . 
 %
  %    
    Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
@@ -482,8 +477,8 @@ the twisted vectors
 {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
   \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over \mathbf{F}_\Gamma^L\right)^\epsilon \, ,
 \end{equation}
-which are vectors of homogeneous degree $\mathsf{a}(L+1)-n$. 
-We compute
+which components are vectors of homogeneous degree $\mathsf{a}(L+1)-L-n$. 
+We compute following the same steps as in~\cite{Griffiths_1969}
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
     G_{\mathsf{a}}^j  (\underline x)-x_j
@@ -498,15 +493,15 @@ We compute
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
   \cdots \wedge dx_n  \, .
 \end{multline}
-Using the homogeneous degree of $\mathbf{F}_\Gamma$ and the
+Using the homogeneity of $\mathbf{F}_\Gamma$ and the
 components of $\vec G_{\mathsf{a}}(\underline x)$ we have
 \begin{align}
   \sum_{i=1}^n x_i {\partial\mathbf{F}_\Gamma (\underline x)\over \partial x_i}&=
                                                                   (L+1) \mathbf{F}_\Gamma (\underline x),\\
    \sum_{i=1}^n x_i {\partial\vec G_{\mathsf{a}}(\underline x)\over \partial x_i}&=
-                                                                  (\mathsf{a}(L+1)-n) \vec G_{\mathsf{a}}(\underline x) \,.
+                                                                  (\mathsf{a}(L+1)-L-n) \vec G_{\mathsf{a}}(\underline x) \,.
 \end{align}
-Following the same steps as in~\cite{Griffiths_1969} we find that 
+We find that 
    \begin{equation}
      d\beta^{(a_1,\dots,a_r)}= {  \vec  G_{\mathsf{a}}
      (\underline x)
@@ -540,40 +535,39 @@ We expand the term in the right-hand-side
   \mathbf{F}_\Gamma^L\right)^\epsilon\right) .
 \end{multline}
 %
-The second term in this equation can be evaluated using \lNote{log, typo}
+The second term in this equation can be evaluated using
 \begin{align}
   \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{A}\over
 \mathbf{F}_\Gamma^B\right)&=\left(A \vec
-C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma -B \vec
-C_{\mathsf{a}}\cdot \vec\nabla \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{A}\over
+C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma -B \vec
+C_{\mathsf{a}}\cdot \vec\nabla \log \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{A}\over
 \mathbf{F}_\Gamma^B} \cr
 &=\left[-B{
     P^{(a_1,\dots,a_r)}(\underline x)\over
   \mathbf{F}_\Gamma}   
 +
  A \vec
-C_{\mathsf{a}}\cdot \vec\nabla \mathbf{U}_\Gamma \left(\mathbf{U}_\Gamma^{L+1}\over
-\mathbf{F}_\Gamma^L\right)^\epsilon \right] {\mathbf{U}_\Gamma^{A}\over
+C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma \right] {\mathbf{U}_\Gamma^{A}\over
 	\mathbf{F}_\Gamma^B}\,,
 \end{align}
-where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore,  \lNote{missing -1¸ typo}
+where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore, 
 \begin{multline}
 	\label{e:Pred}
 {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0\cr={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-+    (\mathsf{a}-1)(n-(L+1)(\delta-\epsilon)) \vec
-    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma\over \mathsf{a}+n-L(\delta-\epsilon)\textbf{F}_\Gamma^{\mathsf{a}-1}}
++   (n-(L+1)(\delta-\epsilon)) \vec
+    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma\over (\mathsf{a}-1+n-L(\delta-\epsilon))\,\textbf{F}_\Gamma^{\mathsf{a}-1}}
 { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} 
   \Omega_0^{(n)}\cr
-+{  (\mathsf{a}-1) \over \mathsf{a}+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
++{  (\mathsf{a}-1) \over \mathsf{a}-1+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
 \end{multline}
 %
 This expression involves the $\vec
     C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma$ which has a
-    new pole in $\mathbf{U}_\Gamma$. We then perform a second reduction by demanding that
+    pole in $\mathbf{U}_\Gamma$. We then perform a second reduction by demanding that
     \begin{equation}
       \label{e:RedU}
       \vec
@@ -606,8 +600,8 @@ with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1
   \label{e:Mfinal}
   M^{(a_1,\dots,a_r)}(\underline x):={\vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-+    (\mathsf{a}-1)(n-(L+1)(\delta-\epsilon)) 
-    c_{\mathsf{a}}(\underline x)\over \mathsf{a}+n-L(\delta-\epsilon) }.
++  (n-(L+1)(\delta-\epsilon)) 
+    c_{\mathsf{a}}(\underline x)\over \mathsf{a}-1+n-L(\delta-\epsilon) }.
 \end{equation}
 %
 To perform this pole reduction, 
@@ -616,7 +610,7 @@ To perform this pole reduction,
    \left\{\begin{array}{@{}l@{}}
 \vec C_{\mathsf{a}} (\underline x) \cdot \vec \nabla \textbf{F}_\Gamma
             =    P^{(a_1,\dots,a_r)}(\underline x)\\
-\vec C_{\mathsf{a}} (\underline x)= c_{{\mathsf{a}}}(\underline x) \textbf{U}_\Gamma 
+\vec C_{\mathsf{a}} (\underline x)\cdot\vec \nabla\textbf{U}_\Gamma= c_{{\mathsf{a}}}(\underline x) \textbf{U}_\Gamma 
   \end{array}\right.\,,
 \end{equation}
 for determining the coefficients of $\vec C_{\mathsf{a}}(\underline
@@ -626,9 +620,11 @@ The system~\eqref{e:sysCFU} has a solution when its rank is positive.
 We have a linear system of the $n$ components of $\vec C_{\mathsf{a}}(\underline
 x) $ which are homogeneous polynomial of degree $\deg(C)=\deg( P^{(a_1,\dots,a_r)})-L $ in
 $\underline x$ and  $ c_{{\mathsf{a}}}(\underline x) $ which is a polynomial of
-homogeneous degree $\deg(C)-1$.   The system has
+homogeneous degree $\deg(C)-1$.   Since the number of coefficients of
+a homogeneous polynomial of degree $d$ in $n$ variables is
+$\binom{d+n-1}{d}$,  the system has
 \begin{equation}\label{e:nvars}
-n \binom{\deg( P^{(a_1,\dots,a_r)})-L+n-1}{\deg( P^{(a_1,\dots,a_r)})-L}+\binom{\deg( P^{(a_1,\dots,a_r)})-L+n-2}{\deg( P^{(a_1,\dots,a_r)})-L}
+n \binom{\deg( P^{(a_1,\dots,a_r)})-L+n-1}{\deg( P^{(a_1,\dots,a_r)})-L}+\binom{\deg( P^{(a_1,\dots,a_r)})-L+n-2}{\deg( P^{(a_1,\dots,a_r)})-L-1}
 \end{equation} unknown variables for
 \begin{equation}\label{e:nequ}
 \binom{\deg( P^{(a_1,\dots,a_r)})+n-1}{\deg( P^{(a_1,\dots,a_r)})}+\binom{\deg( P^{(a_1,\dots,a_r)})+n-2}{\deg( P^{(a_1,\dots,a_r)})-1}
@@ -636,14 +632,12 @@ n \binom{\deg( P^{(a_1,\dots,a_r)})-L+n-1}{\deg( P^{(a_1,\dots,a_r)})-L}+\binom{
 equations.
 %
 %
-The degree of a generic polynomial $ P^{(a_1,\dots,a_r)}(\underline x)$ is $\deg(
- P^{(a_1,\dots,a_r)})=(L+1)\mathsf{a}$ 
- the rank of the system~\eqref{e:sysCFU} is
+Since the $\deg(P^{(a_1,\dots,a_r)})=\mathsf{a}(L+1)$, the rank of the system~\eqref{e:sysCFU} is
   \begin{align}
     \label{e:Rank}
     \textrm{rank}&=\eqref{e:nvars}-\eqref{e:nequ}\\
 \nonumber    &=n \binom{(L+1)(\mathsf{a}-1)+n
-               }{(L+1) \mathsf{a}-L}+\binom{(L+1)(\mathsf{a}-1)+n-1}{(L+1) \mathsf{a}-L}\cr
+               }{(L+1) (\mathsf{a}-1)+1}+\binom{(L+1)(\mathsf{a}-1)+n-1}{(L+1) (\mathsf{a}-1)}\cr
              \nonumber    &
                               -\binom{(L+1) \mathsf{a}+n-1}{(L+1) \mathsf{a}}-\binom{(L+1) \mathsf{a}+n-2}{(L+1) \mathsf{a}-1}
   \end{align}
@@ -652,9 +646,8 @@ and the number of edges $n$ there is always a value of the
 number of derivative $\mathsf{a}$ such that the system has
 positive rank.
 
-A few comments are in order. Notice that the polynomial $ P^{(a_1,\dots,a_r)}(\underline x)$ is not a generic
-homogeneous polynomial so the number of equations is in particular
-cases smaller or equal than~\eqref{e:nequ}.
+A few comments are in order. In practice for Feynman integrals,   the polynomial $ P^{(a_1,\dots,a_r)}(\underline x)$ is not a generic
+homogeneous polynomial so the number of equations is smaller or equal than~\eqref{e:nequ}.
 %
 We remark that this way of solving the linear system includes implicitly the
 freedom given by the syzygies of $\textrm{Jac}(\textbf{F}_\Gamma)$ and
@@ -667,7 +660,8 @@ respectively.\footnote{It was noticed in~\cite{Lairez:2022zkj} that in
 %
 %
 One important property of that reduction is that the differential form $\beta$ is that it
-does not have poles that are not poles of $\textbf{F}_\Gamma$. We refer
+does not have poles that are not poles of $\textbf{F}_\Gamma$ which is
+guaranteed by the construction. We refer
 to section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
 %
 %
@@ -789,18 +783,20 @@ differential operator can be done with the {\tt DFactor} routine from
 orders for linear  ordinary
 differential operators with numerical coefficients
 using the {\tt facto} algorithm in {\tt
-	sagemath}~\cite{chyzak2022symbolic,goyer2021sage}. \pvnote{ref discussion}
+	sagemath}~\cite{chyzak2022symbolic,goyer2021sage}.
 
 
  In the rational case $\epsilon=0$, it was noticed
 in~\cite{Bloch:2013tra,Bloch:2016izu,Bloch:2014qca,Lairez:2022zkj} that the order of the minimal differential operator is
-smaller than the number of irreducible master integrals. We will see
+smaller than the number of irreducible master integrals. We will see,
+in the various cases studied below, 
 how the $\epsilon$ dependent operator can have an order that saturates
-the upper bound given by the number of masters.
+the upper bound given by the number of masters.  This will
+      be discussed further in Section~\ref{sec:minim-order-diff}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{One-loop examples}
+\section{One-loop examples}\label{sec:oneloop}
 Let us illustrate our procedure with simple one-loop examples. 
 
 \noindent{\bf The massless box graph:}
@@ -855,9 +851,9 @@ The inhomogeneous term reads
 	\mathscr{S}_\Box^\epsilon=\frac{(\epsilon +1)\Gamma (-\epsilon -1)^2 }{\Gamma
 		(-2 \epsilon )}  \, \left( (-s)^{-1-\epsilon }+(-t)^{-\epsilon -1}\right) \, .
 \end{equation}
-This simple example illustrates the general procedure as we will see with more general loops. In general the system of equations is dense \lNote{I think it's dense}. As usual when one encounters dense  systems, finite field methods are the way to go \cite{Peraro:2019svx}.
+This simple example illustrates the general procedure as we will see with more general loops. In general the system of equations is dense. As usual when one encounters dense  systems, finite field methods are the way to go~\cite{Peraro:2019svx}.
 %
-\section{Two-loop examples}
+\section{Two-loop examples}\label{sec:twoloop}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 
@@ -898,7 +894,7 @@ This simple example illustrates the general procedure as we will see with more g
   \label{fig:sunset}
 \end{figure}
 A class of examples we will consider is  
-the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.\eqref{form-general} for this case reads
+the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.\eqref{e:FeynPara} for this case reads
 \begin{equation}
   I^{(n-1)}_\su(\vec m,t;\epsilon)= \int_{\Delta_n} \Omega^{(n-1)}_\su(\vec m,t,\epsilon)  ; \quad
   \Omega^{(n-1)}_\su(\vec m, t,\epsilon)={\Omega^{(n)}_0\over
@@ -917,193 +913,12 @@ In $D=2$ dimension ($\epsilon=0$) we have a rational  differential form
 $\Omega_\su(\vec m,t,0)$. The Picard-Fuchs operator has been
 given up to six loop and is in agreement with the Feynman integral
 being a (relative) period of a Calabi-Yau  manifold of complex dimension $n-2$~\cite{Bloch:2013tra,Bloch:2014qca,Bloch:2014qca,Bourjaily:2019hmc,Bonisch:2020qmm,Bonisch:2021yfw,Candelas:2021lkc,Forum:2022lpz}.
-
-\begin{comment}
-We apply the algorithm described in the previous section, with the
-following results.
-{\bf 
-
-
- We refer to the one-loop case in
-   section~\ref{sec:one-loop-case}, the sunset two-loop case in
-   section~\ref{sec:two-loop-case} for explicit examples in the smooth
-   case. The non-smooth case of the all equal mass three-loop sunset
-   is detailed in section~\pvnote{XXX}.
-}\lNote{maybe we can exlcude one loop?}
-\begin{itemize}
-  \item We rederive the differential operator for the one-loop bubble
-    in Section~\ref{sec:one-loop-case}.
-\item For the all equal mass case we will find that the $\epsilon$
-deformation does not change the order of the minimal Picard-Fuchs
-operator which is still $n-1$ at $n-1$ loop order. See
-Section~\ref{sec:2sunset1mass} for the two-loop case, and at
-higher-loop in Section~\ref{sec:highersunset1mass}. The results are
-given on this page~\pvnote{sagenotebook}
-\item The results for  generic mass two-loop sunset are given in
-  Section~\ref{sec:2sunset3mass}
-  \item The result for various mass configuration three-loop sunset
-    are given in Section~\ref{sec:threeloop}
-\end{itemize}
-
-
-For the different masses cases the $\epsilon$ deformation does not
-change the order of the differential operator at $l=1$- and $l=2$-loop
-orders but changes the minimal order from  $l\geq3$ loops.
-At one-loop order the differential operator is given by
-\begin{multline}
-    \mathscr{L}_\su^{(1)\epsilon} =
-    \mathscr{L}_\su^{(0)1-mass}  + \epsilon 
-    \left(\left(3 t^2-10
-        t-9\right) {d\over dt}+(3t-5)\right)\cr +2 (t+1)
-    \epsilon ^2
-  \end{multline}
-  and at two-loop order we have
-  \begin{equation}
-     \mathscr{L}^{(2)\epsilon}_\su =   \mathscr{L}^{a}_1
-     \mathscr{L}^{b}_1    \mathscr{L}^{(2),0}_\su +\epsilon
-     \mathscr{L}^{c}_4+\epsilon^2  \mathscr{L}^{d}_3+\epsilon^3
-     \mathscr{L}^{e}_2+ \epsilon^4 \mathscr{L}^{f}_1 +\epsilon^5
-   \mathscr{L}^{g}_0
-   \end{equation} 
-   where the operator $ \mathscr{L}^{x}_m$  with $x=a,b,c,d,e,g$ are
-   of order $m$  and $ \mathscr{L}^{(2),0}_\su $ is the three
-   different mass two-loop differential operator in $D=2$ derived in~\cite{Remiddi:2016gno,Bloch:2016izu,Muller-Stach:2011qkg}.
-  
-
-%------------------------------------------------------------------------
-\subsection{Minimal differential equation for the one-loop sunset}\label{sec:one-loop-case}
-
-We start with the one-loop case which illustrate the extension of the
-Griffiths-Dwork reduction that will be applied to higher loop orders.
-
-
-For the one-loop case the differential form is
-\begin{equation}
-  \Omega_\su^{(1)}(t)={1\over
-    \textbf{F}_1(t)}\left(\textbf{U}_1^2\over \textbf{F}_1(t)\right)^\epsilon  \,\Omega_0^{(2)}
-\end{equation}
-with
-\begin{align}
- \textbf{U}_1&=x_1+x_2\\
-  \textbf{F}_1(t)&=-tx_1x_2+(x_1+x_2)(m_1^2x_1+m_2^2x_2).
-\end{align}
-We start with at the order $n=1$
-\begin{equation}
-{ d\over dt}
- \Omega^{(1)}_\su(t)= (1+\epsilon){x_1x_2\over (\textbf{F}_1(t))^2}
- \left(\textbf{U}_1^2\over \textbf{F}_1(t)\right)^\epsilon  \Omega_0^{(2)}
-\end{equation}
-%
-We perform the Jacobian reduction of $x_1x_2$
-\begin{equation}\label{e:reduc1loop}
- (1+\epsilon) x_1x_2= \sum_{i=1}^2 C_i^{(1)}\partial_i \textbf{F}_1(t)
-\end{equation}
-%
-so that
-\begin{equation}
-{ d\over dt}
- \Omega^{(1)}_\su(t)= {\sum_{i=1}^2 C_i^{(1)}\partial^i \textbf{F}_1(t)\over (\textbf{F}_1(t))^2}
- \left(\textbf{U}_1^2\over \textbf{F}_1(t)\right)^\epsilon  \Omega_0^{(2)}
-\end{equation}
-this gives after integration by parts
-\begin{multline}\label{e:PF1loopstep1}
- {d\over dt}
- \Omega^{(1)}_\su(t)=
- \left(-{\sum_{i=1}^2 \partial_i C_i^{(1)}\over
-     (\textbf{F}_1(t))^2}-\epsilon{2\sum_{i=1}^2 C_i^{(1)}\partial_i
-     \log \textbf{U}_1-\sum_{i=1}^2 C_i^{(1)}\partial_i
-     \log \textbf{F}_1(t)\over \textbf{F}_1(t)}\right)\cr \times\left(\textbf{U}_1^2\over \textbf{F}_1(t)\right)^\epsilon \Omega_0+d\beta^{(1)}.
-\end{multline}
-%
-with the boundary term defined by
-\begin{equation}
-  \beta^{(1)}=x_1  {C_1^{(1)}  \over  \textbf{F}_1(t) } \left(\textbf{U}_{1}^2\over
-    \textbf{F}_1(t)\right)^\epsilon -  x_2  {C_2^{(2)}  \over  \textbf{F}_1(t) } \left(\textbf{U}_1^2\over
-    \textbf{F}_1(t)\right)^\epsilon
-\end{equation}
-because $\beta^{(1)}= x_1 S_2-  x_2 S_1$ with $S_1$ and $S_2$ homogeneous
-of degree $-1$ then $d\beta^{(1)}=- (\partial^1 S_1+\partial^2 S_2)
-(x_2dx_1- x_1dx_2)$\footnote{This is an extension of the
-  construction given by Griffith in~\cite{Griffiths_1969} This will be
-  discussed again in details in section~\ref{sec:two-loop-case}.}, then we have 
-\begin{equation}
-  d\beta^{(1)}=- \sum_{i=1}^2 \partial^i  { C_i^{(1)}  \over
-    \textbf{F}_1(t) } \left(\textbf{U}_1^2\over
-    \textbf{F}_1(t)\right)^\epsilon\Omega_0^{(2)}.
-\end{equation}
-Using~\eqref{e:reduc1loop} one can rewrite~\eqref{e:PF1loopstep1} as
-\begin{equation}
-(1+\epsilon) {d\over dt}
- \Omega^{(1)}_\su(t)=
- \left({\sum_{i=1}^2 \partial_i C_i^{(1)}\over
-     \textbf{F}_1(t)}+\epsilon{2\sum_{i=1}^2 C_i^{(1)}\partial_i
-     \log \textbf{U}_1\over \textbf{F}_1(t)}\right)\left(\textbf{U}_1^2\over \textbf{F}_1(t)\right)^\epsilon \Omega_0+d\beta^{(1)}.
-\end{equation}
-We need to reduce the term $\sum_{i=1}^2 C_i^{(1)}\partial_i
-     \log \textbf{U}_1$. For doing this we use the freedom from the
-     syzygies
-     \begin{equation}
-       (\sigma_i)_{i=1,2}:=(x_1 \left(t-m_{1}^2-m_{2}^2\right)-2 m_{2}^2 x_2,x_2
-       \left(m_{1}^2+m_{2}^2-t\right)+2 m_{1}^2 x_1)
-     \end{equation}
-     of the Jacobian ideal
-   of $\textbf{F}_1$ such that $\sigma_1 \partial^1
-   \textbf{F}_1+\sigma_2\partial^2 \textbf{F}_1=0$.
-We seek a constant $\lambda$ such that
-\begin{equation}\label{e:C1red}
-  \sum_{i=1}^2 \left(C_i^{(1)}+ \lambda
-      \sigma_i
-  \right)  \partial_i \textbf{U}_1 = c^{(1)}\, \textbf{U}_1
-\end{equation}
-%
-With this we can define 
-\begin{align}
-  \label{e:M1}
-  M^{(1)}&:={\sum_{i=1}^2 \partial_i \left(C_i^{(1)}+\lambda
-      \sigma_i
-  \right) +2\epsilon
-  c^{(1)}\over 1+\epsilon}\\
-\nonumber &=\frac{\epsilon  \left(\left(m_{1}^2-m_{2}^2\right)^2-t^2\right)}{t
-  (t-(m_1+m_2)^2)(t-(m_1-m_2)^2)}+\frac{m_{1}^2+m_{2}^2-t}{ (t-(m_1+m_2)^2)(t-(m_1-m_2)^2)}
-\end{align}
-the relation~\eqref{e:C1red} gives the reduction of pole
-\begin{equation}
- {d\over dt}
- \Omega^{(1)}_\su(t)=
-{M^{(1)}\over
-    \textbf{F}_1(t)}\left(\textbf{U}_1^2\over \textbf{F}_1(t)\right)^\epsilon \Omega_0+d\beta^{(1)}.
-\end{equation}
-%
- which gives the differential equation $ \mathscr{L}_\su^{(1)}
- \Omega^{(1)}_\su(t) =d\beta^{(1)}$ with the Picard-Fuchs operator
- \begin{multline}\label{e:PF1loopresult}
-\mathscr{L}_\su^{(1),\epsilon} =t
-  (t-(m_1+m_2)^2)(t-(m_1-m_2)^2) {d\over dt}+t(t-m_{1}^2-m_{2}^2)\cr+\epsilon \left(t^2-\left(m_{1}^2-m_{2}^2\right)^2\right).
-\end{multline}
-The coefficient of order $\epsilon^0$ is the usual differential
-operator for the one-loop sunset and we obtain the
-$\epsilon$ dependence.
-For the action of $ \mathscr{L}_\su^{(1)}$ on the one-loop Feynman
-integral has an inhomogeneous term 
-% 
-\begin{equation}
-  \mathscr{L}_\su^{(1)}  \int_{\Delta_1} \Omega_\su^{(1)}(t)=\int_{\Delta_1} d\beta^{(1)}
-\end{equation}
-We find for the inhomogeneous term
-\begin{equation}
-  \mathscr{S}_\su^{(1)}=- \left(m_{2}\over m_1\right)^{\epsilon }
-   \left(-m_{1}^2+m_{2}^2+t\right)-\left(m_{1}\over m_2\right)^{\epsilon } 
-   \left(m_{1}^2-m_{2}^2+t\right)  .
-\end{equation}
-
-
-\end{comment}
 %----------------------------------------------------------------------
 \subsection{Differential equation for the  two-loop sunset}
 \label{sec:two-loop-case}
 We now turn to the two-loop sunset and shows how to adapt the
 Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$
-dependent integrand. For the two-loop case the differential Eq.\eqref{form-general} is
+dependent integrand. For the two-loop case the differential Eq.\eqref{e:FeynPara} is
 \begin{equation}\label{e:OmegaSunset}
   \Omega_\su^{(2)}(t)={1\over
     \textbf{F}_2(t)}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \,\Omega_0^{(3)}
@@ -1115,9 +930,6 @@ with
 \end{align}
 We discuss the equal mass and the general case separately. Let us start with the equal mass case.
 
-%We first discuss the all equal mass term in
-%section~\ref{sec:2sunset1mass} and turn to the general mass case in section~\ref{sec:2sunset3mass}.
-%For the 
 
 \pvnote{explain to order we start with using the bound from the euler
   characteristic}
@@ -1148,7 +960,6 @@ in $\underline x$
 \sum_{i=1}^3 
 \sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \text{Jac}_i(\mathbf U_2) = \sum_{e\in m_{3,3}} q^{(2)}_e x^e \textbf{U}_2 
 %
-%	\sum_{i=1}^3 \hat C_i^{(2)} \partial^i \textbf{U}_2 = c^{(2)} \textbf{U}_2
 \end{equation}
 The unknown are fully determined at the end of  algorithm.
 We introduce the differential form $\beta^{(2)}$ obtained by adapting the deriving in section~3.2
@@ -1161,7 +972,7 @@ We introduce the differential form $\beta^{(2)}$ obtained by adapting the derivi
     2 \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_3.
  \end{multline}
 which leads to 
-%using the same manipulations as in section~\ref{sec:non-rati-diff-form}
+%
 \begin{multline}
  (2+2\epsilon)\left(d\over dt\right)^2
  \Omega_\su(t,\epsilon)=
@@ -1170,16 +981,6 @@ which leads to
      \log \textbf{U}_2\over \textbf{F}_2(t)^{2}}\right)\cr \times\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0-d(2\beta^{(2)}).
 \end{multline}
 %
-\begin{comment}
-Performing the reduction for the shifted coefficients by the syzygies
-of the Jacobian of $\textbf{F}_2(t)$
-\begin{equation}
-    \hat C_i^{(2)}:=C_i^{(2)}+\sum_{k=1}^4 \lambda_k
-      \sigma^k_i \qquad \textrm{for}\qquad i=1,2,3
-    \end{equation}
-    where $\lambda_k$ are unknown homogeneous degree 4 polynomials in
-$(x,y,z)$ .
-\end{comment}
 Defining \lNote{mixed notation, fix}
 \begin{equation}
   \label{e:M2}
@@ -1443,7 +1244,7 @@ The graph polynomials are given by
 \end{align}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^6$
-\begin{equation}\label{e:OmegaBox}
+\begin{equation}\label{e:OmegaDoubleBox}
 	\Omega_{\Box\!\Box}^\epsilon(s,t)=   {\textbf{U}_{\Box\!\Box}  \over
 		\textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0
 \end{equation}
@@ -1652,7 +1453,7 @@ the page \pvnote{PF-Ice-cream-epsilon.ipynb})
 	degree 11 in $t$ and 2 in $\epsilon$.
 \end{itemize}
 
-\section{Three and higher-loop examples}
+\section{Three and higher-loop examples}\label{sec:higherloop}
 %----------------------------------------------------------------------
 \subsection{Minimal differential operator for higher-loop sunset}
 
@@ -1983,7 +1784,7 @@ dimension.
 when decomposing amplitudes using the generalized unitarity method~\cite{Bern:2011qt}.
 
 %------------------------------------------------------------------------
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 We have presented a generalisation of the Griffiths-Dwork reduction
 for deriving the differential operator acting on Feynman integrals in
 general dimensions.  We have worked out various cases either
@@ -1991,17 +1792,19 @@ generalising the know integer dimension cases or determining cases
 that could not be achieved with the algorithm used
 in~\cite{lairez2016computing,Lairez:2022zkj}. The procedure amounts to
 solving linear systems which is done using {\tt
-  FiniteFlow} routines~\cite{Peraro:2019svx}. \pvnote{??}
+  FiniteFlow} routines~\cite{Peraro:2019svx}. \pvnote{more}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 We would like to thank Pierre Lairez, Tiziano Peraro, Eric Pichon-Pharabod  for discussions.
 The work of P.V. has received funding from the ANR grant ``SMAGP''
-ANR-20-CE40-0026-01. P.V. acknowledges support of the Institut Henri Poincar\'e (UAR 839 CNRS-Sorbonne Universit\'e), and LabEx CARMIN (ANR-10-LABX-59-01).
+ANR-20-CE40-0026-01. P.V. acknowledges support of the Institut Henri
+Poincar\'e (UAR 839 CNRS-Sorbonne Universit\'e), and LabEx CARMIN
+(ANR-10-LABX-59-01). \pvnote{Leonardo put your grants}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix\section{The Bessel representation}
+\appendix\section{The Bessel representation for the sunset graphs}\label{sec:bessel}
 
 
 Following the steps in section~8 of~\cite{Vanhove:2014wqa}
@@ -2193,20 +1996,6 @@ C.~Duhr, A.~Klemm, F.~Loebbert, C.~Nega and F.~Porkert,
 H. Frellesvig, R. Morales, and M. Wilhelm
 ``Calabi-Yau meets Gravity: A Calabi-Yau three-fold at fifth post-Minkowskian order,''
 [arXiv:2312.11371 [hep-th]].
-  
-\bibitem{Lairez:2022zkj}
-P.~Lairez and P.~Vanhove,
-``Algorithms for Minimal Picard-Fuchs Operators of Feynman Integrals,''
-Lett. Math. Phys. \textbf{113} (2023) no.2, 37
-%doi:10.1007/s11005-023-01661-3
-[arXiv:2209.10962 [hep-th]].
-  
-\bibitem{bek}
-Spencer Bloch, H{\'e}l{\`e}ne Esnault, and Dirk Kreimer.
-\newblock On motives associated to graph polynomials.
-\newblock {\em Communications in mathematical physics},
-267(1):181--225, 2006.
-\newblock [arXiv:math/0510011] 
 
 
 \bibitem{Griffiths_1969}
@@ -2240,6 +2029,13 @@ P.~Vanhove,
 ``Feynman Integrals, Toric Geometry and Mirror Symmetry,''
 %doi:10.1007/978-3-030-04480-0\_17
 [arXiv:1807.11466 [hep-th]].
+  
+\bibitem{Lairez:2022zkj}
+P.~Lairez and P.~Vanhove,
+``Algorithms for Minimal Picard-Fuchs Operators of Feynman Integrals,''
+Lett. Math. Phys. \textbf{113} (2023) no.2, 37
+%doi:10.1007/s11005-023-01661-3
+[arXiv:2209.10962 [hep-th]].
 
 \bibitem{Doran:2023yzu}
 C.~F.~Doran, A.~Harder, E.~Pichon-Pharabod and P.~Vanhove,
@@ -2253,6 +2049,13 @@ P.~Vanhove,
 Proc. Symp. Pure Math. \textbf{88} (2014), 161-194
 %doi:10.1090/pspum/088/01455
 [arXiv:1401.6438 [hep-th]].
+  
+\bibitem{bek}
+Spencer Bloch, H{\'e}l{\`e}ne Esnault, and Dirk Kreimer.
+\newblock On motives associated to graph polynomials.
+\newblock {\em Communications in mathematical physics},
+267(1):181--225, 2006.
+\newblock [arXiv:math/0510011] 
 
 
 
@@ -2537,6 +2340,7 @@ Discrete Mathematics, {\bf 217} (1-3) 115-134, 2000.
 
 
 \end{thebibliography}
+
 
 
 
