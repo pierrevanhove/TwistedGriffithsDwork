@@ -142,13 +142,38 @@
 \def\Imm{\Im\textrm{m}}
 \def\um{\underline{m}}
 
+\newcommand{\DBoxNP}{	\begin{tikzpicture}[scale=0.1]
+%		\filldraw [black] (-2,0) circle (2pt);
+%		\draw [black, thick] (-2,0) to (-3,0);
+%		\filldraw [black] (0,1.5) circle (2pt);
+%		\filldraw [black] (0,-1.5) circle (2pt);
+%		\filldraw [black] (2.5,1.5) circle (2pt);
+%		\filldraw [black] (2.5,-1.5) circle (2pt);
+		\draw [black, thick] (-2,0) to (-0,1.5);
+		\draw [black, thick] (-2,0) to (-0,-1.5);
+		\draw [black, thick] (0,1.5) to (2.5,-1.5);
+		\draw [black, thick] (0,-1.5) to (1.20,-0.06);
+		\draw [black, thick] (1.30,0.06) to (2.5,1.5);
+		\draw [black, thick] (0,1.5) to (2.5,1.5);
+		\draw [black, thick] (0,-1.5) to (2.5,-1.5);
+	%	\draw [black,thick] (2.5,-1.5) to (3.0,-1.5);
+%		\draw [black,thick] (2.5,1.5) to (3.0,1.5);
+              \end{tikzpicture}}
+
+            \newcommand{\Kite}{	\begin{tikzpicture}[scale=0.1]
+              		\draw [black, thick] (-2,0) to (-0,1.5);
+		\draw [black, very thick] (-2,0) to (-0,-1.5);
+                	\draw [black, very thick] (2,0) to (0,1.5);
+                        \draw [black, thick] (2,0) to (0,-1.5);
+                        \draw[black, very thick] (0,1.5) to (0,-1.5);\end{tikzpicture}}
+
 \newcommand{\chickenDiag}{	\begin{tikzpicture}[scale=0.1]
 		\filldraw [black] (-2,0) circle (2pt);
 %		\draw [black, thick] (-2,0) to (-3,0);
-		\filldraw [black] (0,1.5) circle (2pt);
-		\filldraw [black] (0,-1.5) circle (2pt);
-		\filldraw [black] (2.5,1.5) circle (2pt);
-		\filldraw [black] (2.5,-1.5) circle (2pt);
+%		\filldraw [black] (0,1.5) circle (2pt);
+%		\filldraw [black] (0,-1.5) circle (2pt);
+%		\filldraw [black] (2.5,1.5) circle (2pt);
+%		\filldraw [black] (2.5,-1.5) circle (2pt);
 		\draw [black, thick] (-2,0) to (-0,1.5);
 		\draw [black, thick] (-2,0) to (-0,-1.5);
 		\draw [black,very thick] (0,1.5) to (2.5,-1.5);
@@ -907,7 +932,7 @@ This simple example illustrates the general procedure as we will see with more l
 %
 
 %----------------------------------------------------------------------
-\subsection{Differential equation for the  two-loop sunset}
+\subsection{The two-point  two-loop sunset graph}
 \label{sec:two-loop-case}
 
 %
@@ -934,7 +959,7 @@ This simple example illustrates the general procedure as we will see with more l
                                              \draw  [color = black, fill=none, very thick]  (x) circle (1.1cm);                         \end{pgfonlayer}
                    \end{tikzpicture}
   \caption{The two-loop sunset graph}
-  \label{fig:sunset}
+  \label{fig:sunset2loop}
 \end{figure}
 
 We now turn to the two-loop sunset and shows how to adapt the
@@ -1212,102 +1237,53 @@ The logarithmic dependence on the masses arise at the order $\epsilon$
 with $c^{(1)}_2(m_1,m_2,m_3)=c^{(1)}_1(m_2,m_1,m_3)$ and $c^{(1)}_3(m_1,m_2,m_3)=c^{(1)}_1(m_3,m_2,m_1)$.
 and $c^{(1)}_1(\vec m)+c_2^{(1)}(\vec m)+c_3^{(1)}(\vec m)=4
 \mathscr{S}^0(\vec m,t)$.
-
-\subsection{Double boxes}
-We show how to derive differential equation for  the massless box and massless double-box integrals in 
-dimension $D=4-2\epsilon$. Unlike previous cases,  these integrals are divergent in four
-dimensions so the $\epsilon=0$ integral are not defined.
-%
-\begin{figure}[h]\centering
-  	\begin{tikzpicture}[scale=0.6]
-		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
-		\draw [black,very thick] (-2,0) to (2,0);
-		%\filldraw [black] (2,0) circle (2pt);
-		%\filldraw [black] (-2,0) circle (2pt);
-%		\filldraw [black] (1.414,1.414) circle (2pt);
-%		\filldraw [black] (-1.414,1.414) circle (2pt);
-%		\filldraw [black] (1.414,-1.414) circle (2pt);
-%		\filldraw [black] (-1.414,-1.414) circle (2pt);
-		%\draw [black,very thick] (-2,0) to (-3,0);
-		%\draw [black,very thick] (2,0) to (3,0);
-		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
-		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
-		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
-		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
-	\end{tikzpicture}\quad
-	\begin{tikzpicture}[scale=0.6]
-		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
-		\draw [black,very thick] (-2,0) to (2,0);
-		%\filldraw [black] (2,0) circle (2pt);
-		%\filldraw [black] (-2,0) circle (2pt);
-%		\filldraw [black] (1.414,1.414) circle (2pt);
-%		\filldraw [black] (-1.414,1.414) circle (2pt);
-%		\filldraw [black] (1.414,-1.414) circle (2pt);
-%		\filldraw [black] (-1.414,-1.414) circle (2pt);
-		%\draw [black,very thick] (-2,0) to (-3,0);
-		%\draw [black,very thick] (2,0) to (3,0);
-		\draw [black,very thick] (0,2) to (0,3);
-		\draw [black,very thick] (0,0) to (0,1);
-		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
-		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
+%-----------------------------------------------------------------------
+      \subsection{The two-point one-mass kite}
+\begin{figure}[h]
+	\centering	\begin{tikzpicture}[scale=0.7]
+          \draw [black, very thick] (-2,0) to (-3,0);
+          	\draw [black, very thick] (2,0) to (3,0);
+		\draw [black, thick] (-2,0) to (-0,1.5);
+		\draw [black, very thick] (-2,0) to (-0,-1.5);
+                	\draw [black, very thick] (2,0) to (0,1.5);
+                        \draw [black, thick] (2,0) to (0,-1.5);
+                        \draw[black, very thick] (0,1.5) to (0,-1.5);
 	\end{tikzpicture}
-	\caption{The planar and non-planar double-box graphs}\label{fig:doublebox}
+	\caption{The Kite 1mass}\label{fig:kite1mass}
 \end{figure}
 
-
-
-\noindent{\bf The massless planar double-box graph:}
-
-The graph polynomials are given by
-\begin{align}
-	\label{e:DoubleBoxgraphpolynomials}
-	\textbf{U}_{\Box\!\Box}&=(x_1+x_2+x_3)(x_4+x_5+x_6)+(x_1+\cdots+x_6)x_7,\\
-	\nonumber  \textbf{F}_{\Box\!\Box}(s,t)&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
-\end{align}
-with the twisted differential in $D=4-2\epsilon$ in the projective
-space $\mathbb P^6$
-\begin{equation}\label{e:OmegaDoubleBox}
-	\Omega_{\Box\!\Box}^\epsilon(s,t)=   {\textbf{U}_{\Box\!\Box}  \over
-		\textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0
+\begin{equation}
+	\mathbf U_{\Kite} =(x_1+x_2) (x_3+x_4)+(x_1+x_2+x_3+x_4) x_5,
 \end{equation}
-we work with the single scale form $\tilde
-\Omega_{\Box\!\Box}^\epsilon(X)=(-s)^{3+2\epsilon}
-\Omega_{\Box\!\Box}^\epsilon(s,Xs)$
-with the result
-\begin{equation}\label{e:PF2box}
-	\mathscr{L}_{\Box\!\Box}^\epsilon=(1+X)X^2 \left(d\over
-	dX\right)^2+(2+3X+\epsilon) X{d\over dX}+X-\epsilon-2\epsilon^2
-\end{equation}
-the inhomogeneous term is
-\begin{equation}\label{e:Source2box}
-	\mathscr{S}_{\Box\!\Box}^\epsilon=
-\end{equation}
-
-
-
-\noindent{\bf The massless non-planar double-box graph:}
-
 \begin{multline}
-  \textbf{U}_{\sqsubset\!\!\!\times}=x_1 x_2+x_3 x_2+x_4 x_2+x_5 x_2+x_6 x_2+x_1 x_5+x_3 x_5+x_4 x_5+x_1
-   x_6\cr+x_3 x_6+x_4 x_6+x_1 x_7+x_3 x_7+x_4 x_7+x_5 x_7+x_6 x_7  
- \end{multline}
- and
- \begin{multline}
-  \textbf{F}_{\sqsubset\!\!\!\times}(s,t)=s (x_2 (x_3 x_5-x_4 x_6)+x_1 (x_2 x_3+(x_5+x_6+x_7) x_3+x_6
-   x_7))\cr+t (x_4 x_5 x_7-x_2 x_4 x_6)
- \end{multline}
-we work with the single scale differential form
+\mathbf F _{\Kite}(m^2,p^2)=p^2 (x_1 x_2 x_3+x_1 x_4 x_3+x_2 x_4 x_3+x_1 x_5 x_3+x_4 x_5
+x_3+x_1 x_2 x_4+x_1 x_2 x_5+x_2 x_4 x_5)\cr
+-m^2 (x_1+x_3+x_5) 	\mathbf U_{\Kite} 
+\end{multline}
+Now setting $p^2=X m^2$ we have  single scale problem and now set $m=1$
+\begin{equation}
+  \Omega_{\Kite}^\epsilon=   {\mathbf U_{\Kite}^{5-3\delta}\over
+    \mathbf F_{\Kite}(1,X)^{5-2\delta}}\left(\mathbf U_{\Kite}^3\over
+    \mathbf F_{\Kite}^2\right)^\epsilon \Omega^{(0)}_5.
+\end{equation}
+
+It was shown
+in~\cite{Broadhurst:1987ei,Adams:2016xah,Lairez:2022zkj} that the two point Kite graph with generic masses satisfies a
+first order differential equation in four dimensions.
+
+
+The integrand of the Feynman integral is the twisted differential form
+
+\begin{equation}
+\Omega_{\Kite} ={	\mathbf U_{\Kite}^{5-3\delta} \over \mathbf (F _{\Kite}(X))^{5-2\delta}}\,\left(	\mathbf U_{\Kite}^3\over \mathbf F _{\Kite}(X)^2\right)^\epsilon\,\Omega^{(0)}_5.
+\end{equation}
+
  \begin{equation}
-  \tilde \Omega^\epsilon_{\sqsubset\!\!\!\times}=  (-s)^{3+2\epsilon}  {\textbf{U}_{\sqsubset\!\!\!\times}  \over
-		\textbf{F}_{\sqsubset\!\!\!\times}(s,Xs)^{3}}\left(\textbf{U}_{\sqsubset\!\!\!\times}^3\over \textbf{F}^2_{\sqsubset\!\!\!\times}(s,sX)\right)^\epsilon\,\Omega_0
- \end{equation}
-the differential operator is
- \begin{equation}
-   \label{eq:3}
-   \mathscr{L}^\epsilon=(1+X)^2X^2\left(d\over dX\right)^2+(1+X)(1+2X)  (2+\epsilon) X{d\over dX} +2 X(X+1)
-   +\left(2 X(X+1)-1\right) \epsilon-2 \epsilon ^2
- \end{equation}
-\subsection{The ice-cream cone in general dimensions}\label{sec:ice-cream}
+	\label{eq:Kite}
+	\mathscr{L}^\epsilon_{\Kite}=X(X-1){d\over dX} +X-1+(1+X)\epsilon
+\end{equation}
+%-----------------------------------------------------------------------
+\subsection{The three-point ice-cream cone graph}\label{sec:ice-cream}
 
 \begin{figure}[h]
 	\centering
@@ -1493,16 +1469,17 @@ the page \pvnote{PF-Ice-cream-epsilon.ipynb})
 	apparent depend on $\epsilon$. They arise from the
 	roots of the polynomial $c^{[1^7]}_3(t,\epsilon) $ of
 	degree 11 in $t$ and 2 in $\epsilon$.
-\end{itemize}
-\subsection{Elliptic roast chicken graph}
+      \end{itemize}
+%-----------------------------------------------------------------------
+      \subsection{The three-point roast chicken graph}
 \begin{figure}[h]
 	\centering	\begin{tikzpicture}[scale=0.7]
-		\filldraw [black] (-2,0) circle (2pt);
+%		\filldraw [black] (-2,0) circle (2pt);
 		\draw [black, thick] (-2,0) to (-3,0);
-		\filldraw [black] (0,1.5) circle (2pt);
-		\filldraw [black] (0,-1.5) circle (2pt);
-		\filldraw [black] (2.5,1.5) circle (2pt);
-		\filldraw [black] (2.5,-1.5) circle (2pt);
+%		\filldraw [black] (0,1.5) circle (2pt);
+%		\filldraw [black] (0,-1.5) circle (2pt);
+%		\filldraw [black] (2.5,1.5) circle (2pt);
+%		\filldraw [black] (2.5,-1.5) circle (2pt);
 		\draw [black, thick] (-2,0) to (-0,1.5);
 		\draw [black, thick] (-2,0) to (-0,-1.5);
 		\draw [black,very thick] (0,1.5) to (2.5,-1.5);
@@ -1513,7 +1490,7 @@ the page \pvnote{PF-Ice-cream-epsilon.ipynb})
 		\draw [black,thick] (2.5,-1.5) to (3.0,-1.5);
 		\draw [black,thick] (2.5,1.5) to (3.0,1.5);
 	\end{tikzpicture}
-	\caption{The elliptic roast chicken graph}\label{fig:roastchicken}
+	\caption{The roast chicken graph}\label{fig:roastchicken}
 \end{figure}
 
 We set $m=1$ and define $2p_1 \cdot p_2 = X$. We have
@@ -1521,18 +1498,117 @@ We set $m=1$ and define $2p_1 \cdot p_2 = X$. We have
 	\mathbf U_{\chickenDiag} =  x_3 \left(x_4+x_5\right)+x_2 \left(x_3+x_4+x_5\right)+\left(x_3+x_4+x_5\right) x_6+x_1 \left(x_2+x_4+x_5+x_6\right),
 \end{equation}
 \begin{multline}
-\mathbf F _{\chickenDiag}=-\left(x_2 x_3 x_5+x_1 \left(x_3 \left(x_2+x_4+x_5\right)+\left(x_3+x_4\right) x_6\right)\right) X
+\mathbf F _{\chickenDiag}(X)=-\left(x_2 x_3 x_5+x_1 \left(x_3 \left(x_2+x_4+x_5\right)+\left(x_3+x_4\right) x_6\right)\right) X
 \cr
-+\left(x_2+x_4+x_5+x_6\right) (x_3 \left(x_4+x_5\right)+x_2 \left(x_3+x_4+x_5\right)
-\cr 
-+\left(x_3+x_4+x_5\right) x_6+x_1 \left(x_2+x_4+x_5+x_6\right))
++\left(x_2+x_4+x_5+x_6\right) 	\mathbf U_{\chickenDiag} 
 \end{multline}
+
+The integrand of the Feynman integral is the twisted differential form
+
+\begin{equation}
+\Omega_{\chickenDiag} ={	\mathbf U_{\chickenDiag}^{6-3\delta} \over \mathbf (F _{\chickenDiag}(X))^{6-2\delta}}\,\left(	\mathbf U_{\chickenDiag}^3\over \mathbf F _{\chickenDiag}(X)^2\right)^\epsilon\,\Omega^{(0)}_6.
+\end{equation}
 
  \begin{equation}
 	\label{eq:roastchicken}
 	\mathscr{L}^\epsilon_{\chickenDiag}=(16+X)X^2\left(d\over dX\right)^2+(2 (X+8) \epsilon +7 X+80) X{d\over dX} +4 (X+6) \epsilon +4 (2 X+15)
+      \end{equation}
+%-----------------------------------------------------------------------
+\subsection{The four-point planar and non-planar double boxes graph}
+We show how to derive differential equation for  the massless box and massless double-box integrals in 
+dimension $D=4-2\epsilon$. Unlike previous cases,  these integrals are divergent in four
+dimensions so the $\epsilon=0$ integral are not defined.
+%
+\begin{figure}[h]\centering
+  	\begin{tikzpicture}[scale=0.6]
+		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
+		\draw [black,very thick] (-2,0) to (2,0);
+		%\filldraw [black] (2,0) circle (2pt);
+		%\filldraw [black] (-2,0) circle (2pt);
+%		\filldraw [black] (1.414,1.414) circle (2pt);
+%		\filldraw [black] (-1.414,1.414) circle (2pt);
+%		\filldraw [black] (1.414,-1.414) circle (2pt);
+%		\filldraw [black] (-1.414,-1.414) circle (2pt);
+		%\draw [black,very thick] (-2,0) to (-3,0);
+		%\draw [black,very thick] (2,0) to (3,0);
+		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
+		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
+		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
+		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
+	\end{tikzpicture}\quad
+	\begin{tikzpicture}[scale=0.6]
+		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
+		\draw [black,very thick] (-2,0) to (2,0);
+		%\filldraw [black] (2,0) circle (2pt);
+		%\filldraw [black] (-2,0) circle (2pt);
+%		\filldraw [black] (1.414,1.414) circle (2pt);
+%		\filldraw [black] (-1.414,1.414) circle (2pt);
+%		\filldraw [black] (1.414,-1.414) circle (2pt);
+%		\filldraw [black] (-1.414,-1.414) circle (2pt);
+		%\draw [black,very thick] (-2,0) to (-3,0);
+		%\draw [black,very thick] (2,0) to (3,0);
+		\draw [black,very thick] (0,2) to (0,3);
+		\draw [black,very thick] (0,0) to (0,1);
+		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
+		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
+	\end{tikzpicture}
+	\caption{The planar and non-planar double-box graphs}\label{fig:doublebox}
+\end{figure}
+
+
+
+\subsubsection{The massless planar double-box graph}
+
+The graph polynomials are given by
+\begin{align}
+	\label{e:DoubleBoxgraphpolynomials}
+	\textbf{U}_{\Box\!\Box}&=(x_1+x_2+x_3)(x_4+x_5+x_6)+(x_1+\cdots+x_6)x_7,\\
+	\nonumber  \textbf{F}_{\Box\!\Box}(s,t)&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
+\end{align}
+with the twisted differential in $D=4-2\epsilon$ in the projective
+space $\mathbb P^6$
+\begin{equation}\label{e:OmegaDoubleBox}
+	\Omega_{\Box\!\Box}^\epsilon(s,t)=   {\textbf{U}_{\Box\!\Box}  \over
+		\textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0
+\end{equation}
+we work with the single scale form $\tilde
+\Omega_{\Box\!\Box}^\epsilon(X)=(-s)^{3+2\epsilon}
+\Omega_{\Box\!\Box}^\epsilon(s,Xs)$
+with the result
+\begin{equation}\label{e:PF2box}
+	\mathscr{L}_{\Box\!\Box}^\epsilon=(1+X)X^2 \left(d\over
+	dX\right)^2+(2+3X+\epsilon) X{d\over dX}+X-\epsilon-2\epsilon^2
+\end{equation}
+the inhomogeneous term is
+\begin{equation}\label{e:Source2box}
+	\mathscr{S}_{\Box\!\Box}^\epsilon=
 \end{equation}
 
+
+
+\subsubsection{The massless non-planar double-box graph}
+
+\begin{multline}
+  \textbf{U}_{\DBoxNP}=x_1 x_2+x_3 x_2+x_4 x_2+x_5 x_2+x_6 x_2+x_1 x_5+x_3 x_5+x_4 x_5+x_1
+   x_6\cr+x_3 x_6+x_4 x_6+x_1 x_7+x_3 x_7+x_4 x_7+x_5 x_7+x_6 x_7  
+ \end{multline}
+ and
+ \begin{multline}
+  \textbf{F}_{\DBoxNP}(s,t)=s (x_2 (x_3 x_5-x_4 x_6)+x_1 (x_2 x_3+(x_5+x_6+x_7) x_3+x_6
+   x_7))\cr+t (x_4 x_5 x_7-x_2 x_4 x_6)
+ \end{multline}
+we work with the single scale differential form
+ \begin{equation}
+  \tilde \Omega^\epsilon_{\DBoxNP}=  (-s)^{3+2\epsilon}  {\textbf{U}_{\DBoxNP}  \over
+		\textbf{F}_{\DBoxNP}(s,Xs)^{3}}\left(\textbf{U}_{\DBoxNP}^3\over \textbf{F}^2_{\DBoxNP}(s,sX)\right)^\epsilon\,\Omega_0
+ \end{equation}
+the differential operator is
+ \begin{equation}
+   \label{eq:3}
+   \mathscr{L}^\epsilon=(1+X)^2X^2\left(d\over dX\right)^2+(1+X)(1+2X)  (2+\epsilon) X{d\over dX} +2 X(X+1)
+   +\left(2 X(X+1)-1\right) \epsilon-2 \epsilon ^2
+ \end{equation}
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Three and higher-loop examples}\label{sec:higherloop}
 
@@ -1990,6 +2066,25 @@ of this work.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
 
+\bibitem{Broadhurst:1987ei}
+D.~J.~Broadhurst,
+``The Master Two Loop Diagram With Masses,''
+Z. Phys. C \textbf{47} (1990), 115-124
+  
+\bibitem{Adams:2016xah}
+L.~Adams, C.~Bogner, A.~Schweitzer and S.~Weinzierl,
+``The Kite Integral to All Orders in Terms of Elliptic Polylogarithms,''
+J. Math. Phys. \textbf{57} (2016) no.12, 122302
+%doi:10.1063/1.4969060
+[arXiv:1607.01571 [hep-ph]].
+  
+\bibitem{Adams:2015gva}
+L.~Adams, C.~Bogner and S.~Weinzierl,
+``The two-loop sunrise integral around four space-time dimensions and generalisations of the Clausen and Glaisher functions towards the elliptic case,''
+J. Math. Phys. \textbf{56} (2015) no.7, 072303
+%doi:10.1063/1.4926985
+[arXiv:1504.03255 [hep-ph]].
+  
 \bibitem{Caffo:1998du}
 M.~Caffo, H.~Czyz, S.~Laporta and E.~Remiddi,
 ``The Master Differential Equations for the Two Loop Sunrise Selfmass Amplitudes,''
@@ -2412,12 +2507,6 @@ JHEP \textbf{04} (2023), 117
 [arXiv:2212.08908 [hep-th]].
 
  
-\bibitem{Remiddi:2013joa}
-E.~Remiddi and L.~Tancredi,
-``Schouten Identities for Feynman Graph Amplitudes; the Master Integrals for the Two-Loop Massive Sunrise Graph,''
-Nucl. Phys. B \textbf{880} (2014), 343-377
-%doi:10.1016/j.nuclphysb.2014.01.009
-[arXiv:1311.3342 [hep-ph]].
 
 \bibitem{Remiddi:2016gno}
 E.~Remiddi and L.~Tancredi,
