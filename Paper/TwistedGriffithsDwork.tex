@@ -335,7 +335,7 @@ The number of edges of the graph is $n$ and the number of loops is
  $L$.
 
 
-Its domain of integration is the positive orthant
+Its domain of integration is the positive orthant\lNote{new paragraph?}
 \begin{equation}\label{e:Deltan}
 	\Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
 	i\leq n\},
@@ -510,8 +510,8 @@ The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are h
 $\mathsf{a}(L+1)-L$ in  $\underline x$ . 
 %
  %    
-   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form \footnote{See also obtained by adapting the deriving in section~3.2
-   	of~\cite{Bloch:2016izu} to include the $\epsilon$ factor} \lNote{brought this from sunset section}
+   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form\lNote{brought this from sunset section}\footnote{ The derivation in section~3.2
+   	of~\cite{Bloch:2016izu} can be adapted to include the $\epsilon$ factor.}
    \begin{equation}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
     G_{\mathsf{a}}^j  (\underline x)-x_j
@@ -921,7 +921,7 @@ The inhomogeneous term reads
 	\mathscr{S}_\Box^\epsilon=\frac{(\epsilon +1)\Gamma (-\epsilon -1)^2 }{\Gamma
 		(-2 \epsilon )}  \, \left( (-s)^{-1-\epsilon }+(-t)^{-\epsilon -1}\right) \, .
 \end{equation}
-This simple example illustrates the general procedure as we will see with more loops. In general the system of equations is dense. As usual when one encounters dense  systems, finite field methods are the way to go~\cite{Peraro:2019svx}.
+This simple example illustrates the general procedure as we will see with more loops. In general the system of equations is dense. As usual when one encounters dense  systems, finite field methods are the way to go~\cite{Peraro:2019svx}. \lNote{this section is too short}
 %
 \section{Two-loop examples}\label{sec:twoloop}
 %
@@ -1675,7 +1675,7 @@ rational function  of degree
 the complement of the vanishing locus of the denominator in $\mathbb P^{n-1}\backslash\{\textbf{F}_{n-1}(t)=0\}$.
 In $D=2$ dimension ($\epsilon=0$) we have a rational  differential form
 $ \Omega_{\su(n-1)}^{\epsilon}(\vec m,t,0)$. The Picard-Fuchs operator has been
-given up to six loop and is in agreement with the Feynman integral
+given up to six loop \lNote{$\epsilon=0$} and it is in agreement with the Feynman integral
 being a (relative) period of a Calabi-Yau  manifold of complex dimension $n-2$~\cite{Bloch:2013tra,Bloch:2014qca,Bloch:2014qca,Bourjaily:2019hmc,Bonisch:2020qmm,Bonisch:2021yfw,Candelas:2021lkc,Forum:2022lpz}.
 
 
@@ -1715,11 +1715,12 @@ page~\pvnote{give sagenotebook}
 \subsubsection{The three-loop generic mass cases}\label{sec:threeloop}
 
 For the three-loop sunset with different masses we find the following
-results. We follow the notation of section~4 of~\cite{Lairez:2022zkj}
-
+results. With the notation of section~4 of~\cite{Lairez:2022zkj}:
+%
 \begin{itemize}
 \item  {\bf Case~$[4]$:} The all equal mass case $m_1=m_2=m_3=m_4$ has already been
-  discussed in the previous section. The Picard-Fuchs operator is of order 3 is given by
+  discussed in the previous section. The $\epsilon^0$ operator was derived and analysed in~\cite{Vanhove:2014wqa,Bloch:2014qca,Pogel:2022yat}. For $ \epsilon \ne 0$, the Picard-Fuchs operator reads
+   \end{itemize}
   \begin{multline}
     \mathscr{L}_\su^{[4],\epsilon}=
     -(t - 16)  (t - 4)  t^2\left(d\over dt\right)^3 - 6  (t^3 -
@@ -1731,25 +1732,25 @@ results. We follow the notation of section~4 of~\cite{Lairez:2022zkj}
     +\epsilon^2\left(-(11  t^2 -
       28  t - 64)  \left(d\over dt\right) - 11  t + 14\right)+ \epsilon^3\left(-6  t - 12\right)
   \end{multline}
-the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:2014wqa,Bloch:2014qca,Pogel:2022yat}
 
+\begin{itemize}
 
   \item   {\bf Case~$[31]$:} For two different masses $m_1=m_2=m_3 \neq m_4$ the
-  Picard-Fuchs operator is of order 5 and has the $\epsilon$ dependence
+  Picard-Fuchs operator is of order 5 and has the following $\epsilon$ dependence
   \begin{equation}
     \mathscr{L}^{[31],\epsilon}_\su=       \sum_{r=0}^1 \epsilon^r
-    \mathscr{L}^{[31],r}_{5}+  \sum_{r=0}^4 \epsilon^{2+r}   \mathscr{L}^{[31],r}_{4-r}
+    \mathscr{L}^{[31],r}_{5}+  \sum_{r=0}^4 \epsilon^{2+r}   \mathscr{L}^{[31],r}_{4-r} \, ,
   \end{equation}
   where  $ \mathscr{L}^{[31],r}_{n}$ are of order $n$.
   The order $\epsilon^0$ operator factorizes as
   \begin{equation}
-         \mathscr{L}^{[31],0}_{5}=   \mathscr{L}^{[31],0}_{a,1} \mathscr{L}^{[31],\epsilon}_\su
+         \mathscr{L}^{[31],0}_{5}=   \mathscr{L}^{[31],0}_{a,1} \mathscr{L}^{[31],\epsilon}_\su \, , 
        \end{equation}
         where  $ \mathscr{L}^{[31],0}_{a,1}$ is a  first order operator
        and $\mathscr{L}^{[31],0}_\su$ is the fourth order
-       Picard-Fuchs operator the
-       three-loop sunset integral with mass configuration $[31]$ given
-       in section~4.3 of~\cite{Lairez:2022zkj}.
+       Picard-Fuchs operator of the
+       three-loop sunset integral with mass configuration $[31]$ (see 
+       in section~4.3 of~\cite{Lairez:2022zkj}).
        The coefficient of the highest order term $(d/dt)^5$    is given by
        \begin{multline}
                    \mathscr{L}^{[31],\epsilon}_\su\Big\vert_{(d/dt)^5}=
@@ -1763,17 +1764,17 @@ the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:
   Picard-Fuchs operator has order 6 and the $\epsilon$ expansion 
   \begin{equation}
     \mathscr{L}^{[22],\epsilon}=     \sum_{r=0}^3 \epsilon^r
-    \mathscr{L}^{[22],r}_{6}+  \sum_{r=0}^5 \epsilon^{4+r}   \mathscr{L}^{[22],r}_{5-r}
+    \mathscr{L}^{[22],r}_{6}+  \sum_{r=0}^5 \epsilon^{4+r}   \mathscr{L}^{[22],r}_{5-r} \, ,
   \end{equation}
   where  $ \mathscr{L}^{[22],r}_{n}$ are 
   operators of order $n$.
   The order $\epsilon^0$ operator factorizes as
   \begin{equation}
-         \mathscr{L}^{[22],0}_{6}=   \mathscr{L}^{[22],0}_{a,1} \mathscr{L}^{[22],0}_{b,1}\mathscr{L}^{[22],0}_\su
+         \mathscr{L}^{[22],0}_{6}=   \mathscr{L}^{[22],0}_{a,1} \mathscr{L}^{[22],0}_{b,1}\mathscr{L}^{[22],0}_\su \,,
        \end{equation}
        where  $ \mathscr{L}^{[22],0}_{a,1}$ and $
-       \mathscr{L}^{[22],0}_{b,1}$ are first order operators
-       and $\mathscr{L}^{[22],0}_\su$ is the fourth order operator for the
+       \mathscr{L}^{[22],0}_{b,1}$ are first order operators. 
+        $\mathscr{L}^{[22],0}_\su$ is the fourth order operator for the
        three-loop sunset integral with mass configuration $[22]$ given  section~4.3 of~\cite{Lairez:2022zkj}.
     The coefficient of the highest order term $(d/dt)^6$    is given by
        \begin{multline}
@@ -1784,17 +1785,17 @@ the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:
                  The $\epsilon$ dependence appears only in the
                  apparent singularities determined by the polynomial
                  $q^{[22]}(t,\epsilon)$ of degree 4 in $t$ and $3$ in $\epsilon$.
-     \item   {\bf Case~$[211]$:}For three different masses $m_1=m_2\neq m_3 \neq m_4$ the
+     \item   {\bf Case~$[211]$:} For three different masses $m_1=m_2\neq m_3 \neq m_4$ the
   Picard-Fuchs operator has order 7 and has the $\epsilon$ expansion
   \begin{equation}
     \mathscr{L}^{[211],\epsilon}_\su=       \sum_{r=0}^8 \epsilon^r
-    \mathscr{L}^{[211],r}_{7}+  \sum_{r=0}^6 \epsilon^{9+r}   \mathscr{L}^{[22],r}_{6-r}
+    \mathscr{L}^{[211],r}_{7}+  \sum_{r=0}^6 \epsilon^{9+r}   \mathscr{L}^{[22],r}_{6-r} \,,
   \end{equation}
    where  $ \mathscr{L}^{[211],r}_{n}$ 
   are operators of order $n$.
     The order $\epsilon^0$ operator factorizes as
   \begin{equation}
-         \mathscr{L}^{[211],0}_{7}=   \mathscr{L}^{[211],0}_{a,1}  \mathscr{L}^{[211],0}_{b,1} \mathscr{L}^{[211],0}_{c,1}\mathscr{L}^{[211],0}_\su
+         \mathscr{L}^{[211],0}_{7}=   \mathscr{L}^{[211],0}_{a,1}  \mathscr{L}^{[211],0}_{b,1} \mathscr{L}^{[211],0}_{c,1}\mathscr{L}^{[211],0}_\su \,,
        \end{equation}
         where  $ \mathscr{L}^{[211],0}_{a,1}$,  $
         \mathscr{L}^{[211],0}_{b,1}$ and  $ \mathscr{L}^{[211],0}_{c,1}$ are  first order operators
@@ -1816,11 +1817,11 @@ the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:
   Picard-Fuchs operator has order 11 and has the $\epsilon$ expansion 
   \begin{equation}
     \mathscr{L}^{[1111],\epsilon}=     \sum_{r=0}^{16}\epsilon^r
-    \mathscr{L}^{[1111],r}_{11}+\sum_{r=0}^{11} \epsilon^{16+r}  \mathscr{L}^{[1111],\epsilon}_{11-r}
+    \mathscr{L}^{[1111],r}_{11}+\sum_{r=0}^{11} \epsilon^{16+r}  \mathscr{L}^{[1111],\epsilon}_{11-r}\, .
   \end{equation}
     The order $\epsilon^0$ operator factorizes as
   \begin{equation}
-         \mathscr{L}^{[1111],0}_{0,11}=   \mathscr{L}^{[1111],0}_{a_1,1}  \cdots  \mathscr{L}^{[1111],0}_{a_5,1}   \mathscr{L}^{[1111],0}_{\su}
+         \mathscr{L}^{[1111],0}_{0,11}=   \mathscr{L}^{[1111],0}_{a_1,1}  \cdots  \mathscr{L}^{[1111],0}_{a_5,1}   \mathscr{L}^{[1111],0}_{\su}\,,
        \end{equation}
         where  $ \mathscr{L}^{[1111],\epsilon}_{a_1,1},\dots,  \mathscr{L}^{[1111],\epsilon}_{a_5,1}$ are  first order operators
        and $\mathscr{L}^{[1111],0}_{\su}$ is the sixth  order  Picard-Fuchs operator for the
@@ -1850,35 +1851,33 @@ the $\epsilon^0$ operator is the operator derived and analysed in~\cite{Vanhove:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
-
+%
 In Section~\ref{sec:griff-dwork-reduct}, we have presented an
-algorithmic procedure for deriving
-the inhomogeneous differential equations satisfied by Feynman
+algorithm for deriving inhomogeneous differential equations satisfied by Feynman
 integrals. At each derivative order the
-derivative procedure solves the  linear systems~\eqref{e:sysCFU}
-determining the coefficients $c_{a_1,\dots,a_r}(\underline z)$ and the
-inhomogeneous term $\beta_\Gamma$ in~\eqref{e:PFOmegaGeneric}.
-
-
-We first give a discussion  of  the order of the minimal differential
-operator and then of the $\epsilon$ dependence.
+ procedure consists of solving the linear systems~\eqref{e:sysCFU} in order to
+determine the coefficients $c_{a_1,\dots,a_r}(\underline z)$ and the 
+inhomogeneous term $\beta_\Gamma$ in~\eqref{e:PFOmegaGeneric}. Our work introduces an explicit dependence on $\epsilon$ so it is worth discussing  its effect on the minimal differential
+operator and on the singularities of the differential equations.
+%
+%
+%We first give a discussion  of  the order of the %minimal differential
+%operator and then of the $\epsilon$ dependence.
 
 %------------------------------------------------------------------------
 \subsection{Minimal order of the differential operator}
 \label{sec:minim-order-diff}
 
-
-
- 
-In the example studied in this work we have found the following:
+In the examples studied in this work we have found the following:
 
 \begin{itemize}
 	\item  For the $n-1$-loop
-	sunset integrals, the number of irreducible master integrals for the
-	is $2^{n}-n-1$.  The master integrals are given by
-	
+	sunset integrals, the number of irreducible master integrals 
+	is $2^{n}-n-1$. \lNote{cite?} The \lNote{number of}  master integrals are given by 
+%
+%	
 	\begin{itemize}  \item The minimal differential Picard-Fuchs operator for the all
-		equal mass case has order  $n-1$
+		equal mass case has order  $n-1$ .
 		\item At one-loop $n=2$ we have an operator of order 1, at two-loop
 		$n=3$ an operator of order 4 and at three-loop $n=4$ with generic
 		mass configuration the Picard-Fuchs operator
@@ -1893,59 +1892,59 @@ In the example studied in this work we have found the following:
           Picard-Fuchs operator  is three which is smaller than the
           number of masters.
 \end{itemize}
-
-So it seems that for general kinematics the minimal (i.e. not
-factorisable) $\epsilon$ deformed Picard-Fuchs operator has for order
-the number of master integrals. But for special kinematics the minimal
+This leads us to conjecture that 
+%So it seems that
+ for general kinematics the minimal (i.e. not
+factorisable) $\epsilon$-deformed Picard-Fuchs operator has 
+%for order
+the same order
+as the number of master integrals. But for special kinematics the minimal
 order is smaller.
-
+%
 The reduction of order arises when the integrand has more
 singularities or more symmetries:
 \begin{itemize}
   \item {\bf More singularities:} In the case of
-massless internal line or massless external kinematics, extra
-singularities arises reducing the genus of the algebraic locus defined
+massless internal lines or massless external kinematics, extra
+singularities arise thus reducing the genus of the algebraic locus defined
 by the singular locus of the integral, and therefore reducing the
-order the minimal differential operator.
+order the minimal differential operator. \lNote{confusing}
 \item {\bf More symmetries:}
-Another situations is that for special choices of kinematic
-configurations the integrand of the Feynman integral presents extra
+Another situation is when special choices of kinematic
+configurations the integrand of the Feynman integral produce extra
 symmetries in the space of projective variables $\underline
-x$. Therefore new relations between independent (period) integrals
-arise reducing the number of independent integrals. A typical case is the
+x$. This leads to new relations between independent (period) integrals, which reduce the number of independent integrals. A typical case is the
 reduction order of the sunset integral according the mass
 configurations as given in~\cite{Bloch:2014qca,Lairez:2022zkj,Bonisch:2021yfw,Bonisch:2020qmm,Pogel:2022vat}.
 \end{itemize}
 
-
-
-
-This reduction of order is due to the extra symmetries of the
-integrand which gives rise to relations between period integrals.
+%This reduction of order is due to the extra symmetries of the
+%integrand which gives rise to relations between period integrals.
 This reduction of order can be
 understood by the factorisability of the Picard-Fuchs operator
 \begin{equation}
   \mathscr{L}_{\rm generic} \stackrel{\rm restriction}{\longrightarrow}
-  \hat{\mathscr{L}}_{\rm restricted}   = \mathscr{L}_1 \mathscr{L}_{\rm minimal}
+  \hat{\mathscr{L}}_{\rm restricted}   = \mathscr{L}_1 \mathscr{L}_{\rm minimal} \,.
 \end{equation}
 For instance in Section~4 of~\cite{Lairez:2022zkj} it has been shown
 how the multi-loop sunset Picard-Fuchs operator factorizes under
-internal mass identifications.
-
-As well the minimal order differential operator for the all equal
-mass $L$-loop sunset is $L$. Which is much smaller than the order
+internal mass identifications. Moreover,
+%
+%As well 
+the minimal order differential operator for the all equal
+mass $L$-loop sunset is $L$. This is much smaller than 
 $2^{L+1}-\binom{L+2}{\left\lfloor \frac{L+2}{2}\right\rfloor }$ for generic
 mass configurations~\cite{Lairez:2022zkj} which is the number of
 master integrals~\cite{Bitoun:2017nre}.
 The reason being that the Feynman integral for the all equal mass
 configuration has more symmetries.  
 
-We notice that the algorithm presented in this work produces the 
+We have noticed that the algorithm presented in this work produces the 
 the minimal  differential operator and does not need any factorisation
 of the differential operator, to the contrary to the procedure
 presented in~\cite{Pogel:2022vat}. 
-
-
+%
+%
 
 Unfortunately, the order drop is not detected by  either the
 computation of the Euler characteristic of complement of graph
@@ -1954,24 +1953,22 @@ computation using the critical points of the
 Lee-Pomeransky representation~\cite{Lee:2013hzt}   nor the
 Baikov
 representation~\cite{Frellesvig:2017aai,Frellesvig:2019uqt,Cacciatori:2021nli}.
-For instance it was explained how an hidden involution symmetry of the
+For instance in ~\cite{Marzucca:2023gto} it was explained how a hidden involution symmetry of the
 two-loop non-planar double-box allows to identify the hyperelliptic
 curve of genus 2 when the use of the Baikov representation gave a
-curve of genus 3~\cite{Marzucca:2023gto}.
+curve of genus 3.
 It is shown in~\cite{Doran:2023yzu}, using
 a detailed  algebraic-geometrical analysis, that all planar two-loop
-integral are either period of rational curves, elliptic curve or genus
-2 hyperelliptic curves.
+integrals are either period of rational curves, elliptic curve or genus
+2 hyperelliptic curves. \lNote{also order drop?}
 
 %------------------------------------------------------------------------
 \subsection{The $\epsilon$-dependence}
 \label{sec:epsilon-dependence}
 
-
-
-We turn to a discussion of the way the $\epsilon$ factor enters the
-differential equation.
-
+%We turn to a discussion of the way the $\epsilon$ factor enters the
+%differential equation.
+%
 For a differential equation
 \begin{equation}\label{e:PFconclusion}
 c_N(z)  {d^Nf(z)\over dz^N}+\cdots + c_0(z) f(z)=0
@@ -1979,9 +1976,9 @@ c_N(z)  {d^Nf(z)\over dz^N}+\cdots + c_0(z) f(z)=0
 the roots of $c_N(z)$ are the singularities of the differential
 equation. A root of $c_N(z)$ where the solution $f(z)$ is
 regular is called an apparent singularity. A root of $c_N(z)$
-where the solution has a singularity is a real. We refer to
-Section~16.4 of~\cite{Ince} for details.
-
+where the solution has a singularity is a real (See 
+Section~16.4 of~\cite{Ince} for details). 
+%
 For the case of Feynman integrals the non-apparent singularities
 of~\eqref{e:PFconclusion} are the roots of the
 discriminant of the singular locus of the integrand of  Feynman
@@ -1993,13 +1990,12 @@ $\mathscr{L}_z^\epsilon$. This means that the  $\epsilon$ deformation
 does not change the position of the real singularities but it affects
 the local behaviour (the monodromy) of the solution near the
 singularity.
-
-The physical reason for this is that in singularities (the threshold
+%
+The physical interpretation of this is that the singularities \lNote{kinematic?} (the threshold
 and pseudo-thresholds) of a Feynman integral are independent of the
-space-time dimension.  But the local behaviour of the integral near
-the thresholds and pseudo-threshold changes with the space-time
-dimension. 
-  For instance that has been used with great success
+space-time dimension. However,  the local behaviour of the integral near
+the thresholds and pseudo-thresholds does change with the space-time
+dimension. The latter has been used with great success
 when decomposing amplitudes using the generalized unitarity method~\cite{Bern:2011qt}.
 
 %------------------------------------------------------------------------
@@ -2007,19 +2003,22 @@ when decomposing amplitudes using the generalized unitarity method~\cite{Bern:20
 We have presented a generalisation of the Griffiths-Dwork reduction
 for deriving the differential operator acting on Feynman integrals in
 general dimensions.  We have worked out various cases either
-generalising the know integer dimension cases or determining cases
+generalising the known integer dimension cases or determining cases
 that could not be achieved with the algorithm used
 in~\cite{lairez2016computing,Lairez:2022zkj}. The procedure amounts to
 solving linear systems which is done using {\tt
-  FiniteFlow} routines~\cite{Peraro:2019svx}. \pvnote{more}
+  FiniteFlow} routines~\cite{Peraro:2019svx}. \pvnote{more} \lNote{we should have summary and conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
-We would like to thank Pierre Lairez, Tiziano Peraro, Eric Pichon-Pharabod  for discussions.
+We would like to thank Pierre Lairez,  Eric Pichon-Pharabod  for discussions. We also thank Tiziano Peraro for correspondence on the use of {\tt
+	FiniteFlow}.
 The work of P.V. has received funding from the ANR grant ``SMAGP''
 ANR-20-CE40-0026-01. P.V. acknowledges support of the Institut Henri
 Poincar\'e (UAR 839 CNRS-Sorbonne Universit\'e), and LabEx CARMIN
-(ANR-10-LABX-59-01). \pvnote{Leonardo put your grants}
+(ANR-10-LABX-59-01). The work of LDLC is  supported by 
+the European Research Council under grant ERC-AdG-885414. 
+%\pvnote{Leonardo put your grants}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
