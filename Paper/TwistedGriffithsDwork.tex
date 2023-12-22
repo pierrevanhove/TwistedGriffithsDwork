@@ -185,18 +185,26 @@ Identifying the specific types of special functions required to evaluate Feynman
 
 Broadhurst and Kreimer~\cite{Broadhurst:1995km,Broadhurst:1996kc} observed intriguing parallels between the definition of Feynman integrals and the concept of period integrals introduced by Kontsevich and Zagier~\cite{Kontsevich:2001}. Subsequent work by Bloch, Esnault, and Kreimer~\cite{Bloch:2005bh}  and Brown~\cite{BrownCosmic}  established that Feynman integrals can be interpreted as relative period integrals associated with the mixed Hodge structure determined by the graph polynomials defining the Feynman integrals.
 
-Intriguingly, there is growing evidence suggesting that certain
-Feynman integrals correspond to relative period integrals of singular
-Calabi--Yau geometries. This connection is explored in a number
-of studies, including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM}.
+
 
 \medskip
 By deriving the set of differential operators acting on a Feynman integral one
 gets important information about its analytic nature.
+The differential  operator has real singularities at the position of
+the thresholds and pseudo-thresholds, the order of the differential
+operator is connected to the underlying geometry of the singular locus
+of the integrand. But as well the inhomogeneous term from
+contributions of Feynman integrals with contracted internal
+edges. Intriguingly, there is  growing evidence suggesting that certain
+Feynman integrals correspond to relative period integrals of singular
+Calabi--Yau geometries. This connection is explored in a number
+of studies, including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM}.
+
 In this work we give an algorithmic procedure for deriving such
-differential equations without having to go through the integral
+differential equations and the inhomogeneous part without having to go through the integral
 reduction to master integrals and the construction of a reducible
 system of differential equation satisfied by the set of master integrals.
+
 
 We work with the parametric representation of a Feynman integral attached to a
 graph $\Gamma$ in $D=2\delta-2\epsilon$ dimension. This  is given by
@@ -244,7 +252,7 @@ Griffiths-Dwork pole to the case of the twisted differential
 $\Omega_\Gamma^\epsilon$, and explain in
 Section~\ref{sec:deriv-diff-equat} how to use this iteratively to
 determine the differential equations. This generalises the algorithm
-used in\cite{Lairez:2022zkj} for the rational differential form cases. In Section~\ref{sec:oneloop} we
+used in~\cite{Lairez:2022zkj} for the rational differential form cases. In Section~\ref{sec:oneloop} we
 illustrate the procedure on the case of the massless box. In
 Section~\ref{sec:twoloop} we derive the $\epsilon$-deformed
 differential equation for the two-loop sunset integral for various
@@ -801,12 +809,32 @@ Let us illustrate our procedure with simple one-loop examples.
 
 \noindent{\bf The massless box graph:}
 
+\begin{figure}[h]\centering
+	\begin{tikzpicture}[scale=0.6]
+		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
+		%\draw [black,very thick] (-2,0) to (2,0);
+		%\filldraw [black] (2,0) circle (2pt);
+		%\filldraw [black] (-2,0) circle (2pt);
+		\filldraw [black] (1.414,1.414) circle (2pt);
+		\filldraw [black] (-1.414,1.414) circle (2pt);
+		\filldraw [black] (1.414,-1.414) circle (2pt);
+		\filldraw [black] (-1.414,-1.414) circle (2pt);
+		%\draw [black,very thick] (-2,0) to (-3,0);
+		%\draw [black,very thick] (2,0) to (3,0);
+		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
+		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
+		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
+		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
+	\end{tikzpicture}
+	\caption{The box  graph}\label{fig:box}
+\end{figure}
+
 The graph polynomials are given by
-\begin{align}
+\begin{equation}
 	\label{e:Boxgraphpolynomials}
-	\textbf{U}_{\Box}&=\sum_{i=1}^4 x_i,\cr
-	\textbf{F}_{\Box}(s,t)&=-t x_3x_4-sx_1x_2
-\end{align}
+	\textbf{U}_{\Box}=\sum_{i=1}^4 x_i,\qquad
+	\textbf{F}_{\Box}(s,t)=-t x_3x_4-sx_1x_2
+\end{equation}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^3$
 \begin{equation}\label{e:OmegaBox}
@@ -859,6 +887,11 @@ This simple example illustrates the general procedure as we will see with more g
 
 %
 %
+
+%----------------------------------------------------------------------
+\subsection{Differential equation for the  two-loop sunset}
+\label{sec:two-loop-case}
+
 %
 \begin{figure}[h]
   \centering
@@ -867,7 +900,7 @@ This simple example illustrates the general procedure as we will see with more g
        \vertex (x);
       \vertex[left=2cm of x,label=$p$](c1l);
       \vertex[right=2cm of x,label=$p$](c1r);
-      \tikzfeynmanset{every vertex=dot}
+%      \tikzfeynmanset{every vertex=dot}
         \vertex [left=1cm  of x] (xl);
         \vertex [right=1cm  of x] (xr);
         \draw [color = black, fill=none, very thick] (xl)  -- (xr);
@@ -880,47 +913,17 @@ This simple example illustrates the general procedure as we will see with more g
                                 };
                               \end{feynman}
                                            \begin{pgfonlayer}{bg}
-                                             \draw  [color = black, fill=none, very thick]  (x) circle (1.1cm);
-                                              \draw  [color = black, fill=none, very thick] (x) ellipse (1.1cm
-                                              and .8cm);
-                                                \draw  [color = black, fill=none, very thick] (x) ellipse
-                                                (1.1cm and .5cm);
-                                                  \draw  [color =
-                                                  black, fill=none,
-                                                  very thick]  (x) ellipse (1.1cm and .3cm);
-                        \end{pgfonlayer}
+                                             \draw  [color = black, fill=none, very thick]  (x) circle (1.1cm);                         \end{pgfonlayer}
                    \end{tikzpicture}
-  \caption{Multi-loop sunset}
+  \caption{The two-loop sunset graph}
   \label{fig:sunset}
 \end{figure}
-A class of examples we will consider is  
-the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.\eqref{e:FeynPara} for this case reads
-\begin{equation}
-  I^{(n-1)}_\su(\vec m,t;\epsilon)= \int_{\Delta_n} \Omega^{(n-1)}_\su(\vec m,t,\epsilon)  ; \quad
-  \Omega^{(n-1)}_\su(\vec m, t,\epsilon)={\Omega^{(n)}_0\over
-    \textbf{F}_{n-1}(t)}\left(\textbf{U}_{n-1}^n\over \textbf{F}_{n-1}(t)^{n-1}\right)^\epsilon
-\end{equation}
-with
-\begin{align}
-  \textbf{ U}_{n-1}&= x_1\cdots x_n\sum_{i=1}^n {1\over x_i}\,, \cr
-      \textbf{   F}_{n-1}(t)&= \textbf{U}_{n-1} \sum_{i=1}^n m_i^2x_i-t x_1\cdots x_n \, .
-\end{align}
-Notice that $\textbf{U}_{n-1}^n/ \textbf{F}_{n-1}(t)^{n-1}$ is an homogeneous
-rational function  of degree
-0 in $(x_1,\dots,x_n)$. As usual the differential form is defined in
-the complement of the vanishing locus of the denominator in $\mathbb P^{n-1}\backslash\{\textbf{F}_{n-1}(t)=0\}$.
-In $D=2$ dimension ($\epsilon=0$) we have a rational  differential form
-$\Omega_\su(\vec m,t,0)$. The Picard-Fuchs operator has been
-given up to six loop and is in agreement with the Feynman integral
-being a (relative) period of a Calabi-Yau  manifold of complex dimension $n-2$~\cite{Bloch:2013tra,Bloch:2014qca,Bloch:2014qca,Bourjaily:2019hmc,Bonisch:2020qmm,Bonisch:2021yfw,Candelas:2021lkc,Forum:2022lpz}.
-%----------------------------------------------------------------------
-\subsection{Differential equation for the  two-loop sunset}
-\label{sec:two-loop-case}
+
 We now turn to the two-loop sunset and shows how to adapt the
 Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$
 dependent integrand. For the two-loop case the differential Eq.\eqref{e:FeynPara} is
 \begin{equation}\label{e:OmegaSunset}
-  \Omega_\su^{(2)}(t)={1\over
+  \Omega_{\su(2)}^{\epsilon}(t)={1\over
     \textbf{F}_2(t)}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \,\Omega_0^{(3)}
 \end{equation}
 with
@@ -930,13 +933,14 @@ with
 \end{align}
 We discuss the equal mass and the general case separately. Let us start with the equal mass case.
 
+The twisted differential form $\Omega_\su^{(2)}$ is defined on the
+complement of the sunset elliptic curve $\mathbf{F}_2(t)=0$.
 
-\pvnote{explain to order we start with using the bound from the euler
-  characteristic}
+We apply the algorithm by starting to seek an order two operator. We
+find this is enough for the all equal mass case, but for the
+three-mass case we find that the minimal order is of order four, in
+agreement with previous results~\cite{Caffo:1998du,Remiddi:2013joa,Adams:2015gva}.
 
-\pvnote{The order is determined heuristically. First we have the upper
-  bound from the previous result. Second we use special value since we
-  only solve linear system to find the minimal order}
 %----------------------------------------------------------------------
 \subsubsection{The all equal mass case}\label{sec:2sunset1mass}
 We derive the Picard-Fuchs equation satisfied by the two-loop all
@@ -944,7 +948,7 @@ equal mass in general dimensions.
 We  start with at the order $n=2$ \lNote{a?}
 \begin{equation}
  \left(d\over dt\right)^2
- \Omega_\su^{(2)}(t,\epsilon)={\Gamma(3+2\epsilon)\over\Gamma(1+2\epsilon)} {(x_1x_2x_3)^2\over \textbf{F}_2(t)^3}
+ \Omega_{\su(2)}^{\epsilon}(t,\epsilon)={\Gamma(3+2\epsilon)\over\Gamma(1+2\epsilon)} {(x_1x_2x_3)^2\over \textbf{F}_2(t)^3}
  \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \Omega_0 .
 \end{equation}
 %
@@ -975,7 +979,7 @@ which leads to
 %
 \begin{multline}
  (2+2\epsilon)\left(d\over dt\right)^2
- \Omega_\su(t,\epsilon)=
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon)=
  \left({\sum_{i=1}^3 \partial_i C_i^{(2)}\over
      \textbf{F}_2(t)^{2}}+3\epsilon{\sum_{i=1}^3 C_i^{(2)}\partial_i
      \log \textbf{U}_2\over \textbf{F}_2(t)^{2}}\right)\cr \times\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0-d(2\beta^{(2)}).
@@ -990,7 +994,7 @@ Defining \lNote{mixed notation, fix}
 the relation~\eqref{e:C2red} gives the reduction of pole
 \begin{equation}
  \left(d\over dt\right)^2
- \Omega_\su(t,\epsilon)=
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon)=
 {M^{(2)}\over
      \textbf{F}_2^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)} \, .
  \end{equation}
@@ -998,8 +1002,8 @@ the relation~\eqref{e:C2red} gives the reduction of pole
 We now add the first derivative with an unknown rational coefficient $c_1(t,\epsilon)$
 \begin{multline}
  \left(d\over dt\right)^2
- \Omega_\su(t,\epsilon) +c_1(t,\epsilon) \left(d\over dt\right)
- \Omega_\su(t,\epsilon) \cr=
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon) +c_1(t,\epsilon) \left(d\over dt\right)
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon) \cr=
 {M^{(2)}+c_1(t,\epsilon) x_1x_2x_3(1+2\epsilon)\over
      \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)}
  \end{multline}
@@ -1011,8 +1015,8 @@ We now add the first derivative with an unknown rational coefficient $c_1(t,\eps
 leading to
 \begin{equation}
  \left(d\over dt\right)^2
- \Omega_\su(t,\epsilon) +c_1(t,\epsilon) \left(d\over dt\right)
- \Omega_\su(t,\epsilon) =
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon) +c_1(t,\epsilon) \left(d\over dt\right)
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon) =
 { \sum_{i=1}^3
    C_i^{(1)} \partial^i \textbf{F}_2(t)\over
      \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)}
@@ -1197,44 +1201,44 @@ dimension $D=4-2\epsilon$. Unlike previous cases,  these integrals are divergent
 dimensions so the $\epsilon=0$ integral are not defined.
 %
 \begin{figure}[h]\centering
-	\begin{tikzpicture}[scale=0.6]
+  	\begin{tikzpicture}[scale=0.6]
 		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
-		%\draw [black,very thick] (-2,0) to (2,0);
+		\draw [black,very thick] (-2,0) to (2,0);
 		%\filldraw [black] (2,0) circle (2pt);
 		%\filldraw [black] (-2,0) circle (2pt);
-		\filldraw [black] (1.414,1.414) circle (2pt);
-		\filldraw [black] (-1.414,1.414) circle (2pt);
-		\filldraw [black] (1.414,-1.414) circle (2pt);
-		\filldraw [black] (-1.414,-1.414) circle (2pt);
+%		\filldraw [black] (1.414,1.414) circle (2pt);
+%		\filldraw [black] (-1.414,1.414) circle (2pt);
+%		\filldraw [black] (1.414,-1.414) circle (2pt);
+%		\filldraw [black] (-1.414,-1.414) circle (2pt);
 		%\draw [black,very thick] (-2,0) to (-3,0);
 		%\draw [black,very thick] (2,0) to (3,0);
 		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
 		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
 		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
 		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
-	\end{tikzpicture}\qquad
+	\end{tikzpicture}\quad
 	\begin{tikzpicture}[scale=0.6]
 		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
 		\draw [black,very thick] (-2,0) to (2,0);
 		%\filldraw [black] (2,0) circle (2pt);
 		%\filldraw [black] (-2,0) circle (2pt);
-		\filldraw [black] (1.414,1.414) circle (2pt);
-		\filldraw [black] (-1.414,1.414) circle (2pt);
-		\filldraw [black] (1.414,-1.414) circle (2pt);
-		\filldraw [black] (-1.414,-1.414) circle (2pt);
+%		\filldraw [black] (1.414,1.414) circle (2pt);
+%		\filldraw [black] (-1.414,1.414) circle (2pt);
+%		\filldraw [black] (1.414,-1.414) circle (2pt);
+%		\filldraw [black] (-1.414,-1.414) circle (2pt);
 		%\draw [black,very thick] (-2,0) to (-3,0);
 		%\draw [black,very thick] (2,0) to (3,0);
-		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
-		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
+		\draw [black,very thick] (0,2) to (0,3);
+		\draw [black,very thick] (0,0) to (0,1);
 		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
 		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
 	\end{tikzpicture}
-	\caption{The box and double-box graphs}\label{fig:ladders}
+	\caption{The planar and non-planar double-box graphs}\label{fig:doublebox}
 \end{figure}
 
 
 
-\noindent{\bf The massless box graph:}
+\noindent{\bf The massless planar double-box graph:}
 
 The graph polynomials are given by
 \begin{align}
@@ -1254,7 +1258,7 @@ we work with the single scale form $\tilde
 with the result
 \begin{equation}\label{e:PF2box}
 	\mathscr{L}_{\Box\!\Box}^\epsilon=(1+X)X^2 \left(d\over
-	dX\right)^2+(2+3X+\epsilon) X{d\over dX}+(X-\epsilon-2\epsilon^2)  
+	dX\right)^2+(2+3X+\epsilon) X{d\over dX}+X-\epsilon-2\epsilon^2
 \end{equation}
 the inhomogeneous term is
 \begin{equation}\label{e:Source2box}
@@ -1262,9 +1266,29 @@ the inhomogeneous term is
 \end{equation}
 
 
-\pvnote{box and 2loop ladder massless}
 
+\noindent{\bf The massless non-planar double-box graph:}
 
+\begin{multline}
+  \textbf{U}_{\sqsubset\!\!\!\times}=x_1 x_2+x_3 x_2+x_4 x_2+x_5 x_2+x_6 x_2+x_1 x_5+x_3 x_5+x_4 x_5+x_1
+   x_6\cr+x_3 x_6+x_4 x_6+x_1 x_7+x_3 x_7+x_4 x_7+x_5 x_7+x_6 x_7  
+ \end{multline}
+ and
+ \begin{multline}
+  \textbf{F}_{\sqsubset\!\!\!\times}(s,t)=s (x_2 (x_3 x_5-x_4 x_6)+x_1 (x_2 x_3+(x_5+x_6+x_7) x_3+x_6
+   x_7))\cr+t (x_4 x_5 x_7-x_2 x_4 x_6)
+ \end{multline}
+we work with the single scale differential form
+ \begin{equation}
+  \tilde \Omega^\epsilon_{\sqsubset\!\!\!\times}=  (-s)^{3+2\epsilon}  {\textbf{U}_{\sqsubset\!\!\!\times}  \over
+		\textbf{F}_{\sqsubset\!\!\!\times}(s,Xs)^{3}}\left(\textbf{U}_{\sqsubset\!\!\!\times}^3\over \textbf{F}^2_{\sqsubset\!\!\!\times}(s,sX)\right)^\epsilon\,\Omega_0
+ \end{equation}
+the differential operator is
+ \begin{equation}
+   \label{eq:3}
+   \mathscr{L}^\epsilon=(1+X)^2X^2\left(d\over dX\right)^2+(1+X)(1+2X)  (2+\epsilon) X{d\over dX} +2 X(X+1)
+   +\left(2 X(X+1)-1\right) \epsilon-2 \epsilon ^2
+ \end{equation}
 \subsection{The ice-cream cone in general dimensions}\label{sec:ice-cream}
 
 \begin{figure}[h]
@@ -1452,14 +1476,71 @@ the page \pvnote{PF-Ice-cream-epsilon.ipynb})
 	roots of the polynomial $c^{[1^7]}_3(t,\epsilon) $ of
 	degree 11 in $t$ and 2 in $\epsilon$.
 \end{itemize}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Three and higher-loop examples}\label{sec:higherloop}
-%----------------------------------------------------------------------
-\subsection{Minimal differential operator for higher-loop sunset}
 
 We now turn to the higher loop case. We first discuss the all equal
 mass case and then a numerical example at three-loop order with all
 possible mass configurations.
+
+%----------------------------------------------------------------------
+\subsection{Minimal differential operator for higher-loop sunset}
+
+\begin{figure}[h]
+  \centering
+      \begin{tikzpicture}[baseline=(x)]
+        \begin{feynman}
+       \vertex (x);
+      \vertex[left=2cm of x,label=$p$](c1l);
+      \vertex[right=2cm of x,label=$p$](c1r);
+      \tikzfeynmanset{every vertex=dot}
+        \vertex [left=1cm  of x] (xl);
+        \vertex [right=1cm  of x] (xr);
+        \draw [color = black, fill=none, very thick] (xl)  -- (xr);
+        \draw [color = black, fill=none, very thick] (c1l)  -- (xl);
+        \draw [color = black, fill=none, very thick] (xr)  -- (c1r);
+        \diagram* {
+         (c1l) -- [fermion] (xl);
+         (xr) -- [fermion] (c1r);
+         (xl)  [color = black, fill=none, very thick] -- (xr);
+                                };
+                              \end{feynman}
+                                           \begin{pgfonlayer}{bg}
+                                             \draw  [color = black, fill=none, very thick]  (x) circle (1.1cm);
+                                              \draw  [color = black, fill=none, very thick] (x) ellipse (1.1cm
+                                              and .8cm);
+                                                \draw  [color = black, fill=none, very thick] (x) ellipse
+                                                (1.1cm and .5cm);
+                                                  \draw  [color =
+                                                  black, fill=none,
+                                                  very thick]  (x) ellipse (1.1cm and .3cm);
+                        \end{pgfonlayer}
+                   \end{tikzpicture}
+  \caption{Multi-loop sunset}
+  \label{fig:sunset}
+\end{figure}
+A class of examples we will consider is  
+the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.\eqref{e:FeynPara} for this case reads
+\begin{equation}
+  I^{\epsilon}_{\su(n-1)}(\vec m,t;\epsilon)= \int_{\Delta_n} \Omega^{\epsilon}_{\su(n-1)}(\vec m,t,\epsilon)  ; \quad
+  \Omega^{(n-1)}_\su(\vec m, t,\epsilon)={\Omega^{(n)}_0\over
+    \textbf{F}_{n-1}(t)}\left(\textbf{U}_{n-1}^n\over \textbf{F}_{n-1}(t)^{n-1}\right)^\epsilon
+\end{equation}
+with
+\begin{align}
+  \textbf{ U}_{n-1}&= x_1\cdots x_n\sum_{i=1}^n {1\over x_i}\,, \cr
+      \textbf{   F}_{n-1}(t)&= \textbf{U}_{n-1} \sum_{i=1}^n m_i^2x_i-t x_1\cdots x_n \, .
+\end{align}
+Notice that $\textbf{U}_{n-1}^n/ \textbf{F}_{n-1}(t)^{n-1}$ is an homogeneous
+rational function  of degree
+0 in $(x_1,\dots,x_n)$. As usual the differential form is defined in
+the complement of the vanishing locus of the denominator in $\mathbb P^{n-1}\backslash\{\textbf{F}_{n-1}(t)=0\}$.
+In $D=2$ dimension ($\epsilon=0$) we have a rational  differential form
+$ \Omega_{\su(n-1)}^{\epsilon}(\vec m,t,0)$. The Picard-Fuchs operator has been
+given up to six loop and is in agreement with the Feynman integral
+being a (relative) period of a Calabi-Yau  manifold of complex dimension $n-2$~\cite{Bloch:2013tra,Bloch:2014qca,Bloch:2014qca,Bourjaily:2019hmc,Bonisch:2020qmm,Bonisch:2021yfw,Candelas:2021lkc,Forum:2022lpz}.
+
+
 %----------------------------------------------------------------------   
    \subsubsection{The all equal mass case}\label{sec:highersunset1mass}
 Already in $D=2$ dimensions, for the sunset integral from three loop
@@ -1851,6 +1932,19 @@ of this work.
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
+
+\bibitem{Caffo:1998du}
+M.~Caffo, H.~Czyz, S.~Laporta and E.~Remiddi,
+``The Master Differential Equations for the Two Loop Sunrise Selfmass Amplitudes,''
+Nuovo Cim. A \textbf{111} (1998), 365-389
+[arXiv:hep-th/9805118 [hep-th]].
+  
+\bibitem{Remiddi:2013joa}
+E.~Remiddi and L.~Tancredi,
+``Schouten Identities for Feynman Graph Amplitudes; the Master Integrals for the Two-Loop Massive Sunrise Graph,''
+Nucl. Phys. B \textbf{880} (2014), 343-377
+%doi:10.1016/j.nuclphysb.2014.01.009
+[arXiv:1311.3342 [hep-ph]].
   
 \bibitem{Golubeva} V. A. Golubeva, ``Some Problems In The Analytic
   Theory Of Feynman Integrals'' , Russ. Math. Surv. {\bf 31} 139 (1976)
