@@ -510,7 +510,8 @@ The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are h
 $\mathsf{a}(L+1)-L$ in  $\underline x$ . 
 %
  %    
-   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form
+   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form \footnote{See also obtained by adapting the deriving in section~3.2
+   	of~\cite{Bloch:2016izu} to include the $\epsilon$ factor} \lNote{brought this from sunset section}
    \begin{equation}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
     G_{\mathsf{a}}^j  (\underline x)-x_j
@@ -847,10 +848,9 @@ the upper bound given by the number of masters.  This will
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{One-loop examples}\label{sec:oneloop}
-Let us illustrate our procedure with simple one-loop examples. 
+We will illustrate our procedure with simple one-loop examples where the main features of the algorithm emerge.
 
-\noindent{\bf The massless box graph:}
-
+\subsection{The massless box graph}
 \begin{figure}[h]\centering
 	\begin{tikzpicture}[scale=0.6]
 		\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
@@ -870,29 +870,28 @@ Let us illustrate our procedure with simple one-loop examples.
 	\end{tikzpicture}
 	\caption{The box  graph}\label{fig:box}
 \end{figure}
-
-The graph polynomials are given by
+The first example we consider is the on-shell massless box. We define the usual Mandelstam invariants as $t=(p_1+p_3)^2$, $s=(p_1+p_2)^2$.  The graph polynomials are given by
 \begin{equation}
 	\label{e:Boxgraphpolynomials}
 	\textbf{U}_{\Box}=\sum_{i=1}^4 x_i,\qquad
-	\textbf{F}_{\Box}(s,t)=-t x_3x_4-sx_1x_2
+	\textbf{F}_{\Box}(s,t)=-t x_3x_4-sx_1x_2 \, .
 \end{equation}
-with the twisted differential in $D=4-2\epsilon$ in the projective
+The twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^3$
 \begin{equation}\label{e:OmegaBox}
 	\Omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}(s,t)^2
-	}\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon\,\Omega_0.
+	}\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon\,\Omega_0^{(4)} \, .
 \end{equation}
-Because this is a single scale function depending only on the ratio
-$X=t/s$ of the kinematic invariant we scale the integral by
+This is a single scale function depending only on the ratio
+$X=t/s$ of the kinematic invariant so we scale the integral obtaining
 $\tilde \Omega_\Box^\epsilon(X)=(-s)^{2+\epsilon} \Omega_\Box^\epsilon(s,X s)$ .
 %
 The application of the procedure given in
 Section~\ref{sec:deriv-diff-equat} needs only to start at the first
-order. Computing the derivative w.r.t $X$, we are interested in reducing 
+order. Computing the derivative w.r.t $X$ we obtain 
 %
 \begin{equation}
-P  ^1= (2+\epsilon) x_2 x_4, 
+P  ^{1}= (2+\epsilon) x_2 x_4 \, , 
 \end{equation}
 with $\text{Jac}(\mathbf F_\Gamma)=\langle-x_3, -x_4 X,-x_1, -X x_2  \rangle$. The  vector  $\vec C_{1}(\underline x)$ has components 
 \begin{equation}
@@ -904,15 +903,15 @@ where $m_{i,j}$ denote the set of exponent vectors of degree $i$ in $j$ variable
 	\left\{\begin{array}{@{}l@{}}
 \sum_i \sum_{e \in m_{2,4}} \lambda^i_e x^e \text{Jac}_i(\mathbf F_\Box) 
 		=    (2+\epsilon) x_2 x_4\\
-\sum_{e \in m_{2,4}} \lambda^i_e x^e \text{Jac}_i(\mathbf U_\Box) = \sum_{e\in m_{1,4}} q_e x^e \textbf{U}_\Box 
+\sum_i\sum_{e \in m_{2,4}} \lambda^i_e x^e \text{Jac}_i(\mathbf U_\Box) = \sum_{e\in m_{1,4}} q_e x^e \textbf{U}_\Box 
 	\end{array}\right.\,,
 \end{equation}
-leading to 
+which leads to 
 %
 \begin{equation}
-	c_0= \frac{1+X+\epsilon }{Y(Y+1)},
+	c_0= \frac{1+X+\epsilon }{Y(Y+1)}.
 \end{equation}
-from which we derive
+We then derive
 \begin{equation}\label{e:PFBox}
 	\mathscr{L}_\Box^\epsilon= (X+1) X {d\over dX}+(1+X+\epsilon)  \,.
 \end{equation}
@@ -974,49 +973,55 @@ with
  \textbf{U}_2&=x_1x_2+x_1x_3+x_2x_3\\
   \textbf{F}_2(t)&=-tx_1x_2x_3 +U_3 (m_1^2x_1+m_2^2x_2+m_3^2x_3).
 \end{align}
-We discuss the equal mass and the general case separately. Let us start with the equal mass case.
 
 The twisted differential form $\Omega_\su^{(2)}$ is defined on the
 complement of the sunset elliptic curve $\mathbf{F}_2(t)=0$.
-
-We apply the algorithm by starting to seek an order two operator. We
-find this is enough for the all equal mass case, but for the
-three-mass case we find that the minimal order is of order four, in
+%
+We discuss the equal mass and the general case separately.
+% Let us start with the equal mass case.
+We apply the algorithm by starting to seek an operator of second order which enough for the equal mass case, but for the
+three-mass case we find that the minimal order is four, in
 agreement with previous results~\cite{Caffo:1998du,Remiddi:2013joa,Adams:2015gva}.
 
 %----------------------------------------------------------------------
 \subsubsection{The all equal mass case}\label{sec:2sunset1mass}
 We derive the Picard-Fuchs equation satisfied by the two-loop all
 equal mass in general dimensions. 
-We  start with at the order $n=2$ \lNote{a?}
+We  start with at $\mathsf{a}=2$ finding
 \begin{equation}
  \left(d\over dt\right)^2
  \Omega_{\su(2)}^{\epsilon}(t,\epsilon)={\Gamma(3+2\epsilon)\over\Gamma(1+2\epsilon)} {(x_1x_2x_3)^2\over \textbf{F}_2(t)^3}
- \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \Omega_0 .
+ \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \Omega_0^{(3)} ,
 \end{equation}
+from which we can extract $P^{(2)}=2 (\epsilon +1) (2 \epsilon +1)(x_1x_2x_3)^2$. 
 %
-Accordingly, we label the unknowns with the upper index so $X^{(k)}$ indicated the $k$-th reduction\lNote{define before}. We then  perform the Jacobian reduction of $P^{(2)}=(x_1x_2x_3)^2$ as
+Accordingly, we label the unknowns with the upper index so $S^{(k)}$ indicated the $k$-th reduction. We then  perform the Jacobian reduction of $P^{(2)}$ as
 \begin{equation}\label{e:reduc}
-  {\Gamma(3+2\epsilon)\over\Gamma(1+2\epsilon)}\,  (x_1x_2x_3)^2= \sum_{i=1}^3 
-  \sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \text{Jac}_i (\mathbf{F}_2(t)) 
+  2 (\epsilon +1) (2 \epsilon +1)\,  (x_1x_2x_3)^2= \sum_{i=1}^3 
+  \sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \text{Jac}_i  (\mathbf{F}_2(t)) \,,
 \end{equation}
 %
-We have to solve the following equation for $\lambda_k$  and $c^{(2)}$ is an unknown homogeneous degree 3 polynomial
-in $\underline x$
+where we have written explicitly the components of $\vec{C}^{(2)}$ as $C^{(2)}_i=\sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e$.
+We have to solve the following equation for the coefficients $\lambda_e^{(2)}$ coupled to the equations generated by
 \begin{equation}\label{e:C2red}
 \sum_{i=1}^3 
-\sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \text{Jac}_i(\mathbf U_2) = \sum_{e\in m_{3,3}} q^{(2)}_e x^e \textbf{U}_2 
+\sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \text{Jac}_i(\mathbf U_2) = \sum_{e\in m_{3,3}} q^{(2)}_e x^e \textbf{U}_2 \,, 
 %
 \end{equation}
-The unknown are fully determined at the end of  algorithm.
-We introduce the differential form $\beta^{(2)}$ obtained by adapting the deriving in section~3.2
- of~\cite{Bloch:2016izu} to include the $\epsilon$ factor 
+where $c^{(2)}=\sum_{e\in m_{3,3}} q^{(2)}_e x^e$ is an unknown homogeneous degree 3 polynomial
+in $\underline x$.
+%
+The unknowns are fully determined at the end of  algorithm. For this case, 
+the differential form given in eq.\eqref{e:betadef} reads
+% obtained by adapting the deriving in section~3.2
+ %of~\cite{Bloch:2016izu} to include the $\epsilon$ factor \lNote{using our explicit }
  \begin{multline}
+ 	\label{eq:beta-equalmass-sunset}
    \beta^{(2)}=   {x_2  C_3^{(2)}-x_3  C_2^{(2)}\over
    2  \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_1+   {x_3  C_1^{(2)}-x_1 C_3^{(2)}\over
     2 \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_2\cr
    +  {x_1  C_2^{(2)}-x_2  C_1^{(2)}\over
-    2 \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_3.
+    2 \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_3, 
  \end{multline}
 which leads to 
 %
@@ -1025,37 +1030,40 @@ which leads to
   \Omega_{\su(2)}^{\epsilon}(t,\epsilon)=
  \left({\sum_{i=1}^3 \partial_i C_i^{(2)}\over
      \textbf{F}_2(t)^{2}}+3\epsilon{\sum_{i=1}^3 C_i^{(2)}\partial_i
-     \log \textbf{U}_2\over \textbf{F}_2(t)^{2}}\right)\cr \times\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0-d(2\beta^{(2)}).
+     \log \textbf{U}_2\over \textbf{F}_2(t)^{2}}\right)\cr \times\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0^{(3)}-d(2\beta^{(2)}).
 \end{multline}
 %
-Defining \lNote{mixed notation, fix}
+Therefore using eq.\eqref{e:Mfinal}, we define
 \begin{equation}
   \label{e:M2}
   M^{(2)}:={\sum_{i=1}^3 \partial^i  C_i^{(2)}+3\epsilon
-    c^{(2)}\over 2+2\epsilon}
+    c^{(2)}\over 2+2\epsilon} \,, 
 \end{equation}
-the relation~\eqref{e:C2red} gives the reduction of pole
+leading to reduction of pole
 \begin{equation}
  \left(d\over dt\right)^2
   \Omega_{\su(2)}^{\epsilon}(t,\epsilon)=
 {M^{(2)}\over
-     \textbf{F}_2^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)} \, .
+     \textbf{F}_2^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0^{(3)}+d\beta^{(2)} \, ,
  \end{equation}
+where we have used~\eqref{e:C2red}.
 %
 We now add the first derivative with an unknown rational coefficient $c_1(t,\epsilon)$
 \begin{multline}
  \left(d\over dt\right)^2
   \Omega_{\su(2)}^{\epsilon}(t,\epsilon) +c_1(t,\epsilon) \left(d\over dt\right)
-  \Omega_{\su(2)}^{\epsilon}(t,\epsilon) \cr=
-{M^{(2)}+c_1(t,\epsilon) x_1x_2x_3(1+2\epsilon)\over
-     \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)}
+  \Omega_{\su(2)}^{\epsilon}(t,\epsilon) =
+{M^{(1)}\over
+     \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)} \, , 
  \end{multline}
+where $M^{(1)}:=M^{(2)}+c_1(t,\epsilon) x_1x_2x_3(1+2\epsilon)$.
  We then reduce the pole by writing
  \begin{equation}\label{e:M2red}
-   M^{(2)}+ c_1(t,\epsilon) x_1x_2x_3(1+2\epsilon)= \sum_{i=1}^3
-   C_i^{(1)} \partial^i \textbf{F}_2(t)
+   M^{(1)}= \sum_{i=1}^3
+   C_i^{(1)} \partial^i \textbf{F}_2(t) \,, 
  \end{equation}
-leading to
+ where $ C_i^{(1)}$ are unknown homogeneous degree 1.
+Thus
 \begin{equation}
  \left(d\over dt\right)^2
   \Omega_{\su(2)}^{\epsilon}(t,\epsilon) +c_1(t,\epsilon) \left(d\over dt\right)
@@ -1064,14 +1072,14 @@ leading to
    C_i^{(1)} \partial^i \textbf{F}_2(t)\over
      \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta^{(2)}
  \end{equation}
- where $ C_i^{(1)}$ are unknown homogeneous degree 1 polynomials in $(x,y,z$).
-We now impose the 
+% polynomials in $(x,y,z$).
+The last step to compute the PF operator is to compute the constant term, which must reduce the poler order of the RHS of this equation. We thus impose
 \begin{equation}\label{e:c0}
   \sum_{i=1}^3C_i^{(1)}\partial^i \textbf{F}_2(t)+ c_0(t,\epsilon) \textbf{F}_2 (t) =0.
 \end{equation}
 %
-The equations~\eqref{e:C2red},~\eqref{e:M2red} and~\eqref{e:c0} lead
-to the unique solution for the coefficients $c_1$ and $c_0$.
+The equations\lNote{more eqs.}~\eqref{e:C2red},~\eqref{e:M2red} and~\eqref{e:c0} lead
+to the unique solution for the coefficients $c_1$ and $c_0$. \lNote{comparison with eq.3.29, q0}
 We have the solutions
 \begin{align}
   c_1(t,\epsilon)&=\frac{\left(3 t^2-10 t-9\right) \epsilon }{(t-9) (t-1) t}+\frac{3 t^2-20 t+9}{(t-9) (t-1)
@@ -1088,26 +1096,24 @@ leading to the $\epsilon$-deformed Picard-Fuchs operator
      +\epsilon^2 2(t+1).
 \end{multline}
 %
-%
-%
-%
-The inhomogeneous term is given by evaluating the integral 
+From the solutions, we can compute the  inhomogeneous term is given by evaluating the integral 
 \begin{equation}
-  S_\epsilon^{(2)}=\int_{\Delta_2} d\beta^{(2)} .
+  S_\epsilon^{(2)}=\int_{\Delta_2} d\beta^{(2)} ,
 \end{equation}
-The inhomogeneous term is defined as usual in the Griffiths-Dwork
-reduction as (see section~3.2 of~\cite{Bloch:2016izu})
-\begin{multline}
-  \beta^{(2)}= {x_2 C_3^{(2)} -x_3 C_2^{(2)}\over \textbf{F}_2(t)}
-  \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  dx_1
-  + {x_3 C_1^{(2)} -x_1 C_3^{(2)}\over \textbf{F}_2(t)}
-  \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  dx_2\cr+ {x_1 C_2^{(2)} -x_2 C_1^{(2)}\over \textbf{F}_2(t)}
-  \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  dx_3
-\end{multline}
-this time including the $\epsilon$ dependent factor. 
+where $\beta^{(2)}$ is in eq.\eqref{eq:beta-equalmass-sunset}.
+%The inhomogeneous term is defined as usual in the Griffiths-Dwork
+%reduction as (see section~3.2 of~\cite{Bloch:2016izu})
+%\begin{multline}
+%  \beta^{(2)}= {x_2 C_3^{(2)} -x_3 C_2^{(2)}\over %\textbf{F}_2(t)}
+%  \left(\textbf{U}_2^3\over %\textbf{F}_2(t)^2\right)^\epsilon  dx_1
+%  + {x_3 C_1^{(2)} -x_1 C_3^{(2)}\over %\textbf{F}_2(t)}
+%  \left(\textbf{U}_2^3\over %\textbf{F}_2(t)^2\right)^\epsilon  dx_2\cr+ {x_1 %C_2^{(2)} -x_2 C_1^{(2)}\over \textbf{F}_2(t)}
+%  \left(\textbf{U}_2^3\over %\textbf{F}_2(t)^2\right)^\epsilon  dx_3
+%\end{multline}
+%this time including the $\epsilon$ dependent factor. 
 Because the denominator of $\beta^{(2)}$ has a pole at the coordinate
 point $[1:0:0]$, $[0:1:0]$ and $[0:0:1]$ one needs to consider the
-blow-up  of the domain of integration $\Delta_2$ by inserting a small
+blow-up  of the domain of integration $\Delta_2$. This is done by inserting a small
 $\mathbb P^1$ of radius $\varepsilon$ (see eq.~(3.47) of~\cite{Bloch:2016izu})
 \begin{equation}
     S_\epsilon^{(2)}=\lim_{\epsilon\to0} \sum_{i=1}^3
@@ -1115,9 +1121,8 @@ $\mathbb P^1$ of radius $\varepsilon$ (see eq.~(3.47) of~\cite{Bloch:2016izu})
     \beta_j dx_j
 \end{equation}
 A computation identical to the one performed in~\cite{Bloch:2016izu} leads to
-the result
 \begin{equation}
-  S_\epsilon^{(2)}=  -6 \, {\Gamma(1+\epsilon)^2\over \Gamma(1+2\epsilon)}
+  S_\epsilon^{(2)}=  -6 \, {\Gamma(1+\epsilon)^2\over \Gamma(1+2\epsilon)} \, . 
 \end{equation}
 The piece of order $\epsilon^0$ reproduces the Picard-Fuchs operator
 for the two-loop all equal-mass sunset in $D=2$ given
@@ -1140,7 +1145,7 @@ For the non equal mass case the order of the differential equation is
    operator for the three-mass two-loop sunset integral in two
    dimensions. This differential equation reproduces the one 
    derived~\cite{Remiddi:2013joa,Remiddi:2016gno}.
-
+%
 The $\epsilon$ deformation does not change the non-apparent
 singularities of the differential operator as can be seen from the
 coefficient of the highest order term
@@ -1149,7 +1154,7 @@ coefficient of the highest order term
   \mu_i^2) \Big(-\left(2 \epsilon +5\right) t^{2}-2
     \left(m_{1}^{2}+m_{2}^{2}+m_{3}^{2}\right) \left(1+2 \epsilon
     \right) t \cr+ \left(7+6 \epsilon \right)\prod_{i=1}^4 \mu_i
-\Big)  
+\Big)  \, , 
 \end{multline}
 where $\mu_i=\{m_1+m_2+m_3,-m_1+m_2+m_3,m_1-m_2+m_3,m_1+m_2-m_3\}$ are
 the thresholds.  The $\epsilon$ deformation is only affecting the
@@ -1158,7 +1163,7 @@ in~\eqref{e:OmegaSunset} does not change the nature of the singular
 locus which is still given by the same elliptic curve as in the
 $\epsilon=0$ case.
    
-Its actions on the Feynman integral is given by 
+Its action on the Feynman integral is given by 
 \begin{equation}
      \mathscr{L}^{(2),\epsilon}_\su  I(\underline
      m,t;\epsilon)=\mathscr{S}(\vec m,t;\epsilon) 
@@ -1167,13 +1172,13 @@ Its actions on the Feynman integral is given by
    \begin{equation}
      \mathscr{S}(\vec m,t;\epsilon)=\frac{c_{23}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{2} m_{3})^{2 \epsilon}\Gamma (1+2\epsilon)}+\frac{c_{13}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{1} m_{3})^{2 \epsilon }\Gamma (1+2
    \epsilon)}+\frac{c_{12}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{1} m_{2})^{2 \epsilon }\Gamma (1+2
-   \epsilon )}
+   \epsilon )} \, , 
 \end{equation}
 where $c_{12}(t,\epsilon)$, $c_{13}(t,\epsilon)$ and
-$c_{23}(t,\epsilon)$ are polynomials of degree 4 in $t$ and 2 in
-$\epsilon$. \pvnote{given on page}
-
-This has the small $\epsilon$ series expansion
+$c_{23}(t,\epsilon)$ are polynomials of degrees 4,2 in $t$ and $\epsilon$, respectively. \pvnote{given on page}
+%
+Expanding in powers of $\epsilon$ , we have
+%
 \begin{equation}
     \mathscr{S}(\vec m,t;\epsilon)=\mathscr{S}^0(\vec m,t)
     +\left(c^{(1)}_0(\vec m)+
@@ -1272,7 +1277,7 @@ in~\cite{Broadhurst:1987ei,Adams:2016xah,Lairez:2022zkj} that the two point Kite
 first order differential equation in four dimensions.
 
 
-The integrand of the Feynman integral is the twisted differential form
+The integrand of the Feynman integral is the twisted differential form\lNote{repeated twisted form}
 
 \begin{equation}
 \Omega_{\Kite} ={	\mathbf U_{\Kite}^{5-3\delta} \over \mathbf (F _{\Kite}(X))^{5-2\delta}}\,\left(	\mathbf U_{\Kite}^3\over \mathbf F _{\Kite}(X)^2\right)^\epsilon\,\Omega^{(0)}_5.
