@@ -142,6 +142,23 @@
 \def\Imm{\Im\textrm{m}}
 \def\um{\underline{m}}
 
+\newcommand{\chickenDiag}{	\begin{tikzpicture}[scale=0.1]
+		\filldraw [black] (-2,0) circle (2pt);
+%		\draw [black, thick] (-2,0) to (-3,0);
+		\filldraw [black] (0,1.5) circle (2pt);
+		\filldraw [black] (0,-1.5) circle (2pt);
+		\filldraw [black] (2.5,1.5) circle (2pt);
+		\filldraw [black] (2.5,-1.5) circle (2pt);
+		\draw [black, thick] (-2,0) to (-0,1.5);
+		\draw [black, thick] (-2,0) to (-0,-1.5);
+		\draw [black,very thick] (0,1.5) to (2.5,-1.5);
+		\draw [black,very thick] (0,-1.5) to (1.20,-0.06);
+		\draw [black,very thick] (1.30,0.06) to (2.5,1.5);
+		\draw [black,very thick] (0,1.5) to (2.5,1.5);
+		\draw [black,very thick] (0,-1.5) to (2.5,-1.5);
+	%	\draw [black,thick] (2.5,-1.5) to (3.0,-1.5);
+%		\draw [black,thick] (2.5,1.5) to (3.0,1.5);
+\end{tikzpicture}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \preprint{IPHT-t23/094}
@@ -279,7 +296,7 @@ propagator representation can be found in~\cite{Vanhove:2014wqa} for instance.
 
 The parametric representation of a Feynman integral attached to a
 graph $\Gamma$, in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
-$\epsilon\in\mathbb R$.\footnote{We do not assume that $\epsilon$ is
+$\epsilon\in\mathbb R$\footnote{We do not assume that $\epsilon$ is
 	small. We introduce $\delta$ and $\epsilon$ for convenience and make
 	clearer the role of the twist from the non integer space-time dimension.}, is given by the integral $  I_\Gamma = \int_{\Delta_n}
 \, \Omega^\epsilon_\Gamma$ with 
@@ -870,16 +887,17 @@ leading to
 \begin{equation}
 	c_0= \frac{1+X+\epsilon }{Y(Y+1)},
 \end{equation}
-from which we derive. In this simple case the algorithm only requires one iteration. 
+from which we derive
 \begin{equation}\label{e:PFBox}
 	\mathscr{L}_\Box^\epsilon= (X+1) X {d\over dX}+(1+X+\epsilon)  \,.
 \end{equation}
+In this simple case the algorithm only requires one iteration. 
 The inhomogeneous term reads
 \begin{equation}\label{e:SourceBox}
 	\mathscr{S}_\Box^\epsilon=\frac{(\epsilon +1)\Gamma (-\epsilon -1)^2 }{\Gamma
 		(-2 \epsilon )}  \, \left( (-s)^{-1-\epsilon }+(-t)^{-\epsilon -1}\right) \, .
 \end{equation}
-This simple example illustrates the general procedure as we will see with more general loops. In general the system of equations is dense. As usual when one encounters dense  systems, finite field methods are the way to go~\cite{Peraro:2019svx}.
+This simple example illustrates the general procedure as we will see with more loops. In general the system of equations is dense. As usual when one encounters dense  systems, finite field methods are the way to go~\cite{Peraro:2019svx}.
 %
 \section{Two-loop examples}\label{sec:twoloop}
 %
@@ -1195,7 +1213,7 @@ with $c^{(1)}_2(m_1,m_2,m_3)=c^{(1)}_1(m_2,m_1,m_3)$ and $c^{(1)}_3(m_1,m_2,m_3)
 and $c^{(1)}_1(\vec m)+c_2^{(1)}(\vec m)+c_3^{(1)}(\vec m)=4
 \mathscr{S}^0(\vec m,t)$.
 
-\subsection{Double box}
+\subsection{Double boxes}
 We show how to derive differential equation for  the massless box and massless double-box integrals in 
 dimension $D=4-2\epsilon$. Unlike previous cases,  these integrals are divergent in four
 dimensions so the $\epsilon=0$ integral are not defined.
@@ -1476,6 +1494,45 @@ the page \pvnote{PF-Ice-cream-epsilon.ipynb})
 	roots of the polynomial $c^{[1^7]}_3(t,\epsilon) $ of
 	degree 11 in $t$ and 2 in $\epsilon$.
 \end{itemize}
+\subsection{Elliptic roast chicken graph}
+\begin{figure}[h]
+	\centering	\begin{tikzpicture}[scale=0.7]
+		\filldraw [black] (-2,0) circle (2pt);
+		\draw [black, thick] (-2,0) to (-3,0);
+		\filldraw [black] (0,1.5) circle (2pt);
+		\filldraw [black] (0,-1.5) circle (2pt);
+		\filldraw [black] (2.5,1.5) circle (2pt);
+		\filldraw [black] (2.5,-1.5) circle (2pt);
+		\draw [black, thick] (-2,0) to (-0,1.5);
+		\draw [black, thick] (-2,0) to (-0,-1.5);
+		\draw [black,very thick] (0,1.5) to (2.5,-1.5);
+		\draw [black,very thick] (0,-1.5) to (1.20,-0.06);
+		\draw [black,very thick] (1.30,0.06) to (2.5,1.5);
+		\draw [black,very thick] (0,1.5) to (2.5,1.5);
+		\draw [black,very thick] (0,-1.5) to (2.5,-1.5);
+		\draw [black,thick] (2.5,-1.5) to (3.0,-1.5);
+		\draw [black,thick] (2.5,1.5) to (3.0,1.5);
+	\end{tikzpicture}
+	\caption{The elliptic roast chicken graph}\label{fig:roastchicken}
+\end{figure}
+
+We set $m=1$ and define $2p_1 \cdot p_2 = X$. We have
+\begin{equation}
+	\mathbf U_{\chickenDiag} =  x_3 \left(x_4+x_5\right)+x_2 \left(x_3+x_4+x_5\right)+\left(x_3+x_4+x_5\right) x_6+x_1 \left(x_2+x_4+x_5+x_6\right),
+\end{equation}
+\begin{multline}
+\mathbf F _{\chickenDiag}=-\left(x_2 x_3 x_5+x_1 \left(x_3 \left(x_2+x_4+x_5\right)+\left(x_3+x_4\right) x_6\right)\right) X
+\cr
++\left(x_2+x_4+x_5+x_6\right) (x_3 \left(x_4+x_5\right)+x_2 \left(x_3+x_4+x_5\right)
+\cr 
++\left(x_3+x_4+x_5\right) x_6+x_1 \left(x_2+x_4+x_5+x_6\right))
+\end{multline}
+
+ \begin{equation}
+	\label{eq:roastchicken}
+	\mathscr{L}^\epsilon_{\chickenDiag}=(16+X)X^2\left(d\over dX\right)^2+(2 (X+8) \epsilon +7 X+80) X{d\over dX} +4 (X+6) \epsilon +4 (2 X+15)
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Three and higher-loop examples}\label{sec:higherloop}
 
