@@ -207,7 +207,7 @@ of the Griffiths-Dwork approach adapted to the twisted differential
 associated to Feynman integrals.
 We apply this algorithm  by giving the inhomogeneous
 differential equation satisfied by  the all equal mass
-two-point sunset integral up to 20 loops order. We derive the inhomogeneous
+two-point sunset integral up to 20 loops order.\lNote{with Bessel?} We derive the inhomogeneous
 differential equation for the generic mass case for the two-loop
 sunset, and for the three-loop sunset. We give  and the
 Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
@@ -222,24 +222,24 @@ Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 \section{Introduction}
 
 Feynman integrals are ubiquitous in various areas of physics, and their accurate calculation, whether analytically or numerically, remains a significant hurdle in advancing our understanding of physical phenomena.
+%
+In particular, identifying the specific types of special functions required to evaluate Feynman integrals has been an ongoing challenge since the early days of quantum field theory~\cite{Golubeva,Pham} and  continues to be an active research field, with recent contributions from studies such as~\cite{Panzer:2015ida,Duhr:2019wtr,Mizera:2019ose}.\lNote{maybe a review?}
 
-Identifying the specific types of special functions required to evaluate Feynman integrals has been an ongoing challenge since the early days of quantum field theory~\cite{Golubeva,Pham}. This endeavor continues to be an active research field, with recent contributions from studies such as~\cite{Panzer:2015ida,Duhr:2019wtr,Mizera:2019ose}.
-
-Broadhurst and Kreimer~\cite{Broadhurst:1995km,Broadhurst:1996kc} observed intriguing parallels between the definition of Feynman integrals and the concept of period integrals introduced by Kontsevich and Zagier~\cite{Kontsevich:2001}. Subsequent work by Bloch, Esnault, and Kreimer~\cite{Bloch:2005bh}  and Brown~\cite{BrownCosmic}  established that Feynman integrals can be interpreted as relative period integrals associated with the mixed Hodge structure determined by the graph polynomials defining the Feynman integrals.
+Broadhurst and Kreimer~\cite{Broadhurst:1995km,Broadhurst:1996kc} observed intriguing parallels between the definition of Feynman integrals and the concept of period integrals introduced by Kontsevich and Zagier~\cite{Kontsevich:2001}. Subsequent work by Bloch, Esnault, and Kreimer~\cite{Bloch:2005bh}  and Brown~\cite{BrownCosmic}  established that Feynman integrals can be interpreted as relative period integrals associated with the mixed Hodge structure determined by the graph polynomials defining  Feynman integrals.\lNote{needs a connection to next parahraph:periods}
 
 
 
 \medskip
-By deriving the set of differential operators acting on a Feynman integral one
-gets important information about its analytic nature.
-The differential  operator has real singularities at the position of
-the thresholds and pseudo-thresholds, the order of the differential
+By deriving the set of differential operators \lNote{operators} acting on a Feynman integral one
+gets important information about its analytic nature. For instance, 
+the differential  operator has real singularities at the position of
+ thresholds and pseudo-thresholds, and the order of the differential
 operator is connected to the underlying geometry of the singular locus
 of the integrand. But as well the inhomogeneous term from
 contributions of Feynman integrals with contracted internal
-edges. Intriguingly, there is  growing evidence suggesting that certain
+edges. \lNote{maximal cut?} Intriguingly, there is  growing evidence suggesting that certain
 Feynman integrals correspond to relative period integrals of singular
-Calabi--Yau geometries. This connection is explored in a number
+Calabi--Yau geometries, a connection explored in a number
 of studies, including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM}.
 
 In this work we give an algorithmic procedure for deriving such
@@ -266,12 +266,12 @@ Picard-Fuchs operator) associated to a given Feynman integral~\cite{Bloch:2016iz
 The knowledge of the minimal differential equation
 gives important insight in the underlying \emph{motivic} geometry
 determining the class of functions to which a given Feynman integral
-belongs~\cite{Doran:2023yzu}.
+belongs~\cite{Doran:2023yzu}. \lNote{sentence to diff operator paragraph}
 
 
 In this work we give an extension of these algorithms for
-general dimensions, i.e. when $D=2-2\epsilon$ with $\epsilon$ any
-complex number.  This way we
+general dimensions, i.e. when $D=2 \delta -2\epsilon$ with $\epsilon$ any
+complex number and where $\delta$ is a positive integer.  This way we
 can analyse how the space-time dimension affects the order of the
 minimal differential operators and we can consider the case of infrared
 or ultraviolet divergent integrals.
@@ -285,7 +285,7 @@ enabling us to implement a linear system resolution by a combined
 reduction with respect to the Jacobian ideal of the
 $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$ graph polynomials.
 
-The paper is organised as follows. 
+The remainder of this paper is organised as follows. 
 In Section~\ref{sec:parametric} we review the parametric
 representation of Feynman integrals. In Section~\ref{sec:Red} we
 present the algorithmic procedure for deriving the differential
@@ -294,7 +294,7 @@ Griffiths-Dwork pole to the case of the twisted differential
 $\Omega_\Gamma^\epsilon$, and explain in
 Section~\ref{sec:deriv-diff-equat} how to use this iteratively to
 determine the differential equations. This generalises the algorithm
-used in~\cite{Lairez:2022zkj} for the rational differential form cases. In Section~\ref{sec:oneloop} we
+used in~\cite{Lairez:2022zkj} for the rational differential form cases.\lNote{rational case} In Section~\ref{sec:oneloop} we
 illustrate the procedure on the case of the massless box. In
 Section~\ref{sec:twoloop} we derive the $\epsilon$-deformed
 differential equation for the two-loop sunset integral for various
@@ -317,7 +317,7 @@ Bessel representation with the Creative telescoping algorithm.
 
 We will work with the parametric representation of the Feynman
 integrals. A derivation of the parametric representation from the
-propagator representation can be found in~\cite{Vanhove:2014wqa} for instance.
+propagator representation can be found in~\cite{Vanhove:2014wqa} for instance. \lNote{Stefans's book too}
 
 The parametric representation of a Feynman integral attached to a
 graph $\Gamma$, in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
@@ -1602,7 +1602,7 @@ the inhomogeneous term is
   \textbf{F}_{\DBoxNP}(s,t)=s (x_2 (x_3 x_5-x_4 x_6)+x_1 (x_2 x_3+(x_5+x_6+x_7) x_3+x_6
    x_7))\cr+t (x_4 x_5 x_7-x_2 x_4 x_6)
  \end{multline}
-we work with the single scale differential form
+we work with the single scale differential form\lNote{myabe some of these examples to appendix?}
  \begin{equation}
   \tilde \Omega^\epsilon_{\DBoxNP}=  (-s)^{3+2\epsilon}  {\textbf{U}_{\DBoxNP}  \over
 		\textbf{F}_{\DBoxNP}(s,Xs)^{3}}\left(\textbf{U}_{\DBoxNP}^3\over \textbf{F}^2_{\DBoxNP}(s,sX)\right)^\epsilon\,\Omega_0
