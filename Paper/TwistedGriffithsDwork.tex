@@ -211,7 +211,7 @@ two-point sunset integral up to 20 loops order.\lNote{with Bessel?} We derive th
 differential equation for the generic mass case for the two-loop
 sunset, and for the three-loop sunset. We give  and the
 Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
-\pvnote{more listing}
+\pvnote{AdS Witten diagram}
 
 }
 
@@ -248,6 +248,7 @@ reduction to master integrals and the construction of a reducible
 system of differential equation satisfied by the set of master integrals.
 
 
+\pvnote{discuss the case of AdS in dim reg or analytic regularisation}
 We work with the parametric representation of a Feynman integral attached to a
 graph $\Gamma$ in $D=2\delta-2\epsilon$ dimension. This  is given by
 the integral of the projective space differential form (see
@@ -317,7 +318,7 @@ Bessel representation with the Creative telescoping algorithm.
 
 We will work with the parametric representation of the Feynman
 integrals. A derivation of the parametric representation from the
-propagator representation can be found in~\cite{Vanhove:2014wqa} for instance. \lNote{Stefans's book too}
+propagator representation can be found in~\cite{nakanishi1971graph,Vanhove:2014wqa,Weinzierl:2022eaz} for instance. 
 
 The parametric representation of a Feynman integral attached to a
 graph $\Gamma$, in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
@@ -467,8 +468,7 @@ leads  to  expressions of the type
 \begin{equation}\label{e:PDE}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
-{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf {a}}}\, { \textbf{U}_\Gamma^{\nu-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{\nu-L\delta}}
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0  ,
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf {a}}}\, \Omega_\Gamma^\epsilon,
 \end{equation}
 where 
 $  P^{(a_1,\dots,a_r)}(\underline x)$ is a
@@ -510,25 +510,32 @@ The components of the size $n$ vector $ \vec C_{\mathsf{a}}(\underline x)$ are h
 $\mathsf{a}(L+1)-L$ in  $\underline x$ . 
 %
  %    
-   Then,  following Griffiths~\cite{Griffith1,Griffith2} we consider the differential form\lNote{brought this from sunset section}\footnote{ The derivation in section~3.2
-   	of~\cite{Bloch:2016izu} can be adapted to include the $\epsilon$ factor.}
+   We generalize the construction by
+   Griffiths~\cite{Griffith1,Griffith2} to include the twist factor
+   for $\mathsf{a}>1$ 
    \begin{equation}\label{e:betadef}
   \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} {x_i
     G_{\mathsf{a}}^j  (\underline x)-x_j
    G_{\mathsf{a}}^i(\underline x)\over
     (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}\, 
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n \, .
+  \cdots \wedge dx_n \, ,
+\end{equation}
+and for $\mathsf{a}=1$
+  \begin{equation}\label{e:betadefa1}
+  \beta^{(a_1,\dots,a_r)}=  \sum_{1\leq i<j\leq n} \left(x_i
+    G_{\mathsf{a}}^j  (\underline x)-x_j
+   G_{\mathsf{a}}^i(\underline x)\right)\, 
+ dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
+  \cdots \wedge dx_n \, ,
 \end{equation}
 To take into account the general dimensional case, we introduce 
 the twisted vectors 
 \begin{equation}
   \label{e:Gdef}
-\vec  G_{\mathsf{a}}(\underline x):=   \vec C_{\mathsf{a}} \,
-{\textbf{U}_\Gamma^{n-(L+1)\delta}\over
-  \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over \mathbf{F}_\Gamma^L\right)^\epsilon \, ,
+\vec  G_{\mathsf{a}}(\underline x):=   \vec C_{\mathsf{a}} \,\Omega_\Gamma^\epsilon \, ,
 \end{equation}
-which components are vectors of homogeneous degree $\mathsf{a}(L+1)-L-n$. 
+which components are vectors of homogeneous degree $(\mathsf{a}-1)(L+1)+1-n$. 
 We compute following the same steps as in~\cite{Griffiths_1969}
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
@@ -550,9 +557,9 @@ components of $\vec G_{\mathsf{a}}(\underline x)$ we have
   \sum_{i=1}^n x_i {\partial\mathbf{F}_\Gamma (\underline x)\over \partial x_i}&=
                                                                   (L+1) \mathbf{F}_\Gamma (\underline x),\\
    \sum_{i=1}^n x_i {\partial\vec G_{\mathsf{a}}(\underline x)\over \partial x_i}&=
-                                                                  (\mathsf{a}(L+1)-L-n) \vec G_{\mathsf{a}}(\underline x) \,.
+                                                                  ((\mathsf{a}-1)(L+1)+1-n) \vec G_{\mathsf{a}}(\underline x) \,.
 \end{align}
-We find that 
+We find that for $\mathsf{a}>1$
    \begin{equation}
      d\beta^{(a_1,\dots,a_r)}= {  \vec  G_{\mathsf{a}}
      (\underline x)
@@ -567,15 +574,23 @@ We find that
 Using the definition of $\vec  G_{\mathsf{a}}$ in~\eqref{e:Gdef} we
 have reduced the pole order  of $ \textbf{F}_\Gamma$ in~\eqref{e:PDE} 
 \begin{equation}
-  {  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0={
+\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon={
 \vec\nabla \cdot \vec G_{\mathsf{a}}
      (\underline x)
     \over
     (\mathsf{a}-1)\textbf{F}_\Gamma^{\mathsf{a}-1}}
   \Omega_0^{(n)}+d\beta^{(a_1,\dots,a_r)}.
 \end{equation}
-We expand the term in the right-hand-side
+Likewise for $\mathsf{a}=1$ we have
+\begin{equation}
+    \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
+\vec\nabla \cdot \vec G_{\mathsf{a}}
+     (\underline x)
+  \Omega_0^{(n)}+d\beta^{(a_1,\dots,a_r)}.
+\end{equation}
+We expand the first term in the right-hand-side
 \begin{multline}
   \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
   \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over
@@ -604,8 +619,8 @@ C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma \right] {\mathbf{U}_\Gamma^
 where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore, 
 \begin{multline}
 	\label{e:Pred}
-{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0\cr={
+\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon\cr={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
 +   (n-(L+1)(\delta-\epsilon)) \vec
@@ -613,7 +628,7 @@ where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore,
 { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
   \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} 
   \Omega_0^{(n)}\cr
-+{  (\mathsf{a}-1) \over \mathsf{a}-1+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
++{  \mathsf{a}-1 \over \mathsf{a}-1+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
 \end{multline}
 %
 This expression involves the $\vec
@@ -635,17 +650,14 @@ c_{\mathsf{a}}(\underline x) \vec{x} \right) \, \cdot\vec\nabla
 \end{equation}
 which are examples of syzygies of the Jacobian of $\mathbf U_\Gamma$. Using this reduction in eq.~\eqref{e:Pred} leads to
 % 
-\begin{multline}\label{e:RedFinal}
-{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} \Omega^{(n)}_0=\cr{
+\begin{equation}\label{e:RedFinal}
+\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon={
 M^{(a_1,\dots,a_r)}
      (\underline x)
-\over \textbf{F}_\Gamma^{\mathsf{a}-1}}
-{ \textbf{U}_\Gamma^{n-(L+1)\delta}\over \textbf{F}_\Gamma^{n-L\delta}}
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^{\epsilon} 
-  \Omega_0^{(n)}
-+{  (\mathsf{a}-1) \over \mathsf{a}+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}
-\end{multline}
+\over \textbf{F}_\Gamma^{\mathsf{a}-1}}\Omega_\Gamma^\epsilon
++{  \mathsf{a}-1\over \mathsf{a}+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}
+\end{equation}
 with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1)-1$
 \begin{equation}
   \label{e:Mfinal}
@@ -798,7 +810,33 @@ where $M_1$ is of degree 0 so that we
 The inhomogeneous term  $\beta_\Gamma^\epsilon $ is the sum of the
 $\beta_r$ with $1\leq
 r\leq N(\Gamma,\epsilon)$
-contributions with their multiplicative factor as given in~\eqref{e:Pred}.
+contributions with their multiplicative factor as given
+in~\eqref{e:Pred}
+\begin{equation}
+  \label{e:betaGamma}
+  \beta_\Gamma^\epsilon= \sum_{1\leq i<j\leq n} (x_i B^j_\Gamma- x_j B^i_\Gamma) \,
+  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
+  \cdots \wedge dx_n 
+\end{equation}
+with
+\begin{equation}
+  \label{e:BetaGamma}
+  \vec B_\Gamma:=\left(\sum_{\mathsf{a}=1}^{N(\Gamma,\epsilon)} {
+      \vec C_{\mathsf{a}} (\underline x) \over
+   ( \mathsf{a}-1+n-L(\delta-\epsilon))\mathbf{F}_\Gamma^{\mathsf{a}-1}}\right) \,\Omega_\Gamma^\epsilon ,
+\end{equation}
+which is a vector of degree of homogeneity $1-n$ in the edge variables
+$\underline x$.
+Since $d\beta_\Gamma^\epsilon= -\vec\nabla\cdot \vec B_\Gamma\,
+\Omega_0^{(n)}$, from~\eqref{e:stepfinal} we have the ordinary
+differential equation satisfied by the integrand of the Feynman
+integral
+\begin{equation}\label{e:stepfinalode}
+\left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
+  +\sum_{r=0}^{N(\Gamma,\epsilon)-1}
+  {c_{N(\Gamma,\epsilon)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon)-r}\right] \Omega_\Gamma^\epsilon =-\vec\nabla\cdot \vec B_\Gamma\,.
+\end{equation}
+
 
 \medskip
  
@@ -888,7 +926,7 @@ $\tilde \Omega_\Box^\epsilon(X)=(-s)^{2+\epsilon} \Omega_\Box^\epsilon(s,X s)$ .
 %
 The application of the procedure given in
 Section~\ref{sec:deriv-diff-equat} needs only to start at the first
-order. Computing the derivative w.r.t $X$ we obtain 
+order. Computing the derivative with respect to $X$ we obtain 
 %
 \begin{equation}
 P  ^{(1)}= (2+\epsilon) x_2 x_4 \, , 
@@ -909,7 +947,7 @@ where $m_{i,j}$ denote the set of exponent vectors of degree $i$ in $j$ variable
 which leads to 
 %
 \begin{equation}
-	c_0= \frac{1+X+\epsilon }{Y(Y+1)}.
+	c_0= \frac{1+X+\epsilon }{X(X+1)}.
 \end{equation}
 We then derive
 \begin{equation}\label{e:PFBox}
@@ -1847,9 +1885,90 @@ results. With the notation of section~4 of~\cite{Lairez:2022zkj}:
      \end{itemize}
 \pvnote{correlation between the order in epsilon and the degree of
   apparent singularities}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Correlation function in AdS space}
+
+In this case the twist is of different nature
+
+\begin{equation}
+  \Omega_\Gamma^{(\epsilon)} =
+  {\textbf{U}_\Gamma^{n-(L+1)\delta}\over\textbf{F}_\Gamma^{n-L\delta}}\,
+    \left(p(\underline x)^\alpha\over \textbf{F}_\Gamma^\beta\right)^\epsilon\,\Omega^{(n)}_0
+\end{equation}
+with $\alpha\,\deg(p(\underline x)) = \beta\,\deg(\textbf{F}_\Gamma)$ and
+$\alpha,\beta\in\mathbb Z$.
+
+for this case the reduction steps described in
+section~\ref{sec:PoleRed} are trivially adapted.
+The equation~\eqref{e:Pred} becomes
+\begin{multline}
+	\label{e:PredAnalytic}
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(p(\underline x)^\alpha\over \textbf{F}_\Gamma^\beta\right)^\epsilon\Omega^{(n)}_0\cr={
+\vec\nabla \cdot \vec C_{\mathsf{a}}
+     (\underline x)
++   (n-(L+1)\delta+\alpha\epsilon) \vec
+    C_{\mathsf{a}}\cdot\vec\nabla\log p(\underline x)\over (\mathsf{a}-1+n-L\delta+\beta\epsilon)\,\textbf{F}_\Gamma^{\mathsf{a}-1}}
+{ \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+   \left(p(\underline x)^\alpha\over \textbf{F}_\Gamma^\beta\right)^\epsilon
+  \Omega_0^{(n)}\cr
++{  (\mathsf{a}-1) \over \mathsf{a}-1+n-L\delta+\beta\epsilon} d\beta^{(a_1,\dots,a_r)}.
+\end{multline}
+we then perform the pole reduction 
+by solving the system
+\begin{equation}\label{e:sysCFUanalytic}
+   \left\{\begin{array}{@{}l@{}}
+\vec C_{\mathsf{a}} (\underline x) \cdot \vec \nabla \textbf{F}_\Gamma
+            =    P^{(a_1,\dots,a_r)}(\underline x)\\
+\vec C_{\mathsf{a}} (\underline x)\cdot\vec \nabla p(\underline x)=
+            c_{{\mathsf{a}}}(\underline x) p(\underline x) 
+  \end{array}\right.\,,
+\end{equation}
+leading to 
+\begin{multline}\label{e:RedFinalanalytic}
+{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf{a}}}\, { \textbf{U}_\Gamma^{n-(L+1)\delta} (\underline x)\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(p(\underline x)^\alpha\over \textbf{F}_\Gamma^\beta\right)^{\epsilon} \Omega^{(n)}_0=\cr{
+M^{(a_1,\dots,a_r)}
+     (\underline x)
+\over \textbf{F}_\Gamma^{\mathsf{a}-1}}
+{ \textbf{U}_\Gamma^{n-(L+1)\delta}\over \textbf{F}_\Gamma^{n-L\delta}}
+  \left(p(\underline x)^\alpha\over \textbf{F}_\Gamma^\beta\right)^{\epsilon} 
+  \Omega_0^{(n)}
++{  (\mathsf{a}-1) \over \mathsf{a}+n-L\delta+\beta\epsilon} d\beta^{(a_1,\dots,a_r)}
+\end{multline}
+with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1)-1$
+\begin{equation}
+  \label{e:Mfinalanalytic}
+  M^{(a_1,\dots,a_r)}(\underline x):={\vec\nabla \cdot \vec C_{\mathsf{a}}
+     (\underline x)
++  (n-(L+1)\delta+\alpha\epsilon) 
+    c_{\mathsf{a}}(\underline x)\over \mathsf{a}-1+n-L\delta+\beta\epsilon}.
+\end{equation}
+%
+%-------------------------------------------------------------------------
+\subsection{The cross Witten diagram}
+
+\begin{equation}
+  I_\times(\zeta,\bar\zeta)= \int_{x_i\geq0}   \Omega_\times^{(\epsilon)}(\zeta,\bar\zeta)
+\end{equation}
+with
+\begin{equation}
+  \Omega_\times^{(\epsilon)}(\zeta,\bar\zeta)= {1\over \textbf{U}_\times
+    \textbf{F}_\times (\zeta,\bar\zeta)} \left( x_2^{-4}\over
+    \textbf{F}_\times (\zeta,\bar\zeta)^{-2}\right)^\epsilon  \, \Omega_0^{(3)}
+\end{equation}
+with
+\begin{equation}
+  \textbf{U}_\times= x_1+x_2+x_3,  \qquad \textbf{F}_\times (\zeta,\bar\zeta)= x_1x_2+
+  \zeta\bar\zeta x_1x_3+ (1-\zeta)(1-\bar\zeta)x_2x_3  
+\end{equation}
+
+%-------------------------------------------------------------------------
+\subsection{The elliptic one-loop Witten diagram}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 %
 In Section~\ref{sec:griff-dwork-reduct}, we have presented an
@@ -2069,6 +2188,26 @@ of this work.
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
+
+\bibitem{Chowdhury:2023arc}
+C.~Chowdhury, A.~Lipstein, J.~Mei, I.~Sachs and P.~Vanhove,
+``The Subtle Simplicity of Cosmological Correlators,''
+[arXiv:2312.13803 [hep-th]].
+
+\bibitem{Heckelbacher:2022hbq}
+T.~Heckelbacher, I.~Sachs, E.~Skvortsov and P.~Vanhove,
+``Analytical Evaluation of Cosmological Correlation Functions,''
+JHEP \textbf{08} (2022), 139
+%doi:10.1007/JHEP08(2022)139
+[arXiv:2204.07217 [hep-th]].
+
+\bibitem{Heckelbacher:2022fbx}
+T.~Heckelbacher, I.~Sachs, E.~Skvortsov and P.~Vanhove,
+``Analytical Evaluation of AdS$_{4}$ Witten Diagrams as Flat Space Multi-Loop Feynman Integrals,''
+JHEP \textbf{08} (2022), 052
+%doi:10.1007/JHEP08(2022)052
+[arXiv:2201.09626 [hep-th]].
+
 
 \bibitem{Broadhurst:1987ei}
 D.~J.~Broadhurst,
