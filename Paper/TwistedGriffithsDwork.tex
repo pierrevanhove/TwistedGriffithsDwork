@@ -195,8 +195,6 @@
 \affiliation[]{Institut de Physique Theorique, Universit\'e Paris-Saclay,
 CEA, CNRS, F-91191 Gif-sur-Yvette Cedex, France}
 % e-mail addresses: one for each author, in the same order as the authors
-% \emailAdd{bjbohr@nbi.dk,phdamg@nbi.dk,ludovic.plante@finances.gouv.fr}
-% \emailAdd{pierre.vanhove@ipht.fr}
 %\keywords{}
  \abstract{
 {\bf Draft version \today\ at \thistime}
@@ -211,7 +209,7 @@ two-point sunset integral up to 20 loops order.\lNote{with Bessel?} We derive th
 differential equation for the generic mass case for the two-loop
 sunset, and for the three-loop sunset. We give  and the
 Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
-\pvnote{AdS Witten diagram}
+\pvnote{AdS Witten diagram  - mention analytic regularisation}
 
 }
 
@@ -220,6 +218,8 @@ Picard-Fuchs operator for the two-loop three point ice-cream cone graph.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+
+\pvnote{discuss the analytic regularisation and its relation to IBP}
 
 Feynman integrals are ubiquitous in various areas of physics, and their accurate calculation, whether analytically or numerically, remains a significant hurdle in advancing our understanding of physical phenomena.
 %
@@ -316,9 +316,10 @@ Bessel representation with the Creative telescoping algorithm.
 \section{Parametric representation of Feynman integrals}
 \label{sec:parametric}
 
-We will work with the parametric representation of the Feynman
-integrals. A derivation of the parametric representation from the
-propagator representation can be found in~\cite{nakanishi1971graph,Vanhove:2014wqa,Weinzierl:2022eaz} for instance. 
+We will work with the parametric representation of Feynman
+integrals in  dimensional
+regularisation. A derivation of the parametric representation for Feynman t
+graphs can be found in~\cite{nakanishi1971graph,Vanhove:2014wqa,Bogner:2010kv,Weinzierl:2022eaz} for instance. 
 
 The parametric representation of a Feynman integral attached to a
 graph $\Gamma$, in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
@@ -334,9 +335,7 @@ a differential form in defined in the middle cohomology $H^{n-1}(\mathbb P^{n-1}
 \{\textbf{U}_\Gamma \textbf{F}_\Gamma=0\})$~\cite{bek,Brown:2009ta}.
 The number of edges of the graph is $n$ and the number of loops is
  $L$.
-
-
-Its domain of integration is the positive orthant\lNote{new paragraph?}
+Its domain of integration is the positive orthant
 \begin{equation}\label{e:Deltan}
 	\Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
 	i\leq n\},
@@ -601,7 +600,7 @@ We expand the first term in the right-hand-side
   \mathbf{F}_\Gamma^L\right)^\epsilon\right) .
 \end{multline}
 %
-The second term in this equation can be evaluated using
+The second term in this equation can be evaluated using 
 \begin{align}
   \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{A}\over
 \mathbf{F}_\Gamma^B\right)&=\left(A \vec
@@ -834,7 +833,7 @@ integral
 \begin{equation}\label{e:stepfinalode}
 \left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
   +\sum_{r=0}^{N(\Gamma,\epsilon)-1}
-  {c_{N(\Gamma,\epsilon)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon)-r}\right] \Omega_\Gamma^\epsilon =-\vec\nabla\cdot \vec B_\Gamma\,.
+  {c_{N(\Gamma,\epsilon)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon)-r}\right] \Omega_\Gamma^\epsilon =-\vec\nabla\cdot \vec B_\Gamma\Omega_0^{(n)}\,.
 \end{equation}
 
 
@@ -1887,6 +1886,12 @@ results. With the notation of section~4 of~\cite{Lairez:2022zkj}:
   apparent singularities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Correlation function in AdS space}
+
+The evaluation of correlation function of conformally coupled $\phi^4$  in anti-de Sitter or de Sitter
+space can be organised as dimensionally regulated flat space Feynman integrals in direct
+space~\cite{Heckelbacher:2022fbx,Heckelbacher:2022hbq} or
+analytically regulated 
+
 
 In this case the twist is of different nature
 
