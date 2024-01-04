@@ -529,13 +529,13 @@ and for $\mathsf{a}=1$
   \cdots \wedge dx_n \, ,
 \end{equation}
 To take into account the general dimensional case, we introduce 
-the twisted vectors 
+the twisted vectors \lNote{forms?}
 \begin{equation}
   \label{e:Gdef}
 \vec  G_{\mathsf{a}}(\underline x):=   \vec C_{\mathsf{a}} \,\Omega_\Gamma^\epsilon \, ,
 \end{equation}
 which components are vectors of homogeneous degree $(\mathsf{a}-1)(L+1)+1-n$. 
-We compute following the same steps as in~\cite{Griffiths_1969}
+Following the same steps as in~\cite{Griffiths_1969}, we have
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
     G_{\mathsf{a}}^j  (\underline x)-x_j
@@ -864,7 +864,7 @@ the edge parameters $\underline x$. This allows to determine the smallest order 
 algorithm closes to give a differential operator.
 
 In general, the Griffiths-Dwork reduction algorithm does not automatically
-leads to a Picard-Fuchs differential operator  which is not factorizable. 
+leads to a Picard-Fuchs differential operator  which is not factorisable. 
 The factorisation of an linear ordinary
 differential operator can be done with the {\tt DFactor} routine from
 {\tt Maple} up to the order 4 for generic parameters~\cite{PutSinger,vanHoeij}, and to any
@@ -876,8 +876,9 @@ using the {\tt facto} algorithm in {\tt
 
  In the rational case $\epsilon=0$, it was noticed
 in~\cite{Bloch:2013tra,Bloch:2016izu,Bloch:2014qca,Lairez:2022zkj} that the order of the minimal differential operator is
-smaller than the number of irreducible master integrals. We will see,
-in the various cases studied below, 
+smaller than the number of irreducible master integrals. 
+In the various cases studied below
+we will see 
 how the $\epsilon$ dependent operator can have an order that saturates
 the upper bound given by the number of masters.  This will
       be discussed further in Section~\ref{sec:minim-order-diff}.
@@ -907,7 +908,7 @@ We will illustrate our procedure with simple one-loop examples where the main fe
 	\end{tikzpicture}
 	\caption{The box  graph}\label{fig:box}
 \end{figure}
-The first example we consider is the on-shell massless box. We define the usual Mandelstam invariants as $t=(p_1+p_3)^2$, $s=(p_1+p_2)^2$.  The graph polynomials are given by
+The first example we consider is the so-called on-shell massless box. We define the usual Mandelstam invariants as $t=(p_1+p_3)^2$, $s=(p_1+p_2)^2$.  The graph polynomials are given by
 \begin{equation}
 	\label{e:Boxgraphpolynomials}
 	\textbf{U}_{\Box}=\sum_{i=1}^4 x_i,\qquad
@@ -1010,7 +1011,7 @@ with
  \textbf{U}_2&=x_1x_2+x_1x_3+x_2x_3\\
   \textbf{F}_2(t)&=-tx_1x_2x_3 +U_3 (m_1^2x_1+m_2^2x_2+m_3^2x_3).
 \end{align}
-
+%
 The twisted differential form $\Omega_\su^{(2)}$ is defined on the
 complement of the sunset elliptic curve $\mathbf{F}_2(t)=0$.
 %
@@ -1032,7 +1033,7 @@ We  start with at $\mathsf{a}=2$ finding
 \end{equation}
 from which we can extract $P^{(2)}=2 (\epsilon +1) (2 \epsilon +1)(x_1x_2x_3)^2$. 
 %
-Accordingly, we label the unknowns with the upper index so $S^{(k)}$ indicated the $k$-th reduction. We then  perform the Jacobian reduction of $P^{(2)}$ as
+Accordingly, we label the unknowns with the upper index so $S^{(k)}$ indicates the $k$-th reduction. We then  perform the Jacobian reduction of $P^{(2)}$ as
 \begin{equation}\label{e:reduc}
   2 (\epsilon +1) (2 \epsilon +1)\,  (x_1x_2x_3)^2= \sum_{i=1}^3 
   \sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \text{Jac}_i  (\mathbf{F}_2(t)) \,,
@@ -1048,7 +1049,7 @@ We have to solve the following equation for the coefficients $\lambda_e^{(2)}$ c
 where $c^{(2)}=\sum_{e\in m_{3,3}} q^{(2)}_e x^e$ is an unknown homogeneous degree 3 polynomial
 in $\underline x$.
 %
-The unknowns are fully determined at the end of  algorithm. For this case, 
+The unknowns will be fully determined at the end of  algorithm. For this case, 
 the differential form given in eq.\eqref{e:betadef} reads
 % obtained by adapting the deriving in section~3.2
  %of~\cite{Bloch:2016izu} to include the $\epsilon$ factor \lNote{using our explicit }
@@ -1124,7 +1125,7 @@ We have the solutions
   c_0(t,\epsilon)&=\frac{\epsilon ^2 (2 t+2)}{(t-9) (t-1) t}+\frac{\epsilon  (3 t-5)}{(t-9) (t-1)
    t}+\frac{t-3}{(t-9) (t-1) t} \, ,
 \end{align}
-leading to the $\epsilon$-deformed Picard-Fuchs operator
+leading to the $\epsilon$-deformed \lNote{nomenclature} Picard-Fuchs operator
 \begin{multline}
   \label{e:PF2sunset1massepsilon}
      \mathscr{L}^{(2),\epsilon,1-mass}_\su ={d\over dt}\left( t(t-1)(t-9)
@@ -1903,7 +1904,7 @@ In this case the twist is of different nature
 with $\alpha\,\deg(p(\underline x)) = \beta\,\deg(\textbf{F}_\Gamma)$ and
 $\alpha,\beta\in\mathbb Z$.
 
-for this case the reduction steps described in
+For this case the reduction steps described in
 section~\ref{sec:PoleRed} are trivially adapted.
 The equation~\eqref{e:Pred} becomes
 \begin{multline}
