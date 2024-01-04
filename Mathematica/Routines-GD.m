@@ -84,19 +84,21 @@ poltoreduce=M+coeffPtmp*P-Chattmp.JacFtmp; systmp=getEquations[poltoreduce,var];
 Filenametmp="Reduction-F-Case-"<>ToString[degreeP]<>"-"<>DateString[{"ISODate","-","Hour",":","Minute",":","Second"}]<>".txt";
 Print["system saved in ",Filenametmp]; Save[Filenametmp,{systmp,varsystmp}];
 Print["Calling Finite Flow "];solfiniteflowtmp=FFDenseSolve[Equal[#,0]&/@systmp,varsystmp,"ApplyFunction"->Together,MaxPrimes->20];
+If[solfiniteflowtmp==FFImpossible, Echo["System cannot be solved"]];
 Print["finite flow done -- length result ",Length[solfiniteflowtmp]]; Chattmpresult=Chattmp/.solfiniteflowtmp//Expand; coeffPresult=coeffPtmp/.solfiniteflowtmp//Expand;
 {Chattmpresult,degtmp,coeffPresult,solfiniteflowtmp}]
 
-ReductionU[M_,degree_,Qnametmp_,Upol_,var_,varlong_]:=Block[{degtmp,poltoreduce,Qtmp,systmp,varsystmp,solfiniteflowtmp,polU,Mresult,Qtmpresult,JacUtmp,Filenametmp},
+ReductionU[M_,degree_,Qnametmp_,Upol_, var_,varlong_]:=Block[{degtmp,poltoreduce,Qtmp,systmp,varsystmp,solfiniteflowtmp,polU,Mresult,Qtmpresult,JacUtmp,Filenametmp},
 Print["Reduction with respect to Jac(",Upol,")"]; JacUtmp=JacIdeal[Upol,var];polU=M.JacUtmp; degtmp=degree-1; Print["Degree quotient ",degtmp];Qtmp=homPols[Length[var],degtmp,Qnametmp];
 poltoreduce=polU-Qtmp*Upol; systmp=DeleteCases[Flatten[CoefficientList[poltoreduce,var]],0];  varsystmp=Complement[Variables[systmp],varlong];  Print["Number of equations ",Length[systmp], ", number of variables ", Length[varsystmp]];
 Filenametmp="Reduction-U-Case-"<>ToString[degree]<>"-"<>DateString[{"ISODate","-","Hour",":","Minute",":","Second"}]<>".txt";
 Print["system saved in ",Filenametmp]; Save[Filenametmp,{systmp,varsystmp}];
 Print["Calling Finite Flow "];solfiniteflowtmp=FFDenseSolve[Equal[#,0]&/@systmp,varsystmp,"ApplyFunction"->Together,MaxPrimes->20];
+If[solfiniteflowtmp==FFImpossible, Echo["System cannot be solved"]];
 Print["finite flow done -- length result ",Length[solfiniteflowtmp]];Mresult=M/.solfiniteflowtmp; Qtmpresult=Qtmp/.solfiniteflowtmp; {Mresult,degtmp,Qtmpresult,solfiniteflowtmp}]
 
 Mroutine[Chat_, reducnum_, derivativeorder_, loop_,delta_,epsilonregulator_,var_] := (Sum[D[Chat[[i]], var[[i]]], {i, Length[var]}] + (Length[var] - (loop + 1)*(delta -epsilonregulator))* reducnum)/(derivativeorder - 1 +Length[var] - loop*(delta -epsilonregulator))
 
 MroutineAnalytic[powerF_, powernumer_, Chat_, reducnum_, derivativeorder_, var_] := (Sum[D[Chat[[i]], var[[i]]], {i, Length[var]}] + powernumer*reducnum)/(derivativeorder - 1 +powerF)
 
-Bvec[Chat_,derivativeorder_,Fpol_,nedges_,loop_,delta_,regulator_]:=Chat/(Fpol^(derivativeorder-1))/(derivativeorder-1+nedges-loop*(delta-regulator));
+Bvec[Chat_,derivativeorder_,Fpol_,powerF_]:=Chat/(Fpol^(derivativeorder-1))/(derivativeorder-1+powerF);
