@@ -285,7 +285,8 @@ or in analytic regularisation
 
 
 In the case when $\epsilon=\kappa=0$ and $\delta$ a positive integer, the exponents
-in~\eqref{e:OmegaDimRegIntro} and~\eqref{e:OmegaAnRegIntro} and are integers,
+in~\eqref{e:OmegaDimRegIntro} and~\eqref{e:OmegaAnRegIntro} are
+integers and,
 we have a rational differential form. One can use the  Griffiths-Dwork
 pole reduction~\cite{Griffiths_1969,Griffith1,Griffith2,Dwork_1962,Dwork_1964} for determining the minimal differential operator (the
 Picard-Fuchs operator) associated to a given Feynman
@@ -296,22 +297,23 @@ integer, for which   we have a twisted differential
 form.
 
  This way we
-can analyse how the space-time dimension affects the order of the
-minimal differential operators and we can consider the case of infrared
-or ultraviolet divergent integrals.
+can analyse how the space-time dimension or the analytic regulator  affects the order of the
+minimal differential operators.
 
 
 
-The remainder of this paper is organised as follows. 
+This paper is organised as follows. 
 In Section~\ref{sec:parametric} we review the parametric
-representation of Feynman integrals. In Section~\ref{sec:Red} we
+representation of Feynman integrals, and sets our notations for the 
+dimensionally and analytically regulated integrals in Section~\ref{sec:Twisted}.
+In Section~\ref{sec:Red} we
 present the algorithmic procedure for deriving the differential
-equations. In Section~\ref{sec:PoleRed},  we generalise the
+equations. In Section~\ref{sec:griff-dwork-reduct},  we generalise the
 Griffiths-Dwork pole to the case of the twisted differential
-$\Omega_\Gamma^\epsilon$, and explain in
+$\Omega_\Gamma^\epsilon$ and $\Omega_\Gamma^{\epsilon,\kappa}$, and explain in
 Section~\ref{sec:deriv-diff-equat} how to use this iteratively to
-determine the differential equations. This generalises the algorithm
-used in~\cite{Lairez:2022zkj} for the rational differential form cases.\lNote{rational case} In Section~\ref{sec:oneloop} we
+determine the differential equations. This generalises the algorithm  for the rational differential form cases
+used in~\cite{Lairez:2022zkj}. In Section~\ref{sec:oneloop} we
 illustrate the procedure on the case of the massless box. In
 Section~\ref{sec:twoloop} we derive the $\epsilon$-deformed
 differential equation for the two-loop sunset integral for various
@@ -319,7 +321,10 @@ mass configurations, the massless double-box and the ice-cream cone
 graph. In Section~\ref{sec:higherloop} we give the $\epsilon$-deformed
 differential
 equation for the all equal mass sunset up to twenty loop orders, for
-the three-loop massive sunset. In Section~\ref{sec:minim-order-diff}
+the three-loop massive sunset. In Section~\ref{e:AdS} we apply our
+algorithm to some Witten diagrams arising from correlators in anti-de
+Sitter or de Sitter.
+In Section~\ref{sec:minim-order-diff}
 we discuss the question of the minimal order differential operator,
 and in Section~\ref{sec:epsilon-dependence} we analyze how the
 $\epsilon$ parameter enters the differential
@@ -411,8 +416,8 @@ The Feynman integral $I_\Gamma$ can diverge  for integer values of $D$ and
 the exponent $\nu_i$, but there is an open subset of
 $(D,\nu_1,\dots,\nu_n)\in\mathbb C^{n+1}$ where  the integral
 converges,  and the (unique) value of the Feynman integral is  defined by analytic continuation~\cite{Speer}.
-
-\subsection{Twisted differential Forms}
+%-----------------------------------------------------------------------
+\subsection{Twisted differential Forms}\label{sec:Twisted}
 
 \noindent{\bf Dimensional regularisation:} One can regulate the integral by using the dimensional regularisation
 scheme by working  in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
@@ -1818,6 +1823,18 @@ the differential operator is
    \mathscr{L}^\epsilon=(1+X)^2X^2\left(d\over dX\right)^2+(1+X)(1+2X)  (2+\epsilon) X{d\over dX} +2 X(X+1)
    +\left(2 X(X+1)-1\right) \epsilon-2 \epsilon ^2
  \end{equation}
+
+
+The algorithm gives all the information for computing the
+inhomogeneous term of the differential equations acting on the Feynman
+integrals. The inhomogeneous term  is given by the  integration of
+$\vec\nabla\cdot \vec B_\Gamma$ in~\eqref{e:BetaGamma}  over the
+positive orthant. Performing this integration is an highly non-trivial
+task. The contributions arise from the reduced topologies with
+contracted edges, but the integrands from $\vec B_\Gamma$ may differ
+from the scalar Feynman integral by rational function of the edge
+variables. \pvnote{trying to say that getting the inhomogeneous term
+  is not easy but we could in principle do it}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Three and higher-loop examples}\label{sec:higherloop}
@@ -1880,8 +1897,8 @@ rational function  of degree
 the complement of the vanishing locus of the denominator in $\mathbb P^{n-1}\backslash\{\textbf{F}_{n-1}(t)=0\}$.
 In $D=2$ dimension ($\epsilon=0$) we have a rational  differential form
 $ \Omega_{\su(n-1)}^{\epsilon}(\vec m,t,0)$. The Picard-Fuchs operator has been
-given up to six loop \lNote{$\epsilon=0$} and it is in agreement with the Feynman integral
-being a (relative) period of a Calabi-Yau  manifold of complex dimension $n-2$~\cite{Bloch:2013tra,Bloch:2014qca,Bloch:2014qca,Bourjaily:2019hmc,Bonisch:2020qmm,Bonisch:2021yfw,Candelas:2021lkc,Forum:2022lpz}.
+given up to six loop  for $\epsilon=0$ and it is in agreement with the Feynman integral
+being a (relative) period of a Calabi-Yau  manifold of complex dimension $n-2$~\cite{Bloch:2013tra,Bloch:2014qca,Bloch:2016izu,Bourjaily:2019hmc,Bonisch:2020qmm,Bonisch:2021yfw,Candelas:2021lkc,Forum:2022lpz}.
 
 
 %----------------------------------------------------------------------   
@@ -1891,9 +1908,10 @@ and higher  the Griffiths-Dwork algorithm had to be adapted because of
 the non-isolated singularities of integrand. This was achieved
 in~\cite{Lairez:2022zkj} by using syzygies. The resolution of the
 linear system in eq.~\eqref{e:sysCFU} takes into account the syzygies
-when including the $\epsilon$ dependent factor.   The computation
-takes a rather long time
-since this involves solving large linear systems. \pvnote{finiteflow}
+when including the $\epsilon$ dependent factor.   The resolution of
+the linear system is optimised with the use of the program {\tt
+  FiniteFlow}~\cite{Peraro:2019svx}.
+
 
    
 For the all equal mass case $m_1=\cdots =m_{l+1}=1$ we find the sunset
@@ -2145,7 +2163,7 @@ between conformally coupled field analysed in Section~5.3.4 of~\cite{Chowdhury:2
 The cosmological correlator is the integration over the energy of the
 two-loop flat space integral analytically regulated
 \begin{equation}
-  I_{\IceCream}= \int \frac{d^{4}L_{4}d^{4}L_{2}}{(L_2^2)^{1+\kappa}(L_4^2)^{1+\kappa}((L_4+L_2+Q)^2)^{1+\kappa}((L_4+L_2+\tilde Q)^2))^{1+\kappa} }  
+  I_{\IceCream}= \int \frac{d^{4}L_{2}d^{4}L_{4}}{(L_2^2)^{1+\kappa}(L_4^2)^{1+\kappa}((L_4+L_2+Q)^2)^{1+\kappa}((L_4+L_2+\tilde Q)^2))^{1+\kappa} }  
 \end{equation}
 The parametric representation is given by the integration 
 $
@@ -2155,8 +2173,8 @@ over the domain $\Delta_4=\{x_i\geq0,1\leq i\leq 4\}$ of the
 differential form
 \begin{equation}
   \Omega_{\IceCream}^\kappa= {\pi^4\Gamma(4\kappa)\over
-    \Gamma(1+\kappa)^4} \,{1\over \textbf{U}_{\IceCream}^{4} }
-  \left(\textbf{U}_{\IceCream}^{4}\prod_{i=1}^4 x_i^\kappa\over \textbf{F}_{\IceCream}^{4}  \right)^\kappa\,\Omega_4^{(0)}\,,
+    \Gamma(1+\kappa)^4} \,{1\over \textbf{U}_{\IceCream}^{2} }
+  \left(\prod_{i=1}^4 {x_i\textbf{U}_{\IceCream}\over \textbf{F}_{\IceCream}}  \right)^\kappa\,\Omega_4^{(0)}\,,
 \end{equation}
 with the graph polynomials
 \begin{equation}
@@ -2173,8 +2191,9 @@ with the graph polynomials
   \begin{align}
   \mathscr{L}_1&=\left(1-u
    -v\right) v\left(\partial\over\partial v\right)^{2} -2u
-                 v{\partial\over\partial u}{\partial\over\partial v}-(3 \kappa+1)u {\partial\over\partial u}++(3 \kappa -3 \kappa 
-  u-6 \kappa  v-v){\partial\over\partial v}-8 \kappa ^2,\cr
+                 v{\partial\over\partial u}{\partial\over\partial
+                 v}-(3 \kappa+1)u {\partial\over\partial u}+(3 \kappa
+                 (1-  u-2  v)-v){\partial\over\partial v}-8 \kappa ^2,\cr
   \mathscr{L}_2&=     -u\left(\partial\over\partial u\right)^{2}    +v\left(\partial\over\partial v\right)^{2}       -3 \kappa
    {\partial\over\partial u}+3 \kappa
                  {\partial\over\partial v},\cr
@@ -2202,9 +2221,6 @@ determine the coefficients $c_{a_1,\dots,a_r}(\underline z)$ and the
 inhomogeneous term $\beta_\Gamma$ in~\eqref{e:PFOmegaGeneric}. Our work introduces an explicit dependence on $\epsilon$ so it is worth discussing  its effect on the minimal differential
 operator and on the singularities of the differential equations.
 %
-%
-%We first give a discussion  of  the order of the %minimal differential
-%operator and then of the $\epsilon$ dependence.
 
 %------------------------------------------------------------------------
 \subsection{Minimal order of the differential operator}
@@ -2215,7 +2231,7 @@ In the examples studied in this work we have found the following:
 \begin{itemize}
 	\item  For the $n-1$-loop
 	sunset integrals, the number of irreducible master integrals 
-	is $2^{n}-n-1$. \lNote{cite?} The \lNote{number of}  master integrals are given by 
+	is $2^{n}-n-1$~\cite{Kalmykov:2012rr,Bitoun:2017nre}. The number of  master integrals are given by 
 %
 %	
 	\begin{itemize}  \item The minimal differential Picard-Fuchs operator for the all
@@ -2248,9 +2264,9 @@ singularities or more symmetries:
 \begin{itemize}
   \item {\bf More singularities:} In the case of
 massless internal lines or massless external kinematics, extra
-singularities arise thus reducing the genus of the algebraic locus defined
-by the singular locus of the integral, and therefore reducing the
-order the minimal differential operator. \lNote{confusing}
+singularities arise thus reducing the genus of the
+singular locus of the integral. This has for  consequence a lowering
+of the order  minimal differential operator. 
 \item {\bf More symmetries:}
 Another situation is when special choices of kinematic
 configurations the integrand of the Feynman integral produce extra
@@ -2308,8 +2324,6 @@ integrals are either period of rational curves, elliptic curve or genus
 \subsection{The $\epsilon$-dependence}
 \label{sec:epsilon-dependence}
 
-%We turn to a discussion of the way the $\epsilon$ factor enters the
-%differential equation.
 %
 For a differential equation
 \begin{equation}\label{e:PFconclusion}
@@ -2333,7 +2347,8 @@ does not change the position of the real singularities but it affects
 the local behaviour (the monodromy) of the solution near the
 singularity.
 %
-The physical interpretation of this is that the singularities \lNote{kinematic?} (the threshold
+The physical interpretation of this is that the kinematic
+singularities (the position of the thresholds
 and pseudo-thresholds) of a Feynman integral are independent of the
 space-time dimension. However,  the local behaviour of the integral near
 the thresholds and pseudo-thresholds does change with the space-time
@@ -2344,12 +2359,27 @@ when decomposing amplitudes using the generalized unitarity method~\cite{Bern:20
 \section{Conclusion}\label{sec:conclusion}
 We have presented a generalisation of the Griffiths-Dwork reduction
 for deriving the differential operator acting on Feynman integrals in
-general dimensions.  We have worked out various cases either
-generalising the known integer dimension cases or determining cases
-that could not be achieved with the algorithm used
-in~\cite{lairez2016computing,Lairez:2022zkj}. The procedure amounts to
+dimensional regularisation or analytic regularisation. The algorithm
+makes a special use of the fact that the twist from the regularisation
+is the power of a degree zero homogeneous rational function in the
+edge variables. The procedure amounts to
 solving linear systems which is done using {\tt
-  FiniteFlow} routines~\cite{Peraro:2019svx}. \pvnote{more} \lNote{we should have summary and conclusion}
+  FiniteFlow} routines~\cite{Peraro:2019svx}.
+
+We have applied the algorithm to various cases and derived the
+inhomogeneous partial differential equations satisfied by the integrand of the Feynman integral in parametric representation.
+In dimensional regularisation we have confirmed that the order the
+differential operators is smaller or equal to the number of master
+integrals. The order of the differential operators is lower for the cases of the kinematic invariants where the integrand
+presents more symmetry (equal masses, special kinematics,\dots) or
+more singularities (massless internal or external states). Something
+that was already noticed in the case of finite integrals~\cite{Lairez:2022zkj}  but stays
+true for the regulated integrals.
+
+One motivation for presenting this algorithm is its application to
+Feynman integral in analytical regularisation which enters the evaluation of the cosmological
+correlators~\cite{Heckelbacher:2022hbq,Chowdhury:2023khl,Chowdhury:2023arc}. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
@@ -2884,6 +2914,14 @@ S.~P\"ogel, X.~Wang and S.~Weinzierl,
 Phys. Rev. Lett. \textbf{130} (2023) no.10, 101601
 %doi:10.1103/PhysRevLett.130.101601
 [arXiv:2211.04292 [hep-th]].
+
+
+\bibitem{Kalmykov:2012rr}
+M.~Y.~Kalmykov and B.~A.~Kniehl,
+``Mellin-Barnes Representations of Feynman Diagrams, Linear Systems of Differential Equations, and Polynomial Solutions,''
+Phys. Lett. B \textbf{714} (2012), 103-109
+%doi:10.1016/j.physletb.2012.06.045
+[arXiv:1205.1697 [hep-th]].
   
   \bibitem{Frellesvig:2017aai}
   H.~Frellesvig and C.~G.~Papadopoulos,
@@ -2909,11 +2947,12 @@ J. Phys. A \textbf{44} (2011), 454003
 doi:10.1088/1751-8113/44/45/454003
 [arXiv:1103.1869 [hep-th]].
 
-\bibitem{lairez2016computing}
-Pierre Lairez.
-\newblock Computing periods of rational integrals.
-\newblock {\em Mathematics of computation}, 85(300):1719--1752, 2016.
-\newblock [arXiv:1404.5069]
+
+
+\bibitem{Chowdhury:2023khl}
+C.~Chowdhury and K.~Singh,
+``Analytic Results for Loop-Level Momentum Space Witten Diagrams,''
+[arXiv:2305.18529 [hep-th]].
 
 \bibitem{Chyzak}  Fr\'ed\'eric Chyzak, `` extension of
     Zeilberger's fast algorithm to general holonomic functions'',
@@ -2935,11 +2974,6 @@ Discrete Mathematics, {\bf 217} (1-3) 115-134, 2000.
 
 
 \end{thebibliography}
-
-
-
-
-
 
 
 
