@@ -346,18 +346,15 @@ Bessel representation with the Creative telescoping algorithm.
 \section{Twisted differential from regulated Feynman integrals}
 \label{sec:parametric}
 
-We introduce the twisted differential forms attached to Feynman
-integral in dimensional regularisation and analytic regularisation.
+We will apply our formalism in dimensional regularisation for Feynman integrals and analytic regularisation for Witten diagrams. Their treatment is slightly different so we will consider them separately. 
 
 \subsection{Review of the parametric representation}
-We consider the parametric parametric representation of Feynman
-integrals. A derivation of this representation for Feynman 
-graphs can be found in~\cite{nakanishi1971graph,Vanhove:2014wqa,Bogner:2010kv,Weinzierl:2022eaz} for instance. 
-
-The parametric representation of a Feynman integral attaches to a
-graph $\Gamma$, in space-time dimension $D$, a differential form 
+We consider the parametric  representation of Feynman
+integrals  in $D$ space-time dimensions associated to a graph $\Gamma$ with $n$   internal edges and $L$ loops. Its derivation can be found  in~\cite{nakanishi1971graph,Vanhove:2014wqa,Bogner:2010kv,Weinzierl:2022eaz} for instance. 
+%
+The differential form associated to a Feynman integral is 
 \begin{equation}\label{e:OmegaDef}
-  \Omega_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-{(L+1)D\over2}}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-{LD\over2}} }\, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0,
+	\Omega_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-{(L+1)D\over2}}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-{LD\over2}} }\, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0,
 \end{equation}
 where we have introduced the  canonical differential form on
 $\mathbb P^{n-1}$ 
@@ -366,44 +363,50 @@ $\mathbb P^{n-1}$
 	\Omega_0^{(n)}:=  \sum_{i=1}^n (-1)^{i-1} x_i dx_1\wedge \cdots \wedge \widehat{dx_i} \wedge\cdots \wedge dx_n ,
 \end{equation}
 and where  $\widehat{dx_i}$ means that the term is omitted in the wedge
-product.
-Here  $\underline x:=\{x_i |1\leq i\leq n\}$,  are  variables attached to all edges of
-$\Gamma$ and $L$ is the number of loops of the graph.
-
-The two polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
-associated to the graph $\Gamma$ are defined as
+product. We denote collectively the 
+variables 
+attached to all edges of
+$\Gamma$ as $\underline x:=\{x_i |1\leq i\leq n\}$. 
+%,  are  variables
+% and $L$ is the number of loops of the graph.
+%
+The polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
+associated to  $\Gamma$ are defined as
 follows~\cite{nakanishi1971graph,Bogner:2010kv,Weinzierl:2022eaz}.  The {\em first
-Symanzik polynomial} is defined by
+	Symanzik polynomial} is defined by
 \begin{equation}\label{e:Udef}
-{\bf U}_\Gamma (\underline x)= \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x^{\mathsf{T}}\,, 
+	{\bf U}_\Gamma (\underline x)= \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x_{\mathsf{T}}\,, 
 \end{equation}
 where the sum is over all the spanning trees $\mathsf{T}$ of $\Gamma$,  i.e.  all subgraphs ${\sf T}$ of $\Gamma$ which contain all
 vertices of $\Gamma$ so that $b_1(\mathsf{T}) =0$ and
-$b_0(\mathsf{T})=1$. The
+$b_0(\mathsf{T})=1$.\lNote{add def of $b_i$} The
 monomial is the product of the variables not in the spanning tree
-$x^{\mathsf{T}} = \prod_{e\notin {\mathsf{T}}} x_e$.  This is an
-homogeneous polynomial of degree $L$ in the edge variables $\deg(\textbf{U}_\Gamma(\underline x))=L$.
+$x_{\mathsf{T}} = \prod_{e\notin {\mathsf{T}}} x_e$.  This is a
+homogeneous polynomial of degree \lNote{RAS syndrome}
+%$L$ in the edge variables 
+$\deg(\textbf{U}_\Gamma(\underline x))=L$.
 The {\em second 
-Symanzik polynomial}  $\textbf{F}_\Gamma$ is defined by
+	Symanzik polynomial}  $\textbf{F}_\Gamma$ is defined by
 \begin{equation}\label{e:VFdef}
-{\bf V}_{\Gamma} (\underline x)= \sum_{\substack{ \text{Spanning} \\ \text{ 2-forests
-			of } \Gamma}}s_{\mathsf{F}} x^{\mathsf{F}}
-                  ,\qquad {\bf F}_{\Gamma}(\underline x) = {\bf
-                    U}_\Gamma(\underline x)\left( \sum_{e \in e(\Gamma)} m_e^2 x_e\right) - {\bf V}_{\Gamma}\,,
+	{\bf V}_{\Gamma} (\underline x)= \sum_{\substack{ \text{Spanning} \\ \text{ 2-forests
+				of } \Gamma}}s_{\mathsf{F}} x_{\mathsf{F}}
+	,\qquad {\bf F}_{\Gamma}(\underline x) = {\bf
+		U}_\Gamma(\underline x)\left( \sum_{e \in e(\Gamma)} m_e^2 x_e\right) - {\bf V}_{\Gamma}\,,
 \end{equation}
-where $x^{\mathsf{F}} =
+where $x_{\mathsf{F}} =
 \prod_{e \notin \mathsf{F}} x_i$ to each spanning 2-forest. A 2-forest
 is a disjoint union of two sub-trees $\mathsf{F}=\mathsf{T}_1\cup \mathsf{T}_2$. 
- This is an
-homogeneous polynomial of degree $L+1$ in the edge variables
+This is an
+homogeneous polynomial of  
+%$L+1$ in the edge variables
 $\deg(\textbf{F}_\Gamma(\underline x))=L+1$.
 With the dot denoting the scalar product on $\mathbb R^{1,D-1}$,  we define the invariant of $\mathsf T$ as $s_\mathsf{F} = \sum_{(v_1,v_2) \in \mathsf{F}=\mathsf{T}_1\cup \mathsf{T}_2} p_{v_1}\cdot p_{v_2}$ .
 The second Symanzik polynomial carries all dependence on the physical parameters, that is 
 the
 internal masses and the external kinematics, which we  write as 
 \begin{equation}
-\vec m:=\{m_1,\dots,m_n\}, \quad  \vec s:=\{s_\textsf{F} \mid \textsf{F} ~ \textrm{spanning
-	2-forests of}~\Gamma\}\, ,	
+	\vec m:=\{m_1,\dots,m_n\}, \quad  \vec s:=\{s_\textsf{F} \mid \textsf{F} ~ \textrm{spanning
+		2-forests of}~\Gamma\}\, ,	
 \end{equation}
 respectively.
 
@@ -414,7 +417,7 @@ The differential form~(\ref{e:OmegaDef}) is defined in the middle cohomology $H^
 The Feynman integral associated with the graph $\Gamma$ is 
 given by the integral $  I_\Gamma = \int_{\Delta_n}
 \, \Omega_\Gamma$ of the  differential form over
- the positive orthant
+the positive orthant
 \begin{equation}\label{e:Deltan}
 	\Delta_n:=\{(x_1,\dots,x_n)\in \mathbb P^{n-1}, x_i \geq0 ~\textrm{for}~ 1\leq
 	i\leq n\},
@@ -424,47 +427,47 @@ given by the integral $  I_\Gamma = \int_{\Delta_n}
 The Feynman integral $I_\Gamma$ can diverge  for integer values of $D$ and 
 the exponent $\nu_i$, but there is an open subset of
 $(D,\nu_1,\dots,\nu_n)\in\mathbb C^{n+1}$ where  the integral
-converges,  and the (unique) value of the Feynman integral is  defined by analytic continuation~\cite{Speer}.
+converges,  and the (unique) value of the Feynman integral is  defined by analytic continuation~\cite{Speer}.\lNote{paragraph goes before}
 %-----------------------------------------------------------------------
-\subsection{Twisted differential Forms}\label{sec:Twisted}
+\subsection{Twisted differential forms}\label{sec:Twisted}
 
 \noindent{\bf Dimensional regularisation:} One can regulate the integral by using the dimensional regularisation
 scheme by working  in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
 $\epsilon\in\mathbb R$
 with integers values of the exponents $(\nu_1,\dots,\nu_n)\in\mathbb
 Z^n$.
- We do not assume that $\epsilon$ is
-	small. We introduce $\delta$ and $\epsilon$ for convenience and make
-	clearer the role of the twist from the non even integer space-time dimension.
+We do not assume that $\epsilon$ is
+small. We introduce $\delta$ and $\epsilon$ for convenience and make
+clearer the role of the twist from the non even integer space-time dimension.\lNote{sentence unclear}
 The differential form~(\ref{e:OmegaDef}) becomes the twisted
-      differential form
+differential form
 \begin{equation}\label{e:OmegaTwistDimReg}
-  \Omega^\epsilon_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0
+	\Omega^\epsilon_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
+	\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 \, .
 \end{equation}
 %
 In dimensional regularisation we have a rational differential form
 times a twist given by the $\epsilon$-power of
-$\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$ which is  a degree zero homogeneous rational function on $\mathbb
+$\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$,  which is  a degree zero homogeneous rational function on $\mathbb
 P^{n-1}$.
 
 
-\noindent{\bf Analytic regularisation:} Another regularisation is the
-analytic regularisation where one keeps fixed the space-time dimension
-$D=2\delta-2\epsilon$ and an analytic continue is the power of propagators $\nu_i=\upnu_i
+\noindent{\bf Analytic regularisation:} In
+analytic regularisation  one keeps fixed the space-time dimension
+$D=2\delta-2\epsilon$ and instead  one considers the power of propagators as slightly shifted from integer values, that is  $\nu_i=\upnu_i
 + p_i \kappa$ with $\{\upnu_1,\dots,\upnu_n,p_1,\dots,p_n\}\in\mathbb Z^{2n}$, so that the 
 differential form~(\ref{e:OmegaDef}) becomes the twisted
-      differential form
+differential form
 \begin{equation}\label{e:OmegaTwistAnaReg}
-  \Omega^{\epsilon,\kappa}_\Gamma = { \textbf{U}_\Gamma
-    ^{\upnu_1+\cdots+\upnu_n-(L+1)\delta}  \over \textbf{F}_\Gamma
-    ^{\upnu_1+\cdots+\upnu_n-L\delta}
-  }\,\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^\epsilon
-  \left(\prod_{i=1}^n \left(x_i \textbf{U}_\Gamma(\underline x)\over
-      \textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\kappa} \, \prod_{i=1}^n x_i^{\upnu_i-1} \Omega^{(n)}_0.
+	\Omega^{\epsilon,\kappa}_\Gamma = { \textbf{U}_\Gamma
+		^{\upnu_1+\cdots+\upnu_n-(L+1)\delta}  \over \textbf{F}_\Gamma
+		^{\upnu_1+\cdots+\upnu_n-L\delta}
+	}\,\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^\epsilon
+	\left(\prod_{i=1}^n \left(x_i \textbf{U}_\Gamma(\underline x)\over
+	\textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\kappa} \, \prod_{i=1}^n x_i^{\upnu_i-1} \Omega^{(n)}_0.
 \end{equation}
 %
-The twists are the $\epsilon$ or $\kappa$ power of an homogeneous degree zero rational functions.
+The twists are the $\epsilon$ or $\kappa$-th powers of a homogeneous degree zero rational functions.
 
 
 
@@ -495,12 +498,12 @@ parameters $\vec m$ and $\vec s$.
 
 Let us consider $r$ parameters from the set of internal masses and independent kinematics, $\underline z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s $. 
 %
- We seek 
- differential operators 
+We seek 
+differential operators 
 annihilating the differential form $\Omega_\Gamma^\epsilon$ 
 \begin{equation}\label{e:PFOmegaGeneric}
-\left(  \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z;\epsilon) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta^\epsilon_\Gamma,
+	\left(  \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z;\epsilon) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+	\over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta^\epsilon_\Gamma,
 \end{equation}
 where $  c_{a_1,\dots, a_r}(\underline z)$ are rational functions of the physical
 parameters but they are independent of the edge variables $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^\epsilon$~\cite{Lairez:2022zkj}.
@@ -508,8 +511,8 @@ parameters but they are independent of the edge variables $x_1,\dots,x_n$. The i
 Because the domain of integration of the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
-  \left( \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z;\epsilon) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r}  \right)I^\epsilon_\Gamma=\mathscr{S}^\epsilon_\Gamma \, ,
+	\left( \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z;\epsilon) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+	\over\partial z_r\right)^{a_r}  \right)I^\epsilon_\Gamma=\mathscr{S}^\epsilon_\Gamma \, ,
 \end{equation}
 where $\mathscr{S}^\epsilon_\Gamma$ is an inhomogeneous term obtained by
 integrating $d\beta^\epsilon_\Gamma$ over the boundary of
@@ -522,8 +525,8 @@ instance,
 Section~3.2 of~\cite{Bloch:2016izu} gives  a detailed derivation of the inhomogeneous term for
 the two-loop sunset integral along these lines.
 
-The ideal of generated by these
-differential operator is a differential module (or D-module).  Thus,
+The ideal  generated by these
+differential operators is a differential module (or D-module).  Thus,
 differential equations can be obtained by deriving  annihilators  of
 $\Omega_\Gamma^\epsilon$, i.e., partial differential operators that
 annihilate  the integrand by acting on the physical parameter and the
@@ -531,12 +534,13 @@ edge variables.   The Gel'fand-Kapranov-Zelevinsky (GKZ) formalism provides
 a D-module of differential operator acting on the toric generalisation
 of the Feynman
 integral~\cite{Vanhove:2018mto,delaCruz:2019skx,Klausen:2019hrg,Feng:2019bdx,Klemm:2019dbm,Ananthanarayan:2022ntm,Agostini:2022cgv,
-  Munch:2022ouq}.  For obtaining the differential module acting on a
+	Munch:2022ouq}.  For obtaining the differential module acting on a
 given Feynman integral one needs to restrict the GKZ  D-module which
 is an higher non trivial task~\cite{delaCruz:2019skx,Chestnov:2023kww} and its systematic implementation is
 still an open problem. In the following sections we present an
 algorithmic procedure for deriving the differential equation based on
 an extension of the Griffiths-Dwork reduction for twisted differential forms.
+
 
 
 %-------------------------------------------------------------------
@@ -551,20 +555,20 @@ leads  to  expressions of the type
 where 
 $  P^{(a_1,\dots,a_r)}(\underline x)$ is a
   homogeneous polynomial of degree $(L+1)(a_1+\cdots+a_r)$ in
- the edge variables $\underline x:=\{x_1,\dots, x_n\}$.
+ the edge variables $\underline x:=\{x_1,\dots, x_n\}$. \lNote{defined before}
  We have introduced the notation $\mathsf{a}:=a_1+\cdots +a_r$. 
 The
   pole order in the second Symanzik polynomial $\textbf{F}_\Gamma$ has increased by
   $\mathsf a$. 
   For deriving~Eq.~\eqref{e:PFOmegaGeneric} one needs to find the
   coefficient $c_{a_1,\dots, a_r}(\underline z;\epsilon)$.  From now on we consider the case where
-  $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The cases with $\nu_i\neq1$
+  $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The case with $\nu_i\neq1$
   is an immediate generalisation.
 
 
  In the coming section we present an algorithm to derive the
   coefficients and the inhomogeneous term of the differential
-  equation~(\ref{e:PDEintFeynman}) in dimensional regularisation and analytic regularisation.
+  equation~(\ref{e:PDEintFeynman}) in dimensional regularisation and analytic regularisation. \lNote{shorten, already said in intro}
 
   
   In Section~\ref{sec:PoleRed} we present a generalisation of the Griffiths-Dwork
@@ -573,7 +577,7 @@ The
   give the pole reduction for the analytic regularisation.
  In Section~\ref{sec:deriv-diff-equat} we explain how to iteratively use these pole reductions for
   deriving the differential operator acting on the integrand of the
-  Feynman integral.
+  Feynman integral.\lNote{already summarized in introduction}
 
 %-----------------------------------------------------------------------
   \subsubsection{The pole reduction for dimensional
@@ -616,7 +620,7 @@ and for $\mathsf{a}=1$
     G_{\mathsf{a}}^j  (\underline x)-x_j
    G_{\mathsf{a}}^i(\underline x)\right)\, 
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
-  \cdots \wedge dx_n \, ,
+  \cdots \wedge dx_n \, .
 \end{equation}
 To take into account the general dimensional case, we introduce 
 the vectors of twisted forms
@@ -624,7 +628,7 @@ the vectors of twisted forms
   \label{e:Gdef}
 \vec  G_{\mathsf{a}}(\underline x):=   \vec C_{\mathsf{a}} \,\Omega_\Gamma^\epsilon \, ,
 \end{equation}
-which components are vectors of homogeneous degree $(\mathsf{a}-1)(L+1)+1-n$. 
+which\lNote{whose} components are vectors of homogeneous degree $(\mathsf{a}-1)(L+1)+1-n$. 
 Following the same steps as in~\cite{Griffiths_1969}, we have
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
