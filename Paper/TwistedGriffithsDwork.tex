@@ -177,7 +177,7 @@
                         \draw [black] (2,0) to (0,-1.5);
                         \draw[black] (0,1.5) to (0,-1.5);\end{tikzpicture}}
 
-\newcommand{\chickenDiag}{	\begin{tikzpicture}[scale=0.1]
+\newcommand{\chickenDiag}{	\begin{tikzpicture}[scale=0.05]
 		\filldraw [black] (-2,0) circle (2pt);
 %		\draw [black] (-2,0) to (-3,0);
 %		\filldraw [black] (0,1.5) circle (2pt);
@@ -998,7 +998,7 @@ in~\eqref{e:Pred}
   dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
   \cdots \wedge dx_n 
 \end{equation}
-with
+with \pvnote{fix notation}
 \begin{equation}
   \label{e:BetaGamma}
   \vec B_\Gamma:=\left(\sum_{\mathsf{a}=1}^{N(\Gamma,\epsilon)} {
@@ -1622,8 +1622,8 @@ for $\epsilon=0$ given in~\cite{Lairez:2022zkj,Doran:2023yzu}.
 The two-loop (one scoop) ice-cream cone  differential form in
 $D=2-2\epsilon$ dimensions is given by
 \begin{equation}
-	\omega_{\IceCream,  2-2\epsilon}(t)= {\textbf{U}_{(2,1,1)}\over
-		(\textbf{F}_{(2,1,1);2-2\epsilon})^2} \left(\textbf{U}_{(2,1,1)}^3\over  (\textbf{F}_{(2,1,1);2-2\epsilon})^2\right)^{\epsilon}
+	\Omega_{\IceCream,  2-2\epsilon}(t)= {\textbf{U}_{(2,1,1)}\over
+		(\textbf{F}_{(2,1,1);2-2\epsilon})^2} \left(\textbf{U}_{(2,1,1)}^3\over  (\textbf{F}_{(2,1,1);2-2\epsilon})^2\right)^{\epsilon}\,\Omega_4^{(0)},
 \end{equation}
 
 with
@@ -1633,6 +1633,9 @@ with
 	\nonumber  \textbf{F}_{\IceCream;D}(t)&:=
 	(\mu_1^2y_1+\mu_2^2y_2^2+m_1^2x_1+m_2^2z) \textbf{U}_{\IceCream}-t \textbf{V}_{\IceCream;D}.
 \end{align}
+
+We seek an $\epsilon$-dependent deformation of the Picard-Fuchs
+operator with respect to $t$ determined in~\cite{Lairez:2022zkj,Doran:2023yzu}.
 
 We find the following results (some numerical cases are accessible on
 the page \pvnote{PF-Ice-cream-epsilon.ipynb})
@@ -1903,7 +1906,7 @@ the inhomogeneous term is
 
 
 \subsubsection{The massless non-planar double-box graph}
-
+\pvnote{fix the drawing of the graph in the subscript}
 \begin{multline}
   \textbf{U}_{\DBoxNP}=x_1 x_2+x_3 x_2+x_4 x_2+x_5 x_2+x_6 x_2+x_1 x_5+x_3 x_5+x_4 x_5+x_1
    x_6\cr+x_3 x_6+x_4 x_6+x_1 x_7+x_3 x_7+x_4 x_7+x_5 x_7+x_6 x_7  
@@ -1921,7 +1924,7 @@ we work with the single scale differential form\lNote{myabe some of these exampl
 the differential operator is
  \begin{equation}
    \label{eq:3}
-   \mathscr{L}^\epsilon=(1+X)^2X^2\left(d\over dX\right)^2+(1+X)(1+2X)  (2+\epsilon) X{d\over dX} +2 X(X+1)
+   \mathscr{L}_{\DBoxNP}^\epsilon=(1+X)^2X^2\left(d\over dX\right)^2+(1+X)(1+2X)  (2+\epsilon) X{d\over dX} +2 X(X+1)
    +\left(2 X(X+1)-1\right) \epsilon-2 \epsilon ^2
  \end{equation}
 
@@ -1944,8 +1947,8 @@ variables. \pvnote{trying to say that getting the inhomogeneous term
 \begin{tikzpicture}[scale=0.6]
 \node at (0, 2.5) {$\vec \ell_2$};
 \node at (0, 0.5) {$\vec \ell_4$};
-\filldraw [color = black, fill=none, very thick] (0,0) circle (2cm);
-\draw [ black,very thick] (-2,0) to (2,0);
+\filldraw [color = black, fill=none, dashed] (0,0) circle (2cm);
+\draw [ black,dashed] (-2,0) to (2,0);
 %\filldraw [black] (2,0) circle (2pt);
 %\filldraw [black] (0,-2) circle (2pt);
 %\filldraw [black] (-2,0) circle (2pt);
