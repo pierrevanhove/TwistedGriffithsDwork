@@ -97,7 +97,7 @@ Print["Calling Finite Flow "];solfiniteflowtmp=FFDenseSolve[Equal[#,0]&/@systmp,
 If[solfiniteflowtmp==FFImpossible, Echo["System cannot be solved"]];
 Print["finite flow done -- length result ",Length[solfiniteflowtmp]];Mresult=M/.solfiniteflowtmp; Qtmpresult=Qtmp/.solfiniteflowtmp; {Mresult,degtmp,Qtmpresult,solfiniteflowtmp}]
 
-Mroutine[Chat_, reducnum_, derivativeorder_, loop_,delta_,epsilonregulator_,var_] := (Sum[D[Chat[[i]], var[[i]]], {i, Length[var]}] + (Length[var] - (loop + 1)*(delta -epsilonregulator))* reducnum)/(derivativeorder - 1 +Length[var] - loop*(delta -epsilonregulator))
+Mroutine[Chat_, reducnum_, derivativeorder_, powerU_, powerF_ ,var_] := (Sum[D[Chat[[i]], var[[i]]], {i, Length[var]}] + powerU* reducnum)/(derivativeorder - 1 +powerF)
 
 MroutineAnalytic[powerF_, powernumer_, Chat_, reducnum_, derivativeorder_, var_] := (Sum[D[Chat[[i]], var[[i]]], {i, Length[var]}] + powernumer*reducnum)/(derivativeorder - 1 +powerF)
 

@@ -196,7 +196,7 @@
 \end{tikzpicture}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\preprint{IPHT-t23/094}
+\preprint{IPHT-t23/094, LAPTH-003/24}
 \title{\bf Algorithm for differential equations for Feynman integral
   in general dimensions}
 \author[]{Leonardo de la Cruz}
@@ -272,27 +272,23 @@ A second motivation is the application to
 cosmological correlators which give rise to analytic regularisation
 for which the commonly used integration by part algorithms are not  developed. 
 
-We work with the parametric representation, detailed in
-Section~\ref{sec:parametric}, of a Feynman integral $
-I_\Gamma^\epsilon=\int_{x_i\geq0}  \Omega_\Gamma^\epsilon$ attached to a
-graph $\Gamma$
-given by the integration over the positive orthant of a
-differential form in dimensional regularisation
-$D=2\delta-2\epsilon$
-\begin{equation}\label{e:OmegaDimRegIntro}
-  \Omega^\epsilon_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
-  \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0,
-\end{equation}
-or in analytic regularisation
+We work with the regularised parametric representation of a Feynman integral $
+I_\Gamma^{\epsilon,\kappa}=\int_{x_i\geq0}  \omega_\Gamma^{\epsilon,\kappa} dx_1\cdots dx_n$ attached to a
+graph $\Gamma$ (we refer to 
+Section~\ref{sec:parametric} for details)
+with
 \begin{equation}\label{e:OmegaAnRegIntro}
   \Omega^{\epsilon,\kappa}_\Gamma = { \textbf{U}_\Gamma ^{\upnu_1+\cdots+\upnu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\upnu_1+\cdots+\upnu_n-L\delta} }\, \left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} 
   \left(\prod_{i=1}^n \left(x_i \textbf{U}_\Gamma(\underline x)\over
       \textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\kappa} \, \prod_{i=1}^n x_i^{\upnu_i-1} \Omega^{(n)}_0.
 \end{equation}
-
+We consider case covering
+the dimensional regularisation by working in dimension
+$D=2\delta-2\epsilon$ and analytically regularised integral where
+propagators are raised to a generalised power depending on $\kappa$.
 
 In the case when $\epsilon=\kappa=0$ and $\delta$ a positive integer, the exponents
-in~\eqref{e:OmegaDimRegIntro} and~\eqref{e:OmegaAnRegIntro} are
+in~\eqref{e:OmegaAnRegIntro} are
 integers and,
 we have a rational differential form. One can use the  Griffiths-Dwork
 pole reduction~\cite{Griffiths_1969,Griffith1,Griffith2,Dwork_1962,Dwork_1964} for determining the minimal differential operator (the
@@ -354,7 +350,9 @@ integrals  in $D$ space-time dimensions associated to a graph $\Gamma$ with $n$ 
 %
 The differential form associated to a Feynman integral is 
 \begin{equation}\label{e:OmegaDef}
-	\Omega_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-{(L+1)D\over2}}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-{LD\over2}} }\, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0,
+	\omega_\Gamma ={ \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-{(L+1)D\over2}}  \over
+  \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-{LD\over2}} }\, \prod_{i=1}^n
+x_i^{\nu_i-1}; \qquad 	\Omega_\Gamma :=	\omega_\Gamma \, \Omega^{(n)}_0,
 \end{equation}
 where we have introduced the  canonical differential form on
 $\mathbb P^{n-1}$ 
@@ -367,8 +365,6 @@ product. We denote collectively the
 variables 
 attached to all edges of
 $\Gamma$ as $\underline x:=\{x_i |1\leq i\leq n\}$. 
-%,  are  variables
-% and $L$ is the number of loops of the graph.
 %
 The polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
 associated to  $\Gamma$ are defined as
@@ -378,11 +374,13 @@ follows~\cite{nakanishi1971graph,Bogner:2010kv,Weinzierl:2022eaz}.  The {\em fir
 	{\bf U}_\Gamma (\underline x)= \sum_{\mathsf{T} \in \substack{ \text{Spanning} \\ \text{ trees of } \Gamma}} x_{\mathsf{T}}\,, 
 \end{equation}
 where the sum is over all the spanning trees $\mathsf{T}$ of $\Gamma$,  i.e.  all subgraphs ${\sf T}$ of $\Gamma$ which contain all
-vertices of $\Gamma$ so that $b_1(\mathsf{T}) =0$ and
-$b_0(\mathsf{T})=1$.\lNote{add def of $b_i$} The
+vertices of $\Gamma$ so that the first betti number (i.e. the number
+of loop) $b_1(\mathsf{T}) =0$ and the number of connected component
+is 
+$b_0(\mathsf{T})=1$. The
 monomial is the product of the variables not in the spanning tree
 $x_{\mathsf{T}} = \prod_{e\notin {\mathsf{T}}} x_e$.  This is a
-homogeneous polynomial of degree \lNote{RAS syndrome}
+homogeneous polynomial of 
 %$L$ in the edge variables 
 $\deg(\textbf{U}_\Gamma(\underline x))=L$.
 The {\em second 
@@ -423,54 +421,45 @@ the positive orthant
 	i\leq n\},
 \end{equation}
 
+%-----------------------------------------------------------------------
+\subsection{Twisted differential forms}\label{sec:Twisted}
 
 The Feynman integral $I_\Gamma$ can diverge  for integer values of $D$ and 
 the exponent $\nu_i$, but there is an open subset of
 $(D,\nu_1,\dots,\nu_n)\in\mathbb C^{n+1}$ where  the integral
-converges,  and the (unique) value of the Feynman integral is  defined by analytic continuation~\cite{Speer}.\lNote{paragraph goes before}
-%-----------------------------------------------------------------------
-\subsection{Twisted differential forms}\label{sec:Twisted}
-
-\noindent{\bf Dimensional regularisation:} One can regulate the integral by using the dimensional regularisation
-scheme by working  in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
-$\epsilon\in\mathbb R$
-with integers values of the exponents $(\nu_1,\dots,\nu_n)\in\mathbb
-Z^n$.
-We do not assume that $\epsilon$ is
-small. We introduce $\delta$ and $\epsilon$ for convenience and make
-clearer the role of the twist from the non even integer space-time dimension.\lNote{sentence unclear}
-The differential form~(\ref{e:OmegaDef}) becomes the twisted
-differential form
-\begin{equation}\label{e:OmegaTwistDimReg}
-	\Omega^\epsilon_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
-	\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \Omega^{(n)}_0 \, .
-\end{equation}
-%
-In dimensional regularisation we have a rational differential form
-times a twist given by the $\epsilon$-power of
-$\textbf{U}_\Gamma^{L+1}/\textbf{F}_\Gamma^L$,  which is  a degree zero homogeneous rational function on $\mathbb
-P^{n-1}$.
+converges,  and the (unique) value of the Feynman integral is  defined by analytic continuation~\cite{Speer}.
 
 
-\noindent{\bf Analytic regularisation:} In
-analytic regularisation  one keeps fixed the space-time dimension
-$D=2\delta-2\epsilon$ and instead  one considers the power of propagators as slightly shifted from integer values, that is  $\nu_i=\upnu_i
+We work in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
+$\epsilon\in\mathbb R$ and  considers as well that the power of the propagators are shifted from integer values, that is  $\nu_i=\upnu_i
 + p_i \kappa$ with $\{\upnu_1,\dots,\upnu_n,p_1,\dots,p_n\}\in\mathbb Z^{2n}$, so that the 
 differential form~(\ref{e:OmegaDef}) becomes the twisted
 differential form
 \begin{equation}\label{e:OmegaTwistAnaReg}
-	\Omega^{\epsilon,\kappa}_\Gamma = { \textbf{U}_\Gamma
+	\omega^{\epsilon,\kappa}_\Gamma = { \textbf{U}_\Gamma
 		^{\upnu_1+\cdots+\upnu_n-(L+1)\delta}  \over \textbf{F}_\Gamma
 		^{\upnu_1+\cdots+\upnu_n-L\delta}
 	}\,\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L\right)^\epsilon
 	\left(\prod_{i=1}^n \left(x_i \textbf{U}_\Gamma(\underline x)\over
-	\textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\kappa} \, \prod_{i=1}^n x_i^{\upnu_i-1} \Omega^{(n)}_0.
+	\textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\kappa} \, \prod_{i=1}^n x_i^{\upnu_i-1} \,.
 \end{equation}
 %
-The twists are the $\epsilon$ or $\kappa$-th powers of a homogeneous degree zero rational functions.
+The twists are the $\epsilon$ or $\kappa$-th powers of a homogeneous
+degree zero rational functions on $\mathbb
+P^{n-1}$.
 
 
+Notice that we do not assume that $\epsilon$ or $\kappa$ are small numbers.
+When $\kappa=0$ we have the parametric representation of a Feynman
+integral in dimension regularisation and we will use the short end
+notation 
+\begin{equation}\label{e:OmegaTwistDimReg}
+\omega^\epsilon_\Gamma=\omega^{\epsilon,0}_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
+	\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^{L}\right)^{\epsilon} \, \prod_{i=1}^n x_i^{\nu_i-1} \, .
+\end{equation}
+%
 
+\medskip
 
 The differential forms~(\ref{e:OmegaTwistDimReg})
 and~(\ref{e:OmegaTwistAnaReg}) are twisted
@@ -500,22 +489,22 @@ Let us consider $r$ parameters from the set of internal masses and independent k
 %
 We seek 
 differential operators 
-annihilating the differential form $\Omega_\Gamma^\epsilon$ 
+annihilating the differential form $\Omega_\Gamma^{\epsilon,\kappa}$ 
 \begin{equation}\label{e:PFOmegaGeneric}
-	\left(  \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z;\epsilon) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-	\over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^\epsilon=d\beta^\epsilon_\Gamma,
+	\left(  \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r} c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+	\over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^{\epsilon,\kappa}=d\beta^{\epsilon,\kappa}_\Gamma,
 \end{equation}
-where $  c_{a_1,\dots, a_r}(\underline z)$ are rational functions of the physical
-parameters but they are independent of the edge variables $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^\epsilon$~\cite{Lairez:2022zkj}.
+where $c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)$ are rational functions of the physical
+parameters but they are independent of the edge variables $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^{\epsilon,\kappa}$~\cite{Lairez:2022zkj}.
 %
 Because the domain of integration of the Feynman integral does not
 depend on the physical parameters, we then deduce
 \begin{equation}\label{e:PDEintFeynman}
-	\left( \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r}  c_{a_1,\dots, a_r}(\underline z;\epsilon) \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-	\over\partial z_r\right)^{a_r}  \right)I^\epsilon_\Gamma=\mathscr{S}^\epsilon_\Gamma \, ,
+	\left( \sum_{a_1=0}^{o_1} \sum_{ a_r=0}^{o_r} c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+	\over\partial z_r\right)^{a_r}  \right)I^{\epsilon,\kappa}_\Gamma=\mathscr{S}^{\epsilon,\kappa}_\Gamma \, ,
 \end{equation}
-where $\mathscr{S}^\epsilon_\Gamma$ is an inhomogeneous term obtained by
-integrating $d\beta^\epsilon_\Gamma$ over the boundary of
+where $\mathscr{S}^{\epsilon,\kappa}_\Gamma$ is an inhomogeneous term obtained by
+integrating $d\beta^{\epsilon,\kappa}_\Gamma$ over the boundary of
 orthant~\eqref{e:Deltan}.
 This is a nontrivial task because one needs
 to blow-up the intersections between the graph hypersurface and the
@@ -528,7 +517,7 @@ the two-loop sunset integral along these lines.
 The ideal  generated by these
 differential operators is a differential module (or D-module).  Thus,
 differential equations can be obtained by deriving  annihilators  of
-$\Omega_\Gamma^\epsilon$, i.e., partial differential operators that
+$\Omega_\Gamma^{\epsilon,\kappa}$, i.e., partial differential operators that
 annihilate  the integrand by acting on the physical parameter and the
 edge variables.   The Gel'fand-Kapranov-Zelevinsky (GKZ) formalism provides
 a D-module of differential operator acting on the toric generalisation
@@ -547,44 +536,34 @@ an extension of the Griffiths-Dwork reduction for twisted differential forms.
 \subsection{Griffiths-Dwork reduction for twisted differential forms}\label{sec:griff-dwork-reduct}
 The    differentiation of $\Omega_\Gamma^\epsilon$ 
 leads  to  expressions of the type 
-\begin{equation}\label{e:PDE}
-\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon=
-{  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf {a}}}\, \Omega_\Gamma^\epsilon,
-\end{equation}
+\begin{multline}\label{e:PDE}
+\sum_{\mathsf{a}=a_1+\cdots+a_r\atop
+  a_i\geq0}c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^{\epsilon,\kappa}=\cr
+{ \sum_{\mathsf{a}=a_1+\cdots+a_r\atop a_i\geq0}
+  c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf {a}}}\, \Omega_\Gamma^{\epsilon,\kappa},
+\end{multline}
 where 
 $  P^{(a_1,\dots,a_r)}(\underline x)$ is a
   homogeneous polynomial of degree $(L+1)(a_1+\cdots+a_r)$ in
- the edge variables $\underline x:=\{x_1,\dots, x_n\}$. \lNote{defined before}
- We have introduced the notation $\mathsf{a}:=a_1+\cdots +a_r$. 
+  the edge variables $\underline x$.
+  The sum is over the differential operators of order
+  $a_1\geq0$,\dots,$a_r\geq0$ and fixed total order $\mathsf{a}:=a_1+\cdots +a_r$. 
 The
   pole order in the second Symanzik polynomial $\textbf{F}_\Gamma$ has increased by
   $\mathsf a$. 
   For deriving~Eq.~\eqref{e:PFOmegaGeneric} one needs to find the
-  coefficient $c_{a_1,\dots, a_r}(\underline z;\epsilon)$.  From now on we consider the case where
+  coefficient $ c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)$.  From now on we consider the case where
   $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The case with $\nu_i\neq1$
   is an immediate generalisation.
 
-
- In the coming section we present an algorithm to derive the
-  coefficients and the inhomogeneous term of the differential
-  equation~(\ref{e:PDEintFeynman}) in dimensional regularisation and analytic regularisation. \lNote{shorten, already said in intro}
-
   
-  In Section~\ref{sec:PoleRed} we present a generalisation of the Griffiths-Dwork
-  pole reduction to the case of twisted differential forms arising
-  from dimensional regularisation. In Section~\ref{sec:PoleRedAn} we
-  give the pole reduction for the analytic regularisation.
- In Section~\ref{sec:deriv-diff-equat} we explain how to iteratively use these pole reductions for
-  deriving the differential operator acting on the integrand of the
-  Feynman integral.\lNote{already summarized in introduction}
-
 %-----------------------------------------------------------------------
   \subsubsection{The pole reduction for dimensional
     regularisation}\label{sec:PoleRed}
 We give an adaption of the Griffiths-Dwork pole reduction to the case
 of the twisted differential form~(\ref{e:OmegaTwistDimReg}) from
-dimensional regularisation.
+dimensional regularisation (i.e. $\kappa=0$ and $\epsilon\neq0$).
 The starting point of the algorithm is the reduction of polynomial
 $P^{(a_1,\dots,a_r)}(\underline x)$  in the numerator
 of~\eqref{e:PDE}
@@ -628,7 +607,7 @@ the vectors of twisted forms
   \label{e:Gdef}
 \vec  G_{\mathsf{a}}(\underline x):=   \vec C_{\mathsf{a}} \,\Omega_\Gamma^\epsilon \, ,
 \end{equation}
-which\lNote{whose} components are vectors of homogeneous degree $(\mathsf{a}-1)(L+1)+1-n$. 
+whose components are vectors of homogeneous degree $(\mathsf{a}-1)(L+1)+1-n$. 
 Following the same steps as in~\cite{Griffiths_1969}, we have
 \begin{multline}
   d\beta^{(a_1,\dots,a_r)}=-  \sum_{1\leq i<j\leq n} {x_i
@@ -685,42 +664,45 @@ Likewise for $\mathsf{a}=1$ we have
 \end{equation}
 We expand the first term in the right-hand-side
 \begin{equation}
-  \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
-  \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over
-  \mathbf{F}_\Gamma^L\right)^\epsilon
+  \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) {\textbf{U}_\Gamma^{\lambda_U}\over
+  \textbf{F}_\Gamma^{\lambda_F}} 
 +
-  \vec C_{\mathsf{a}}(\underline x) \cdot\vec\nabla  \left(  {\textbf{U}_\Gamma^{n-(L+1)\delta}\over
-  \textbf{F}_\Gamma^{n-L\delta}} \left(\mathbf{U}_\Gamma^{L+1}\over
-  \mathbf{F}_\Gamma^L\right)^\epsilon\right) .
+  \vec C_{\mathsf{a}}(\underline x) \cdot\vec\nabla  \left(   {\textbf{U}_\Gamma^{\lambda_U}\over
+  \textbf{F}_\Gamma^{\lambda_F}} \right),
 \end{equation}
+where we have defined
+\begin{equation}\label{e:powerUFDef}
+  \lambda_U=n-(L+1)(\delta-\epsilon), \qquad 
+  \lambda_F=n-L(\delta-\epsilon).
+  \end{equation}
 %
 The second term in this equation can be evaluated using 
 \begin{align}
-  \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{A}\over
-\mathbf{F}_\Gamma^B\right)&=\left(A \vec
-C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma -B \vec
-C_{\mathsf{a}}\cdot \vec\nabla \log \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{A}\over
-\mathbf{F}_\Gamma^B} \cr
-&=\left[-B{
+  \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla \left(\mathbf{U}_\Gamma^{\lambda_U}\over
+\mathbf{F}_\Gamma^{\lambda_F}\right)&=\left(\lambda_U \vec
+C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma -{\lambda_F} \vec
+C_{\mathsf{a}}\cdot \vec\nabla \log \mathbf{F}_\Gamma\right) {\mathbf{U}_\Gamma^{\lambda_U}\over
+\mathbf{F}_\Gamma^{\lambda_F}} \cr
+&=\left[-{\lambda_F}{
     P^{(a_1,\dots,a_r)}(\underline x)\over
   \mathbf{F}_\Gamma}   
 +
- A \vec
-C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma \right] {\mathbf{U}_\Gamma^{A}\over
-	\mathbf{F}_\Gamma^B}\,,
+ \lambda_U \vec
+C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma \right] {\mathbf{U}_\Gamma^{\lambda_U}\over
+	\mathbf{F}_\Gamma^{\lambda_F}}\,,
 \end{align}
 where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore, 
-\begin{multline}
+\begin{equation}
 	\label{e:Pred}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
   \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-+   (n-(L+1)(\delta-\epsilon)) \vec
-    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma\over (\mathsf{a}-1+n-L(\delta-\epsilon))\,\textbf{F}_\Gamma^{\mathsf{a}-1}}
-  \Omega_\Gamma^\epsilon\cr
-+{  \mathsf{a}-1 \over \mathsf{a}-1+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}.
-\end{multline}
++ \lambda_U \vec
+    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma\over \left(\mathsf{a}-1+\lambda_F\right)\,\textbf{F}_\Gamma^{\mathsf{a}-1}}
+  \Omega_\Gamma^\epsilon
++{  \mathsf{a}-1 \over \mathsf{a}-1+\lambda_F} d\beta^{(a_1,\dots,a_r)}.
+\end{equation}
 %
 This expression involves the $\vec
     C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma$ which has a
@@ -732,7 +714,7 @@ This expression involves the $\vec
     c_{\mathsf{a}}(\underline x) \, \mathbf{U}_\Gamma \, ,
     \end{equation}
 where $ c_{\mathsf{a}}(\underline x)$ is a homogeneous polynomial of
-degree $\mathsf{a}(L+1)-1$. This is equivalent to the computation of syzygies of $\text{Jac}( \mathbf U_\Gamma)$. Indeed,  using the homogeneity of $\mathbf{U}_\Gamma$ we can rewrite the previous equation as 
+degree $(\mathsf{a}-1)(L+1)$. This is equivalent to the computation of syzygies of $\text{Jac}( \mathbf U_\Gamma)$. Indeed,  using the homogeneity of $\mathbf{U}_\Gamma$ we can rewrite the previous equation as 
 \begin{equation}
  \left( L   \vec
 C_{\mathsf{a}}(\underline x) -
@@ -749,15 +731,21 @@ M^{(a_1,\dots,a_r)}
 \over \textbf{F}_\Gamma^{\mathsf{a}-1}}\Omega_\Gamma^\epsilon
 +{  \mathsf{a}-1\over \mathsf{a}+n-L(\delta-\epsilon)} d\beta^{(a_1,\dots,a_r)}
 \end{equation}
-with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1)-1$
+with the numerator given by the polynomial of homogeneous degree $(\mathsf{a}-1)(L+1)$
 \begin{equation}
-  \label{e:Mfinal}
+  \label{e:Mdimregfinal}
   M^{(a_1,\dots,a_r)}(\underline x):={\vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-+  (n-(L+1)(\delta-\epsilon)) 
-    c_{\mathsf{a}}(\underline x)\over \mathsf{a}-1+n-L(\delta-\epsilon) }.
++ \lambda_U\, 
+    c_{\mathsf{a}}(\underline x)\over \mathsf{a}-1+\lambda_F },
 \end{equation}
+with $\lambda_U$ and $\lambda_F$ the powers of the $\textbf{U}_\Gamma$
+and the $\textbf{F}_\Gamma$ polynomials respectively given in~\eqref{e:powerUFDef}.
 %
+
+
+
+
 To perform this pole reduction, 
  we have to solve the linear system
 \begin{equation}\label{e:sysCFU}
@@ -836,44 +824,50 @@ G_{\mathsf{a}}(\underline x)$ as in~\eqref{e:Gdef}, leading to the
 pole reduction~\eqref{e:RedG1} and~\eqref{e:RedG2}.
 Because the twist is different the expansion of the 
 right-hand-side  (recall that $D=2\delta-2\epsilon$)
-\begin{multline}
-  \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) { \textbf{U}_\Gamma ^{n-{(L+1)D\over2}}  \over \textbf{F}_\Gamma ^{n-{LD\over2}} }\,
-  \left(\prod_{i=1}^n \left(x_i \textbf{U}_\Gamma(\underline x)\over
-      \textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\epsilon} \cr
+\begin{equation}
+  \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) { \textbf{U}_\Gamma ^{\lambda_U}  \over \textbf{F}_\Gamma ^{\lambda_F} }\,
+  Q(\underline x)^\kappa
 +
-  \vec C_{\mathsf{a}}(\underline x) \cdot\vec\nabla  \left( { \textbf{U}_\Gamma ^{n-{(L+1)D\over2}}  \over \textbf{F}_\Gamma ^{n-{LD\over2}} }\,
-  \left(\prod_{i=1}^n \left(x_i \textbf{U}_\Gamma(\underline x)\over
-      \textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\epsilon} \right) .
-\end{multline}
-%
-We have assumed that $\upnu_1=\cdots=\upnu_n=1$ for avoiding to heavy
-expressions. The generic case of integers values is an immediate generalisation.
+  \vec C_{\mathsf{a}}(\underline x) \cdot\vec\nabla  \left({ \textbf{U}_\Gamma ^{\lambda_U}  \over \textbf{F}_\Gamma ^{\lambda_F} }\,
+  Q(\underline x)^\kappa \right) ,
+\end{equation}
+where we have set (we have assumed that $\upnu_1=\cdots=\upnu_n=1$ the
+generic case of integer values is an easy generalisation)
+\begin{equation}
+  Q(\underline x):=\prod_{i=1}^n x_i^{p_i}   
+\end{equation}
+and defined the powers of the various polynomials by
+\begin{equation}
+  \label{e:powerUFQDef}
+  \lambda_U= n-(L+1)(\delta-\epsilon)+\kappa\sum_{i=1}^n p_i, \qquad
+  \lambda_F= n-L(\delta-\epsilon)+\kappa\sum_{i=1}^n p_i, \qquad
+  \lambda_Q  = \kappa\,.
+\end{equation}
 %
 This is  evaluated using 
 \begin{equation}
   \vec C_{\mathsf{a}}(\underline x)\cdot \vec\nabla
-  \left(\mathbf{U}_\Gamma^{A}Q(\underline x)^\epsilon\over
-\mathbf{F}_\Gamma^B\right)=\Big(A \vec
-C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma -B \vec
-C_{\mathsf{a}}\cdot \vec\nabla \log \mathbf{F}_\Gamma+\epsilon \vec
+  \left(\mathbf{U}_\Gamma^{\lambda_U}Q(\underline x)^\kappa\over
+\mathbf{F}_\Gamma^{\lambda_F}\right)=\Big(\lambda_U \vec
+C_{\mathsf{a}}\cdot \vec\nabla \log\mathbf{U}_\Gamma -\lambda_F \vec
+C_{\mathsf{a}}\cdot \vec\nabla \log \mathbf{F}_\Gamma+\kappa \vec
 C_{\mathsf{a}}\cdot\vec\nabla \log Q(\underline                             x)\Big)
-                            {\mathbf{U}_\Gamma^{A}Q(\underline x)^\epsilon\over
-\mathbf{F}_\Gamma^B} .
+                            {\mathbf{U}_\Gamma^{\lambda_U}Q(\underline x)^\kappa\over
+\mathbf{F}_\Gamma^{\lambda_F}} .
 \end{equation}
-Using Eq.~\eqref{e:RedF}, with $B= n - LD/2+\epsilon \sum_{i=1}^n
-p_i$,  $A=B-D/2$ and $Q(\underline x)=\prod_{i=1}^n x_i^{p_i}$,  we obtain
+so that
 \begin{multline}
 	\label{e:PredAnReg}
 \left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r} \Omega_\Gamma^\epsilon\cr={
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^{\epsilon,\kappa}={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-+   \left(n-{(L+1)D\over2}+\epsilon\sum_{i=1}^n p_i\right) \vec
-    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma+\epsilon \vec
++  \lambda_U \vec
+    C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma+\kappa \vec
     C_{\mathsf{a}}\cdot\vec\nabla\log Q(\underline x)\over
-    \left(\mathsf{a}-1+n-{LD\over2}+\epsilon\sum_{i=1}^n p_i\right)\,\textbf{F}_\Gamma^{\mathsf{a}-1}}\,
-  \Omega_\Gamma^\epsilon\cr
-+{  \mathsf{a}-1 \over \mathsf{a}-1+n-{LD\over2}+\epsilon\sum_{i=1}^n p_i} d\beta^{(a_1,\dots,a_r)}.
+    \left(\mathsf{a}-1+\lambda_F\right)\,\textbf{F}_\Gamma^{\mathsf{a}-1}}\,
+  \Omega_\Gamma^{\epsilon,\kappa}\cr
++{  \mathsf{a}-1 \over \mathsf{a}-1+\lambda_F} d\beta^{(a_1,\dots,a_r)}.
 \end{multline}
 %
 This time we need to reduce the pole in $\mathbf{U}_\Gamma$ from  the term $\vec
@@ -899,17 +893,17 @@ leading to the pole  reduction in eq.~\eqref{e:PDE}
 M^{(a_1,\dots,a_r)}
      (\underline x)
 \over \textbf{F}_\Gamma^{\mathsf{a}-1}}\Omega_\Gamma^\epsilon
-++{  \mathsf{a}-1 \over \mathsf{a}-1+n-{LD\over2}+\epsilon\sum_{i=1}^n p_i} d\beta^{(a_1,\dots,a_r)}
++{  \mathsf{a}-1 \over \mathsf{a}-1+\lambda_F} d\beta^{(a_1,\dots,a_r)}
 \end{equation}
-with the numerator given by the polynomial of homogeneous degree $\mathsf{a}(L+1)-1$
+with the numerator given by the polynomial of homogeneous degree $(\mathsf{a}-1)(L+1)$
 \begin{equation}
   \label{e:MfinalAnReg}
   M^{(a_1,\dots,a_r)}(\underline x):={
 \vec\nabla \cdot \vec C_{\mathsf{a}}
      (\underline x)
-+   \left(n-{(L+1)D\over2}+\epsilon\sum_{i=1}^n p_i\right) 
-    c_{\mathsf{a}}(\underline x)+\epsilon q_{\mathsf{a}}(\underline x)\over
-    \mathsf{a}-1+n-{LD\over2}+\epsilon\sum_{i=1}^n p_i}.
++   \left(n-(L+1)(\delta-\epsilon)+\kappa\sum_{i=1}^n p_i\right) 
+    c_{\mathsf{a}}(\underline x)+\kappa q_{\mathsf{a}}(\underline x)\over
+    \mathsf{a}-1+n-L(\delta-\epsilon)+\kappa\sum_{i=1}^n p_i}.
 \end{equation}
 %
 
@@ -930,95 +924,97 @@ many variables case is immediate.
 
 We are seeking the differential operator 
 \begin{equation}\label{e:PFgeneric}
-  \mathscr{L}_\Gamma^\epsilon=\sum_{r=0}^{N(\Gamma,\epsilon)}
-  c_r(z;\epsilon) \left(d\over dz\right)^r
+  \mathscr{L}_\Gamma^{\epsilon,\kappa}=\sum_{r=0}^{N(\Gamma,\epsilon,\kappa)}
+  c_r(\vec m,\vec s,\epsilon,\kappa) \left(d\over dt\right)^r
 \end{equation}
-with $c_r(z;\epsilon)$ polynomials in $z$ and $\epsilon$ such that
+with $c_r(\vec m,\vec s,\epsilon,\kappa)$ polynomials in the internal masses
+$\vec m$  and the (independent) kinematic variables $\vec s$  and the
+regulators $\epsilon$  and $\kappa$, such that
 \begin{equation}
-     \mathscr{L}_\Gamma^\epsilon \Omega_\Gamma^\epsilon= d\beta^\epsilon_\Gamma.
+     \mathscr{L}_\Gamma^{\epsilon,\kappa} \Omega_\Gamma^{\epsilon,\kappa}= d\beta^{\epsilon,\kappa}_\Gamma.
    \end{equation}
 %
-Holonomicity of Feynman integrals gives an upper bound on the order of the Picard-Fuchs operator $N(\Gamma,\epsilon)$, which is  determined by
+Holonomicity of Feynman integrals gives an upper bound on the order of the Picard-Fuchs operator $N(\Gamma,\epsilon,\kappa)$, which is  determined by
  the number of master
-integrals. Let $N(\Gamma,\epsilon)$  be the starting order of the
-reduction.  We then apply the results of Section~\ref{sec:PoleRed} so that
+integrals. Let $N(\Gamma,\epsilon,\kappa)$  be the starting order of the
+reduction.  We then apply the results of Sections~\ref{sec:PoleRed}
+or~\ref{sec:PoleRedAn} so that
 %
 \begin{equation}\label{e:step1}
-\left(d\over dt\right)^{N(\Gamma,\epsilon)} \Omega_\Gamma^\epsilon= {M_{
-      N(\Gamma,\epsilon)}(\underline x)\over
+\left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)} \Omega_\Gamma^\epsilon= {M^{
+      N(\Gamma,\epsilon,\kappa)}(\underline x)\over
     \textbf{F}_\Gamma^{N(\Gamma,\epsilon)-1}
-  } \,\Omega_\Gamma^\epsilon+ d\beta_{N(\Gamma,\epsilon)}  
+  } \,\Omega_\Gamma^{\epsilon,\kappa}+ d\beta^{N(\Gamma,\epsilon,\kappa)}  
 \end{equation}
 %
 The next step we add the lowest-order derivative
 
 \begin{multline}\label{e:step2}
-\left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
-  +q_{N(\Gamma,\epsilon)-1}(t,\epsilon) \left(d\over dt\right)^{N(\Gamma,\epsilon)-1}\right] \Omega_\Gamma^\epsilon\cr= {M^{
-      N(\Gamma,\epsilon)}(\underline x)+q_{N(\Gamma,\epsilon)-1}(t,\epsilon)
-    P^{N(\Gamma,\epsilon)-1}(\underline x) \over
-    \textbf{F}_\Gamma^{N(\Gamma,\epsilon)-1}
-  }\,\Omega_\Gamma^\epsilon+ d\beta_{N(\Gamma,\epsilon)}\, ,  
+\left[\left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)}
+  +q_{N(\Gamma,\epsilon)-1}(t,\epsilon,\kappa) \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)-1}\right] \Omega_\Gamma^{\epsilon,\kappa}\cr= {M^{
+      N(\Gamma,\epsilon,\kappa)}(\underline x)+q_{N(\Gamma,\epsilon,\kappa)-1}(t,\epsilon,\kappa)
+    P^{N(\Gamma,\epsilon,\kappa)-1}(\underline x) \over
+    \textbf{F}_\Gamma^{N(\Gamma,\epsilon,\kappa)-1}
+  }\,\Omega_\Gamma^{\epsilon,\kappa}+ d\beta^{N(\Gamma,\epsilon,\kappa)}\, ,  
 \end{multline}
 where the rational coefficient
-$q_{N(\Gamma,\epsilon)-1}(t,\epsilon)=c_{N(\Gamma,\epsilon)-1}(t,\epsilon)/c_{N(\Gamma,\epsilon)}(t,\epsilon)$
-is an unknown rational function of $t$ and $\epsilon$. 
-The polynomial $ P^{N(\Gamma,\epsilon)-1}(\underline x) $
-is the numerator factor obtained by taking the $N(\Gamma,\epsilon)-1$
+$q_{N(\Gamma,\epsilon,\kappa)-1}(t,\epsilon)=c_{N(\Gamma,\epsilon,\kappa)-1}(t,\epsilon)/c_{N(\Gamma,\epsilon,\kappa)}(t,\epsilon)$
+is an unknown rational function of $t$ and  the regulators $\epsilon$
+and $\kappa$. 
+The polynomial $ P^{N(\Gamma,\epsilon,\kappa)-1}(\underline x) $
+is the numerator factor obtained by taking the $N(\Gamma,\epsilon,\kappa)-1$
 derivative of the differential form.
 
-We then apply the reduction of Section~\ref{sec:PoleRed} to
+We then apply the reduction of Section~\ref{sec:PoleRed} or~\ref{sec:PoleRedAn} to
 the polynomial in the numerator
 $M^{
-      N(\Gamma,\epsilon)}(\underline x)+q_{N(\Gamma,\epsilon)-1}(t,\epsilon)
-    P^{N(\Gamma,\epsilon)-1}(\underline x)$.
+      N(\Gamma,\epsilon,\kappa)}(\underline x)+q_{N(\Gamma,\epsilon,\kappa)-1}(t,\epsilon)
+    P^{N(\Gamma,\epsilon,\kappa)-1}(\underline x)$.
 The resolution of the
 system~\eqref{e:sysCFU} determines the  rational coefficient
-$q_{N(\Gamma,\epsilon)-1}(t,\epsilon)$ and
-$M^{N(\Gamma,\epsilon)-1}(x)$ computed using~\eqref{e:Mfinal}. One
+$q_{N(\Gamma,\epsilon,\kappa)-1}(t,\epsilon)$ and
+$M^{N(\Gamma,\epsilon,\kappa)-1}(x)$ computed using~(\ref{e:MfinalAnReg}). One
 iterates the reduction until the power of  the second Symanzik
 polynomial $\textbf{F}_\Gamma$ is $n-L-1$ so
 that
 \begin{equation}\label{e:stepfinal}
-\left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
-  +\sum_{r=1}^{N(\Gamma,\epsilon)-1}
-  {c_{N(\Gamma,\epsilon)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon)-r}\right] \Omega_\Gamma^\epsilon= {M_{1}\over
-    \textbf{F}_\Gamma^{n-L\delta-1}
-  }\left(\textbf{U}_\Gamma^{L+1}\over \textbf{F}_\Gamma^L
-  \right)^\epsilon \Omega_0^{(n)}+ d\beta_\Gamma^\epsilon 
+\left[\left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)}
+  +\sum_{r=1}^{N(\Gamma,\epsilon,\kappa)-1}
+  {c_{N(\Gamma,\epsilon,\kappa)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon,\kappa)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)-r}\right] \Omega_\Gamma^{\epsilon,\kappa}=M^{0}\,\Omega_\Gamma^{\epsilon,\kappa}+ d\beta_\Gamma^{\epsilon ,\kappa}
 \end{equation}
-where $M_1$ is of degree 0 so that we
+where $M^0$ is of degree 0 so that we
 \begin{equation}
-  q_0(t,\epsilon)=  {c_{0}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)}= -M_1(x)  .
+  q_0(t,\epsilon)=  {c_{0}(t,\epsilon,\kappa)\over
+    c_{N(\Gamma,\epsilon,\kappa)}(t,\epsilon,\kappa)}= -M^0  .
 \end{equation}
-The inhomogeneous term  $\beta_\Gamma^\epsilon $ is the sum of the
-$\beta_r$ with $1\leq
-r\leq N(\Gamma,\epsilon)$
+The inhomogeneous term  $\beta_\Gamma^{\epsilon,\kappa} $ is the sum of the
+$\beta^r$ with $1\leq
+r\leq N(\Gamma,\epsilon,\kappa)$
 contributions with their multiplicative factor as given
 in~\eqref{e:Pred}
 \begin{equation}
   \label{e:betaGamma}
-  \beta_\Gamma^\epsilon= \sum_{1\leq i<j\leq n} (x_i B^j_\Gamma- x_j B^i_\Gamma) \,
+  \beta_\Gamma^{\epsilon,\kappa}= \sum_{1\leq i<j\leq n} (x_i B^j_\Gamma- x_j B^i_\Gamma) \,
   dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
   \cdots \wedge dx_n 
 \end{equation}
-with \pvnote{fix notation}
+with
 \begin{equation}
   \label{e:BetaGamma}
-  \vec B_\Gamma:=\left(\sum_{\mathsf{a}=1}^{N(\Gamma,\epsilon)} {
+  \vec B_\Gamma:=\left(\sum_{\mathsf{a}=1}^{N(\Gamma,\epsilon,\kappa)} {
       \vec C_{\mathsf{a}} (\underline x) \over
-   ( \mathsf{a}-1+n-L(\delta-\epsilon))\mathbf{F}_\Gamma^{\mathsf{a}-1}}\right) \,\Omega_\Gamma^\epsilon ,
+   ( \mathsf{a}-1+n-L(\delta-\epsilon))\mathbf{F}_\Gamma^{\mathsf{a}-1}}\right) \,\omega_\Gamma^\epsilon ,
 \end{equation}
 which is a vector of degree of homogeneity $1-n$ in the edge variables
 $\underline x$.
-Since $d\beta_\Gamma^\epsilon= -\vec\nabla\cdot \vec B_\Gamma\,
+Since $d\beta_\Gamma^{\epsilon,\kappa}= -\vec\nabla\cdot \vec B_\Gamma\,
 \Omega_0^{(n)}$, from~\eqref{e:stepfinal} we have the ordinary
 differential equation satisfied by the integrand of the Feynman
 integral
 \begin{equation}\label{e:stepfinalode}
-\left[\left(d\over dt\right)^{N(\Gamma,\epsilon)}
-  +\sum_{r=0}^{N(\Gamma,\epsilon)-1}
-  {c_{N(\Gamma,\epsilon)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon)-r}\right] \Omega_\Gamma^\epsilon =-\vec\nabla\cdot \vec B_\Gamma\Omega_0^{(n)}\,.
+\left[\left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)}
+  +\sum_{r=0}^{N(\Gamma,\epsilon,\kappa)-1}
+  {c_{N(\Gamma,\epsilon,\kappa)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon,\kappa)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)-r}\right] \omega_\Gamma^\epsilon =-\vec\nabla\cdot \vec B_\Gamma\,.
 \end{equation}
 
 
@@ -1048,8 +1044,8 @@ parameters), because all the reduction amounts to solve a linear system in the p
 the edge parameters $\underline x$. This allows to determine the smallest order for which the
 algorithm closes to give a differential operator.
 
-In general, the Griffiths-Dwork reduction algorithm does not automatically
-leads to a Picard-Fuchs differential operator  which is not factorisable. 
+In general, the Griffiths-Dwork algorithm does not automatically
+leads to an irreducible Picard-Fuchs differential operator.
 The factorisation of an linear ordinary
 differential operator can be done with the {\tt DFactor} routine from
 {\tt Maple} up to the order 4 for generic parameters~\cite{PutSinger,vanHoeij}, and to any
@@ -1059,13 +1055,16 @@ using the {\tt facto} algorithm in {\tt
 	sagemath}~\cite{chyzak2022symbolic,goyer2021sage}.
 
 
- In the rational case $\epsilon=0$, it was noticed
+ In the rational case $\epsilon=\kappa=0$, it was noticed
 in~\cite{Bloch:2013tra,Bloch:2016izu,Bloch:2014qca,Lairez:2022zkj} that the order of the minimal differential operator is
-smaller than the number of irreducible master integrals. 
-In the various cases studied below
-we will see 
-how the $\epsilon$ dependent operator can have an order that saturates
-the upper bound given by the number of masters.  This will
+smaller than the number of irreducible master integrals.
+When the regulator take integer values the minimal order is smaller
+than the number of master integrals. 
+In the various cases studied below,
+we will see that the order of the minimal differential operator can saturates
+the upper bound given by the number of masters for generic values of
+the regulators  $\epsilon$  and $\kappa$. 
+This will
       be discussed further in Section~\ref{sec:minim-order-diff}.
 
 
@@ -1086,14 +1085,14 @@ continuation of Section~\ref{sec:Twisted}.
 
 
 %------------------------------------------------------------------------
-\subsection{The massless box graph}\label{sec:box}
+\subsection{The massless box graph in dimensional regularisation}\label{sec:box}
 \begin{figure}[h]\centering
 	\begin{tikzpicture}[scale=0.6]
 		\filldraw [color = black, fill=none, dashed] (0,0) circle (2cm);
-		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
-		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
-		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
-		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
+		\draw [black,dashed] (1.414,1.414) to (2.25,2.25);
+		\draw [black,dashed] (-1.414,1.414) to (-2.25,2.25);
+		\draw [black,dashed] (1.414,-1.414) to (2.25,-2.25);
+		\draw [black,dashed] (-1.414,-1.414) to (-2.25,-2.25);
 	\end{tikzpicture}
 	\caption{The box  graph with massless external and internal states.}\label{fig:box}
 \end{figure}
@@ -1150,7 +1149,7 @@ The inhomogeneous term reads
 \end{equation}
 This simple example illustrates the general procedure as we will see with more loops. In general the system of equations is dense. As usual when one encounters dense  systems, finite field methods are the way to go~\cite{Peraro:2019svx}.
 %-------------------------------------------------------------------------
-\subsection{The Cross Witten diagram in $AdS_4$}\label{sec:WittenCross}
+\subsection{The Cross Witten diagram in $AdS_4$ in dimensional regularisation}\label{sec:WittenCross}
  \begin{figure}[ht]
                 \centering
                 \begin{tikzpicture}[baseline=(z)]
@@ -1207,20 +1206,57 @@ over the domain $\Delta_3=\{x_i\geq0, 1\leq i\leq 3\}$ and with the graph polyno
 We can apply the algorithm to the case of the analytic regularisation
 of Section~\ref{sec:PoleRedAn} 
 with $\delta=2$, $\varepsilon=\kappa=2\varepsilon$, $(p_1,p_2,p_3)=(0,-2,0)$
-to find the following Gr\"obner basis of  differential operators
+to find the following set of  differential operators
 acting on $I_\times(\zeta,\bar\zeta)$
 \begin{multline}
-  \mathscr{L}_\zeta= (\zeta -1) (\zeta -\bar\zeta) \zeta ^2{\partial^2\over\partial\zeta^2}  +
+  \mathscr{L}_1= (\zeta -1) (\zeta -\bar\zeta) \zeta ^2{\partial^2\over\partial\zeta^2}  +
    \left(\zeta (3 \zeta -\bar\zeta-2)-2\varepsilon  \left(\zeta ^2+\zeta 
    \bar\zeta-2 \bar\zeta\right) \right) \zeta {\partial\over\partial\zeta}\cr+(2 \varepsilon -1) \left(2 \varepsilon  (\zeta +\bar\zeta)-\zeta ^2\right)
 \end{multline}
 and
 \begin{equation}
-  \mathscr{L}_{\zeta,\bar\zeta}= (\zeta -1)\zeta\bar\zeta{\partial\over\partial\zeta}  +
+  \mathscr{L}_{2}= (\zeta -1)\zeta\bar\zeta{\partial\over\partial\zeta}  +
    (\bar\zeta -1)\zeta\bar\zeta{\partial\over\partial\bar\zeta}+\zeta\bar\zeta-2\varepsilon(\zeta+\bar\zeta).
  \end{equation}
- The algorithm determines the boundary term which is provided in the
- attached {\tt Mathematica} worksheet. 
+ We have checked  with
+  the command {\tt OreGroebnerBasis} from the package {\tt
+    HolonomicFunctions}~\cite{Koutchan} that
+they form a Gr\"obner basis with respect to the lexicographical
+ordering $\zeta,\bar\zeta$.
+
+ The algorithm determines the boundary terms 
+ such that
+ \begin{equation}
+   \mathscr{L}_r    \left( {1\over \textbf{U}_\times
+    \textbf{F}_\times (\zeta,\bar\zeta)} \left(
+    \textbf{F}_\times (\zeta,\bar\zeta)^{2}\over
+    x_2^{4}\right)^\varepsilon \right)+ \vec\nabla\cdot\vec B_r=0,
+\qquad r=1,2.
+\end{equation}
+%
+Details are provided in the  attached {\tt Mathematica} worksheet. 
+
+
+
+
+The algorithm gives all the information for computing the
+inhomogeneous term of the differential equations acting on the Feynman
+integrals. The inhomogeneous term  is given by the  integration of
+$\vec\nabla\cdot \vec B_\Gamma$ in~\eqref{e:BetaGamma}  over the
+positive orthant. Performing this integration is an highly non-trivial
+task for several reasons. A first reason is that the integral of $\vec B_r$
+over the domain $\Delta_3$ diverges.
+Since these components still
+depend on undetermined variables  after having solved the linear systems from the
+Griffiths-Dwork reduction, one can make some choice of so that the
+restriction of $\vec B_r$ to the boundary of the domain of integration
+is well defined. Still one needs to regulate the integrals over the
+remaining edges variables  to get a finite
+result.
+Even such a simple case shows that evaluating the
+inhomogeneous term is not an easy task, which will not carry for most
+of the case studied in this paper. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Two-loop examples}\label{sec:twoloop}
@@ -1242,7 +1278,7 @@ correlators of  conformally coupled $\phi^4$  in  de
 \label{sec:two-loop-case}
 
 %
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
       \begin{tikzpicture}[baseline=(x)]
         \begin{feynman}
@@ -1339,7 +1375,7 @@ which leads to
      \log \textbf{U}_2\over \textbf{F}_2(t)^{2}}\right)\cr \times\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0^{(3)}-d(2\beta_\su^\epsilon).
 \end{multline}
 %
-Therefore using eq.\eqref{e:Mfinal}, we define
+Therefore using eq.\eqref{e:Mdimregfinal}, we define
 \begin{equation}
   \label{e:M2}
   M^{(2)}:={\sum_{i=1}^3 \partial^i  C_i^{(2)}+3\epsilon
@@ -1393,7 +1429,7 @@ We have the solutions
   q_0(t,\epsilon)&=\frac{\epsilon ^2 (2 t+2)}{(t-9) (t-1) t}+\frac{\epsilon  (3 t-5)}{(t-9) (t-1)
    t}+\frac{t-3}{(t-9) (t-1) t} \, ,
 \end{align}
-leading to the $\epsilon$-deformed \lNote{nomenclature} Picard-Fuchs operator
+leading to the $\epsilon$ dependent \lNote{nomenclature} differential operator
 \begin{multline}
   \label{e:PF2sunset1massepsilon}
      \mathscr{L}^{(2),\epsilon,1-mass}_\su ={d\over dt}\left( t(t-1)(t-9)
@@ -1477,22 +1513,24 @@ $\epsilon=0$ case.
    
 Its action on the Feynman integral is given by 
 \begin{equation}
-     \mathscr{L}^{(2),\epsilon}_\su  I(\underline
-     m,t;\epsilon)=\mathscr{S}(\vec m,t;\epsilon) 
+     \mathscr{L}^{(2),\epsilon}_\su  I_\su^\epsilon(\underline
+     m,t,\epsilon)=\mathscr{S}^\epsilon_\su(\vec m,t,\epsilon) 
    \end{equation}
    with the source term
    \begin{equation}
-     \mathscr{S}(\vec m,t;\epsilon)=\frac{c_{23}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{2} m_{3})^{2 \epsilon}\Gamma (1+2\epsilon)}+\frac{c_{13}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{1} m_{3})^{2 \epsilon }\Gamma (1+2
+     \mathscr{S}(\vec m,t,\epsilon)=\frac{c_{23}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{2} m_{3})^{2 \epsilon}\Gamma (1+2\epsilon)}+\frac{c_{13}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{1} m_{3})^{2 \epsilon }\Gamma (1+2
    \epsilon)}+\frac{c_{12}(t,\epsilon)\Gamma (\epsilon +1)^2}{ (m_{1} m_{2})^{2 \epsilon }\Gamma (1+2
    \epsilon )} \, , 
 \end{equation}
 where $c_{12}(t,\epsilon)$, $c_{13}(t,\epsilon)$ and
-$c_{23}(t,\epsilon)$ are polynomials of degrees 4,2 in $t$ and $\epsilon$, respectively. \pvnote{given on page}
+$c_{23}(t,\epsilon)$ are polynomials of degrees 4,2 in $t$ and
+$\epsilon$, respectively. The results are provided on the {\tt
+  SageMath} worksheet \href{Sunset-Twoloop-3mass-Epsilon.ipynb}{Sunset-Twoloop-3mass-Epsilon.ipynb}
 %
 Expanding in powers of $\epsilon$ , we have
 %
 \begin{equation}
-    \mathscr{S}(\vec m,t;\epsilon)=\mathscr{S}^0(\vec m,t)
+    \mathscr{S}(\vec m,t,\epsilon)=\mathscr{S}^0(\vec m,t)
     +\left(c^{(1)}_0(\vec m)+
     \sum_{i=1}^3  c^{(1)}_i(\vec m)\log(m_i)\right)\,  \epsilon+O(\epsilon^2)
 \end{equation}
@@ -1508,7 +1546,7 @@ differential equation
   \mathscr{L}^{3-mass}_\su f_\su^{(0)}(t)= s_0(\vec m,t)+ \sum_{i=1}^3
   s_i(\vec m,t)\log(m_i^2)  
 \end{equation}
-with \pvnote{given on the page}
+with 
 \begin{align}
   s_0(\vec m,t)&:=18 t^{4}-24\left(m_{1}^{2}m_{2}^{2}+
        m_{3}^{2}\right) t^{3}-4\left( m_{1}^{4}+m_2^4+m_3^4+10(
@@ -1575,8 +1613,7 @@ We consider the two points  Kite graph with  3 massive propagators and
 	\mathbf U_{\Kite} =(x_1+x_2) (x_3+x_4)+(x_1+x_2+x_3+x_4) x_5,
 \end{equation}
 \begin{multline}
-\mathbf F _{\Kite}(m^2,p^2)=p^2 (x_1 x_2 x_3+x_1 x_4 x_3+x_2 x_4 x_3+x_1 x_5 x_3+x_4 x_5
-x_3+x_1 x_2 x_4+x_1 x_2 x_5+x_2 x_4 x_5)\cr
+\mathbf F _{\Kite}(m^2,p^2)=p^2 (x_1 x_2 x_3 x_4\sum_{i=1}^4 x_i^{-1}+(x_1+x_4)(x_2+ x_3) x_5)
 -m^2 (x_1+x_3+x_5) 	\mathbf U_{\Kite} 
 \end{multline}
 Now setting $p^2=X m^2$ we have  single scale problem and now set $m=1$
@@ -1642,7 +1679,8 @@ We seek an $\epsilon$-dependent deformation of the Picard-Fuchs
 operator with respect to $t$ determined in~\cite{Lairez:2022zkj,Doran:2023yzu}.
 
 We find the following results (some numerical cases are accessible on
-the page \pvnote{PF-Ice-cream-epsilon.ipynb})
+the {\tt
+  SageMath} worksheet \href{IceCream-Epsilon.ipynb}{IceCream-Epsilon.ipynb}.
 \begin{itemize}
 	\item {\bf The all equal kinematics
 		$\mu_1=\mu_2=m_1=m_2=p_1^2=p_2^2=p_3^2=1$:} the Picard-Fuchs operator
@@ -1842,45 +1880,24 @@ We show how to derive differential equation for  the massless box and massless d
 dimension $D=4-2\epsilon$. Unlike previous cases,  these integrals are divergent in four
 dimensions so the $\epsilon=0$ integral are not defined.
 %
-\begin{figure}[h]\centering
-  	\begin{tikzpicture}[scale=0.6]
-		\filldraw [color = black, fill=none, dashed] (0,0) circle (2cm);
-		\draw [black,dashed] (-2,0) to (2,0);
-		%\filldraw [black] (2,0) circle (2pt);
-		%\filldraw [black] (-2,0) circle (2pt);
-%		\filldraw [black] (1.414,1.414) circle (2pt);
-%		\filldraw [black] (-1.414,1.414) circle (2pt);
-%		\filldraw [black] (1.414,-1.414) circle (2pt);
-%		\filldraw [black] (-1.414,-1.414) circle (2pt);
-		%\draw [black,very thick] (-2,0) to (-3,0);
-		%\draw [black,very thick] (2,0) to (3,0);
-		\draw [black,very thick] (1.414,1.414) to (2.25,2.25);
-		\draw [black,very thick] (-1.414,1.414) to (-2.25,2.25);
-		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
-		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
-	\end{tikzpicture}\quad
-	\begin{tikzpicture}[scale=0.6]
-		\filldraw [color = black, fill=none, dashed] (0,0) circle (2cm);
-		\draw [black,dashed] (-2,0) to (2,0);
-		%\filldraw [black] (2,0) circle (2pt);
-		%\filldraw [black] (-2,0) circle (2pt);
-%		\filldraw [black] (1.414,1.414) circle (2pt);
-%		\filldraw [black] (-1.414,1.414) circle (2pt);
-%		\filldraw [black] (1.414,-1.414) circle (2pt);
-%		\filldraw [black] (-1.414,-1.414) circle (2pt);
-		%\draw [black,very thick] (-2,0) to (-3,0);
-		%\draw [black,very thick] (2,0) to (3,0);
-		\draw [black,very thick] (0,2) to (0,3);
-		\draw [black,very thick] (0,0) to (0,1);
-		\draw [black,very thick] (1.414,-1.414) to (2.25,-2.25);
-		\draw [black,very thick] (-1.414,-1.414) to (-2.25,-2.25);
-	\end{tikzpicture}
-	\caption{The planar and non-planar massless double-box graphs}\label{fig:doublebox}
-\end{figure}
 
 
 
 \subsubsection{The massless planar double-box graph}
+
+
+\begin{figure}[h]\centering
+  	\begin{tikzpicture}[scale=0.6]
+		\filldraw [color = black, fill=none, dashed] (0,0) circle (2cm);
+		\draw [black,dashed] (-2,0) to (2,0);
+		\draw [black,dashed] (1.414,1.414) to (2.25,2.25);
+		\draw [black,dashed] (-1.414,1.414) to (-2.25,2.25);
+		\draw [black,dashed] (1.414,-1.414) to (2.25,-2.25);
+		\draw [black,dashed] (-1.414,-1.414) to (-2.25,-2.25);
+	\end{tikzpicture}
+	\caption{The planar massless double-box graphs}\label{fig:doublebox}
+\end{figure}
+
 
 The graph polynomials are given by
 \begin{align}
@@ -1892,7 +1909,7 @@ with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^6$
 \begin{equation}\label{e:OmegaDoubleBox}
 	\Omega_{\Box\!\Box}^\epsilon(s,t)=   {\textbf{U}_{\Box\!\Box}  \over
-		\textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0
+		\textbf{F}_{\Box\!\Box}(s,t)^{3}}\left(\textbf{U}_{\Box\!\Box}^3\over \textbf{F}^2_{\Box\!\Box}(s,t)\right)^\epsilon\,\Omega_0^{(7)}
 \end{equation}
 we work with the single scale form $\tilde
 \Omega_{\Box\!\Box}^\epsilon(X)=(-s)^{3+2\epsilon}
@@ -1910,7 +1927,26 @@ the inhomogeneous term is
 
 
 \subsubsection{The massless non-planar double-box graph}
-\pvnote{fix the drawing of the graph in the subscript}
+
+\begin{figure}[h]\centering
+ 
+	\begin{tikzpicture}[scale=0.6]
+		\draw [black, dashed] (-2,0) to (-3,0);
+		\draw [black,dashed] (-2,0) to (-0,1.5);
+		\draw [black,dashed] (-2,0) to (-0,-1.5);
+		\draw [black,dashed] (0,1.5) to (2.5,-1.5);
+		\draw [black,dashed] (0,-1.5) to (1.20,-0.06);
+		\draw [black,dashed] (1.30,0.06) to (2.5,1.5);
+		\draw [black,dashed] (0,1.5) to (2.5,1.5);
+		\draw [black,dashed] (0,-1.5) to (2.5,-1.5);
+		\draw [black,dashed] (2.5,-1.5) to (3.0,-1.5);
+		\draw [black,dashed] (2.5,1.5) to (3.0,1.5);
+	\end{tikzpicture}
+	\caption{The non-planar massless double-box graphs}\label{fig:npdoublebox}
+\end{figure}
+
+
+
 \begin{multline}
   \textbf{U}_{\DBoxNP}=x_1 x_2+x_3 x_2+x_4 x_2+x_5 x_2+x_6 x_2+x_1 x_5+x_3 x_5+x_4 x_5+x_1
    x_6\cr+x_3 x_6+x_4 x_6+x_1 x_7+x_3 x_7+x_4 x_7+x_5 x_7+x_6 x_7  
@@ -1932,17 +1968,6 @@ the differential operator is
    +\left(2 X(X+1)-1\right) \epsilon-2 \epsilon ^2
  \end{equation}
 
-
-The algorithm gives all the information for computing the
-inhomogeneous term of the differential equations acting on the Feynman
-integrals. The inhomogeneous term  is given by the  integration of
-$\vec\nabla\cdot \vec B_\Gamma$ in~\eqref{e:BetaGamma}  over the
-positive orthant. Performing this integration is an highly non-trivial
-task. The contributions arise from the reduced topologies with
-contracted edges, but the integrands from $\vec B_\Gamma$ may differ
-from the scalar Feynman integral by rational function of the edge
-variables. \pvnote{trying to say that getting the inhomogeneous term
-  is not easy but we could in principle do it}
  %-------------------------------------------------------------------------
 \subsection{The Witten ice-cream cone diagram}\label{sec:Wittenicecream}
 
@@ -2068,7 +2093,7 @@ possible mass configurations.
 A class of examples we will consider is  
 the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.\eqref{e:OmegaTwistDimReg} for this case reads
 \begin{equation}
-  I^{\epsilon}_{\su(n-1)}(\vec m,t;\epsilon)= \int_{\Delta_n} \Omega^{\epsilon}_{\su(n-1)}(\vec m,t,\epsilon)  ; \quad
+  I^{\epsilon}_{\su(n-1)}(\vec m,t,\epsilon)= \int_{\Delta_n} \Omega^{\epsilon}_{\su(n-1)}(\vec m,t,\epsilon)  ; \quad
   \Omega^\epsilon_{\su(n-1)}(\vec m, t,\epsilon)={\Omega^{(n)}_0\over
     \textbf{F}_{n-1}(t)}\left(\textbf{U}_{n-1}^n\over \textbf{F}_{n-1}(t)^{n-1}\right)^\epsilon
 \end{equation}
@@ -2114,8 +2139,8 @@ where the differential operator is $ \mathscr{L}_{\su(l)}^{r}$ is of
 order $l-r$. The Picard-Fuchs operator $ \mathscr{L}_{\su(l)}^{0}$ is
 the one derived in~\cite{Vanhove:2014wqa} up to five-loops (see as well~\cite{Bonisch:2020qmm,Pogel:2022yat,Pogel:2022ken,Pogel:2022vat}).
 
-The results for the differential equation are given on this
-page~\pvnote{give sagenotebook}
+The results for the differential equation are given on the {\tt
+  SageMath} worksheet \href{Sunset-1mass-Epsilon.ipynb}{Sunset-1mass-Epsilon.ipynb}.
 %-------------------------------------------------------------------------
 
 
@@ -2124,7 +2149,8 @@ page~\pvnote{give sagenotebook}
 \subsubsection{The three-loop generic mass cases}\label{sec:threeloop}
 
 For the three-loop sunset with different masses we find the following
-results. With the notation of Section~4 of~\cite{Lairez:2022zkj}:
+results which are as well given on the  {\tt
+  SageMath} worksheet \href{Sunset-Threeloop-Epsilon.ipynb}{Sunset-Threeloop-Epsilon.ipynb}. With the notation of Section~4 of~\cite{Lairez:2022zkj}:
 %
 \begin{itemize}
 \item  {\bf Case~$[4]$:} The all equal mass case $m_1=m_2=m_3=m_4$ has already been
@@ -2254,8 +2280,6 @@ results. With the notation of Section~4 of~\cite{Lairez:2022zkj}:
                  $q^{[1111]}(t,\epsilon)$ of degree 17 in
                  $t$ and 16 in $\epsilon$.
      \end{itemize}
-\pvnote{correlation between the order in epsilon and the degree of
-  apparent singularities}  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 %
@@ -2367,7 +2391,7 @@ integrals are either period of rational curves, elliptic curve or genus
 2 hyperelliptic curves. \lNote{also order drop?}
 
 %------------------------------------------------------------------------
-\subsection{The $\epsilon$-dependence}
+\subsection{The regulator dependence}
 \label{sec:epsilon-dependence}
 
 %
@@ -2386,7 +2410,7 @@ of~\eqref{e:PFconclusion} are the roots of the
 discriminant of the singular locus of the integrand of  Feynman
 integrals~\cite{Doran:2023yzu}.
 
-We have noticed that the $\epsilon$ deformation appears only in  the
+We have noticed that the dimensional regulator $\epsilon$ appears only in  the
 apparent singularities of the differential operator
 $\mathscr{L}_z^\epsilon$. This means that the  $\epsilon$ deformation
 does not change the position of the real singularities but it affects
@@ -2448,7 +2472,7 @@ Following the steps in Section~8 of~\cite{Vanhove:2014wqa}
 gives the following Bessel integral representation for the multiloop
 sunset integral in  $D=2-2\epsilon$ dimensions
 \begin{multline}
-  I_{\su(n-1)}^\epsilon(\vec m,t;\epsilon)=
+  I_{\su(n-1)}^\epsilon(\vec m,t,\epsilon)=
   {2^{(n-1) (1-\epsilon)} t^{\epsilon\over2} \over    (m_1\cdots m_{L+1})^{\epsilon}
   \Gamma(1+(n-1)\epsilon)}\cr\times\int_0^\infty I_{-\epsilon}(\sqrt{t} x)
   \prod_{i=1}^{L+1}K_{-\epsilon}(m_ix)\,  x^{1+\epsilon(n-1)}dx.
@@ -2892,6 +2916,11 @@ T.~Peraro,
 JHEP \textbf{07} (2019), 031
 %doi:10.1007/JHEP07(2019)031
 [arXiv:1905.08019 [hep-ph]].
+
+
+\bibitem{Koutchan} C. Koutschan. ``HolonomicFunctions (user's guide).'' Technical Report 10-01, RISC Report Series, Johannes Kepler University, Linz, Austria, 2010. http://www.risc
+.jku.at/research/ combinat/software/HolonomicFunctions/.
+
   
 \bibitem{Caffo:1998du}
 M.~Caffo, H.~Czyz, S.~Laporta and E.~Remiddi,
@@ -3013,9 +3042,6 @@ Discrete Mathematics, {\bf 217} (1-3) 115-134, 2000.
   Griffiths--Dwork method.'' In Proceedings of the 38th international
   symposium on symbolic and algebraic computation (pp. 93-100). 
 
-
-\bibitem{Koutchan} C. Koutschan. ``HolonomicFunctions (user's guide).'' Technical Report 10-01, RISC Report Series, Johannes Kepler University, Linz, Austria, 2010. http://www.risc
-.jku.at/research/ combinat/software/HolonomicFunctions/.
 	
 	
 
