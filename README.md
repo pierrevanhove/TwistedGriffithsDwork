@@ -5,7 +5,7 @@ The repository contains the files for the following papers
 
 [Algorithms for minimal Picard-Fuchs operators of Feynman integrals in general dimensions](XXX)
 ==================================================================
-by Leonardo de la Cruz and Pierre Vanhove
+by Leonardo de la Cruz and [Pierre Vanhove](https://pierrevanhove.github.io/)
 
 * The Picard-Fuchs operators for the [Sunset
   integrals](EpsilonDependence/): up to 20 loop order for the all equal
