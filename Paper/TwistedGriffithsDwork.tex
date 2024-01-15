@@ -223,7 +223,7 @@ We apply as well our algorithm to the dimensionally and analytically regulated W
 }
 
 \maketitle
-\newpage
+%\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -1093,7 +1093,9 @@ continuation of Section~\ref{sec:Twisted}.
 		\node[text width=0.5cm, text centered ] at (1.5,-1.5){$k_3$};
 		\node[text width=0.5cm, text centered ] at (-1.5,-1.5){$k_4$};
 	\end{tikzpicture} 
-\caption{The box  graph with massless external and internal states. }\label{fig:box}
+\caption{The box  graph with massless external and internal states.
+  The external momenta are $k_i$ with $k_1+\cdots+k_4=0$. The
+          labels of the graph give the index of the edge variable $x_i$. }\label{fig:box}
 \end{figure}
 \begin{comment}
 \begin{figure}[h]\centering
@@ -1131,7 +1133,7 @@ order. Computing the derivative with respect to $X$ we obtain
 \begin{equation}
 P  ^{(1)}= (2+\epsilon) x_2 x_4 \, , 
 \end{equation}
-with $\text{Jac}(\mathbf F_\Gamma)=\langle-x_3, -x_4 X,-x_1, -X x_2  \rangle$. The  vector  $\vec C_{1}(\underline x)$ has components 
+which we will reduce with respect to the $\text{Jac}(\mathbf F_\Box)=\langle \partial_{x_1}\textbf{F}_\Box=-x_3, \partial_{x_2}\textbf{F}_\Box= -x_4 X, \partial_{x_3}\textbf{F}_\Box=-x_1, -X x_2  \rangle$. The  vector  $\vec C_{1}(\underline x)$ has components 
 \begin{equation}
 C^i_{1}(\underline x)= \sum_{e \in m_{2,4}} \lambda^i_e x^e,	
 \end{equation}
@@ -1173,10 +1175,14 @@ This simple example illustrates the general procedure as we will see with more l
 		\coordinate (C) at (-1,-1);   \filldraw (C) circle (2.pt);
 		\coordinate (D) at (1,1);   \filldraw (D) circle (2.pt);
 		\coordinate (E) at (1,-1);   \filldraw (E) circle (2.pt);
-		\node[text width=0.5cm, text centered ] at (-1.3,1.3){$x_2$};
-		\node[text width=0.5cm, text centered ] at (-1.3,-1.3){$x_1$};
-		\node[text width=0.5cm, text centered ] at (1.3,-1.3){$x_4$};
-		\node[text width=0.5cm, text centered ] at (1.3,1.3){$x_3$};
+		\node[text width=0.5cm, text centered ] at
+                (-1.3,1.3){$\vec v_2$};
+		\node[text width=0.5cm, text centered ] at
+                (-1.3,-1.3){$\vec v_1$};
+		\node[text width=0.5cm, text centered ] at
+                (1.3,-1.3){$\vec v_4$};
+		\node[text width=0.5cm, text centered ] at
+                (1.3,1.3){$\vec v_3$};
 	\end{tikzpicture}
   \caption{Witten Cross diagram, between four states on
 	boundary of $dS_4$. }
@@ -1216,11 +1222,12 @@ Section~4.1 of~\cite{Heckelbacher:2022fbx} is given by the integral
 over the bulk point $X$
 
 \begin{equation}
-       \mathcal{ W}_0^{1,4-4\varepsilon}(\zeta,\bar\zeta)=\frac12\frac{\zeta\bar\zeta}{(x_{12}x_{34})^2}\int_{\mathbb{R}^4}\frac{d^{4-4\varepsilon}X}{\|X\|^2\|X-u_1\|^{2(1-4\varepsilon)}\|X-u_{\zeta}\|^2}\,.
+       \mathcal{ W}_0^{1,4-4\varepsilon}(\zeta,\bar\zeta)=\frac12\frac{\zeta\bar\zeta}{(v_{12}v_{34})^2}\int_{\mathbb{R}^4}\frac{d^{4-4\varepsilon}X}{\|X\|^2\|X-u_1\|^{2(1-4\varepsilon)}\|X-u_{\zeta}\|^2}\,.
 \end{equation}
 with the vectors  $u_1=(1,0,0,0)$ and 
-$u_{\zeta}=\left(\frac{\zeta+\bar\zeta}{2},\frac{\zeta-\bar\zeta}{2i},0,0\right)$ where $\zeta$  and $\bar\zeta$ parameterise the cross ratios $\zeta\bar\zeta=x_{12}^2x_{34}^2/(x_{14}^2x_{23}^2)$ and
-  $(1-\zeta)(1-\bar\zeta)=x_{13}^2x_{24}^2 /(x_{14}^2 x_{23}^2)$.
+$u_{\zeta}=\left(\frac{\zeta+\bar\zeta}{2},\frac{\zeta-\bar\zeta}{2i},0,0\right)$ where $\zeta$  and $\bar\zeta$ parameterise the cross ratios $\zeta\bar\zeta=v_{12}^2v_{34}^2/(v_{14}^2v_{23}^2)$ and
+  $(1-\zeta)(1-\bar\zeta)=v_{13}^2v_{24}^2 /(v_{14}^2 v_{23}^2)$
+  defined by the position on the boundary of (A)dS$_4$.
 
 The parametric representation is given by
 $
@@ -1313,55 +1320,32 @@ correlators of  conformally coupled $\phi^4$  in  de
 		\centering
 		\begin{tikzpicture}
 			%\draw[step=1cm,black,very thin] (-1.9,-1.9) grid (1.9,1.9);
-			\draw [ thick] (0,1)circle (1);
-			\draw[thick](-1.5,1)--(1.5,1);
+			\draw [very thick] (0,1)circle (1);
+			\draw[very thick](-1.5,1)--(1.5,1);
 			\node[text width=0.5cm, text centered ] at (0,0.7) {$2$};
 			\node[text width=0.5cm, text centered ] at (0,1.7) {$1$};
 			\node[text width=0.5cm, text centered ] at (0,-0.3) {$3$};
-			\node[text width=0.5cm, text centered ] at (-1.7,1.0) {$k$};
+			\node[text width=0.5cm, text centered ] at
+                        (-1.7,1.0) {$k$};
+                        	\node[text width=0.5cm, text centered ] at (1.7,1.0) {$k$};
 		\end{tikzpicture} 
-		\caption{The two-loop sunset graph}
+		\caption{The two-loop sunset graph.  The
+          labels of the graph give the index of the edge variable $x_i$.}
 		  \label{fig:sunset2loop}
 	\end{figure}
 %
-\begin{comment}
-\begin{figure}[ht]
-  \centering
-      \begin{tikzpicture}[baseline=(x)]
-        \begin{feynman}
-       \vertex (x);
-      \vertex[left=2cm of x,label=$p$](c1l);
-      \vertex[right=2cm of x,label=$p$](c1r);
-%      \tikzfeynmanset{every vertex=dot}
-        \vertex [left=1cm  of x] (xl);
-        \vertex [right=1cm  of x] (xr);
-        \draw [color = black, fill=none, very thick] (xl)  -- (xr);
-        \draw [color = black, fill=none, very thick] (c1l)  -- (xl);
-        \draw [color = black, fill=none, very thick] (xr)  -- (c1r);
-        \diagram* {
-         (c1l) -- [fermion] (xl);
-         (xr) -- [fermion] (c1r);
-         (xl)  [color = black, fill=none, very thick] -- (xr);
-                                };
-                              \end{feynman}
-                                           \begin{pgfonlayer}{bg}
-                                             \draw  [color = black, fill=none, very thick]  (x) circle (1.1cm);                         \end{pgfonlayer}
-                   \end{tikzpicture}
-  \caption{The two-loop sunset graph}
-  \label{fig:sunset2loop}
-\end{figure}
-\end{comment}
 We now turn to the two-loop sunset and shows how to adapt the
 Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$
-dependent integrand. For the two-loop case the differential Eq.\eqref{e:OmegaTwistDimReg} is
+dependent integrand. For the two-loop case the differential
+Eq.~\eqref{e:OmegaTwistDimReg}, setting $t=k^2$, is
 \begin{equation}\label{e:OmegaSunset}
   \Omega_{\su}^{\epsilon}(t)={1\over
     \textbf{F}_2(t)}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \,\Omega_0^{(3)}
 \end{equation}
-with the graph polynomials
+with the graph polynomials 
 \begin{align}
  \textbf{U}_2&=x_1x_2+x_1x_3+x_2x_3,\cr
-  \textbf{F}_2(t)&=-tx_1x_2x_3 + (m_1^2x_1+m_2^2x_2+m_3^2x_3) \textbf{U}_2.
+  \textbf{F}_2(t)&=-t x_1x_2x_3 + (m_1^2x_1+m_2^2x_2+m_3^2x_3) \textbf{U}_2.
 \end{align}
 %
 The twisted differential form $\Omega_\su^{\epsilon}$ is defined on the
@@ -1650,15 +1634,18 @@ and $c^{(1)}_1(\vec m)+c_2^{(1)}(\vec m)+c_3^{(1)}(\vec m)=4
 		\draw [black, very thick] (2,0) to (0,1.5);
 		\draw [black, dashed] (2,0) to (0,-1.5);
 		\draw[black, very thick] (0,1.5) to (0,-1.5);
-		\node[text width=0.5cm, text centered ] at (-1.,1.0) {$a$};
-		\node[text width=0.5cm, text centered ] at (-1.,-1.) {$a$};
-		\node[text width=0.5cm, text centered ] at (1.,1.0) {$a$};
-		\node[text width=0.5cm, text centered ] at (1.,-1.) {$a$};
-		\node[text width=0.5cm, text centered ] at (0.4,0.) {$a$};
-		\node[text width=0.5cm, text centered ] at (-3.5,0.0) {$k$};
+		\node[text width=0.5cm, text centered ] at (-1.,1.1) {$2$};
+		\node[text width=0.5cm, text centered ] at (-1.,-1.1) {$1$};
+		\node[text width=0.5cm, text centered ] at (1.,1.1) {$3$};
+		\node[text width=0.5cm, text centered ] at (1.,-1.1) {$4$};
+		\node[text width=0.5cm, text centered ] at (0.4,0.) {$5$};
+		\node[text width=0.5cm, text centered ] at (-3.5,0.0)
+                {$k$};
+                	\node[text width=0.5cm, text centered ] at (3.5,0.0) {$k$};
 	\end{tikzpicture}
 	\caption{Special two-point Kite. Dashed lines are massless
-          propagators and solid lines are massive propagators.}\label{fig:kite1mass}
+          propagators and solid lines are massive propagators. The
+          labels of the graph give the index of the edge variable $x_i$.}\label{fig:kite1mass}
 \end{figure}
 We consider the two points  Kite graph with three massive propagators and
           two massless propagators
@@ -1666,10 +1653,10 @@ We consider the two points  Kite graph with three massive propagators and
 	\mathbf U_{\Kite} =(x_1+x_2) (x_3+x_4)+(x_1+x_2+x_3+x_4) x_5,
 \end{equation}
 \begin{multline}
-\mathbf F _{\Kite}(m^2,p^2)=p^2 (x_1 x_2 x_3 x_4\sum_{i=1}^4 x_i^{-1}+(x_1+x_4)(x_2+ x_3) x_5)
+\mathbf F _{\Kite}(m^2,p^2)=k^2 (x_1 x_2 x_3 x_4\sum_{i=1}^4 x_i^{-1}+(x_1+x_4)(x_2+ x_3) x_5)
 -m^2 (x_1+x_3+x_5) 	\mathbf U_{\Kite} 
 \end{multline}
-Now setting $p^2=X m^2$ we have  single scale problem and now set $m=1$
+Now setting $k^2=X m^2$ we have  single scale problem and now set $m=1$
 \begin{equation}
   \Omega_{\Kite}^\epsilon=   {\mathbf U_{\Kite}^{5-3\delta}\over
     \mathbf F_{\Kite}(1,X)^{5-2\delta}}\left(\mathbf U_{\Kite}^3\over
@@ -1705,15 +1692,17 @@ The integrand of the Feynman integral is the twisted differential form
 	\draw [black,very thick] (-2,0) to (-3,0);
 	\draw [black,very thick] (2,0) to (3,0);
 	\draw [black,very thick] (0,-2) to (0,-3);
-	\node[text width=0.5cm, text centered ] at (-1.5,-1.) {$a$};
-	\node[text width=0.5cm, text centered ] at (0,1.5) {$a$};
-	\node[text width=0.5cm, text centered ] at (1.5,-1.) {$a$};
-	\node[text width=0.5cm, text centered ] at (0.,0.2) {$a$};
-	\node[text width=0.5cm, text centered ] at (-3.5,0.0) {$k$};
-	\node[text width=0.5cm, text centered ] at (0,-3.5) {$k$};
-	\node[text width=0.5cm, text centered ] at (3.5,0) {$k$};
+	\node[text width=0.5cm, text centered ] at (-1.2,-1.) {$y_1$};
+	\node[text width=0.5cm, text centered ] at (0,1.5) {$x_1$};
+	\node[text width=0.5cm, text centered ] at (1.3,-1.) {$y_2$};
+	\node[text width=0.5cm, text centered ] at (0.,0.25) {$z$};
+	\node[text width=0.5cm, text centered ] at (-3.5,0.0) {$k_1$};
+	\node[text width=0.5cm, text centered ] at (0,-3.5) {$k_2$};
+	\node[text width=0.5cm, text centered ] at (3.5,0) {$k_3$};
 	\end{tikzpicture}
-	\caption{The ice cream cone graph}\label{fig:icecream}
+	\caption{The ice cream cone graph. The  massive external momenta are
+          $k_i$ satisfy $k_1+k_2+k_3=0$. We have labelled the graph with
+          the edges variables.}\label{fig:icecream}
 \end{figure}
 
 In this Section we give the result for the $\epsilon$-deformed
@@ -1895,7 +1884,7 @@ the {\tt
       \subsection{The three-point roast chicken graph}\label{sec:chicken}
 \begin{figure}[h]
 	\centering	\begin{tikzpicture}[scale=0.7]
-		 \draw [black, thick] (-2,0) to (-3,0);
+		 \draw [black, dashed] (-2,0) to (-3,0);
 		\draw [black, dashed] (-2,0) to (-0,1.5);
 		\draw [black, dashed] (-2,0) to (-0,-1.5);
 		\draw [black,very thick] (0,1.5) to (2.5,-1.5);
@@ -1903,30 +1892,33 @@ the {\tt
 		\draw [black,very thick] (1.30,0.06) to (2.5,1.5);
 		\draw [black,very thick] (0,1.5) to (2.5,1.5);
 		\draw [black,very thick] (0,-1.5) to (2.5,-1.5);
-		\draw [black, thick] (2.5,-1.5) to (3.0,-1.5);
-		\draw [black, thick] (2.5,1.5) to (3.0,1.5);
-		\node[text width=0.5cm, text centered ] at (-1.5,-1.) {$a$};
-		\node[text width=0.5cm, text centered ] at (-1.5,1.) {$a$};
-		\node[text width=0.5cm, text centered ] at (1.5,1.7) {$a$};
-		\node[text width=0.5cm, text centered ] at (1.5,-1.7) {$a$};
-		\node[text width=0.5cm, text centered ] at (0.5,-0.5) {$a$};
-		\node[text width=0.5cm, text centered ] at (0.5,0.5) {$a$};
-		\node[text width=0.5cm, text centered ] at (-3.5,0.0) {$k$};
-		\node[text width=0.5cm, text centered ] at (3.5,-1.5) {$k$};
-		\node[text width=0.5cm, text centered ] at (3.5,1.5) {$k$};
+%		\draw [black, thick] (2.5,-1.5) to (3.0,-1.5);
+%		\draw [black, thick] (2.5,1.5) to (3.0,1.5);
+                	\draw [black, dashed] (2.5,-1.5) to (3.0,-1.5);
+		\draw [black, dashed] (2.5,1.5) to (3.0,1.5);
+		\node[text width=0.5cm, text centered ] at (-1.5,-1.) {$1$};
+		\node[text width=0.5cm, text centered ] at (-1.5,1.) {$2$};
+		\node[text width=0.5cm, text centered ] at (1.5,1.8) {$3$};
+		\node[text width=0.5cm, text centered ] at (1.5,-1.8) {$6$};
+		\node[text width=0.5cm, text centered ] at (0.5,-0.4) {$4$};
+		\node[text width=0.5cm, text centered ] at (0.5,0.5) {$5$};
+		\node[text width=0.5cm, text centered ] at (-3.5,0.0) {$k_1$};
+		\node[text width=0.5cm, text centered ] at (3.5,-1.5) {$k_2$};
+		\node[text width=0.5cm, text centered ] at (3.5,1.5) {$k_3$};
 	\end{tikzpicture}
 	\caption{The roast chicken graph. Dashed lines are massless
-          propagators and solid lines are massive propagators.}\label{fig:roastchicken}
+          propagators and solid lines are massive propagators. The
+          external momenta $k_i$ satisfy $k_1+k_2+k_3=0$ and $k_1^2=k_2^2=0$.}\label{fig:roastchicken}
 \end{figure}
 
 We set $m=1$ and define $2k_1 \cdot k_2 = X$. We have
 \begin{equation}
-	\mathbf U_{\chickenDiag} =  x_3 \left(x_4+x_5\right)+x_2 \left(x_3+x_4+x_5\right)+\left(x_3+x_4+x_5\right) x_6+x_1 \left(x_2+x_4+x_5+x_6\right),
+	\mathbf U_{\chickenDiag} = (x_1+x_2)(x_3+x_4+x_5+x_6)+(x_3+x_4)(x_5+x_6),
 \end{equation}
 \begin{multline}
-\mathbf F _{\chickenDiag}(X)=-\left(x_2 x_3 x_5+x_1 \left(x_3 \left(x_2+x_4+x_5\right)+\left(x_3+x_4\right) x_6\right)\right) X
+\mathbf F _{\chickenDiag}(X)=\left((x_1+x_2+x_5+x_6)x_3x_4+x_1x_3x_6+x_2x_4x_5\right) X
 \cr
-+\left(x_2+x_4+x_5+x_6\right) 	\mathbf U_{\chickenDiag} 
++\left(x_3+x_4+x_5+x_6\right) 	\mathbf U_{\chickenDiag} 
 \end{multline}
 
 The integrand of the Feynman integral is the twisted differential form
@@ -1965,30 +1957,22 @@ dimensions so the $\epsilon=0$ integral are not defined.
 		\node[text width=0.5cm, text centered ] at (3.2,0) {$7$};
 		\node[text width=0.5cm, text centered ] at (0,-1.3) {$1$};
 		\node[text width=0.5cm, text centered ] at (2,-1.3) {$6$};
-		\node[text width=0.5cm, text centered ] at (2,1.3) {$5$};
-		\node[text width=0.5cm, text centered ] at (1.2, 0) {$4$};
+		\node[text width=0.5cm, text centered ] at (2,1.3) {$4$};
+		\node[text width=0.5cm, text centered ] at (1.2, 0) {$5$};
 		\node[text width=0.5cm, text centered ] at (0,1.3) {$2$};
 		\node[text width=0.5cm, text centered ] at (-1.5,1.5){$k_2$};
 		\node[text width=0.5cm, text centered ] at (3.5,1.5){$k_3$};
 		\node[text width=0.5cm, text centered ] at (3.5,-1.5){$k_4$};
 		\node[text width=0.5cm, text centered ] at (-1.5,-1.5){$k_1$};
 	\end{tikzpicture} 
-	\caption{The planar massless double-box graphs}\label{fig:doublebox}
+	\caption{The planar massless double-box graphs. The massless
+          external momenta $k_i$ satisfy $k_1+\cdots +k_4=0$ and
+          $k_i^2=0$. The labels of the graph give the index of the
+          edge variable $x_i$. }\label{fig:doublebox}
 	 \end{figure}
-\begin{comment}\begin{figure}[h]\centering
-  	\begin{tikzpicture}[scale=0.6]
-		\filldraw [color = black, fill=none, dashed] (0,0) circle (2cm);
-		\draw [black,dashed] (-2,0) to (2,0);
-		\draw [black,dashed] (1.414,1.414) to (2.25,2.25);
-		\draw [black,dashed] (-1.414,1.414) to (-2.25,2.25);
-		\draw [black,dashed] (1.414,-1.414) to (2.25,-2.25);
-		\draw [black,dashed] (-1.414,-1.414) to (-2.25,-2.25);
-	\end{tikzpicture}
-	\caption{The planar massless double-box graphs}\label{fig:doublebox}
-\end{figure}
-\end{comment}
 %
-The graph polynomials are given by
+The graph polynomials associated to the massless double-box graph in
+fig.~\ref{fig:doublebox} are given by
 \begin{align}
 	\label{e:DoubleBoxgraphpolynomials}
 	\textbf{U}_{\Box\!\Box}&=(x_1+x_2+x_3)(x_4+x_5+x_6)+(x_1+\cdots+x_6)x_7,\\
@@ -2026,20 +2010,32 @@ with the result
 		\draw [black,dashed] (0,-1.5) to (2.5,-1.5);
 		\draw [black,dashed] (2.5,-1.5) to (3.0,-1.5);
 		\draw [black,dashed] (2.5,1.5) to (3.0,1.5);
+                \node[text width=0.5cm, text centered ] at (-1.4,0) {$4$};
+		\node[text width=0.5cm, text centered ] at (2.1,-0.5) {$7$};
+		\node[text width=0.5cm, text centered ] at (-0.5,-2) {$3$};
+		\node[text width=0.5cm, text centered ] at (1.5,-2) {$6$};
+		\node[text width=0.5cm, text centered ] at (1.5,2) {$2$};
+		\node[text width=0.5cm, text centered ] at (0.4, 0.5) {$5$};
+		\node[text width=0.5cm, text centered ] at (-0.5,2) {$1$};
+		\node[text width=0.5cm, text centered ] at (-2.5,1.5){$k_2$};
+		\node[text width=0.5cm, text centered ] at (3.5,1.5){$k_3$};
+		\node[text width=0.5cm, text centered ] at (3.5,-1.5){$k_4$};
+		\node[text width=0.5cm, text centered ] at (-2.5,-1.5){$k_1$};
 	\end{tikzpicture}
-	\caption{The non-planar massless double-box graphs}\label{fig:npdoublebox}
+	\caption{The non-planar massless double-box graphs. The massless
+          external momenta $k_i$ satisfy $k_1+\cdots +k_4=0$ and
+          $k_i^2=0$. The labels of the graph give the index of the
+          edge variable $x_i$. }\label{fig:npdoublebox}
 \end{figure}
 
 
 
-\begin{multline}
-  \textbf{U}_{\DBoxNP}=x_1 x_2+x_3 x_2+x_4 x_2+x_5 x_2+x_6 x_2+x_1 x_5+x_3 x_5+x_4 x_5+x_1
-   x_6\cr+x_3 x_6+x_4 x_6+x_1 x_7+x_3 x_7+x_4 x_7+x_5 x_7+x_6 x_7  
- \end{multline}
+\begin{equation}
+  \textbf{U}_{\DBoxNP}=(x_1+x_3+x_4)(x_2+x_5+x_6+x_7)+(x_2+x_7)(x_5+x_6) 
+ \end{equation}
  and
  \begin{multline}
-  \textbf{F}_{\DBoxNP}(s,t)=s (x_2 (x_3 x_5-x_4 x_6)+x_1 (x_2 x_3+(x_5+x_6+x_7) x_3+x_6
-   x_7))\cr+t (x_4 x_5 x_7-x_2 x_4 x_6)
+  \textbf{F}_{\DBoxNP}(s,t)=s\left(x_1x_3(x_2+x_5+x_6+x_7)+x_1x_6x_7+x_2(x_3x_5-x_4x_6)\right)\cr+t x_4 (x_5 x_7-x_2  x_6)
  \end{multline}
 we work with the single scale differential form\lNote{myabe some of these examples to appendix?}
  \begin{equation}
@@ -2183,12 +2179,12 @@ possible mass configurations.
 		\draw[thick] (0,0) ellipse (3cm and 2.cm);
 		\draw [thick](0,0) ellipse (3cm and 1.5cm);
 		\draw [thick](0,0) ellipse (3cm and 1.cm);
-		\draw (-3,0)--(-3.5,0);
-		\draw (3,0)--(3.5,0);
-		\draw (-3,0)--(3.5,0);
+		\draw[thick] (-3.5,0)--(3.5,0);
 		\node[text width=0.5cm, text centered ] at (0,-.5) {$\vdots$};
 		\node[text width=0.5cm, text centered ] at (0,0.5) {$\vdots$};
-		\node [text width=0.5cm, text centered ] at (-4,0) {$p$};
+		\node [text width=0.5cm, text centered ] at (-4,0)
+                {$p$};
+                	\node [text width=0.5cm, text centered ] at (4,0) {$p$};
 %		\node [text width=0.5cm, text centered ] at (0,-2.2){$1$};
 %		\node [text width=0.5cm, text centered ] at (0,-1.2){$2$};
 %		\node [text width=0.5cm, text centered ] at (0,1.2){$L$};
