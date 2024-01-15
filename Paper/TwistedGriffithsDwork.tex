@@ -1961,13 +1961,13 @@ dimensions so the $\epsilon=0$ integral are not defined.
 		\draw[dashed,thick](-1,-1)--(-1,1);
 		\draw[dashed,thick](1,-1)--(1,1);
 		\draw[dashed,thick](3,-1)--(3,1);
-		\node[text width=0.5cm, text centered ] at (-1.2,0) {$2$};
+		\node[text width=0.5cm, text centered ] at (-1.2,0) {$3$};
 		\node[text width=0.5cm, text centered ] at (3.2,0) {$7$};
 		\node[text width=0.5cm, text centered ] at (0,-1.3) {$1$};
 		\node[text width=0.5cm, text centered ] at (2,-1.3) {$6$};
 		\node[text width=0.5cm, text centered ] at (2,1.3) {$5$};
 		\node[text width=0.5cm, text centered ] at (1.2, 0) {$4$};
-		\node[text width=0.5cm, text centered ] at (0,1.3) {$3$};
+		\node[text width=0.5cm, text centered ] at (0,1.3) {$2$};
 		\node[text width=0.5cm, text centered ] at (-1.5,1.5){$k_2$};
 		\node[text width=0.5cm, text centered ] at (3.5,1.5){$k_3$};
 		\node[text width=0.5cm, text centered ] at (3.5,-1.5){$k_4$};
@@ -2141,7 +2141,7 @@ possible mass configurations.
 
 %----------------------------------------------------------------------
 \subsection{Minimal differential operator for higher-loop sunset}
-
+\begin{comment}
 \begin{figure}[h]
   \centering
       \begin{tikzpicture}[baseline=(x)]
@@ -2175,6 +2175,29 @@ possible mass configurations.
   \caption{Multi-loop sunset}
   \label{fig:sunset}
 \end{figure}
+\end{comment}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=0.6]
+		\draw[thick] (0,0) ellipse (3cm and 3cm);
+		\draw[thick] (0,0) ellipse (3cm and 2.cm);
+		\draw [thick](0,0) ellipse (3cm and 1.5cm);
+		\draw [thick](0,0) ellipse (3cm and 1.cm);
+		\draw (-3,0)--(-3.5,0);
+		\draw (3,0)--(3.5,0);
+		\draw (-3,0)--(3.5,0);
+		\node[text width=0.5cm, text centered ] at (0,-.5) {$\vdots$};
+		\node[text width=0.5cm, text centered ] at (0,0.5) {$\vdots$};
+		\node [text width=0.5cm, text centered ] at (-4,0) {$p$};
+%		\node [text width=0.5cm, text centered ] at (0,-2.2){$1$};
+%		\node [text width=0.5cm, text centered ] at (0,-1.2){$2$};
+%		\node [text width=0.5cm, text centered ] at (0,1.2){$L$};
+%		\node [text width=1.5cm, text centered ] at (0,2.2){$L+1$};
+	\end{tikzpicture} 
+	\caption{Multi-loop sunset}
+  \label{fig:sunset}
+\end{figure}
+
 A class of examples we will consider is  
 the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.\eqref{e:OmegaTwistDimReg} for this case reads
 \begin{equation}
