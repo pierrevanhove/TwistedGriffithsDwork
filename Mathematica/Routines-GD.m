@@ -75,14 +75,15 @@ reductionJacobianF[poltoReduce_, pol_, vars__] :=
   Return[{Cs /. sols, sols}]
   ];
 
+SaveFile=False;
 
 getEquations[pol_,vars__]:=(CoefficientArrays[{pol},vars]["NonzeroValues"])//Through//Flatten;
 
 ReductionF[M_,degreeP_, P_,coeffPtmp_,varunknown_,Fpol_,var_,varlong_]:=Block[{degtmp,poltoreduce,Chattmp,systmp,varsystmp,solfiniteflowtmp,Chattmpresult,coeffPresult,JacFtmp,Filenametmp},
 Print["Reduction with respect to Jac(",Fpol,")"];JacFtmp=JacIdeal[Fpol,var];degtmp=degreeP-DegreeHomogeneity[JacFtmp,var][[1]];  Print["degree coefficient ",degtmp];Chattmp=Table[homPols[Length[var],degtmp,varunknown[r]],{r,Length[var]}];(*Print[Length[Chattmp]];*)
 If[ListQ[P],poltoreduce=M+coeffPtmp.P-Chattmp.JacFtmp,poltoreduce=M+coeffPtmp*P-Chattmp.JacFtmp]; systmp=getEquations[poltoreduce,var];  varsystmp=Complement[Variables[systmp],varlong];  Print["Number of equations ",Length[systmp], ", number of variables ", Length[varsystmp]];
-Filenametmp="Reduction-F-Case-"<>ToString[degreeP]<>"-"<>DateString[{"ISODate","-","Hour",":","Minute",":","Second"}]<>".txt";
-Print["system saved in ",Filenametmp]; Save[Filenametmp,{systmp,varsystmp}];
+If[SaveFile,Filenametmp="Reduction-F-Case-"<>ToString[degreeP]<>"-"<>DateString[{"ISODate","-","Hour",":","Minute",":","Second"}]<>".txt";
+Print["system saved in ",Filenametmp]; Save[Filenametmp,{systmp,varsystmp}];]
 Print["Calling Finite Flow "];solfiniteflowtmp=FFDenseSolve[Equal[#,0]&/@systmp,varsystmp,"ApplyFunction"->Together,MaxPrimes->20];
 If[solfiniteflowtmp==FFImpossible, Echo["System cannot be solved"]];
 Print["finite flow done -- length result ",Length[solfiniteflowtmp]]; Chattmpresult=Chattmp/.solfiniteflowtmp//Expand; coeffPresult=coeffPtmp/.solfiniteflowtmp//Expand;
@@ -91,8 +92,8 @@ Print["finite flow done -- length result ",Length[solfiniteflowtmp]]; Chattmpres
 ReductionU[M_,degree_,Qnametmp_,Upol_, var_,varlong_]:=Block[{degtmp,poltoreduce,Qtmp,systmp,varsystmp,solfiniteflowtmp,polU,Mresult,Qtmpresult,JacUtmp,Filenametmp},
 Print["Reduction with respect to Jac(",Upol,")"]; JacUtmp=JacIdeal[Upol,var];polU=M.JacUtmp; degtmp=degree-1; Print["Degree quotient ",degtmp];Qtmp=homPols[Length[var],degtmp,Qnametmp];
 poltoreduce=polU-Qtmp*Upol; systmp=DeleteCases[Flatten[CoefficientList[poltoreduce,var]],0];  varsystmp=Complement[Variables[systmp],varlong];  Print["Number of equations ",Length[systmp], ", number of variables ", Length[varsystmp]];
-Filenametmp="Reduction-U-Case-"<>ToString[degree]<>"-"<>DateString[{"ISODate","-","Hour",":","Minute",":","Second"}]<>".txt";
-Print["system saved in ",Filenametmp]; Save[Filenametmp,{systmp,varsystmp}];
+If[SaveFile,Filenametmp="Reduction-U-Case-"<>ToString[degree]<>"-"<>DateString[{"ISODate","-","Hour",":","Minute",":","Second"}]<>".txt";
+Print["system saved in ",Filenametmp]; Save[Filenametmp,{systmp,varsystmp}];]
 Print["Calling Finite Flow "];solfiniteflowtmp=FFDenseSolve[Equal[#,0]&/@systmp,varsystmp,"ApplyFunction"->Together,MaxPrimes->20];
 If[solfiniteflowtmp==FFImpossible, Echo["System cannot be solved"]];
 Print["finite flow done -- length result ",Length[solfiniteflowtmp]];Mresult=M/.solfiniteflowtmp; Qtmpresult=Qtmp/.solfiniteflowtmp; {Mresult,degtmp,Qtmpresult,solfiniteflowtmp}]

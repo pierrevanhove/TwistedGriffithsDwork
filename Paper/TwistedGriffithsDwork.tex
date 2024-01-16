@@ -489,7 +489,7 @@ annihilating the differential form $\Omega_\Gamma^{\epsilon,\kappa}$
 	\over\partial z_r\right)^{a_r}  \right)\Omega_\Gamma^{\epsilon,\kappa}=d\beta^{\epsilon,\kappa}_\Gamma,
 \end{equation}
 where $c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)$ are rational functions of the physical
-parameters but they are independent of the edge variables $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^{\epsilon,\kappa}$~\cite{Lairez:2022zkj}.
+parameters, but they are independent of the edge variables $x_1,\dots,x_n$. The inhomogeneous term is a total derivative in $x_i$'s where the only allowed poles are those already present in $\Omega_\Gamma^{\epsilon,\kappa}$~\cite{Lairez:2022zkj}.
 %
 Because the domain of integration of the Feynman integral does not
 depend on the physical parameters, we then deduce
@@ -574,7 +574,7 @@ of~\eqref{e:PDE}
 	P^{(a_1,\dots,a_r)}(\underline x) = \vec C_{\mathsf{a}}(\underline x)\cdot
 	\vec\nabla   \textbf{F}_\Gamma \, ,
       \end{equation}
-      where we have introduce the gradient $	\vec\nabla   \textbf{F}_\Gamma :=\left(\partial_{x_1}
+      where we have introduced the gradient $	\vec\nabla   \textbf{F}_\Gamma :=\left(\partial_{x_1}
       \textbf{F}_\Gamma(\underline x),\dots, \partial_{x_n}
       \textbf{F}_\Gamma(\underline x)\right)$.
 %
@@ -615,8 +615,8 @@ Following the same steps as in~\cite{Griffiths_1969}, we have
  dx_1\wedge \cdots \wedge \widehat{dx_i}\wedge \cdots \wedge\widehat{dx_j}\wedge
   \cdots \wedge dx_n  \, .
 \end{multline}
-Using the homogeneity of $\mathbf{F}_\Gamma$ and the
-components of $\vec G_{\mathsf{a}}(\underline x)$ we have
+From the degree of homogeneity of $\mathbf{F}_\Gamma$ and the
+components of $\vec G_{\mathsf{a}}(\underline x)$ 
 \begin{align}
   \sum_{i=1}^n x_i {\partial\mathbf{F}_\Gamma (\underline x)\over \partial x_i}&=
                                                                   (L+1) \mathbf{F}_\Gamma (\underline x),\cr
@@ -783,8 +783,8 @@ freedom given by the syzygies of $\textrm{Jac}(\textbf{F}_\Gamma)
  :=\langle \vec\nabla \textbf{F}_\Gamma(\underline x)\rangle$ and
 $\textrm{Jac}(\textbf{U}_\Gamma)$ since they belong to
 the kernel of equation~\eqref{e:RedF} and~\eqref{e:RedU}
-respectively.\footnote{It was noticed in~\cite{Lairez:2022zkj} that in
-  the rational case only the first order syzygies are needed to take
+respectively.\footnote{It was noticed in~\cite{Lairez:2022zkj},  that in
+  the rational case, only the first order syzygies are needed to take
   into account the non-isolated singularities of Feynman integrals.}
 %
 %
@@ -1033,7 +1033,7 @@ the edge parameters $\underline x$. This allows to determine the smallest order 
 algorithm closes to give a differential operator.
 
 The Griffiths-Dwork algorithm does not automatically
-lead to an irreducible differential differential operator.
+lead to an irreducible differential operator.
 The factorisation of a linear ordinary
 differential operator can be done with the {\tt DFactor} routine from
 {\tt Maple} up to the order 4 for generic parameters~\cite{PutSinger,vanHoeij}, and to any
@@ -1099,14 +1099,16 @@ continuation of Section~\ref{sec:Twisted}.
 The first example we consider is the so-called on-shell massless box. We define the usual Mandelstam invariants as $t=(k_1+k_3)^2$, $s=(k_1+k_2)^2$.  The graph polynomials are given by
 \begin{equation}
 	\label{e:Boxgraphpolynomials}
-	\textbf{U}_{\Box}=\sum_{i=1}^4 x_i,\qquad
+	\textbf{U}_{\Box}=x_1+\cdots +x_4,\qquad
 	\textbf{F}_{\Box}(s,t)=-t x_2x_4-sx_1x_3 \, .
 \end{equation}
-The twisted differential in $D=4-2\epsilon$ in the projective
-space $\mathbb P^3$
+The twisted differential in Eq.~\eqref{e:OmegaTwistDimReg} for the box
+graph in $D=4-2\epsilon$ in the projective
+space $\mathbb P^3$ reads $\Omega_\Box^\epsilon= \omega_\Box^\epsilon
+\,\Omega_0^{(4)}$ where
 \begin{equation}\label{e:OmegaBox}
-	\Omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}(s,t)^2
-	}\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon\,\Omega_0^{(4)} \, .
+	\omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}(s,t)^2
+	}\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon \, .
 \end{equation}
 This is a single scale function depending only on the ratio
 $X=t/s$ of the kinematic invariants, so we scale the integral obtaining
@@ -1146,8 +1148,37 @@ We then derive
 \begin{equation}\label{e:PFBox}
 	\mathscr{L}_\Box^\epsilon= (X+1) X {d\over dX}+(1+X+\epsilon)  \,.
 \end{equation}
-In this simple case the algorithm only requires one iteration. 
-The inhomogeneous term reads
+In this simple case the algorithm only requires one iteration.
+The boundary contribution in Eq.~\eqref{e:BetaGamma} is given by
+\begin{align}
+  \vec B_\Box^\epsilon&=\left\{\frac{x_4}{2 X+2},-\frac{x_1+x_2+x_3}{2
+                   X^2+2 X},\frac{x_4}{2 X+2},-\frac{x_4 (2 X+1)}{2
+                   X (X+1)}\right\}\cr
+                   &+\lambda_{0,0,1,0}^3 \left\{\frac{x_4
+                     X-x_1}{\epsilon +2},\frac{x_1-x_3}{\epsilon
+                     +2},\frac{x_3-x_4 X}{\epsilon +2},0\right\}\cr
+                     &+\lambda_{0,0,1,0}^4 \left\{\frac{(x_4-x_2)
+                       X}{\epsilon +2},\frac{x_2 X-x_3}{\epsilon
+                       +2},0,\frac{x_3-x_4 X}{\epsilon
+                       +2}\right\}\cr
+                       &+\lambda_{1,0,0,0}^4 \left\{0,\frac{x_2 X-x_1}{\epsilon +2},\frac{(x_4-x_2) X}{\epsilon +2},\frac{x_1-x_4 X}{\epsilon +2}\right\}.
+\end{align}
+The boundary vector depends on free coefficients from the
+reduction. 
+The gradient of this vector does not depend on the free coefficients
+as it reads
+\begin{equation}
+  \vec\nabla\cdot\vec B_\Box^\epsilon=\frac{x_2 x_4 X (X \epsilon +X+1)-x_1 x_3 (X+\epsilon +1)}{X (X+1) (x_2 x_4 X+x_1
+   x_3)}\, \omega_\Box^\epsilon  ,
+\end{equation}
+so that 
+\begin{equation}
+  	\mathscr{L}_\Box^\epsilon    \omega_\Box^\epsilon+\vec\nabla\cdot\vec B_\Box^\epsilon=0\,.
+\end{equation}
+
+By integrating  $\vec\nabla\cdot\vec B_\Box^\epsilon$ over the
+$\Delta_4=\{x_i\geq0,1\leq i\leq 4\}$ we get the
+inhomogeneous term 
 \begin{equation}\label{e:SourceBox}
 	\mathscr{S}_\Box^\epsilon=\frac{(\epsilon +1)\Gamma (-\epsilon -1)^2 }{\Gamma
 		(-2 \epsilon )}  \, \left( (-s)^{-1-\epsilon }+(-t)^{-\epsilon -1}\right) \, .
@@ -1222,10 +1253,10 @@ $u_{\zeta}=\left(\frac{\zeta+\bar\zeta}{2},\frac{\zeta-\bar\zeta}{2i},0,0\right)
 
 The parametric representation is given by
 $
-  I_\times(\zeta,\bar\zeta)= \int_{\Delta_3}   \Omega_\times^{2\varepsilon,-4\varepsilon}(\zeta,\bar\zeta)
+  I^\varepsilon_\times(\zeta,\bar\zeta)= \int_{\Delta_3}   \Omega_\times^{2\varepsilon,-4\varepsilon}(\zeta,\bar\zeta)
 $ the integration over the twisted differential form
 \begin{equation}
-  \Omega_\times^{2\varepsilon,-4\varepsilon}(\zeta,\bar\zeta)={\pi^{2-2\varepsilon}\Gamma(1-2\varepsilon)\over\Gamma(1-4\varepsilon)} {1\over \textbf{U}_\times
+  \Omega_\times^{2\varepsilon,2\varepsilon}(\zeta,\bar\zeta)={\pi^{2-2\varepsilon}\Gamma(1-2\varepsilon)\over\Gamma(1-4\varepsilon)} {1\over \textbf{U}_\times
     \textbf{F}_\times (\zeta,\bar\zeta)} \left(
     \textbf{F}_\times (\zeta,\bar\zeta)^{2}\over  x_2^{4}\right)^\varepsilon  \, \Omega_0^{(3)}
 \end{equation}
@@ -1249,42 +1280,114 @@ and
   \mathscr{L}_{\times,2}= (\zeta -1)\zeta\bar\zeta{\partial\over\partial\zeta}  +
    (\bar\zeta -1)\zeta\bar\zeta{\partial\over\partial\bar\zeta}+\zeta\bar\zeta-2\varepsilon(\zeta+\bar\zeta).
  \end{equation}
- We have checked\footnote{A {\tt Mathematica} notebook with  example is accessible at \href{Example-Twisted-Griffiths-Dwork.nb}{Example-Twisted-Griffiths-Dwork.nb}.}  with
+ We have checked  with
   the command {\tt OreGroebnerBasis} from the package {\tt
     HolonomicFunctions}~\cite{Koutchan} that
 they form a Gr\"obner basis with respect to the lexicographical
 ordering $\zeta,\bar\zeta$.
 
  The algorithm determines the boundary terms 
- such that
+ such that\footnote{Details are provided in the  attached {\tt
+     Mathematica}  notebook with  this example is accessible at \href{Example-Twisted-Griffiths-Dwork.nb}{Example-Twisted-Griffiths-Dwork.nb}.}
  \begin{equation}
    \mathscr{L}_{\times,r}    \left( {1\over \textbf{U}_\times
     \textbf{F}_\times (\zeta,\bar\zeta)} \left(
     \textbf{F}_\times (\zeta,\bar\zeta)^{2}\over
-    x_2^{4}\right)^\varepsilon \right)+ \vec\nabla\cdot\vec B_{\times,r}=0.
+    x_2^{4}\right)^\varepsilon \right)+ \vec\nabla\cdot\vec B^{2\varepsilon,2\varepsilon}_{\times,r}=0.
 \qquad r=1,2.
 \end{equation}
 %
-Details are provided in the  attached {\tt Mathematica} worksheet. 
+
+For computing the boundary contribution to say, $
+\mathscr{S}_{\times,1}$ we need to evaluate
+\begin{equation}
+    \mathscr{S}_{\times,1}=- \int_{\Delta_3} \vec\nabla\cdot\vec
+    B^{2\varepsilon,2\varepsilon}_{\times,1}\,.
+\end{equation}
+Integrating by part we have the expression
+\begin{multline}
+    \mathscr{S}_{\times,1}=\iint_0^\infty
+\left(\lim_{x_1\to\infty}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_1-\lim_{x_1\to0}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_1\right)dx_2dx_3\cr
++\iint_0^\infty
+\left(\lim_{x_2\to\infty}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_2-\lim_{x_2\to0}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_2\right)dx_1dx_3
++\cr\iint_0^\infty
+\left(\lim_{x_3\to\infty}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_3-\lim_{x_3\to0}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_3\right)dx_1dx_2\,.
+\end{multline}
+%
+The component of $\vec B^{2\varepsilon,2\varepsilon}_{\times,1}$
+depend on seven free parameters
+\begin{equation}
+  \label{e:varBcross}
+  \left\{\lambda^1_{1,0,0},\lambda^3_{1,1,1},\lambda^3_{1,2,0},\lambda^3_{2,1,0},\lambda^3_{0,0,1},\lambda^3_{0,1,0},\lambda^3_{1,0,0}\right\}.
+\end{equation}
+For all values of these parameters we have for $\varepsilon>0$
+\begin{equation}
+    \lim_{x_2\to\infty}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_2=\lim_{x_2\to0}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_2=0\,.
+\end{equation}
+%
+For all values of the parameters, the limits 
+$\lim_{x_1\to0}(B^{2\varepsilon,2\varepsilon}_{\times,1})_1$ and $\lim_{x_3\to0}(B^{2\varepsilon,2\varepsilon}_{\times,1})_3$ 
+are finite for $\varepsilon>0$.
+But the limits $\lim_{x_1\to\infty}(B^{2\varepsilon,2\varepsilon}_{\times,1})_1$ and $\lim_{x_3\to\infty}(B^{2\varepsilon,2\varepsilon}_{\times,1})_3$ 
+are not finite for $\varepsilon>0$.
+With the choice of the parameters 
+\begin{align}
+ \lambda^3_{1,0,0}&= -\frac{4 \varepsilon -1 }{2 (\varepsilon
+                       -1)} \lambda^3_{2,1,0},\cr
+                       \lambda^3_{0,1,0}&=\frac{(2 \varepsilon -1) \lambda^3_{1,1,1}}{\zeta  \bar\zeta (\varepsilon
+   -1)}+\frac{2 (2 \varepsilon -1) \lambda^3_{0,0,1}}{\zeta  \bar\zeta (4 \varepsilon
+                                          -1)}-\frac{(2 \varepsilon -1)
+   \lambda^3_{1,2,0}}{\varepsilon -1}\cr
+                                          &-\frac{\lambda^3_{2,1,0} (2 \zeta +2 \bar\zeta-\zeta  \bar\zeta -2+4( \zeta  \bar\zeta - \zeta  - \bar\zeta 
+                                            +1 )\varepsilon)}{2 \zeta  \bar\zeta (\varepsilon -1)}\cr
+                                            &+\frac{(2 \varepsilon -1)^2 \left(\zeta
+   +\bar\zeta -3 \zeta ^2+2 (4\zeta ^2  - \zeta   - \bar\zeta) \varepsilon
+   \right)}{ (4 \varepsilon -1)(\zeta -1) \zeta ^3 \bar\zeta (\zeta -\bar\zeta)}
+\end{align}
+we have
+$\lim_{x_1\to\infty}(B^{2\varepsilon,2\varepsilon}_{\times,1})_1=\lim_{x_3\to\infty}(B^{2\varepsilon,2\varepsilon}_{\times,1})_3=0$
+for $\varepsilon>0$. 
 
 
+The boundary term is given by
+  \begin{align}
+    \mathscr{S}_{\times,1}&=-\iint_0^\infty
+\lim_{x_1\to0}
+  (B^{2\varepsilon,2\varepsilon}_{\times,1})_1\,dx_2dx_3
+-\iint_0^\infty
+\lim_{x_3\to0}
+                            (B^{2\varepsilon,2\varepsilon}_{\times,1})_3\,dx_1dx_2,\cr
+                            &=-\frac{\pi  (2 \varepsilon -1) \left((\zeta -1)^{2 \varepsilon }
+   (\bar\zeta-1)^{2 \varepsilon }-1\right)}{ \sin (2 \pi  \varepsilon ) }\,.
+\end{align}  
+%
+It was shown in~\cite{Heckelbacher:2022fbx} that
+\begin{equation}
+   I^\varepsilon_\times(\zeta,\bar\zeta)=
+   2{\Li_2(\zeta)-\Li_2(\bar\zeta)-\frac12\log(\zeta\bar\zeta)\log\left(1-\zeta\over
+    1-\bar\zeta \right) \over \zeta-\bar\zeta}+O(\varepsilon)\,,
+\end{equation}
+where $\Li_2(z)=-\int_0^z \log(1-u)d\log u$ is the dilogarithm.
+One easily checks that
+\begin{equation}
+  \mathscr{L}_{\times,1}     I^\varepsilon_\times(\zeta,\bar\zeta)+ \mathscr{S}_{\times,1} =0+O(\varepsilon)\,.
+\end{equation}
 
 
-The algorithm gives all the information for computing the
-inhomogeneous term of the differential equations acting on the Feynman
-integrals. The inhomogeneous term  is given by the  integration of
-$\vec\nabla\cdot \vec B_\times$ in~\eqref{e:BetaGamma}  over the
-positive orthant. Performing this integration is a highly non-trivial
-task for several reasons. A first reason is that the integral of $\vec B_r$
-over the domain $\Delta_3$ diverges.
-Since these components still
-depend on undetermined variables  after having solved the linear systems from the
-Griffiths-Dwork reduction, one can make some choice of so that the
-restriction of $\vec B_{\times,r}$ to the boundary of the domain of integration
-is well-defined. Still one needs to regulate the integrals over the
-remaining edges variables  to get a finite
-result.
-Even such a simple case shows that evaluating the
+This analysis shows that the boundary term produced by the
+Griffiths-Dwork reduction is not guaranteed to be integrable over the
+positive orthant. The choice of free parameters we have made is
+equivalent to add a total derivative (or an exact form) to get a
+convergent integral.
+Such a simple case shows that evaluating the
 inhomogeneous term is not an easy task, which will not carry for most
 of the case studied in this paper. 
 
@@ -1549,7 +1652,7 @@ $c_{23}(t,\epsilon)$ are polynomials of degrees 4,2 in $t$ and
 $\epsilon$, respectively. The results are provided on the {\tt
   SageMath} worksheet \href{Sunset-Twoloop-3mass-Epsilon.ipynb}{Sunset-Twoloop-3mass-Epsilon.ipynb}
 %
-Expanding in powers of $\epsilon$ , we have
+Expanding in powers of $\epsilon$, we have
 %
 \begin{equation}
     \mathscr{S}(\vec m,t,\epsilon)=\mathscr{S}^0(\vec m,t)
@@ -1836,7 +1939,7 @@ the {\tt
 	 depend on $\epsilon$. They arise from the
 	roots of the polynomial $c^{[21^5]}_3(t,\epsilon)   $ of
 	degree 5 in $t$ and 1 in $\epsilon$.
-	\item \textbf{Generic masses non vanishing
+	\item \textbf{Generic masses non-vanishing
 		$m_1\neq m_2\neq\mu_1\neq\mu_2$ and generic
 		momenta  $k_1^2\neq k_2^2\neq
 		k_3^2\neq 1$:}  the differential operator is of order 4 and has the
@@ -1944,11 +2047,11 @@ dimensions so the $\epsilon=0$ integral are not defined.
 		\draw[dashed,thick](1,-1)--(1,1);
 		\draw[dashed,thick](3,-1)--(3,1);
 		\node[text width=0.5cm, text centered ] at (-1.2,0) {$3$};
-		\node[text width=0.5cm, text centered ] at (3.2,0) {$7$};
+		\node[text width=0.5cm, text centered ] at (3.2,0) {$5$};
 		\node[text width=0.5cm, text centered ] at (0,-1.3) {$1$};
 		\node[text width=0.5cm, text centered ] at (2,-1.3) {$6$};
 		\node[text width=0.5cm, text centered ] at (2,1.3) {$4$};
-		\node[text width=0.5cm, text centered ] at (1.2, 0) {$5$};
+		\node[text width=0.5cm, text centered ] at (1.2, 0) {$7$};
 		\node[text width=0.5cm, text centered ] at (0,1.3) {$2$};
 		\node[text width=0.5cm, text centered ] at (-1.5,1.5){$k_2$};
 		\node[text width=0.5cm, text centered ] at (3.5,1.5){$k_3$};
@@ -1966,7 +2069,7 @@ fig.~\ref{fig:doublebox} are given by
 \begin{align}
 	\label{e:DoubleBoxgraphpolynomials}
 	\textbf{U}_{\Box\!\Box}&=(x_1+x_2+x_3)(x_4+x_5+x_6)+(x_1+\cdots+x_6)x_7,\\
-	\nonumber  \textbf{F}_{\Box\!\Box}(s,t)&=-t x_3x_5x_7-s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_1+x_4)(x_2+x_6)x_7\right)
+	\nonumber  \textbf{F}_{\Box\!\Box}(s,t)&=t x_3x_5x_7+s\left( (x_1+x_2+x_3) x_4x_6+(x_4+x_5+x_6)x_1x_2+(x_2+x_4)(x_1+x_6)x_7\right)
 \end{align}
 with the twisted differential in $D=4-2\epsilon$ in the projective
 space $\mathbb P^6$
@@ -2398,7 +2501,7 @@ In the examples studied in this work we have found the following:
 	is $2^{n}-n-1$~\cite{Kalmykov:2012rr,Bitoun:2017nre}. 
 %
 %	
-	\begin{itemize}  \item The minimal differential differential operator for the all
+	\begin{itemize}  \item The minimal differential operator for the all
 		equal mass case has order  $n-1$.
 		\item At one-loop $n=2$ we have an operator of order 1, at two-loop
 		$n=3$ an operator of order 4 and at three-loop $n=4$ with generic
@@ -2540,7 +2643,17 @@ true for the regulated integrals.
 
 One motivation for presenting this algorithm is its application to
 Feynman integral in analytical regularisation which enters the evaluation of the cosmological
-correlators~\cite{Heckelbacher:2022hbq,Chowdhury:2023khl,Chowdhury:2023arc}. 
+correlators~\cite{Heckelbacher:2022hbq,Chowdhury:2023khl,Chowdhury:2023arc},
+since the commonly used  
+integration-by-part algorithms needs to be adapted to the case of
+analytic regularisation.
+
+We have shown as well how to derive a Gr\"obner basis of partial
+differential operators in some multiple scale cases. The differential
+operators produced by the algorithm of this paper should arise as
+specialisation of the system of partial differential operators
+obtained by GKZ  approach. The restriction of the GKZ  D-module is a
+difficult open problem, which we leave for further investigations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2568,7 +2681,7 @@ sunset integrals in  $D=2-2\epsilon$ dimensions
   \Gamma(1+(n-1)\epsilon)}\cr\times\int_0^\infty I_{-\epsilon}(\sqrt{t} x)
   \prod_{i=1}^{L+1}K_{-\epsilon}(m_ix)\,  x^{1+\epsilon(n-1)}dx.
 \end{multline}
-This integral representation is valid for   for $t<(m_1+\cdots +m_{n})^2$.
+This integral representation is valid for  $t<(m_1+\cdots +m_{n})^2$.
 %
 For $x\to0$ we have
 \begin{equation}
