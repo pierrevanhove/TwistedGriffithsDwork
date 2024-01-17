@@ -1,5 +1,3 @@
-# Twisted Griffths-Dwork
-
 The repository contains supplementary files for the following paper 
 
 
