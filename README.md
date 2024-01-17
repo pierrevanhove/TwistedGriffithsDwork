@@ -1,6 +1,6 @@
 # Twisted Griffths-Dwork
 
-The repository contains the files for the following papers 
+The repository contains supplementary files for the following paper 
 
 
 [Algorithms for minimal Picard-Fuchs operators of Feynman integrals in general dimensions](XXX)
