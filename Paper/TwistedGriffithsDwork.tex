@@ -199,20 +199,16 @@ determining the minimal order differential equations associated to a given
 Feynman integral in dimensional or analytic regularisation.  The algorithm is an extension
 of the Griffiths-Dwork pole reduction adapted to the case of twisted
 differential forms.
-
-
-We demonstrate the applicability of this algorithm by providing the
-inhomogeneous differential equations for the dimensionally regularised
-multiloop two-point sunset integrals: up to the 20th loop order for
+%
+In dimensional regularisation,  we demonstrate the applicability of this algorithm by explicitly providing the
+inhomogeneous differential equations for the
+multiloop two-point sunset integrals: up to 20 loops for
 the equal-mass case, the generic mass case at two-  and 
 three-loop orders. Additionally, we derive  the differential  operators
-for various  two-loop graphs.
-
-We apply, as well, our algorithm for deriving Gr\"obner basis of
-partial differential operators for the dimensionally and analytically
-regulated Witten diagrams   arising in the evaluation of the
-correlation functions and cosmological correlators of conformally coupled $\phi^4$
-  theory in four-dimensional de anti-de Sitter and de Sitter space respectively.
+for various infrared-divergent two-loop graphs. In the analytic regularisation case, we apply our algorithm for deriving Gr\"obner basis of
+partial differential operators for 
+regulated Witten diagrams, which   arise in the evaluation of  cosmological correlators of conformally coupled $\phi^4$
+  theory in four-dimensional de Sitter space.
 
 }
 
@@ -420,7 +416,7 @@ converges,  and the (unique) value of the Feynman integral is  defined by analyt
 
 
 We work in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
-$\epsilon\in\mathbb R$ and  considers as well as the situation where the powers of the propagators are shifted from integer values, that is  $\nu_i=\upnu_i
+$\epsilon\in\mathbb R$ and  consider as well the situation where the powers of the propagators are shifted from integer values, that is  $\nu_i=\upnu_i
 + p_i \kappa$ with $\{\upnu_1,\dots,\upnu_n,p_1,\dots,p_n\}\in\mathbb Z^{2n}$. The 
 differential form~(\ref{e:OmegaDef}) thus becomes a \emph{twisted
 	differential form}  $\Omega^{\epsilon,\kappa}_\Gamma
@@ -500,7 +496,7 @@ instance,
 Section~3.2 of~\cite{Bloch:2016izu} gives  a detailed derivation of the inhomogeneous term for
 the two-loop sunset integral along these lines.
 
-If the integration is done over cycle $\mathcal C$, like the one
+If the integration is done over a cycle $\mathcal C$, like the one
 defined  by the maximal cut $\mathcal C_{\rm
   max}:=\{|x_1|=\cdots=|x_n|=1\}$,  the resulting integral is
 annihilated by the  action of the differential operator~\cite{Vanhove:2018mto}
@@ -515,7 +511,7 @@ differential operators is a differential module (or D-module).  Thus, the
 differential equations we are seeking can be obtained by deriving  annihilators  of
 $\Omega_\Gamma^{\epsilon,\kappa}$, i.e., partial differential operators that
 annihilate  the integrand by acting on the physical parameter and the
-edge variables. An example of a system of partial differential equations for Feynman integrals is the Gel'fand-Kapranov-Zelevinski\u\i (GKZ) formalism, which provides
+edge variables. An example of a system of partial differential equations for Feynman integrals is the Gel'fand-Kapranov-Zelevinski\u\i {} (GKZ) system, which provides
 a D-module of differential operators acting on the toric generalisation
 of the Feynman
 integral~\cite{Vanhove:2018mto,delaCruz:2019skx,Klausen:2019hrg,Feng:2019bdx,Klemm:2019dbm,Ananthanarayan:2022ntm,Agostini:2022cgv,Matsubara-Heo:2023ylc,Munch:2022ouq}.  For obtaining the differential module acting on a
@@ -534,8 +530,8 @@ leads  to  expressions of the type
 \begin{multline}\label{e:PDE}
 \sum_{\mathsf{a}=a_1+\cdots+a_r\atop
   a_i\geq0}c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)\left(\partial\over \partial z_1\right)^{a_1}\cdots\left(\partial
-  \over\partial z_r\right)^{a_r} \Omega_\Gamma^{\epsilon,\kappa}=\cr
-{ \sum_{\mathsf{a}=a_1+\cdots+a_r\atop a_i\geq0}
+  \over\partial z_r\right)^{a_r} \Omega_\Gamma^{\epsilon,\kappa}=\cr \sum_{\mathsf{a}=a_1+\cdots+a_r\atop a_i\geq0}
+{ 
   c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)  P^{(a_1,\dots,a_r)}(\underline x)\over \textbf{F}_\Gamma^{\mathsf {a}}}\, \Omega_\Gamma^{\epsilon,\kappa},
 \end{multline}
 where 
@@ -547,7 +543,7 @@ $  P^{(a_1,\dots,a_r)}(\underline x)$ is a
 The
   pole order in the second Symanzik polynomial $\textbf{F}_\Gamma$ has increased by
   $\mathsf a$. 
-  For deriving~Eq.~\eqref{e:PFOmegaGeneric} one needs to find the
+  To derive~Eq.~\eqref{e:PFOmegaGeneric} one needs to find the
   coefficient $ c_{a_1,\dots,a_r}(\vec m,\vec s,\epsilon,\kappa)$.  From now on we consider the case where
   $\nu_1=\cdots=\nu_r=1$ so that $\nu=n$. The case with $\nu_i\neq1$
   is an immediate generalisation.
@@ -762,9 +758,9 @@ Since the $\deg(P^{(a_1,\dots,a_r)})=\mathsf{a}(L+1)$, the rank of the system~\e
              \nonumber    &
                               -\binom{(L+1) \mathsf{a}+n-1}{(L+1) \mathsf{a}}-\binom{(L+1) \mathsf{a}+n-2}{(L+1) \mathsf{a}-1}
   \end{align}
-For fixed values of the loop order $L$
-and the number of edges $n$ there is always a value of the
-number of derivative $\mathsf{a}$ such that the system has
+For fixed values of loops  $L$
+and number of edges $n$ there is always a value of the
+number of derivatives $\mathsf{a}$ such that the system has
 positive rank.
 
 A few comments are in order. In practice for Feynman integrals,   the polynomial $ P^{(a_1,\dots,a_r)}(\underline x)$ is not a generic
@@ -914,9 +910,10 @@ regulators $\epsilon$  and $\kappa$, such that
      \mathscr{L}_\Gamma^{\epsilon,\kappa} \Omega_\Gamma^{\epsilon,\kappa}= d\beta^{\epsilon,\kappa}_\Gamma.
    \end{equation}
 %
-Holonomicity of Feynman integrals gives an upper bound on the order of the differential operator $N(\Gamma,\epsilon,\kappa)$, which is  determined by
+Holonomicity of Feynman integrals gives an upper bound on the order of the differential operator, which is  determined by
  the number of master
-integrals. Let $N(\Gamma,\epsilon,\kappa)$  be the starting order of the
+integrals. For a graph $\Gamma$ the minimal order of the differential operator depends in general of the regulators.
+Let $N(\Gamma,\epsilon,\kappa)$  be the starting order of the
 reduction.  We then apply the results of Sections~\ref{sec:PoleRed}
 or~\ref{sec:PoleRedAn} so that
 %
@@ -967,7 +964,7 @@ where $M^0$ is of degree 0 so that
   q_0(t,\epsilon,\kappa)=  {c_{0}(t,\epsilon,\kappa)\over
     c_{N(\Gamma,\epsilon,\kappa)}(t,\epsilon,\kappa)}= -M^0  .
 \end{equation}
-The inhomogeneous term  $\beta_\Gamma^{\epsilon,\kappa} $ is the sum of the
+The inhomogeneous term  $\beta_\Gamma^{\epsilon,\kappa} $ is the sum of 
 $\beta^{\mathsf{a}}$ with $1\leq
 \mathsf{a}\leq N(\Gamma,\epsilon,\kappa)$
 contributions with their multiplicative factor as given
@@ -993,7 +990,7 @@ differential equation satisfied by the integrand of the Feynman
 integral
 \begin{equation}\label{e:stepfinalode}
 \left[\left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)}
-  +\sum_{r=0}^{N(\Gamma,\epsilon,\kappa)-1}
+  +\sum_{r=1}^{N(\Gamma,\epsilon,\kappa)}
   {c_{N(\Gamma,\epsilon,\kappa)-r}(t,\epsilon)\over c_{N(\Gamma,\epsilon,\kappa)}(t,\epsilon)} \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)-r}\right] \omega_\Gamma^{\epsilon,\kappa} =-\vec\nabla\cdot \vec B^{\epsilon,\kappa}_\Gamma\,.
 \end{equation}
 
@@ -1023,7 +1020,7 @@ parameters (the internal masses and kinematic
 parameters), because all the reduction amounts to solve a linear system in the projective space of
 the edge parameters $\underline x$. This allows to determine the smallest order for which the
 algorithm closes to give a differential operator.
-
+%
 The Griffiths-Dwork algorithm does not automatically
 lead to an irreducible differential operator.
 The factorisation of a linear ordinary
@@ -1098,7 +1095,7 @@ The first example we consider is the so-called on-shell massless box. We define 
 The twisted differential in Eq.~\eqref{e:OmegaTwistDimReg} for the box
 graph in $D=4-2\epsilon$ in the projective
 space $\mathbb P^3$ reads $\Omega_\Box^\epsilon= \omega_\Box^\epsilon
-\,\Omega_0^{(4)}$ where
+\,\Omega_0^{(4)}$, where
 \begin{equation}\label{e:OmegaBox}
 	\omega_\Box^\epsilon=   {1\over \textbf{F}_{\Box}(s,t)^2
 	}\left(\textbf{U}_{\Box}^2\over \textbf{F}_{\Box}(s,t)\right)^\epsilon \, .
@@ -1269,11 +1266,12 @@ and
   \mathscr{L}_{\times,2}= (\zeta -1)\zeta\bar\zeta{\partial\over\partial\zeta}  +
    (\bar\zeta -1)\zeta\bar\zeta{\partial\over\partial\bar\zeta}+\zeta\bar\zeta-2\varepsilon(\zeta+\bar\zeta).
  \end{equation}
- We have checked  with
-  the command {\tt OreGroebnerBasis} from the package {\tt
-    HolonomicFunctions}~\cite{Koutchan} that
+%
+We have checked  that
 they form a Gr\"obner basis with respect to the lexicographical
-ordering $\zeta,\bar\zeta$.
+ordering $\zeta,\bar\zeta$ using 
+the command {\tt OreGroebnerBasis}, which is part of the package {\tt
+	HolonomicFunctions}~\cite{Koutchan}. 
 
  The algorithm determines the boundary terms 
  such that\footnote{Details are provided in the  attached {\tt
@@ -1286,7 +1284,7 @@ ordering $\zeta,\bar\zeta$.
 \qquad r=1,2.
 \end{equation}
 %
-
+%
 For computing the boundary contribution to say, $
 \mathscr{S}_{\times,1}$ we need to evaluate
 \begin{equation}
@@ -1309,7 +1307,7 @@ Integrating by part we have the expression
   (B^{2\varepsilon,2\varepsilon}_{\times,1})_3\right)dx_1dx_2\,.
 \end{multline}
 %
-The component of $\vec B^{2\varepsilon,2\varepsilon}_{\times,1}$
+The components of $\vec B^{2\varepsilon,2\varepsilon}_{\times,1}$
 depend on seven free parameters
 \begin{equation}
   \label{e:varBcross}
@@ -1343,10 +1341,7 @@ With the choice of the parameters
 \end{align}
 we have
 $\lim_{x_1\to\infty}(B^{2\varepsilon,2\varepsilon}_{\times,1})_1=\lim_{x_3\to\infty}(B^{2\varepsilon,2\varepsilon}_{\times,1})_3=0$
-for $\varepsilon>0$. 
-
-
-The boundary term is given by
+for $\varepsilon>0$.  The boundary term is given by
   \begin{align}
     \mathscr{S}_{\times,1}&=-\iint_0^\infty
 \lim_{x_1\to0}
@@ -1378,7 +1373,7 @@ equivalent to add a total derivative (or an exact form) to get a
 convergent integral.
 Such a simple case shows that evaluating the
 inhomogeneous term is not an easy task, which will not carry for most
-of the case studied in this paper. 
+of the remaining cases studied in this paper. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1418,21 +1413,20 @@ correlators of  conformally coupled $\phi^4$  in  de
 	\end{figure}
 %
 We now turn to the two-loop sunset and shows how to adapt the
-Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$
-dependent integrand. For the two-loop case the differential
+Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$-dependent integrand. For the two-loop case the differential
 Eq.~\eqref{e:OmegaTwistDimReg}, setting $t=k^2$, is
 \begin{equation}\label{e:OmegaSunset}
   \Omega_{\su}^{\epsilon}(t)={1\over
-    \textbf{F}_2(t)}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \,\Omega_0^{(3)}
+    \textbf{F}_\su(t)}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon  \,\Omega_0^{(3)}
 \end{equation}
 with the graph polynomials 
 \begin{align}
- \textbf{U}_2&=x_1x_2+x_1x_3+x_2x_3,\cr
-  \textbf{F}_2(t)&=-t x_1x_2x_3 + (m_1^2x_1+m_2^2x_2+m_3^2x_3) \textbf{U}_2.
+ \textbf{U}_\su&=x_1x_2+x_1x_3+x_2x_3,\cr
+  \textbf{F}_\su(t)&=-t x_1x_2x_3 + (m_1^2x_1+m_2^2x_2+m_3^2x_3) \textbf{U}_\su.
 \end{align}
 %
 The twisted differential form $\Omega_\su^{\epsilon}$ is defined on the
-complement of the sunset elliptic curve $\mathbf{F}_2(t)=0$.
+complement of the sunset elliptic curve $\mathbf{F}_\su(t)=0$.
 %
 We discuss the equal-mass and the general case separately.
 %
@@ -1444,25 +1438,25 @@ agreement with previous results~\cite{Caffo:1998du,Remiddi:2013joa,Adams:2013nia
 \subsubsection{The equal-mass case}\label{sec:2sunset1mass}
 We derive the differential  operator satisfied by the two-loop all
 equal-mass in general dimensions. 
-We  start with at $\mathsf{a}=2$ finding
+We  start with at $N(\su,\epsilon)=2$ finding
 \begin{equation}
  \left(d\over dt\right)^2
- \Omega_{\su}^{\epsilon}(t,\epsilon)={\Gamma(3+2\epsilon)\over\Gamma(1+2\epsilon)} {(x_1x_2x_3)^2\over \textbf{F}_2(t)^3}
- \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon  \Omega_0^{(3)} ,
+ \Omega_{\su}^{\epsilon}(t,\epsilon)={\Gamma(3+2\epsilon)\over\Gamma(1+2\epsilon)} {(x_1x_2x_3)^2\over \textbf{F}_\su(t)^3}
+ \left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon  \Omega_0^{(3)} ,
 \end{equation}
 from which we can extract $P^{(2)}=2 (\epsilon +1) (2 \epsilon +1)(x_1x_2x_3)^2$. 
 %
 Accordingly, we label the unknowns with the upper index so $S^{(k)}$ indicates the $k$-th reduction. We then  perform the Jacobian reduction of $P^{(2)}$ as
 \begin{equation}\label{e:reduc}
   2 (\epsilon +1) (2 \epsilon +1)\,  (x_1x_2x_3)^2= \sum_{i=1}^3 
-  \sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \partial_{x_i}  (\mathbf{F}_2(t)) \,,
+  \sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \partial_{x_i}  (\textbf{F}_\su(t)) \,,
 \end{equation}
 %
 where we have written explicitly the components of $\vec{C}^{(2)}$ as $C^{(2)}_i=\sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e$.
 We have to solve the following equation for the coefficients $\lambda_e^{(2)}$ coupled to the equations generated by
 \begin{equation}\label{e:C2red}
 \sum_{i=1}^3 
-\sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \partial_{x_i}(\mathbf U_2) = \sum_{e\in m_{3,3}} q^{(2)}_e x^e \textbf{U}_2 \,, 
+\sum_{e\in m_{4,3}}\lambda^{(2),i}_{e} x^e \partial_{x_i}(\mathbf U_2) = \sum_{e\in m_{3,3}} q^{(2)}_e x^e \textbf{U}_\su \,, 
 %
 \end{equation}
 where $c^{(2)}=\sum_{e\in m_{3,3}} q^{(2)}_e x^e$ is an unknown homogeneous degree 3 polynomial
@@ -1474,10 +1468,10 @@ the differential form given in Eq.~\eqref{e:betadef} reads
  \begin{multline}
  	\label{eq:beta-equalmass-sunset}
    \beta_\su^\epsilon=   {x_2  C_3^{(2)}-x_3  C_2^{(2)}\over
-     \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_1+   {x_3  C_1^{(2)}-x_1 C_3^{(2)}\over
-     \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_2\cr
+     \textbf{F}_\su(t)^2} \left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon dx_1+   {x_3  C_1^{(2)}-x_1 C_3^{(2)}\over
+     \textbf{F}_\su(t)^2} \left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon dx_2\cr
    +  {x_1  C_2^{(2)}-x_2  C_1^{(2)}\over
-    \textbf{F}_2(t)^2} \left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon dx_3, 
+    \textbf{F}_\su(t)^2} \left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon dx_3, 
  \end{multline}
 which leads to 
 %
@@ -1485,8 +1479,8 @@ which leads to
  (2+2\epsilon)\left(d\over dt\right)^2
   \Omega_{\su}^{\epsilon}(t,\epsilon)=
  \left({\sum_{i=1}^3 \partial_i C_i^{(2)}\over
-     \textbf{F}_2(t)^{2}}+3\epsilon{\sum_{i=1}^3 C_i^{(2)}\partial_i
-     \log \textbf{U}_2\over \textbf{F}_2(t)^{2}}\right)\cr \times\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0^{(3)}-d(2\beta_\su^\epsilon).
+     \textbf{F}_\su(t)^{2}}+3\epsilon{\sum_{i=1}^3 C_i^{(2)}\partial_i
+     \log \textbf{U}_\su\over \textbf{F}_\su(t)^{2}}\right)\cr \times\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0^{(3)}-d(2\beta_\su^\epsilon).
 \end{multline}
 %
 Therefore using Eq.\eqref{e:Mdimregfinal}, we define
@@ -1500,7 +1494,7 @@ leading to reduction of pole
  \left(d\over dt\right)^2
   \Omega_{\su}^{\epsilon}(t,\epsilon)=
 {M^{(2)}\over
-     \textbf{F}_2^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0^{(3)}+d\beta_\su^\epsilon \, ,
+     \textbf{F}_\su^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0^{(3)}+d\beta_\su^\epsilon \, ,
  \end{equation}
 where we have used~\eqref{e:C2red}.
 %
@@ -1510,28 +1504,28 @@ We now add the first derivative with an unknown rational coefficient $q_1(t,\eps
   \Omega_{\su}^{\epsilon}(t,\epsilon) +q_1(t,\epsilon) \left(d\over dt\right)
   \Omega_{\su}^{\epsilon}(t,\epsilon) =
 {M^{(1)}\over
-     \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta_\su^\epsilon \, , 
+     \textbf{F}_\su(t)^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0+d\beta_\su^\epsilon \, , 
  \end{multline}
 where $M^{(1)}:=M^{(2)}+q_1(t,\epsilon) x_1x_2x_3(1+2\epsilon)$.
  We then reduce the pole by writing
  \begin{equation}\label{e:M2red}
    M^{(1)}= \sum_{i=1}^3
-   C_i^{(1)} \partial^i \textbf{F}_2(t) \,, 
+   C_i^{(1)} \partial^i \textbf{F}_\su(t) \,, 
  \end{equation}
- where $ C_i^{(1)}$ are unknown homogeneous degree 1.
+ where $ C_i^{(1)}$ are unknown homogeneous degree 1 polynomials.
 Thus,
 \begin{equation}
  \left(d\over dt\right)^2
   \Omega_{\su}^{\epsilon}(t,\epsilon) +q_1(t,\epsilon) \left(d\over dt\right)
   \Omega_{\su}^{\epsilon}(t,\epsilon) =
 { \sum_{i=1}^3
-   C_i^{(1)} \partial^i \textbf{F}_2(t)\over
-     \textbf{F}_2(t)^{2}}\left(\textbf{U}_2^3\over \textbf{F}_2(t)^2\right)^\epsilon \Omega_0+d\beta_\su^\epsilon
+   C_i^{(1)} \partial^i \textbf{F}_\su(t)\over
+     \textbf{F}_\su(t)^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0+d\beta_\su^\epsilon \,.
  \end{equation}
 %
 The last step to compute the differential operator is to derive the constant term, which must reduce the poler order of the right-hand-side of this equation. We thus impose
 \begin{equation}\label{e:c0}
-  \sum_{i=1}^3C_i^{(1)}\partial^i \textbf{F}_2(t)+ q_0(t,\epsilon) \textbf{F}_2 (t) =0.
+  \sum_{i=1}^3C_i^{(1)}\partial^i \textbf{F}_\su(t)+ q_0(t,\epsilon) \textbf{F}_\su (t) =0.
 \end{equation}
 %
 Solving all the equations needed for the pole reduction lead
@@ -1570,7 +1564,7 @@ as it should be from the general considerations of Section~\ref{sec:deriv-diff-e
 From the solutions, we can compute the  inhomogeneous term is given by evaluating the integral 
 \begin{equation}
   \mathscr{S}_\su^\epsilon
-  =-\int_{\Delta_3} \vec\nabla\cdot\vec B^\epsilon_\su.
+  =-\int_{\Delta_3} \vec\nabla\cdot\vec B^\epsilon_\su \,.
 \end{equation}
 %
 Because the denominator of $ B^\epsilon_\su$ has a pole at the coordinate
@@ -1580,7 +1574,7 @@ $\mathbb P^1$ of radius $\rho$ (see Eq.~(3.47) of~\cite{Bloch:2016izu})
 \begin{equation}
     \mathscr{S}_\su^\epsilon=\lim_{\rho\to0} \sum_{i=1}^3
     \int_{\partial\tilde\Delta_3|_{x_i=0}} \sum_{1\leq j\neq i\leq 3}
-    (B^\epsilon_\su)_j dx_j
+    (B^\epsilon_\su)_j dx_j \, .
 \end{equation}
 A computation identical to the one performed in~\cite{Bloch:2016izu} leads to
 \begin{equation}
@@ -1639,7 +1633,7 @@ Its action on the Feynman integral is given by
 where $c_{12}(t,\epsilon)$, $c_{13}(t,\epsilon)$ and
 $c_{23}(t,\epsilon)$ are polynomials of degrees 4,2 in $t$ and
 $\epsilon$, respectively. The results are provided on the {\tt
-  SageMath} worksheet \href{Sunset-Twoloop-3mass-Epsilon.ipynb}{Sunset-Twoloop-3mass-Epsilon.ipynb}
+  SageMath} worksheet \href{Sunset-Twoloop-3mass-Epsilon.ipynb}{Sunset-Twoloop-3mass-Epsilon.ipynb} .
 %
 Expanding in powers of $\epsilon$, we have
 %
@@ -1739,7 +1733,7 @@ We consider the two points  Kite graph with three massive propagators and
 \mathbf F _{\Kite}(m^2,p^2)=k^2 (x_1 x_2 x_3 x_4\sum_{i=1}^4 x_i^{-1}+(x_1+x_4)(x_2+ x_3) x_5)
 -m^2 (x_1+x_3+x_5) 	\mathbf U_{\Kite} 
 \end{multline}
-Now setting $k^2=X m^2$ we have  single scale problem and now set $m=1$
+Now setting $k^2=X m^2$ we have  single scale problem and now set $m=1$ so
 \begin{equation}
   \Omega_{\Kite}^\epsilon=   {\mathbf U_{\Kite}^{5-3\delta}\over
     \mathbf F_{\Kite}(1,X)^{5-2\delta}}\left(\mathbf U_{\Kite}^3\over
@@ -1749,8 +1743,6 @@ Now setting $k^2=X m^2$ we have  single scale problem and now set $m=1$
 It was shown
 in~\cite{Broadhurst:1987ei,Adams:2016xah,Lairez:2022zkj} that the two point Kite graph with generic masses satisfies a
 first order differential equation in four dimensions.
-
-
 The integrand of the Feynman integral is the twisted differential form
 
 \begin{equation}
@@ -1802,14 +1794,14 @@ $D=2-2\epsilon$ dimensions is given by
 with
 \begin{align}
 	\textbf{U}_{\IceCream}&:=(y_1+y_2)(x_1+z)+zx_1,\cr
-	\textbf{V}_{\IceCream}&:=k_2^2y_1y_2(z+x_1)+zx_1(k_1^2y_1+k_2^2y_2),\\
-	\nonumber  \textbf{F}_{\IceCream;D}(t)&:=
+	\textbf{V}_{\IceCream}&:=k_2^2y_1y_2(z+x_1)+zx_1(k_1^2y_1+k_3^2y_2),\\
+	\nonumber  \textbf{F}_{\IceCream}(t)&:=
 	(\mu_1^2y_1+\mu_2^2y_2^2+m_1^2x_1+m_2^2z) \textbf{U}_{\IceCream}-t \textbf{V}_{\IceCream;D}.
 \end{align}
 
 We seek an $\epsilon$-deformed differential
 operator with respect to $t$ determined in~\cite{Lairez:2022zkj,Doran:2023yzu}.
-
+%
 We find the following results (some numerical cases are accessible on
 the {\tt
   SageMath} worksheet \href{IceCream-Epsilon.ipynb}{IceCream-Epsilon.ipynb}.)
@@ -1843,7 +1835,7 @@ the {\tt
 		\right)\circ \left({{d\over dt}} +\frac{2 t -4}{\left(t -1\right) \left(t -3\right)}
 		\right).
 	\end{multline}
-	The most right operator is the minimal differential equation for the
+	The  rightmost operator is the minimal differential equation for the
 	$\epsilon=0$ case~\cite{Lairez:2022zkj}
 	\begin{equation}
 		L_{\IceCream}^{[7]}= {d\over dt}+ {2(t - 2)\over (t - 1)(t - 3)  }.
@@ -1862,7 +1854,7 @@ the {\tt
 	where $ \mathscr{L}_{\IceCream,n}^{[41^3],r}$  is of order $n$. The
 	$\epsilon^0$ term factorises as
 	\begin{equation}
-		\mathscr{L}_{\IceCream,3}^{[41^3],0}=\mathscr{L}_{a,1}^0 \mathscr{L}_{\IceCream}^{[41^3],0}      
+		\mathscr{L}_{\IceCream,3}^{[41^3],0}=\mathscr{L}_{a,1}^0 \mathscr{L}_{\IceCream}^{[41^3],0} \,,      
 	\end{equation}
 	where $\mathscr{L}_{a,1}^0$ is a first order operator   and the second order
 	differential operator  $\mathscr{L}_{\IceCream}^{[41^3] ,0}
@@ -1910,7 +1902,7 @@ the {\tt
 	where $ \mathscr{L}_{\IceCream,n}^{[21^5],r}$  is of order $n$. The
 	$\epsilon^0$ term factorises as
 	\begin{equation}
-		\mathscr{L}_{\IceCream,3}^{[21^5],0}=\mathscr{L}_{a,1}^0 \mathscr{L}_{\IceCream}^{[21^5] ,0      }
+		\mathscr{L}_{\IceCream,3}^{[21^5],0}=\mathscr{L}_{a,1}^0 \mathscr{L}_{\IceCream}^{[21^5] ,0      } \, ,
 	\end{equation}
 	where $\mathscr{L}_{a,1}^0$ is a first order operator and the second order
 	differential operator  $\mathscr{L}_{\IceCream}^{[21^5] ,0}
@@ -2001,18 +1993,18 @@ $m=1$ and defining the  $2k_1 \cdot k_2 = X$ with $k_1^2=k_2^2=0$ and $k_1+k_2+k
 \begin{multline}
 \mathbf F _{\chickenDiag}(X)=-\left((x_3+x_4+x_5+x_6)x_1x_2+x_1x_3x_5+x_2x_4x_6\right) X
 \cr
-+\left(x_3+x_4+x_5+x_6\right) 	\mathbf U_{\chickenDiag} 
++\left(x_3+x_4+x_5+x_6\right) 	\mathbf U_{\chickenDiag} \, .
 \end{multline}
-
+%
 The integrand of the Feynman integral is the twisted differential form
-
+%
 \begin{equation}
 \Omega_{\chickenDiag} ={	\mathbf U_{\chickenDiag}^{6-3\delta} \over \mathbf (F _{\chickenDiag}(X))^{6-2\delta}}\,\left(	\mathbf U_{\chickenDiag}^3\over \mathbf F _{\chickenDiag}(X)^2\right)^\epsilon\,\Omega^{(0)}_6.
 \end{equation}
-
+an the differential operator is
  \begin{equation}
 	\label{eq:roastchicken}
-	\mathscr{L}^\epsilon_{\chickenDiag}=(16+X)X^2\left(d\over dX\right)^2+(2 (X+8) \epsilon +7 X+80) X{d\over dX} +4 (X+6) \epsilon +4 (2 X+15)
+	\mathscr{L}^\epsilon_{\chickenDiag}=(16+X)X^2\left(d\over dX\right)^2+(2 (X+8) \epsilon +7 X+80) X{d\over dX} +4 (X+6) \epsilon +4 (2 X+15) \, .
       \end{equation}
 %-----------------------------------------------------------------------
 \subsection{The four-point planar and non-planar double boxes graph}\label{sec:doubleboxes}
@@ -2163,7 +2155,7 @@ between conformally coupled field analysed in Section~5.3.4 of~\cite{Chowdhury:2
 The cosmological correlator is the integration over the energy of the
 two-loop flat space integral analytically regulated
 \begin{equation}
-  I_{\IceCream}= \int \frac{d^{4}L_{2}d^{4}L_{4}}{(L_2^2)^{1+\kappa}(L_4^2)^{1+\kappa}((L_4+L_2+Q)^2)^{1+\kappa}((L_4+L_2+\tilde Q)^2))^{1+\kappa} }  
+  I_{\IceCream}= \int \frac{d^{4}L_{2}d^{4}L_{4}}{(L_2^2)^{1+\kappa}(L_4^2)^{1+\kappa}((L_4+L_2+Q)^2)^{1+\kappa}((L_4+L_2+\tilde Q)^2))^{1+\kappa} }  \,,
 \end{equation}
 where $\vec k_1+\vec k_2+\vec k_3+\vec k_4=0$ and $Q=(\omega_3,\vec
 k_3)$ and $\tilde Q=(\omega_4,-\vec k_4)$.
@@ -2243,17 +2235,17 @@ the $n-1$-loop sunset integral with $n\geq2$ in $D=2-2\epsilon$ dimensions. Eq.~
 \begin{equation}
   I^{\epsilon}_{\su(n-1)}(\vec m,t,\epsilon)= \int_{\Delta_n} \Omega^{\epsilon}_{\su(n-1)}(\vec m,t,\epsilon)  ; \quad
   \Omega^\epsilon_{\su(n-1)}(\vec m, t,\epsilon)={\Omega^{(n)}_0\over
-    \textbf{F}_{n-1}(t)}\left(\textbf{U}_{n-1}^n\over \textbf{F}_{n-1}(t)^{n-1}\right)^\epsilon
+    \textbf{F}_{\su(n-1)}(t)}\left(\textbf{U}_{\su(n-1)}^n\over \textbf{F}_{\su(n-1)}(t)^{n-1}\right)^\epsilon
 \end{equation}
 with
 \begin{align}
-  \textbf{ U}_{n-1}&= x_1\cdots x_n\sum_{i=1}^n {1\over x_i}\,, \cr
-      \textbf{   F}_{n-1}(t)&= \textbf{U}_{n-1} \sum_{i=1}^n m_i^2x_i-t x_1\cdots x_n \, .
+  \textbf{ U}_{\su(n-1)}&= x_1\cdots x_n\sum_{i=1}^n {1\over x_i}\,, \cr
+      \textbf{   F}_{\su(n-1)}(t)&= \textbf{U}_{n-1} \sum_{i=1}^n m_i^2x_i-t x_1\cdots x_n \, .
 \end{align}
-Notice that $\textbf{U}_{n-1}^n/ \textbf{F}_{n-1}(t)^{n-1}$ is a homogeneous
+Notice that $\textbf{U}_{\su(n-1)}^n/ \textbf{F}_{\su(n-1)}(t)^{n-1}$ is a homogeneous
 rational function  of degree
 0 in $(x_1,\dots,x_n)$. As usual the differential form is defined in
-the complement of the vanishing locus of the denominator in $\mathbb P^{n-1}\backslash\{\textbf{F}_{n-1}(t)=0\}$.
+the complement of the vanishing locus of the denominator in $\mathbb P^{n-1}\backslash\{\textbf{F}_{\su(n-1)}(t)=0\}$.
 In $D=2$ dimension ($\epsilon=0$) we have a rational  differential form
 $ \Omega_{\su(n-1)}^{\epsilon}(\vec m,t,0)$. The differential operator has been
 given up to six loops  for $\epsilon=0$, and it is in agreement with the Feynman integral
@@ -2305,7 +2297,7 @@ results which are as well given on the  {\tt
   discussed in the previous section. The $\epsilon^0$ operator was derived and analysed in~\cite{Vanhove:2014wqa,Bloch:2014qca,Pogel:2022yat}. For $ \epsilon \ne 0$, the differential operator reads
    \end{itemize}
   \begin{multline}
-    \mathscr{L}_\su^{[4],\epsilon}=
+    \mathscr{L}_{\su(3)}^{[4],\epsilon}=
     -(t - 16)  (t - 4)  t^2\left(d\over dt\right)^3 - 6  (t^3 -
                               15  t^2 + 32  t)  \left(d\over dt\right)^2 - (7  t^2 - 68  t +
                               64)  \left(d\over dt\right) - t + 4\cr
@@ -2321,22 +2313,22 @@ results which are as well given on the  {\tt
   \item   {\bf Case~$[31]$:} For two different masses $m_1=m_2=m_3 \neq m_4$ the
   differential operator is of order 5 and has the following $\epsilon$ dependence
   \begin{equation}
-    \mathscr{L}^{[31],\epsilon}_\su=       \sum_{r=0}^1 \epsilon^r
+    \mathscr{L}^{[31],\epsilon}_{\su(3)}=       \sum_{r=0}^1 \epsilon^r
     \mathscr{L}^{[31],r}_{5}+  \sum_{r=0}^4 \epsilon^{2+r}   \mathscr{L}^{[31],r}_{4-r} \, ,
   \end{equation}
   where  $ \mathscr{L}^{[31],r}_{n}$ are of order $n$.
   The order $\epsilon^0$ operator factorises as
   \begin{equation}
-         \mathscr{L}^{[31],0}_{5}=   \mathscr{L}^{[31],0}_{a,1} \mathscr{L}^{[31],\epsilon}_\su \, , 
+         \mathscr{L}^{[31],0}_{5}=   \mathscr{L}^{[31],0}_{a,1} \circ \mathscr{L}^{[31],\epsilon}_{\su(3)} \, , 
        \end{equation}
         where  $ \mathscr{L}^{[31],0}_{a,1}$ is a  first order operator
-       and $\mathscr{L}^{[31],0}_\su$ is the fourth order
+       and $\mathscr{L}^{[31],0}_{\su(3)}$ is the fourth order
        differential operator of the
        three-loop sunset integral with mass configuration $[31]$ (see 
        in Section~4.3 of~\cite{Lairez:2022zkj}).
        The coefficient of the highest order term $(d/dt)^5$    is given by
        \begin{multline}
-                   \mathscr{L}^{[31],\epsilon}_\su\Big\vert_{(d/dt)^5}=
+                   \mathscr{L}^{[31],\epsilon}_{\su(3)}\Big\vert_{(d/dt)^5}=
                    t^3  (t-(m_1-m_4)^2)(t-(m_1+m_4)^2)(t-(3m_1+m_4)^2) \cr\times (t-(3m_1-m_4)^2)
             q^{[31]}(t,\epsilon)      .
                  \end{multline}
@@ -2346,22 +2338,22 @@ results which are as well given on the  {\tt
 \item   {\bf Case~$[22]$:} For two different masses $m_1=m_2\neq m_3 = m_4$ the
   differential operator has order 6 and the $\epsilon$ expansion 
   \begin{equation}
-    \mathscr{L}_\su^{[22],\epsilon}=     \sum_{r=0}^3 \epsilon^r
+    \mathscr{L}_{\su(3)}^{[22],\epsilon}=     \sum_{r=0}^3 \epsilon^r
     \mathscr{L}^{[22],r}_{6}+  \sum_{r=0}^5 \epsilon^{4+r}   \mathscr{L}^{[22],r}_{5-r} \, ,
   \end{equation}
   where  $ \mathscr{L}^{[22],r}_{n}$ are 
   operators of order $n$.
   The order $\epsilon^0$ operator factorises as
   \begin{equation}
-         \mathscr{L}^{[22],0}_{6}=   \mathscr{L}^{[22],0}_{a,1} \mathscr{L}^{[22],0}_{b,1}\mathscr{L}^{[22],0}_\su \,,
+         \mathscr{L}^{[22],0}_{6}=   \mathscr{L}^{[22],0}_{a,1} \circ \mathscr{L}^{[22],0}_{b,1} \circ\mathscr{L}^{[22],0}_{\su(3)} \,,
        \end{equation}
        where  $ \mathscr{L}^{[22],0}_{a,1}$ and $
        \mathscr{L}^{[22],0}_{b,1}$ are first order operators. 
-        $\mathscr{L}^{[22],0}_\su$ is the fourth order operator for the
+        $\mathscr{L}^{[22],0}_{\su(3)}$ is the fourth order operator for the
        three-loop sunset integral with mass configuration $[22]$ given  Section~4.3 of~\cite{Lairez:2022zkj}.
     The coefficient of the highest order term $(d/dt)^6$    is given by
        \begin{multline}
-                   \mathscr{L}^{[22],\epsilon}_\su\Big\vert_{(d/dt)^6}=
+                   \mathscr{L}^{[22],\epsilon}_{\su(3)}\Big\vert_{(d/dt)^6}=
                    t^4(t-(2m_1)^2)(t-(2m_4)^2)(t-(2m_1+2m_4)^2)\cr\times(t-(2m_1-2m_4)^2)
                    \, q^{[22]}(t,\epsilon).
                  \end{multline}
@@ -2371,22 +2363,22 @@ results which are as well given on the  {\tt
      \item   {\bf Case~$[211]$:} For three different masses $m_1=m_2\neq m_3 \neq m_4$ the
   differential operator has order 7 and has the $\epsilon$ expansion
   \begin{equation}
-    \mathscr{L}^{[211],\epsilon}_\su=       \sum_{r=0}^8 \epsilon^r
+    \mathscr{L}^{[211],\epsilon}_{\su(3)}=       \sum_{r=0}^8 \epsilon^r
     \mathscr{L}^{[211],r}_{7}+  \sum_{r=0}^6 \epsilon^{9+r}   \mathscr{L}^{[22],r}_{6-r} \,,
   \end{equation}
    where  $ \mathscr{L}^{[211],r}_{n}$ 
   are operators of order $n$.
     The order $\epsilon^0$ operator factorises as
   \begin{equation}
-         \mathscr{L}^{[211],0}_{7}=   \mathscr{L}^{[211],0}_{a,1}  \mathscr{L}^{[211],0}_{b,1} \mathscr{L}^{[211],0}_{c,1}\mathscr{L}^{[211],0}_\su \,,
+         \mathscr{L}^{[211],0}_{7}=   \mathscr{L}^{[211],0}_{a,1} \circ  \mathscr{L}^{[211],0}_{b,1} \circ \mathscr{L}^{[211],0}_{c,1} \circ\mathscr{L}^{[211],0}_{\su(3)} \,,
        \end{equation}
         where  $ \mathscr{L}^{[211],0}_{a,1}$,  $
         \mathscr{L}^{[211],0}_{b,1}$ and  $ \mathscr{L}^{[211],0}_{c,1}$ are  first order operators
-       and $\mathscr{L}^{[211],0}_\su$ is the fifth order differential operator the
+       and $\mathscr{L}^{[211],0}_{\su(3)}$ is the fifth order differential operator the
        three-loop sunset integral with mass configuration $[211]$
        given Section~4.3 of~\cite{Lairez:2022zkj}.   The coefficient of the highest order term $(d/dt)^6$    is given by
        \begin{multline}
-                   \mathscr{L}^{[211],\epsilon}_\su\Big\vert_{(d/dt)^6}=
+                   \mathscr{L}^{[211],\epsilon}_{\su(3)}\Big\vert_{(d/dt)^6}=
                    t^5\left(t-(m_{1}-m_{2})^2\right) \left(t-(m_{1}+m_{2})^2\right)\cr\times
    \left(t-(m_{1}+m_{2}-2 m_{4})^2\right) \left(t-(m_{1}-m_{2}+2
    m_{4})^2\right) \left(t-(-m_{1}+m_{2}+2 m_{4})^2\right)\cr\times
@@ -2399,20 +2391,20 @@ results which are as well given on the  {\tt
   \item   {\bf Case~$[1111]$:} For four different masses $m_1\neq m_2\neq m_3 \neq m_4$ the
  differential operator has order 11 and has the $\epsilon$ expansion 
   \begin{equation}
-    \mathscr{L}_\su^{[1111],\epsilon}=     \sum_{r=0}^{16}\epsilon^r
+    \mathscr{L}_{\su(3)}^{[1111],\epsilon}=     \sum_{r=0}^{16}\epsilon^r
     \mathscr{L}^{[1111],r}_{11}+\sum_{r=0}^{11} \epsilon^{16+r}  \mathscr{L}^{[1111],\epsilon}_{11-r}\, .
   \end{equation}
     The order $\epsilon^0$ operator factorises as
   \begin{equation}
-         \mathscr{L}^{[1111],0}_{0,11}=   \mathscr{L}^{[1111],0}_{a_1,1}  \cdots  \mathscr{L}^{[1111],0}_{a_5,1}   \mathscr{L}^{[1111],0}_{\su}\,,
+         \mathscr{L}^{[1111],0}_{0,11}=   \mathscr{L}^{[1111],0}_{a_1,1} \circ \cdots  \circ \mathscr{L}^{[1111],0}_{a_5,1}  \circ \mathscr{L}^{[1111],0}_{\su(3)}\,,
        \end{equation}
         where  $ \mathscr{L}^{[1111],\epsilon}_{a_1,1},\dots,  \mathscr{L}^{[1111],\epsilon}_{a_5,1}$ are  first order operators
-       and $\mathscr{L}^{[1111],0}_{\su}$ is the sixth  order differential operator for the
+       and $\mathscr{L}^{[1111],0}_{\su(3)}$ is the sixth  order differential operator for the
        three-loop sunset integral with mass configuration $[1111]$
        given in~\cite{Lairez:2022zkj}.
         The coefficient of the highest order term $(d/dt)^{11}$    is given by
        \begin{multline}
-                   \mathscr{L}^{[1111],\epsilon}_\su\Big\vert_{(d/dt)^{11}}=
+                   \mathscr{L}^{[1111],\epsilon}_{\su(3)}\Big\vert_{(d/dt)^{11}}=
                    t^{11}\left(t-(m_{1}+m_{2}-m_{3}-m_{4})^2\right) \cr\times
    \left(t-(m_{1}-m_{2}+m_{3}-m_{4})^2\right)
    \left(t-(m_{1}+m_{2}+m_{3}-m_{4})^2\right) \cr\times
@@ -2458,12 +2450,12 @@ In the examples studied in this work we have found the following:
 		\item At one-loop $n=2$ we have an operator of order 1, at two-loop
 		$n=3$ an operator of order 4 and at three-loop $n=4$ with generic
 		mass configuration the differential operator
-		as   order 11.  We see that when $\epsilon\neq0$  the order of the
+		has   order 11.  We see that when $\epsilon\neq0$  the order of the
 		differential operator saturates bound given by the number of
-		irreducible master.
+		irreducible masters.
 	\end{itemize}
 	\item For the two-loop ice-cream cone the number of irreducible
-          master four.
+          masters is four.
           \begin{itemize}
             \item The generic mass and kinematics the minimal order of the $\epsilon$-deformed minimal differential
 	operator is four.
@@ -2522,7 +2514,7 @@ of the differential operator, to the contrary to the procedure
 presented in~\cite{Pogel:2022vat}. 
 %
 
-Unfortunately, in the case of special kinematic configurations that do not lead
+In the case of special kinematic configurations that do not lead
 to new singularities of the integral,  the order drop is not detected by  either the
 computation of the Euler characteristic of complement of graph
 hypersurface in the projective space of the edge variables, nor the
@@ -2551,7 +2543,7 @@ c_N(z)  {d^Nf(z)\over dz^N}+\cdots + c_0(z) f(z)=0,
 the roots of $c_N(z)$ are the singularities of the differential
 equation. A root of $c_N(z)$ where the solution $f(z)$ is
 regular is called an apparent singularity. A root of $c_N(z)$
-where the solution has a singularity is a real (See 
+where the solution has a singularity is a real singularity (See 
 Section~16.4 of~\cite{Ince} for details). 
 %
 For the case of Feynman integrals the non-apparent singularities
@@ -2604,7 +2596,7 @@ analytic regularisation.
 
 We have shown as well how to derive a Gr\"obner basis of partial
 differential operators in some multiple scale cases. The differential
-operators produced by the algorithm of this paper should arise as
+operators produced by the algorithm of this paper might arise as
 specialisation of the system of partial differential operators
 obtained by GKZ  approach. The restriction of the GKZ  D-module is a
 difficult open problem, which we leave for further investigations.
