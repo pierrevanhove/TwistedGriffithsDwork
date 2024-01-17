@@ -212,7 +212,7 @@ associated to Feynman integrals.
 We demonstrate the applicability of this algorithm by providing the
 inhomogeneous differential equations for the dimensionally regularised
 multiloop two-point sunset integrals: up to the 20th loop order for
-the all equal mass case, the generic mass case at the two-loop and the
+the all equal-mass case, the generic mass case at the two-loop and the
 three-loop order. Additionally, we present the operators
 for the two-loop three-point ice-cream cone graph, and other two-loop graphs.
 
@@ -248,7 +248,7 @@ of the integrand~\cite{Doran:2023yzu}. Intriguingly, there is  growing evidence 
 Feynman integrals correspond to relative period integrals of singular
 Calabi--Yau geometries, a connection explored in a number
 of studies,
-including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM,Pogel:2023zyd}.
+including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM,Pogel:2023zyd,Klemm:2024wtd}.
 
 It has been remarked that correlation
 functions~\cite{Heckelbacher:2022hbq}
@@ -325,7 +325,7 @@ graph. We give a Gr\"obner basis of differential operators for the
 analytically regulated
 two-loop ice-cream graph entering the cosmology correlator in dS$_4$. In Section~\ref{sec:higherloop}, we give the $\epsilon$-deformed
 differential
-equation for the all equal mass sunset up to twenty loop orders, for
+equation for the equal-mass sunset up to twenty loop orders, for
 the three-loop massive sunset.
 In Section~\ref{sec:minim-order-diff}
 we discuss the question of the minimal order differential operator,
@@ -1151,17 +1151,13 @@ We then derive
 In this simple case the algorithm only requires one iteration.
 The boundary contribution in Eq.~\eqref{e:BetaGamma} is given by
 \begin{align}
-  \vec B_\Box^\epsilon&=\left\{\frac{x_4}{2 X+2},-\frac{x_1+x_2+x_3}{2
-                   X^2+2 X},\frac{x_4}{2 X+2},-\frac{x_4 (2 X+1)}{2
-                   X (X+1)}\right\}\cr
-                   &+\lambda_{0,0,1,0}^3 \left\{\frac{x_4
-                     X-x_1}{\epsilon +2},\frac{x_1-x_3}{\epsilon
-                     +2},\frac{x_3-x_4 X}{\epsilon +2},0\right\}\cr
-                     &+\lambda_{0,0,1,0}^4 \left\{\frac{(x_4-x_2)
-                       X}{\epsilon +2},\frac{x_2 X-x_3}{\epsilon
-                       +2},0,\frac{x_3-x_4 X}{\epsilon
-                       +2}\right\}\cr
-                       &+\lambda_{1,0,0,0}^4 \left\{0,\frac{x_2 X-x_1}{\epsilon +2},\frac{(x_4-x_2) X}{\epsilon +2},\frac{x_1-x_4 X}{\epsilon +2}\right\}.
+  \vec B_\Box^\epsilon&=\left\{X\frac{x_4}{2},-\frac{x_1+x_2+x_3}{2
+                   },X\frac{x_4}{2},-\frac{x_4 (2 X+1)}{2
+                   }\right\}\cr
+                   &+\lambda_{0,0,1,0}^3 \left\{x_4
+                     X-x_1,x_1-x_3,x_3-x_4 X,0\right\}\cr
+                     &+\lambda_{0,0,1,0}^4 \left\{x_4-x_2,x_2 X-x_3,0,x_3-x_4 X\right\}\cr
+                       &+\lambda_{1,0,0,0}^4 \left\{0,x_2 X-x_1,(x_4-x_2) X,x_1-x_4 X\right\}.
 \end{align}
 The boundary vector depends on free coefficients from the
 reduction. 
@@ -1397,7 +1393,7 @@ of the case studied in this paper.
 %
 In this section we apply the algorithm to  the case of dimensionally
  regulated two loop integrals. We derive the $\epsilon$-deformation of
-the all equal mass sunset integral in Section~\ref{sec:2sunset1mass}, the general mass configuration
+the equal-mass sunset integral in Section~\ref{sec:2sunset1mass}, the general mass configuration
 sunset integral in Section~\ref{sec:2sunset3mass}, the two point kite
 integral in Section~\ref{sec:kite}, the ice-cream cone
 graph in Section~\ref{sec:ice-cream}, the non-planar roast chicken
@@ -1445,16 +1441,16 @@ with the graph polynomials
 The twisted differential form $\Omega_\su^{\epsilon}$ is defined on the
 complement of the sunset elliptic curve $\mathbf{F}_2(t)=0$.
 %
-We discuss the equal mass and the general case separately.
-% Let us start with the equal mass case.
-We apply the algorithm by starting to seek an operator of second order which enough for the equal mass case, but for the
+We discuss the equal-mass and the general case separately.
+%
+We apply the algorithm by starting to seek an operator of second order which enough for the equal-mass case, but for the
 three-mass case we find that the minimal order is four, in
 agreement with previous results~\cite{Caffo:1998du,Remiddi:2013joa,Adams:2013nia}.
 
 %----------------------------------------------------------------------
-\subsubsection{The all equal mass case}\label{sec:2sunset1mass}
+\subsubsection{The equal-mass case}\label{sec:2sunset1mass}
 We derive the differential  operator satisfied by the two-loop all
-equal mass in general dimensions. 
+equal-mass in general dimensions. 
 We  start with at $\mathsf{a}=2$ finding
 \begin{equation}
  \left(d\over dt\right)^2
@@ -1598,13 +1594,13 @@ A computation identical to the one performed in~\cite{Bloch:2016izu} leads to
  \mathscr{S}_\su^\epsilon=  -6 \, {\Gamma(1+\epsilon)^2\over \Gamma(1+2\epsilon)} \, . 
 \end{equation}
 The piece of order $\epsilon^0$ reproduces the differential operator
-for the two-loop all equal-mass sunset in $D=2$ given
+for the two-loop equal-mass sunset in $D=2$ given
 in~\cite{Bloch:2013tra,Bloch:2013tra,Vanhove:2014wqa,Bonisch:2020qmm,Pogel:2022vat}.
 
 %----------------------------------------------------------------------
 \subsubsection{The different mass case}\label{sec:2sunset3mass}
 
-For the non-equal mass case the order of the differential equation is
+For the non-equal-mass case the order of the differential equation is
 4 with the following $\epsilon$ expansion
 \begin{equation}
      \mathscr{L}^{\epsilon}_\su =   \mathscr{L}^{(1)}_1
@@ -1825,7 +1821,7 @@ We find the following results (some numerical cases are accessible on
 the {\tt
   SageMath} worksheet \href{IceCream-Epsilon.ipynb}{IceCream-Epsilon.ipynb}.)
 \begin{itemize}
-	\item {\bf The all equal kinematics
+	\item {\bf The equal-kinematics case
 		$\mu_1=\mu_2=m_1=m_2=k_1^2=k_2^2=k_3^2=1$:} the differential operator
 	has order 3 and
 	reads
@@ -1861,7 +1857,7 @@ the {\tt
 	\end{equation}
 	
 	
-	\item \textbf{ The all equal mass case
+	\item \textbf{ The equal-mass case
 		$\mu_1=\mu_2=m_1=m_2=1$ and generic momenta $k_1^2\neq
                 k_2^2\neq
 		k_3^2\neq 1$:} the differential operator is of order 3
@@ -1909,7 +1905,7 @@ the {\tt
 	on this
 	page~\href{https://nbviewer.org/github/pierrevanhove/PicardFuchs/blob/main/PF-icecream-2loop.ipynb}{PF-icecream-2loop}). The
 	$\epsilon$ deformation only affects the position of the apparent singularities. 
-	\item \textbf{The all equal mass case for the scoop
+	\item \textbf{The equal-mass case for the scoop
 		$m_1=m_2=1$ and generic masses $\mu_1\neq\mu_2\neq1$ and generic
 		momenta  $k_1^2\neq k_2^2\neq
 		k_3^2\neq 1$:}  the differential operator has order 3 and has the
@@ -2223,47 +2219,12 @@ with the graph polynomials
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Three- and higher-loop examples}\label{sec:higherloop}
 
-We now turn to the higher-loop cases. We first discuss the all equal
-mass case and then a numerical example at three-loop order with all
+We now turn to the higher-loop cases. We first discuss the equal-mass case and then a numerical example at three-loop order with all
 possible mass configurations.
 
 %----------------------------------------------------------------------
 \subsection{Minimal differential operator for higher-loop sunset}
-\begin{comment}
-\begin{figure}[h]
-  \centering
-      \begin{tikzpicture}[baseline=(x)]
-        \begin{feynman}
-       \vertex (x);
-      \vertex[left=2cm of x,label=$p$](c1l);
-      \vertex[right=2cm of x,label=$p$](c1r);
-%      \tikzfeynmanset{every vertex=dot}
-        \vertex [left=1cm  of x] (xl);
-        \vertex [right=1cm  of x] (xr);
-        \draw [color = black, fill=none, very thick] (xl)  -- (xr);
-        \draw [color = black, fill=none, very thick] (c1l)  -- (xl);
-        \draw [color = black, fill=none, very thick] (xr)  -- (c1r);
-        \diagram* {
-         (c1l) -- [fermion] (xl);
-         (xr) -- [fermion] (c1r);
-         (xl)  [color = black, fill=none, very thick] -- (xr);
-                                };
-                              \end{feynman}
-                                           \begin{pgfonlayer}{bg}
-                                             \draw  [color = black, fill=none, very thick]  (x) circle (1.1cm);
-                                              \draw  [color = black, fill=none, very thick] (x) ellipse (1.1cm
-                                              and .8cm);
-                                                \draw  [color = black, fill=none, very thick] (x) ellipse
-                                                (1.1cm and .5cm);
-                                                  \draw  [color =
-                                                  black, fill=none,
-                                                  very thick]  (x) ellipse (1.1cm and .3cm);
-                        \end{pgfonlayer}
-                   \end{tikzpicture}
-  \caption{Multi-loop sunset}
-  \label{fig:sunset}
-\end{figure}
-\end{comment}
+
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[scale=0.6]
@@ -2277,10 +2238,6 @@ possible mass configurations.
 		\node [text width=0.5cm, text centered ] at (-4,0)
                 {$p$};
                 	\node [text width=0.5cm, text centered ] at (4,0) {$p$};
-%		\node [text width=0.5cm, text centered ] at (0,-2.2){$1$};
-%		\node [text width=0.5cm, text centered ] at (0,-1.2){$2$};
-%		\node [text width=0.5cm, text centered ] at (0,1.2){$L$};
-%		\node [text width=1.5cm, text centered ] at (0,2.2){$L+1$};
 	\end{tikzpicture} 
 	\caption{Multi-loop sunset}
   \label{fig:sunset}
@@ -2309,7 +2266,7 @@ being a (relative) period of a Calabi--Yau  manifold of complex dimension $n-2$~
 
 
 %----------------------------------------------------------------------   
-   \subsubsection{The all equal mass case}\label{sec:highersunset1mass}
+   \subsubsection{The equal-mass case}\label{sec:highersunset1mass}
 Already in $D=2$ dimensions, for the sunset integral from three loops
 and higher  the Griffiths-Dwork algorithm had to be adapted because of
 the non-isolated singularities of integrand. This was achieved
@@ -2321,7 +2278,7 @@ the linear system is optimised with the use of the program {\tt
 
 
    
-For the all equal mass case $m_1=\cdots =m_{l+1}=1$ we find the sunset
+For the equal-mass case $m_1=\cdots =m_{l+1}=1$ we find the sunset
 Feynman integral satisfies the differential equation
 \begin{equation}
   \mathscr{L}_{\su(l)}^\epsilon I_\su(\{1,\dots,1\},t,\epsilon)=
@@ -2349,7 +2306,7 @@ results which are as well given on the  {\tt
   SageMath} worksheet \href{Sunset-Threeloop-Epsilon.ipynb}{Sunset-Threeloop-Epsilon.ipynb}. With the notation of Section~4 of~\cite{Lairez:2022zkj}:
 %
 \begin{itemize}
-\item  {\bf Case~$[4]$:} The all equal mass case $m_1=m_2=m_3=m_4$ has already been
+\item  {\bf Case~$[4]$:} The equal-mass case $m_1=m_2=m_3=m_4$ has already been
   discussed in the previous section. The $\epsilon^0$ operator was derived and analysed in~\cite{Vanhove:2014wqa,Bloch:2014qca,Pogel:2022yat}. For $ \epsilon \ne 0$, the differential operator reads
    \end{itemize}
   \begin{multline}
@@ -2502,7 +2459,7 @@ In the examples studied in this work we have found the following:
 %
 %	
 	\begin{itemize}  \item The minimal differential operator for the all
-		equal mass case has order  $n-1$.
+		equal-mass case has order  $n-1$.
 		\item At one-loop $n=2$ we have an operator of order 1, at two-loop
 		$n=3$ an operator of order 4 and at three-loop $n=4$ with generic
 		mass configuration the differential operator
@@ -2554,12 +2511,11 @@ understood by the factorisability of the differential operator
 For instance in Section~4 of~\cite{Lairez:2022zkj} it has been shown
 how the multi-loop sunset differential operator factorises under
 internal mass identifications. Moreover,
-the minimal order differential operator for the all equal
-mass $L$-loop sunset is $L$. This is much smaller than 
+the minimal order differential operator for the equal-mass $L$-loop sunset is $L$. This is much smaller than 
 $2^{L+1}-\binom{L+2}{\left\lfloor \frac{L+2}{2}\right\rfloor }$ for generic
 mass configurations~\cite{Lairez:2022zkj} which is the number of
 master integrals~\cite{Bitoun:2017nre}.
-The reason being that the Feynman integral for the all equal mass
+The reason being that the Feynman integral for the equal-mass
 configuration has more symmetries.  
 
 We have noticed that the algorithm presented in this work produces 
@@ -2636,7 +2592,7 @@ inhomogeneous partial differential equations satisfied by the integrand of the F
 In dimensional regularisation we have confirmed that the order the
 differential operators is smaller or equal to the number of master
 integrals. The order of the differential operators is lower for the cases of the kinematic invariants where the integrand
-presents more symmetry (equal masses, special kinematics,\dots) or
+presents more symmetry (equal-masses, special kinematics,\dots) or
 more singularities (massless internal or external states). Something
 that was already noticed in the case of finite integrals~\cite{Lairez:2022zkj}  but stays
 true for the regulated integrals.
@@ -2709,7 +2665,7 @@ such that
     implying that $\mathscr{L}(t,\partial_t)f(t,x)$ is the operator acting
     on the integral because the domain of integration is independent
     of $t$.
-On an ordinary laptop, the results for the all equal mass case and up to twenty loops order, are obtained in
+On an ordinary laptop, the results for the equal-mass case and up to twenty loops order, are obtained in
 a few second to a few minutes. Which is of the same order of time as
 the generalised Griffiths-Dwork reduction presented in the main text
 of this work.
@@ -2861,7 +2817,12 @@ H. Frellesvig, R. Morales, and M. Wilhelm
 S.~P\"ogel, X.~Wang and S.~Weinzierl,
 ``Feynman Integrals, Geometries and Differential Equations,''
 [arXiv:2309.07531 [hep-th]].
-  
+
+\bibitem{Klemm:2024wtd}
+A.~Klemm, C.~Nega, B.~Sauer and J.~Plefka,
+``Cy in the Sky,''
+[arXiv:2401.07899 [hep-th]].
+
 
 \bibitem{Heckelbacher:2022hbq}
 T.~Heckelbacher, I.~Sachs, E.~Skvortsov and P.~Vanhove,
