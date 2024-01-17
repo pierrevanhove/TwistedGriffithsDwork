@@ -19,14 +19,6 @@
 \hypersetup{colorlinks=true,linkcolor=magenta,anchorcolor=green,citecolor=cyan,filecolor=black,menucolor=black,urlcolor=brown}
 \makeatletter
 
- \usepackage[compat=1.1.0]{tikz-feynman}
-\usepackage{tikz,contour}
-\usetikzlibrary{calc,decorations.markings}
-\pgfdeclarelayer{bg}    % declare background layer
-\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
-\usetikzlibrary{positioning,decorations.markings, decorations.pathmorphing, calc}
-\tikzset{snake it/.style={decorate, decoration=snake}}
-
 
 \setcounter{secnumdepth}{7}
 \setcounter{tocdepth}{3}
@@ -241,37 +233,37 @@ for instance.
 
 
 \medskip
-By deriving the set of differential operators acting on a Feynman integral one
-gets important information about its analytic nature. For instance, 
+The set of differential operators acting on a Feynman integral gives
+important information about its analytic nature. For instance, 
 the differential  operator has real singularities at the position of
- thresholds and pseudo-thresholds, and the order of the differential
+thresholds and pseudo-thresholds, and the order of the differential
 operator is connected to the underlying algebraic geometry of the singular locus
 of the integrand~\cite{Doran:2023yzu}. Intriguingly, there is  growing evidence suggesting that certain
 Feynman integrals correspond to relative period integrals of singular
 Calabi--Yau geometries, a connection explored in a number
 of studies,
 including~\cite{Brown:2009ta,Bloch:2014qca,Bloch:2016izu,Bourjaily:2018ycu,Bourjaily:2019hmc,Bourjaily:2018yfy,Klemm:2019dbm,Bonisch:2020qmm,Bonisch:2021yfw,Bourjaily:2022bwx,Forum:2022lpz,Duhr:2022pch,Frellesvig:2023PM,Pogel:2023zyd,Klemm:2024wtd}.
-
-It has been remarked that correlation
+In addition, it has been remarked that correlation
 functions~\cite{Heckelbacher:2022hbq}
 and cosmological correlators~\cite{Heckelbacher:2022fbx,Chowdhury:2023arc}
 of conformally
 coupled $\phi^4$ field in four dimensions can be expressed in terms of
-flat space Feynman integrals.  The regulation of ultraviolet
-divergences leads to integrals in analytical regularisation.
+flat space Feynman integrals. The regulation of ultraviolet
+divergences in this case leads to integrals in analytical regularisation.
 
 In this work we give an algorithmic procedure for deriving such
 differential equations and the inhomogeneous part without having to go through the integral
 reduction to master integrals and the construction of a reducible
 system of differential equation satisfied by the set of master
-integrals.  There are several motivations for short cutting the master
-integral reductions. The integration-by-part reduction lead to large
-system of master integrals that can obscure the algebraic
+integrals. Among the motivations for finding a shortcut  to derive differential equations without relaying on   master
+integrals reduction is that the integration-by-parts reduction lead to large
+system of master integrals that may obscure the algebraic
 geometry underlying the analytic
 structure of the Feynman integrals.
-A second motivation is the application to
+Another motivation is the application to
 cosmological correlators which give rise to analytic regularisation
-for which the commonly used integration by part algorithms are not  developed. 
+for which the commonly used integration by part algorithms are not developed. 
+
 
 We work with the regularised parametric representation of a Feynman integral $
 I_\Gamma^{\epsilon,\kappa}=\int_{x_i\geq0}  \omega_\Gamma^{\epsilon,\kappa} dx_1\cdots dx_n$ attached to a
@@ -364,7 +356,7 @@ and where  $\widehat{dx_i}$ means that the term is omitted in the wedge
 product. We denote collectively the 
 variables 
 attached to all edges of
-$\Gamma$ as $\underline x:=\{x_i |1\leq i\leq n\}$. 
+$\Gamma$ as $\underline x:=\{x_i |1\leq i\leq n\}$. The exponents $\nu_i$ are the powers of propagators (internal edges) of $\Gamma$. 
 %
 The polynomials $\textbf{U}_\Gamma$ and $\textbf{F}_\Gamma$
 associated to  $\Gamma$ are defined as
@@ -375,7 +367,7 @@ follows~\cite{nakanishi1971graph,Bogner:2010kv,Weinzierl:2022eaz}.  The {\em fir
 \end{equation}
 where the sum is over all the spanning trees $\mathsf{T}$ of $\Gamma$,  i.e.  all sub-graphs ${\sf T}$ of $\Gamma$ which contain all
 vertices of $\Gamma$ so that the first Betti number (i.e. the number
-of loop) $b_1(\mathsf{T}) =0$ and the number of connected component
+of loops) $b_1(\mathsf{T}) =0$ and the number of connected component
 is 
 $b_0(\mathsf{T})=1$. The
 monomial is the product of the variables not in the spanning tree
@@ -421,17 +413,17 @@ the positive orthant
 %-----------------------------------------------------------------------
 \subsection{Twisted differential forms}\label{sec:Twisted}
 
-The Feynman integral $I_\Gamma$ can diverge  for integer values of $D$ and 
+The Feynman integral $I_\Gamma$ may diverge  for integer values of $D$ and 
 the exponents $\nu_i$, but there is an open subset of
 $(D,\nu_1,\dots,\nu_n)\in\mathbb C^{n+1}$ where  the integral
 converges,  and the (unique) value of the Feynman integral is  defined by analytic continuation~\cite{Speer}.
 
 
 We work in dimension $D=2\delta-2\epsilon$ with $\delta\in\mathbb N^*$ and
-$\epsilon\in\mathbb R$ and  considers as well that the power of the propagators are shifted from integer values, that is  $\nu_i=\upnu_i
-+ p_i \kappa$ with $\{\upnu_1,\dots,\upnu_n,p_1,\dots,p_n\}\in\mathbb Z^{2n}$, so that the 
-differential form~(\ref{e:OmegaDef}) becomes the twisted
-differential form $\Omega^{\epsilon,\kappa}_\Gamma
+$\epsilon\in\mathbb R$ and  considers as well as the situation where the powers of the propagators are shifted from integer values, that is  $\nu_i=\upnu_i
++ p_i \kappa$ with $\{\upnu_1,\dots,\upnu_n,p_1,\dots,p_n\}\in\mathbb Z^{2n}$. The 
+differential form~(\ref{e:OmegaDef}) thus becomes a \emph{twisted
+	differential form}  $\Omega^{\epsilon,\kappa}_\Gamma
 =\omega^{\epsilon,\kappa}_\Gamma \Omega_0^{(n)}$ with
 \begin{equation}\label{e:OmegaTwistAnaReg}
 	\omega^{\epsilon,\kappa}_\Gamma := { \textbf{U}_\Gamma
@@ -442,14 +434,14 @@ differential form $\Omega^{\epsilon,\kappa}_\Gamma
 	\textbf{F}_\Gamma(\underline x)\right)^{p_i}\right)^{\kappa} \, \prod_{i=1}^n x_i^{\upnu_i-1} \,.
 \end{equation}
 %
-The twists are the $\epsilon$ or $\kappa$-th powers of a homogeneous
+The twists are the $\epsilon$ or $\kappa$-th powers of  homogeneous
 degree zero rational functions on $\mathbb
 P^{n-1}$.
 
 
 Notice that we do not assume that $\epsilon$ or $\kappa$ are small numbers.
 When $\kappa=0$ we have the parametric representation of a Feynman
-integral in dimensional regularisation, and we will use the short end
+integral in dimensional regularisation, and we will use the short-hand
 notation 
 \begin{equation}\label{e:OmegaTwistDimReg}
 \omega^\epsilon_\Gamma:=\omega^{\epsilon,0}_\Gamma = { \textbf{U}_\Gamma ^{\nu_1+\cdots+\nu_n-(L+1)\delta}  \over \textbf{F}_\Gamma ^{\nu_1+\cdots+\nu_n-L\delta} }\,
@@ -461,9 +453,9 @@ notation
 
 The differential forms~(\ref{e:OmegaTwistDimReg})
 and~(\ref{e:OmegaTwistAnaReg}) are twisted differential of the kind
-studied~\cite{Aomoto1,Aomoto,Aomoto_1982,AomotoBook}.
-The relevance to Feynman integrals was already recognised in these works. 
-This has been applied in
+studied in~\cite{Aomoto1,Aomoto,Aomoto_1982,AomotoBook}.
+The relevance to Feynman integrals was already recognised in these works and has
+been applied in
 e.g.~\cite{Mizera:2017rqa,Frellesvig:2019uqt,Cacciatori:2021nli,Munch:2023ifm,Brunello:2023rpq,Teschke:2024bct}  for
 expanding Feynman integrals on the basis of master integrals. In contrast to these works, 
 %
@@ -478,7 +470,7 @@ in the construction presented in this work.
 \section{Annihilators of Feynman integrals}
 \label{sec:Red}
 Feynman integrals are holonomic functions of its physical parameters~\cite{Kashiwara:1977nf, Bitoun:2017nre, Smirnov:2010hn,Lee:2013hzt}. This means that Feynman integrals satisfy systems of  (inhomogeneous) partial
-differential equations of finite order with respect to its physical
+differential equations of finite order with respect to their physical
 parameters $\vec m$ and $\vec s$.
 
 Let us consider $r$ parameters from the set of internal masses and independent kinematics, $\underline z:=\{z_1,\dots,z_r\} \in \vec m \cup \vec s $. 
@@ -508,7 +500,7 @@ instance,
 Section~3.2 of~\cite{Bloch:2016izu} gives  a detailed derivation of the inhomogeneous term for
 the two-loop sunset integral along these lines.
 
-If the integration is done a cycle $\mathcal C$, like the one
+If the integration is done over cycle $\mathcal C$, like the one
 defined  by the maximal cut $\mathcal C_{\rm
   max}:=\{|x_1|=\cdots=|x_n|=1\}$,  the resulting integral is
 annihilated by the  action of the differential operator~\cite{Vanhove:2018mto}
@@ -518,14 +510,13 @@ annihilated by the  action of the differential operator~\cite{Vanhove:2018mto}
 \end{equation}
 %
 
-
 The ideal  generated by these
-differential operators is a differential module (or D-module).  Thus,
-differential equations can be obtained by deriving  annihilators  of
+differential operators is a differential module (or D-module).  Thus, the
+differential equations we are seeking can be obtained by deriving  annihilators  of
 $\Omega_\Gamma^{\epsilon,\kappa}$, i.e., partial differential operators that
 annihilate  the integrand by acting on the physical parameter and the
-edge variables.   The Gel'fand-Kapranov-Zelevinski\u\i (GKZ) formalism provides
-a D-module of differential operator acting on the toric generalisation
+edge variables. An example of a system of partial differential equations for Feynman integrals is the Gel'fand-Kapranov-Zelevinski\u\i (GKZ) formalism, which provides
+a D-module of differential operators acting on the toric generalisation
 of the Feynman
 integral~\cite{Vanhove:2018mto,delaCruz:2019skx,Klausen:2019hrg,Feng:2019bdx,Klemm:2019dbm,Ananthanarayan:2022ntm,Agostini:2022cgv,Matsubara-Heo:2023ylc,Munch:2022ouq}.  For obtaining the differential module acting on a
 given Feynman integral one needs to restrict the GKZ  D-module which
@@ -566,7 +557,7 @@ The
   \subsubsection{The pole reduction for dimensional
     regularisation}\label{sec:PoleRed}
 We give an adaption of the Griffiths-Dwork pole reduction to the case
-of the twisted differential form~(\ref{e:OmegaTwistDimReg}) from
+of the twisted differential form~(\ref{e:OmegaTwistDimReg}) in
 dimensional regularisation (i.e. $\kappa=0$ and $\epsilon\neq0$).
 The starting point of the algorithm is the reduction of polynomial
 $P^{(a_1,\dots,a_r)}(\underline x)$  in the numerator
@@ -648,7 +639,7 @@ have reduced the pole order  of $ \textbf{F}_\Gamma$ in~\eqref{e:PDE}
   \Omega_0^{(n)}+d\beta_\Gamma^{(a_1,\dots,a_r)}.
 \end{equation}
 %
-We expand the first term in the right-hand-side
+We now expand the first term in the right-hand-side
 \begin{equation}
   \vec\nabla \cdot \vec G_{\mathsf{a}}(\underline x)=  \vec\nabla \cdot \vec C_{\mathsf{a}}(\underline x) {\textbf{U}_\Gamma^{\lambda_U}\over
   \textbf{F}_\Gamma^{\lambda_F}} 
@@ -690,7 +681,7 @@ where we have used Eq.~\eqref{e:RedF} in the second equality. Therefore,
 +{  1\over \mathsf{a}-1+\lambda_F} d\beta_\Gamma^{(a_1,\dots,a_r)}.
 \end{equation}
 %
-This expression involves the $\vec
+This expression involves the term $\vec
     C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma$ which has a
     pole in $\mathbf{U}_\Gamma$. We then perform a second reduction by demanding that
     \begin{equation}
@@ -734,7 +725,7 @@ and the $\textbf{F}_\Gamma$ polynomials respectively given in~\eqref{e:powerUFDe
 
 
 
-To perform this pole reduction, 
+To perform the pole reduction, 
  we have to solve the linear system
 \begin{equation}\label{e:sysCFU}
    \left\{\begin{array}{@{}l@{}}
@@ -792,7 +783,7 @@ respectively.\footnote{It was noticed in~\cite{Lairez:2022zkj},  that in
 %
 One important property of that reduction is that the differential form $\beta_\Gamma^{(a_1,\dots,a_n)}$ is that it
 does not have poles that are not poles of $\textbf{F}_\Gamma$ which is
-guaranteed by the construction. We refer
+guaranteed by  construction. We refer
 to Section~3 of~\cite{Lairez:2022zkj} for a discussion of the pole constraints.
 %
 %
@@ -862,7 +853,7 @@ so that
 This time we need to reduce the pole in $\mathbf{U}_\Gamma$ from  the term $\vec
     C_{\mathsf{a}}\cdot\vec\nabla\log\mathbf{U}_\Gamma$ and the new
     pole in $1/x_i$ from the twisted propagators.
-    As before we do impose the following conditions
+    As before we  impose the following conditions
 \begin{equation}\label{e:sysCFUAnReg}
    \left\{\begin{array}{@{}l@{}}
 \vec C_{\mathsf{a}} (\underline x) \cdot \vec \nabla \textbf{F}_\Gamma
@@ -914,7 +905,7 @@ $\mathsf{a}=a_1$. The generalisation to the many variable  case is immediate.
 We are seeking the differential operator 
 \begin{equation}\label{e:PFgeneric}
   \mathscr{L}_\Gamma^{\epsilon,\kappa}=\sum_{\mathsf{a}=0}^{N(\Gamma,\epsilon,\kappa)}
-  c_{\mathsf{a}}x(\vec m,\vec s,\epsilon,\kappa) \left(d\over dt\right)^{\mathsf{a}}
+  c_{\mathsf{a}}(\vec m,\vec s,\epsilon,\kappa) \left(d\over dt\right)^{\mathsf{a}}
 \end{equation}
 with $c_{\mathsf{a}}(\vec m,\vec s,\epsilon,\kappa)$ polynomials in the internal masses
 $\vec m$  and the (independent) kinematic variables $\vec s$  and the
@@ -932,7 +923,7 @@ or~\ref{sec:PoleRedAn} so that
 \begin{equation}\label{e:step1}
 \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)} \Omega_\Gamma^\epsilon= {M^{
       N(\Gamma,\epsilon,\kappa)}(\underline x)\over
-    \textbf{F}_\Gamma^{N(\Gamma,\epsilon)-1}
+    \textbf{F}_\Gamma^{N(\Gamma,\epsilon,\kappa)-1}
   } \,\Omega_\Gamma^{\epsilon,\kappa}+ d\beta_\Gamma^{N(\Gamma,\epsilon,\kappa)}  
 \end{equation}
 %
@@ -940,7 +931,7 @@ The next step we add the lowest-order derivative
 
 \begin{multline}\label{e:step2}
 \left[\left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)}
-  +q_{N(\Gamma,\epsilon)-1}(t,\epsilon,\kappa) \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)-1}\right] \Omega_\Gamma^{\epsilon,\kappa}\cr= {M^{
+  +q_{N(\Gamma,\epsilon, \kappa)-1}(t,\epsilon,\kappa) \left(d\over dt\right)^{N(\Gamma,\epsilon,\kappa)-1}\right] \Omega_\Gamma^{\epsilon,\kappa}\cr= {M^{
       N(\Gamma,\epsilon,\kappa)}(\underline x)+q_{N(\Gamma,\epsilon,\kappa)-1}(t,\epsilon,\kappa)
     P^{N(\Gamma,\epsilon,\kappa)-1}(\underline x) \over
     \textbf{F}_\Gamma^{N(\Gamma,\epsilon,\kappa)-1}
