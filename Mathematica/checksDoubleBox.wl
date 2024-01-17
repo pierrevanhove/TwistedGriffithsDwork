@@ -14,8 +14,8 @@ varslong=Join[Variables[f],{eps}];
 
 (*Inhomogeneous terms: this might take a while*)
 
-Bv=((((C2sol/(f(1+n-loops(del-eps)))+C1sol/(n-loops(del-eps))))))//.Dispatch[sols1]//.Dispatch[sols2];
-gradBv=(Plus@@Table[D[omegaeps Bv[[i]],x[i]],{i,1,n}])//Expand;
+Bv=((((C2sol/(f*(1+n-loops*(del-eps)))+C1sol/(n-loops*(del-eps))))))//.Dispatch[sols1]//.Dispatch[sols2];
+gradBv=(Plus@@Table[D[omegaeps*Bv[[i]],x[i]],{i,1,n}])//Expand;
 
 
 (*check that gradient is independent of free variables*)
