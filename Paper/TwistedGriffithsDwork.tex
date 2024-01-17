@@ -524,13 +524,12 @@ differential operators is a differential module (or D-module).  Thus,
 differential equations can be obtained by deriving  annihilators  of
 $\Omega_\Gamma^{\epsilon,\kappa}$, i.e., partial differential operators that
 annihilate  the integrand by acting on the physical parameter and the
-edge variables.   The Gel'fand-Kapranov-Zelevinsky (GKZ) formalism provides
+edge variables.   The Gel'fand-Kapranov-Zelevinski\u\i (GKZ) formalism provides
 a D-module of differential operator acting on the toric generalisation
 of the Feynman
-integral~\cite{Vanhove:2018mto,delaCruz:2019skx,Klausen:2019hrg,Feng:2019bdx,Klemm:2019dbm,Ananthanarayan:2022ntm,Agostini:2022cgv,
-	Munch:2022ouq}.  For obtaining the differential module acting on a
+integral~\cite{Vanhove:2018mto,delaCruz:2019skx,Klausen:2019hrg,Feng:2019bdx,Klemm:2019dbm,Ananthanarayan:2022ntm,Agostini:2022cgv,Matsubara-Heo:2023ylc,Munch:2022ouq}.  For obtaining the differential module acting on a
 given Feynman integral one needs to restrict the GKZ  D-module which
-is a higher non-trivial task~\cite{delaCruz:2019skx,Chestnov:2023kww} and its systematic implementation is
+is a higher non-trivial task~\cite{delaCruz:2019skx,Klausen:2021yrt,Chestnov:2023kww,Dlapa:2023cvx} and its systematic implementation is
 still an open problem. In the following sections we present an
 algorithmic procedure for deriving the differential equation based on
 an extension of the Griffiths-Dwork reduction for twisted differential forms.
@@ -1056,6 +1055,7 @@ the upper bound given by the number of masters for generic values of
 the regulators  $\epsilon$  and $\kappa$. 
 This will
       be discussed further in Section~\ref{sec:minim-order-diff}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2001,8 +2001,9 @@ the {\tt
           propagators and solid lines are massive propagators. The
           external momenta $k_i$ satisfy $k_1+k_2+k_3=0$ and $k_1^2=k_2^2=0$.}\label{fig:roastchicken}
 \end{figure}
-
-We set $m=1$ and define $2k_1 \cdot k_2 = X$. We have
+For the roast chicken graph (also called the non-planar triangle-box graph) in Fig.~\ref{fig:roastchicken}, setting
+the internal mass to 
+$m=1$ and defining the  $2k_1 \cdot k_2 = X$ with $k_1^2=k_2^2=0$ and $k_1+k_2+k_3=0$. We have
 \begin{equation}
 	\mathbf U_{\chickenDiag} = (x_1+x_2)(x_3+x_4+x_5+x_6)+(x_3+x_4)(x_5+x_6),
 \end{equation}
@@ -2483,7 +2484,7 @@ This leads us to conjecture that
  for general kinematics the minimal (i.e. not
 factorisable) $\epsilon$-deformed differential operator has 
 the same order
-as the number of master integrals. But for special kinematics the minimal
+as the number of independent master integrals. But for special kinematics the minimal
 order is smaller.
 %
 The reduction of order arises when the integrand has more
@@ -2492,15 +2493,19 @@ singularities or more symmetries:
   \item {\bf More singularities:} In the case of
 massless internal lines or massless external kinematics, extra
 singularities arise thus reducing the genus of the
-singular locus of the integral. This has for  consequence a lowering
-of the order  minimal differential operator. 
+singular locus of the integral.  This has for  consequence a lowering
+of the order  minimal differential operator.
+
 \item {\bf More symmetries:}
 Another situation is when special choices of kinematic
 configurations the integrand of the Feynman integral produce extra
 symmetries in the space of projective variables $\underline
 x$. This leads to new relations between independent (period) integrals, which reduce the number of independent integrals. A typical case is the
 reduction order of the sunset integral according the mass
-configurations as given in~\cite{Bloch:2014qca,Lairez:2022zkj,Bonisch:2021yfw,Bonisch:2020qmm,Pogel:2022vat}.
+configurations as given
+in~\cite{Bloch:2014qca,Lairez:2022zkj,Bonisch:2021yfw,Bonisch:2020qmm,Pogel:2022vat}. These
+cases are not associated with the appearance of new singularities of
+the Feynman integral.
 \end{itemize}
 
 
@@ -2519,19 +2524,25 @@ mass configurations~\cite{Lairez:2022zkj} which is the number of
 master integrals~\cite{Bitoun:2017nre}.
 The reason being that the Feynman integral for the equal-mass
 configuration has more symmetries.  
-
 We have noticed that the algorithm presented in this work produces 
 the minimal  differential operator and does not need any factorisation
 of the differential operator, to the contrary to the procedure
 presented in~\cite{Pogel:2022vat}. 
 %
-%
 
-Unfortunately, the order drop is not detected by  either the
+For special kinematic configurations leading to new singularities of
+the Feynman integral, the signed Euler characteristic of the complement
+of the graph singularities in $\mathbb P^{n-1}$ is smaller than
+the generic one. These configuration below to the Euler discriminant
+variety defined in~\cite{Fevola:2023kaw}, which is 
+conjectured to contains  the singularities of the Feynman integral.
+
+Unfortunately, in the case of special kinematic configurations that do not lead
+to new singularities,  the order drop is not detected by  either the
 computation of the Euler characteristic of complement of graph
 hypersurface in the projective space of the edge variables, nor the
 computation using the critical points of the
-Lee-Pomeransky representation~\cite{Lee:2013hzt}   nor the
+Lee-Pomeransky representation~\cite{Lee:2013hzt,Agostini:2022cgv,Fevola:2023kaw}   nor the
 Baikov
 representation~\cite{Frellesvig:2017aai,Frellesvig:2019uqt,Cacciatori:2021nli}.
 For instance in ~\cite{Marzucca:2023gto} it was explained how a hidden involution symmetry of the
@@ -2675,8 +2686,9 @@ of this work.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
 
-  
 
+
+  
 \bibitem{Golubeva} V. A. Golubeva, ``Some Problems In The Analytic
   Theory Of Feynman Integrals'' , Russ. Math. Surv. {\bf 31} 139 (1976)
 
@@ -2890,7 +2902,6 @@ Lett. Math. Phys. \textbf{113} (2023) no.2, 37
 [arXiv:2209.10962 [hep-th]].
 
 
-
   \bibitem{nakanishi1971graph}
 Noboru Nakanishi,
 \newblock {\em Graph theory and Feynman integrals}, volume~11.
@@ -3049,18 +3060,44 @@ Comput. Phys. Commun. \textbf{287} (2023), 108699
 D.~Agostini, C.~Fevola, A.~L.~Sattelberger and S.~Telen,
 ``Vector Spaces of Generalized Euler Integrals,''
 [arXiv:2208.08967 [math.AG]].
+
+\bibitem{Matsubara-Heo:2023ylc}
+S.~J.~Matsubara-Heo, S.~Mizera and S.~Telen,
+``Four lectures on Euler integrals,''
+SciPost Phys. Lect. Notes \textbf{75} (2023), 1
+%doi:10.21468/SciPostPhysLectNotes.75
+[arXiv:2306.13578 [math-ph]].
+
 \bibitem{Munch:2022ouq}
 H.~J.~Munch,
 ``Feynman Integral Relations from Gkz Hypergeometric Systems,''
 PoS \textbf{LL2022} (2022), 042
 %doi:10.22323/1.416.0042
 [arXiv:2207.09780 [hep-th]].
+
+\bibitem{Klausen:2021yrt}
+R.~P.~Klausen,
+``Kinematic singularities of Feynman integrals and principal A-determinants,''
+JHEP \textbf{02} (2022), 004
+%doi:10.1007/JHEP02(2022)004
+[arXiv:2109.07584 [hep-th]].
+
+
 \bibitem{Chestnov:2023kww}
 V.~Chestnov, S.~J.~Matsubara-Heo, H.~J.~Munch and N.~Takayama,
 ``Restrictions of Pfaffian Systems for Feynman Integrals,''
 JHEP \textbf{11} (2023), 202
 %doi:10.1007/JHEP11(2023)202
 [arXiv:2305.01585 [hep-th]].
+
+
+\bibitem{Dlapa:2023cvx}
+C.~Dlapa, M.~Helmer, G.~Papathanasiou and F.~Tellander,
+``Symbol alphabets from the Landau singular locus,''
+JHEP \textbf{10} (2023), 161
+%doi:10.1007/JHEP10(2023)161
+[arXiv:2304.02629 [hep-th]].
+ 
 
 \bibitem{Mastrolia:2018uzb}
 P.~Mastrolia and S.~Mizera,
@@ -3102,7 +3139,8 @@ S.~Bloch and P.~Vanhove,
 J. Number Theor. \textbf{148} (2015), 328-364
 %doi:10.1016/j.jnt.2014.09.032
 [arXiv:1309.5865 [hep-th]].
-  
+
+ 
 \bibitem{Peraro:2019svx}
 T.~Peraro,
 ``Finiteflow: Multivariate Functional Reconstruction Using Finite Fields and Dataflow Graphs,''
@@ -3194,7 +3232,15 @@ M.~Y.~Kalmykov and B.~A.~Kniehl,
 Phys. Lett. B \textbf{714} (2012), 103-109
 %doi:10.1016/j.physletb.2012.06.045
 [arXiv:1205.1697 [hep-th]].
-  
+
+
+\bibitem{Fevola:2023kaw}
+C.~Fevola, S.~Mizera and S.~Telen,
+``Landau Singularities Revisited,''
+[arXiv:2311.14669 [hep-th]].
+
+
+
   \bibitem{Frellesvig:2017aai}
   H.~Frellesvig and C.~G.~Papadopoulos,
   ``Cuts of Feynman Integrals in Baikov Representation,''
