@@ -204,8 +204,7 @@ inhomogeneous differential equations for the
 multiloop two-point sunset integrals: up to 20 loops for
 the equal-mass case, the generic mass case at two-  and 
 three-loop orders. Additionally, we derive  the differential  operators
-for various infrared-divergent two-loop graphs. In the analytic regularisation case, we apply our algorithm for deriving Gr\"obner basis of
-partial differential operators for 
+for various infrared-divergent two-loop graphs. In the analytic regularisation case, we apply our algorithm for deriving a system of partial  differential equations for 
 regulated Witten diagrams, which   arise in the evaluation of  cosmological correlators of conformally coupled $\phi^4$
   theory in four-dimensional de Sitter space.
 
@@ -251,7 +250,7 @@ differential equations and the inhomogeneous part without having to go through t
 reduction to master integrals and the construction of a reducible
 system of differential equation satisfied by the set of master
 integrals. Among the motivations for finding a shortcut  to derive differential equations without relaying on   master
-integrals reduction is that the integration-by-parts reduction lead to large
+integrals reduction is that the integration-by-parts reduction leads to large
 system of master integrals that may obscure the algebraic
 geometry underlying the analytic
 structure of the Feynman integrals.
@@ -277,7 +276,7 @@ propagators are raised to a generalised power depending on $\kappa$.
 
 In the case when $\epsilon=\kappa=0$ and $\delta$ a positive integer, the exponents
 in~\eqref{e:OmegaAnRegIntro} are
-integers and,
+integers and
 we have a rational differential form. One can use the  Griffiths-Dwork
 pole reduction~\cite{Griffiths_1969,Griffith1,Griffith2,Dwork_1962,Dwork_1964} for determining the minimal differential operators associated to a given Feynman
 integral~\cite{Bloch:2016izu,Vanhove:2018mto,Lairez:2022zkj}.
@@ -1058,7 +1057,7 @@ $\phi^4$  in  four dimensional  de Sitter space. It was shown
  cosmological correlators of conformally coupled $\phi^4$ can be organised  as dimensionally regulated flat space Feynman integrals in position
 space. Because of the measure of integration in (anti)-de Sitter the
 resulting integrals fall into the category of the analytic
-continuation of Section~\ref{sec:Twisted}. 
+regularisation of Section~\ref{sec:Twisted}. 
 
 
 %------------------------------------------------------------------------
@@ -1290,7 +1289,7 @@ For computing the boundary contribution to say, $
     \mathscr{S}_{\times,1}=- \int_{\Delta_3} \vec\nabla\cdot\vec
     B^{2\varepsilon,2\varepsilon}_{\times,1}\,.
 \end{equation}
-Integrating by part we have the expression
+Integrating by parts we have the expression
 \begin{multline}
     \mathscr{S}_{\times,1}=\iint_0^\infty
 \left(\lim_{x_1\to\infty}
@@ -1411,7 +1410,7 @@ correlators of  conformally coupled $\phi^4$  in  de
 		  \label{fig:sunset2loop}
 	\end{figure}
 %
-We now turn to the two-loop sunset and shows how to adapt the
+We now turn to the two-loop sunset and show how to adapt the
 Griffiths-Dwork reduction used in~\cite{Bloch:2016izu,Lairez:2022zkj} to the $\epsilon$-dependent integrand. For the two-loop case the differential
 Eq.~\eqref{e:OmegaTwistDimReg}, setting $t=k^2$, is
 \begin{equation}\label{e:OmegaSunset}
@@ -1488,7 +1487,7 @@ Therefore using Eq.\eqref{e:Mdimregfinal}, we define
   M^{(2)}:={\sum_{i=1}^3 \partial^i  C_i^{(2)}+3\epsilon
     c^{(2)}\over 2+2\epsilon} \,, 
 \end{equation}
-leading to reduction of pole
+leading to the reduction of the pole
 \begin{equation}
  \left(d\over dt\right)^2
   \Omega_{\su}^{\epsilon}(t,\epsilon)=
@@ -1503,7 +1502,7 @@ We now add the first derivative with an unknown rational coefficient $q_1(t,\eps
   \Omega_{\su}^{\epsilon}(t,\epsilon) +q_1(t,\epsilon) \left(d\over dt\right)
   \Omega_{\su}^{\epsilon}(t,\epsilon) =
 {M^{(1)}\over
-     \textbf{F}_\su(t)^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0+d\beta_\su^\epsilon \, , 
+     \textbf{F}_\su(t)^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0^{(3)}+d\beta_\su^\epsilon \, , 
  \end{multline}
 where $M^{(1)}:=M^{(2)}+q_1(t,\epsilon) x_1x_2x_3(1+2\epsilon)$.
  We then reduce the pole by writing
@@ -1519,7 +1518,7 @@ Thus,
   \Omega_{\su}^{\epsilon}(t,\epsilon) =
 { \sum_{i=1}^3
    C_i^{(1)} \partial^i \textbf{F}_\su(t)\over
-     \textbf{F}_\su(t)^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0+d\beta_\su^\epsilon \,.
+     \textbf{F}_\su(t)^{2}}\left(\textbf{U}_\su^3\over \textbf{F}_\su(t)^2\right)^\epsilon \Omega_0^{(3)}+d\beta_\su^\epsilon \,.
  \end{equation}
 %
 The last step to compute the differential operator is to derive the constant term, which must reduce the poler order of the right-hand-side of this equation. We thus impose
@@ -1736,7 +1735,7 @@ Now setting $k^2=X m^2$ we have  single scale problem and now set $m=1$ so
 \begin{equation}
   \Omega_{\Kite}^\epsilon=   {\mathbf U_{\Kite}^{5-3\delta}\over
     \mathbf F_{\Kite}(1,X)^{5-2\delta}}\left(\mathbf U_{\Kite}^3\over
-    \mathbf F_{\Kite}^2\right)^\epsilon \Omega^{(0)}_5.
+    \mathbf F_{\Kite}^2\right)^\epsilon \Omega^{(5)}_0.
 \end{equation}
 
 It was shown
@@ -1745,7 +1744,7 @@ first order differential equation in four dimensions.
 The integrand of the Feynman integral is the twisted differential form
 
 \begin{equation}
-\Omega_{\Kite} ={	\mathbf U_{\Kite}^{5-3\delta} \over \mathbf (F _{\Kite}(X))^{5-2\delta}}\,\left(	\mathbf U_{\Kite}^3\over \mathbf F _{\Kite}(X)^2\right)^\epsilon\,\Omega^{(0)}_5.
+\Omega_{\Kite} ={	\mathbf U_{\Kite}^{5-3\delta} \over \mathbf (F _{\Kite}(X))^{5-2\delta}}\,\left(	\mathbf U_{\Kite}^3\over \mathbf F _{\Kite}(X)^2\right)^\epsilon\,\Omega^{(5)}_0.
 \end{equation}
 
  \begin{equation}
@@ -1787,7 +1786,7 @@ The two-loop (one scoop) ice-cream cone  differential form in
 $D=2-2\epsilon$ dimensions is given by
 \begin{equation}
 	\Omega_{\IceCream}^\epsilon(t)= {\textbf{U}_{\IceCream}\over
-		\textbf{F}_{\IceCream}^2} \left(\textbf{U}_{\IceCream}^3\over  \textbf{F}_{\IceCream}^2\right)^{\epsilon}\,\Omega_4^{(0)},
+		\textbf{F}_{\IceCream}^2} \left(\textbf{U}_{\IceCream}^3\over  \textbf{F}_{\IceCream}^2\right)^{\epsilon}\,\Omega_0^{(4)},
 \end{equation}
 
 with
@@ -1998,7 +1997,7 @@ $m=1$ and defining the  $2k_1 \cdot k_2 = X$ with $k_1^2=k_2^2=0$ and $k_1+k_2+k
 The integrand of the Feynman integral is the twisted differential form
 %
 \begin{equation}
-\Omega_{\chickenDiag} ={	\mathbf U_{\chickenDiag}^{6-3\delta} \over \mathbf (F _{\chickenDiag}(X))^{6-2\delta}}\,\left(	\mathbf U_{\chickenDiag}^3\over \mathbf F _{\chickenDiag}(X)^2\right)^\epsilon\,\Omega^{(0)}_6.
+\Omega_{\chickenDiag} ={	\mathbf U_{\chickenDiag}^{6-3\delta} \over \mathbf (F _{\chickenDiag}(X))^{6-2\delta}}\,\left(	\mathbf U_{\chickenDiag}^3\over \mathbf F _{\chickenDiag}(X)^2\right)^\epsilon\,\Omega^{(6)}_0.
 \end{equation}
 an the differential operator is
  \begin{equation}
@@ -2113,7 +2112,7 @@ with the result
 we work with the single scale differential form
  \begin{equation}
   \tilde \Omega^\epsilon_{\DBoxNP}=  (-s)^{3+2\epsilon}  {\textbf{U}_{\DBoxNP}  \over
-		\textbf{F}_{\DBoxNP}(s,Xs)^{3}}\left(\textbf{U}_{\DBoxNP}^3\over \textbf{F}^2_{\DBoxNP}(s,sX)\right)^\epsilon\,\Omega_0
+		\textbf{F}_{\DBoxNP}(s,Xs)^{3}}\left(\textbf{U}_{\DBoxNP}^3\over \textbf{F}^2_{\DBoxNP}(s,sX)\right)^\epsilon\,\Omega_0^{(7)}
  \end{equation}
 the differential operator is
  \begin{equation}
@@ -2166,7 +2165,7 @@ differential form
 \begin{equation}
   \Omega_{\IceCream}^\kappa= {\pi^4\Gamma(4\kappa)\over
     \Gamma(1+\kappa)^4} \,{1\over \textbf{U}_{\IceCream}^{2} }
-  \left(\prod_{i=1}^4 {x_i\textbf{U}_{\IceCream}\over \textbf{F}_{\IceCream}}  \right)^\kappa\,\Omega_4^{(0)}\,,
+  \left(\prod_{i=1}^4 {x_i\textbf{U}_{\IceCream}\over \textbf{F}_{\IceCream}}  \right)^\kappa\,\Omega_0^{(4)}\,,
 \end{equation}
 with the graph polynomials
 \begin{equation}
@@ -2449,7 +2448,7 @@ In the examples studied in this work we have found the following:
 		$n=3$ an operator of order 4 and at three-loop $n=4$ with generic
 		mass configuration the differential operator
 		has   order 11.  We see that when $\epsilon\neq0$  the order of the
-		differential operator saturates bound given by the number of
+		differential operator saturates the bound given by the number of
 		irreducible masters.
 	\end{itemize}
 	\item For the two-loop ice-cream cone the number of irreducible
@@ -2508,7 +2507,7 @@ The reason being that the Feynman integral for the equal-mass
 configuration has more symmetries.  
 We have noticed that the algorithm presented in this work produces 
 the minimal  differential operator and does not need any factorisation
-of the differential operator, to the contrary to the procedure
+of the differential operator,  contrary to the procedure
 presented in~\cite{Pogel:2022vat}. 
 %
 
