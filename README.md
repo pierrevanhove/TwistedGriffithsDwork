@@ -15,5 +15,7 @@ by Leonardo de la Cruz and [Pierre Vanhove](https://pierrevanhove.github.io/)
   integrals](Worksheet/Sunset-Threeloop-Epsilon.ipynb)
   * The $\epsilon$-dependent differential operator for [the two-loop (one scoop) ice-cream cone graph](Worksheet/IceCream-Epsilon.ipynb)
 * `Mathematica` notebooks for analytically regulated Witten diagrams
-  * [Cross Witten diagram](Mathematica/Cross-AdS.nb)
-  * [Ice-cream Witten diagram](Mathematica/Icecream-AdS.nb)     
+  * [Cross Witten diagram](Mathematica/Cross-AdS.nb) and the pdf
+    output [Cross-AdS.pdf](Mathematica/Cross-AdS.pdf)
+  * [Ice-cream Witten diagram](Mathematica/Icecream-AdS.nb) and the pdf
+    output [Icecream-AdS.pdf](Mathematica/Icecream-AdS.pdf) 
