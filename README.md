@@ -1,7 +1,7 @@
 The repository contains supplementary files for the following paper 
 
 
-[Algorithms for minimal Picard-Fuchs operators of Feynman integrals in general dimensions](XXX)
+[Algorithm for differential equations for Feynman integrals in general dimensions](XXX)
 ------------
 by Leonardo de la Cruz and [Pierre Vanhove](https://pierrevanhove.github.io/)
 

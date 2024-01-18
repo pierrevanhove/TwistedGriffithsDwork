@@ -1273,7 +1273,7 @@ the command {\tt OreGroebnerBasis}, which is part of the package {\tt
 
  The algorithm determines the boundary terms 
  such that\footnote{Details are provided in the  attached {\tt
-     Mathematica}  notebook with  this example is accessible at \href{Cross-AdS.nb}{Cross-AdS.nb}.}
+     Mathematica}  notebook with  this example is accessible at \href{https://github.com/pierrevanhove/TwistedGriffithsDwork/blob/main/Mathematica/Cross-AdS.nb}{Cross-AdS.nb}.}
  \begin{equation}
    \mathscr{L}_{\times,r}    \left( {1\over \textbf{U}_\times
     \textbf{F}_\times (\zeta,\bar\zeta)} \left(
@@ -1631,7 +1631,7 @@ Its action on the Feynman integral is given by
 where $c_{12}(t,\epsilon)$, $c_{13}(t,\epsilon)$ and
 $c_{23}(t,\epsilon)$ are polynomials of degrees 4,2 in $t$ and
 $\epsilon$, respectively. The results are provided on the {\tt
-  SageMath} worksheet \href{Sunset-Twoloop-3mass-Epsilon.ipynb}{Sunset-Twoloop-3mass-Epsilon.ipynb} .
+  SageMath} worksheet \href{https://nbviewer.org/github/pierrevanhove/TwistedGriffithsDwork/Worksheets/blob/main/Sunset-Twoloop-3mass-Epsilon.ipynb}{Sunset-Twoloop-3mass-Epsilon.ipynb} .
 %
 Expanding in powers of $\epsilon$, we have
 %
@@ -1802,7 +1802,7 @@ operator with respect to $t$ determined in~\cite{Lairez:2022zkj,Doran:2023yzu}.
 %
 We find the following results (some numerical cases are accessible on
 the {\tt
-  SageMath} worksheet \href{IceCream-Epsilon.ipynb}{IceCream-Epsilon.ipynb}.)
+  SageMath} worksheet \href{https://nbviewer.org/github/pierrevanhove/TwistedGriffithsDwork/Worksheets/blob/main/IceCream-Epsilon.ipynb}{IceCream-Epsilon.ipynb}.)
 \begin{itemize}
 	\item {\bf The equal-kinematics case
 		$\mu_1=\mu_2=m_1=m_2=k_1^2=k_2^2=k_3^2=1$:} the differential operator
@@ -1886,7 +1886,7 @@ the {\tt
 	$\epsilon$. We recognise the physical thresholds of the ice-cream
 	cone graph given in Section~5.2 of~\cite{Lairez:2022zkj} (and given
 	on this
-	page~\href{https://nbviewer.org/github/pierrevanhove/PicardFuchs/blob/main/PF-icecream-2loop.ipynb}{PF-icecream-2loop}). The
+	page~\href{https://nbviewer.org/github/pierrevanhove/PicardFuchs/blob/main/PF-icecream-2loop.ipynb}{PF-icecream-2loop.ipynb}). The
 	$\epsilon$ deformation only affects the position of the apparent singularities. 
 	\item \textbf{The equal-mass case for the scoop
 		$m_1=m_2=1$ and generic masses $\mu_1\neq\mu_2\neq1$ and generic
@@ -2178,7 +2178,7 @@ with the graph polynomials
   \end{equation}
   Setting  $u= Q^2/(Q-\tilde Q)^2$ and $v=\tilde Q^2/(Q-\tilde Q)^2$
   one finds the following Gr\"obner basis of differential operators\footnote{Details are provided in the  attached {\tt
-     Mathematica}  notebook with  this example is accessible at \href{Icecream-AdS.nb}{Icecream-AdS.nb}.}
+     Mathematica}  notebook with  this example is accessible at \href{https://github.com/pierrevanhove/TwistedGriffithsDwork/blob/main/Mathematica/Icecream-AdS.nb}{Icecream-AdS.nb}.}
   \begin{align}
   \mathscr{L}_1&=\left(1-u
    -v\right) v\left(\partial\over\partial v\right)^{2} -2u
@@ -2188,17 +2188,13 @@ with the graph polynomials
   \mathscr{L}_2&=     -u\left(\partial\over\partial u\right)^{2}    +v\left(\partial\over\partial v\right)^{2}       -3 \kappa
    {\partial\over\partial u}+3 \kappa
                  {\partial\over\partial v},\cr
- \mathscr{L}_3&=       2v^2 \left((u-v)^2+1-2(u+v)\right) \left(\partial\over
-                \partial v\right)^3\cr
-                &+v\left(9 \kappa  \left(u^2-2 u
-                (v+1)+(v-1)^2\right)-u^2+u (2-8 v)+9 v^2-8
-                v-1\right)\left(\partial\over\partial
+ \mathscr{L}_3&=       2u^2 \left((u-v)^2+1-2(u+v)\right) \left(\partial\over
+                \partial u\right)^3\cr
+                &+v\left(9 \kappa  \left((u+v-1)^2-2uv\right)-u^2+9 u^2-(v-1)^2-8u(1+v)\right)\left(\partial\over\partial
                   v\right)^2\cr
-                  &+u(\kappa-1)\left(\kappa  (9 u-5 v-9)+3
-                    u+v-3\right){\partial\over\partial u}\cr
-                    &+\Big(\kappa ^2 \left(9 u^2-u (11 v+18)-2 v^2-25 v+9\right)-3 \kappa  \left(3 u^2+6 u (v-1)-9
-                      v^2+2 v+3\right)\cr
-                      &+v (-u+5 v+1)\Big){\partial\over\partial v}+24 (\kappa -1) \kappa ^2 (u-v-1)\,.
+                  &+\left(\kappa^2\left(-29 u^2+u (43 v+29)-18 (v-1)^2\right)+ \kappa\left(6 u (v+3)-6 (v-1)^2\right)   +u (5 u-v+1)\right){\partial\over\partial u}\cr
+                    &+\Big(\kappa ^2 \left(27 u^2-59 u v-54 u+36 v^2-63 v+27\right)-3 \kappa  \left(-9 u^2+6 u v+8 u+3 v^2-4 v+1\right)\cr
+                      &-v (u+3 v-3)\Big){\partial\over\partial v}+24 (\kappa -1) \kappa ^2 (v-u-1)\,.
   \end{align}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Three- and higher-loop examples}\label{sec:higherloop}
@@ -2277,7 +2273,7 @@ order $l-r$. The differential operator $ \mathscr{L}_{\su(l)}^{0}$ is
 the one derived in~\cite{Vanhove:2014wqa} up to five-loops (see as well~\cite{Bonisch:2020qmm,Pogel:2022yat,Pogel:2022ken,Pogel:2022vat}).
 
 The results for the differential equation are given on the {\tt
-  SageMath} worksheet \href{Sunset-1mass-Epsilon.ipynb}{Sunset-1mass-Epsilon.ipynb}.
+  SageMath} worksheet \href{https://nbviewer.org/github/pierrevanhove/TwistedGriffithsDwork/Worksheets/blob/main/Sunset-1mass-Epsilon.ipynb}{Sunset-1mass-Epsilon.ipynb}.
 %-------------------------------------------------------------------------
 
 
@@ -2287,7 +2283,7 @@ The results for the differential equation are given on the {\tt
 
 For the three-loop sunset with different masses we find the following
 results which are as well given on the  {\tt
-  SageMath} worksheet \href{Sunset-Threeloop-Epsilon.ipynb}{Sunset-Threeloop-Epsilon.ipynb}. With the notation of Section~4 of~\cite{Lairez:2022zkj}:
+  SageMath} worksheet \href{https://nbviewer.org/github/pierrevanhove/TwistedGriffithsDwork/Worksheets/blob/main/Sunset-Threeloop-Epsilon.ipynb}{Sunset-Threeloop-Epsilon.ipynb}. With the notation of Section~4 of~\cite{Lairez:2022zkj}:
 %
 \begin{itemize}
 \item  {\bf Case~$[4]$:} The equal-mass case $m_1=m_2=m_3=m_4$ has already been
