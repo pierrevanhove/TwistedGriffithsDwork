@@ -1,7 +1,7 @@
 The repository contains supplementary files for the following paper 
 
 
-[Algorithm for differential equations for Feynman integrals in general dimensions](XXX)
+[Algorithm for differential equations for Feynman integrals in general dimensions](https://arxiv.org/abs/2401.09908)
 ------------
 by Leonardo de la Cruz and [Pierre Vanhove](https://pierrevanhove.github.io/)
 
